@@ -2,6 +2,16 @@
 /*인코딩 문자셋*/
 @charset "UTF-8";
 
+
+@font-face{
+font-family:'서울남산체';
+src:url(../fonts/SeoulNamsan.eot);/*익스플로러*/
+src:url(../fonts/SeoulNamsan.woff) format('woff');  /*크롬, 파이어폭스*/
+src:local(※), url(../fonts/SeoulNamsan.woff) format('woff');
+}
+
+
+
 /*각종 인터넷 브라우저에서 코드 작동이 가능하도록 하는 css Reset*/
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var, b, u, i, center,
@@ -13,6 +23,8 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	font-family: '서울남산체';
+	
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
@@ -44,6 +56,7 @@ div{
     border: 1px solid black;
     box-sizing: border-box;
     margin: 0;
+   
 }
 
 
