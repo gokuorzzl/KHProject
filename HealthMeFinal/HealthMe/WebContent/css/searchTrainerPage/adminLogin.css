@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+
+
+@font-face{
+font-family:'서울남산체';
+src:url(../font/SeoulNamsan.eot);/*익스플로러*/
+src:url(../font/SeoulNamsan.woff) format('woff');  /*크롬, 파이어폭스*/
+src:local(※), url(../font/SeoulNamsan.woff) format('woff');
+}
+
+
+div{
+	font-family:'서울남산체';
+	
+	
+}
+
+
+
+.member {
+ font-size: 50px;
+ text-shadow: 0 0 10px #666;
+ color: #FF9B55;
+ margin: 0 auto;
+ text-align: center;
+ text-transform: capitalize;
+ font-style: italic;
+}
+
+body {
+ font-size: 12px;
+}
+
+
+.lophoto{
+	background-image: url('../img/total1.png');
+}
+
+
+
+
+
+.form {
+ width: 498px;
+ height: 300px;
+ border-radius: 25px;
+ border: 5px double #999;
+ margin: 30px auto;
+}
+
+.form2 {
+ width: 380px;
+ min-width: 320px;
+ height: 200px;
+ margin: 60px auto;
+ margin-left:20px;
+}
+
+.form3 {
+ float: left;
+ /*   background:#f00;  */
+ 
+}
+
+.form3 label {
+ width: 100px;
+ height: 20px;
+ /*  display: block; */
+ float: left;
+}
+
+.form4 {
+ padding: 0px 0px 0px 70px;
+}
+
+#wrap {
+ width: 600px;
+ height: 500px;
+ margin: 0 auto;
+}
+
+.clear {
+ clear: both;
+}
+
+input[type="submit"] {
+ float: left;
+ /*  display:block; */
+ height: 50px;
+ background: #FF9B55;
+ border-radius: 5px;
+ border: none;
+ font-family:'서울남산체';
+ color: white;
+}
+input[type="button"] {
+ height: 30px;
+ background: gray;
+ border-radius: 5px;
+/*  width: 140px; */
+ margin-top:10px;
+ margin-right:20px;
+ font-family:'서울남산체';
+}
+input[type="checkbox"] {
+ margin-top:20px;
+ font-family:'서울남산체';
+ color: white;
+}
