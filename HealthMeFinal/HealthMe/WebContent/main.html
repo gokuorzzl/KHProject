@@ -8,17 +8,30 @@
      <meta name="description" content="">
      <meta name="keywords" content="">
      <meta name="team" content="">
+    
      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
      <link rel="stylesheet" href="css/bootstrap.min.css">
-   
+     <link rel="stylesheet" href="css/vegas.min.css">
      <link rel="stylesheet" href="css/font-seoulnamsan.min.css">
 
      <!-- MAIN CSS -->
      <link rel="stylesheet" href="css/templatemo-style.css">
 
 </head>
-<body onclick="showImage()">
+<body>
+<!--배경이미지 넣기-->
+<!--
+    <ul class="bg-slide">
+         <li></li>
+         <li></li>
+         <li></li>
+         <li></li>
+         <li></li>
+         <li></li>
+         <li></li>
+    </ul>
+-->
      <!-- PRE LOADER -->
      <section class="preloader">
           <div class="spinner">
@@ -89,14 +102,17 @@
 
 
      <!-- HOME -->
-     <section id="home" class="home-img">
+     <section id="home">
         <div class="overlay"></div>
           <div class="container">
                <div class="row">
 				   <!--이 부분에 로고 삽입으로 변경하기-->
                     <div class="col-md-12 col-sm-12">
                          <div class="home-info">
-                              <img src="images/"><br><br>
+                             <div>
+                             <img src="images/%EB%A1%9C%EA%B3%A0.png"
+                            width="50%" height="30%">
+                            </div> 
                               <div class="subscribe-form">
                                 <form action="" method="get">
                                   <input type="text" name="search" class="form-control" placeholder="지역 / 종목 / 트레이너 검색" required="">
@@ -110,15 +126,16 @@
                </div>
           </div>
      </section>
-
+     
      <!-- SCRIPTS -->
      <script src="js/jquery.js"></script>
      <script src="js/bootstrap.min.js"></script>
-     
+     <script src="js/vegas.min.js"></script>
      <script src="js/countdown.js"></script>
      <script src="js/init.js"></script>
      <script src="js/custom.js"></script>
     
+<!--
     <script>
         var imgArr = new Array(7);  //img파일을 저장할 배열
         imgArr[0] = "../images/dayeon.png";
@@ -136,6 +153,7 @@
             setTimeout("showImage()",5000);
         }
     </script>
+-->
 
 </body>
 </html>

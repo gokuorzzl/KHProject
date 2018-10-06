@@ -385,11 +385,17 @@
   }
 
   .home-img{
-      background-image: url(../images/dayeon.png);
+      background-image: url("../images/sola.png");
       background-repeat: no-repeat;
-      background-size: cover;
+      background-size:contain;
+      background-position: center;
   }
-
+.rogo-img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    
+}
   /*---------------------------------------
      SOCIAL ICON              
   -----------------------------------------*/
@@ -472,3 +478,106 @@
       font-size: 12px;
     }
   }
+  /*---------------------------------------
+     BACKGROUND STYLES              
+  -----------------------------------------*/
+.bg-slide{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top:0px;
+    left: 0px;
+}
+.bg-slide li{
+    width:100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position: 50% 50%;
+    -webkit-animation: bg-slide-animation 45s linear infinite 0s;
+    animation: bg-slide-animation 45s linear infinite 0s;
+}
+
+.bg-slide li:nth-child(1){
+    background-image: url(../images/dayeon.png);
+}
+.bg-slide li:nth-child(2){
+    background-image: url(../images/hyeyeon.png);
+    -webkit-animation-delay: 7s;
+    animation-delay: 7s;  
+}    
+.bg-slide li:nth-child(3){
+    background-image: url(../images/jongkyu.png);
+    -webkit-animation-delay: 14s;
+    animation-delay: 14s;
+}
+.bg-slide li:nth-child(4){
+    background-image: url(../images/myeongsang.png);
+    -webkit-animation-delay: 21s;
+    animation-delay: 21s;
+}
+.bg-slide li:nth-child(5){
+    background-image: url(../images/sola.png);
+    -webkit-animation-delay: 28s;
+    animation-delay: 28s;
+}
+.bg-slide li:nth-child(6){
+    background-image: url(../images/yeonggi.png);
+    -webkit-animation-delay: 35s;
+    animation-delay: 35s;
+}
+.bg-slide li:nth-child(7){
+    background-image: url(../images/yongseon.png);
+    -webkit-animation-delay: 42s;
+    animation-delay: 42s;
+}
+
+@-webwit-keyframes bg-slide-animation{
+    0%{
+        -webkit-animation-timing-function: ease-in;
+        opacity: 1;
+    }
+    10%{
+        -webkit-transform: scale(1);
+        -webkit-animation-timing-function: ease-out;
+        opacity: 1;
+    }
+    30%{
+        -webkit-transform: scale(1);
+        opacity: 1;
+    }
+    50%{
+        -webkit-transform: scale(1);
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes bg-slide-animation{
+    0%{
+        animation-timing-function: ease-in;
+        opacity: 0;
+    }
+    50%{
+        transform: scale(1);
+        animation-timing-function: ease-out;
+        opacity: 1;
+    }
+    30%{
+        transform: scale(1);
+        opacity: 1;
+    }
+    50%{
+        transform: scale(1);
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+
+}
