@@ -1,10 +1,22 @@
  
-  @import url('https://fonts.googleapis.com/css?family=Poppins:300,400');
+  /*@import url('https://fonts.googleapis.com/css?family=Poppins:300,400');*/
+
+@charset "UTF-8";
+
+
+@font-face{
+font-family:'서울남산체';
+src:url(../fonts/SeoulNamsan.eot);/*익스플로러*/
+src:url(../fonts/SeoulNamsan.woff) format('woff');  /*크롬, 파이어폭스*/
+src:local(※), url(../fonts/SeoulNamsan.woff) format('woff');
+}
+
+
 
   body {
     margin: 0;
     -webkit-perspective: 1000;
-    font-family: 'Poppins', sans-serif;
+    font-family: '서울남산체', sans-serif;
     background: #303030;
   }
 
