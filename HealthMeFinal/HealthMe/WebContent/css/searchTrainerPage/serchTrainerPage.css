@@ -2,6 +2,13 @@
 /*인코딩 문자셋*/
 @charset "UTF-8";
 
+@font-face{
+font-family:'서울남산체';
+src:url(../css/fonts/SeoulNamsan.eot);/*익스플로러*/
+src:url(../css/fonts/SeoulNamsan.woff) format('woff');  /*크롬, 파이어폭스*/
+src:local(※), url(../css/fonts/SeoulNamsan.woff) format('woff');
+}
+
 /*각종 인터넷 브라우저에서 코드 작동이 가능하도록 하는 css Reset*/
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var, b, u, i, center,
@@ -46,19 +53,17 @@ div{
     margin: 0;
 }
 
-#middle{
-    background-color: #EAEAEA;
-}
-
 #realSearchBox{
-    background-color: white;
+    box-sizing: border-box;
+    background-color: #F6F6F6;
+        line-height: 35px;
+    text-indent: 0.5em;
 }
 
 li{
     width: 100%;
     height: 35px;
-    line-height: 35px;
-    text-indent: 0.5em;
+    overflow: hidden;
 }
 
 li:hover{
@@ -66,14 +71,29 @@ li:hover{
     transition-duration: 1s;
     transition-timing-function: linear;
 }
-/*클릭시는 스크립트로 구현하는게 좋을듯*/
 
+::-webkit-scrollbar {
+    width: 8px; 
+    height: 8px; 
+    border: 3px solid #fff; 
+}
 
+::-webkit-scrollbar-button:start:decrement, 
+::-webkit-scrollbar-button:end:increment {
+    display: block; 
+    height: 10px; 
+    background: #efefef
+}
 
+::-webkit-scrollbar-track {
+    background: #efefef; 
+    }
 
-
-
-
+::-webkit-scrollbar-thumb {
+    height: 50px; 
+    width: 50px; 
+    background: rgba(0,0,0,.2); 
+}
 
 
 
@@ -151,6 +171,22 @@ li:hover{
         height: 90%;
         margin: auto;
         margin-top: 2.5%;
+    }
+    
+    #searchName{
+        width: 100%;
+        height: 20%;
+    }
+    
+    #searchName>div{
+        width: 25%;
+        height: 100%;
+        float: left;
+    }
+    
+    #selectMenu{
+        width: 100%;
+        height: 80%;
     }
     
     #area, #field{
@@ -243,6 +279,22 @@ li:hover{
         margin-top: 2.5%;
     }
     
+    #searchName{
+        width: 100%;
+        height: 20%;
+    }
+    
+    #searchName>div{
+        width: 25%;
+        height: 100%;
+        float: left;
+    }
+    
+    #selectMenu{
+        width: 100%;
+        height: 80%;
+    }
+    
     #area, #field{
         width: 25%;
         height: 100%;
@@ -328,6 +380,26 @@ li:hover{
         height: 95%;
         margin: auto;
         margin-top: 3%;
+    }
+    
+    #searchName{
+        width: 100%;
+        height: 20%;
+    }
+    
+    #searchName>div:nth-child(2n+1){
+        width: 50%;
+        height: 100%;
+        float: left;
+    }
+    
+    #searchName>div:nth-child(2n){
+        display: none;
+    }
+    
+    #selectMenu{
+        width: 100%;
+        height: 80%;
     }
     
     #area, #field{
