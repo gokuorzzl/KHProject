@@ -1,4 +1,4 @@
-/*vegas 보기 편하게 정리함*/
+/*vegas 보기 편하게 정리함 css*/
 
 .vegas-overlay,.vegas-slide,.vegas-slide-inner,.vegas-timer,.vegas-wrapper{
     position:absolute;
@@ -13,7 +13,7 @@
 }
 .vegas-overlay{
     opacity:.5;
-    background:url(overlays/02.png) center center
+    background:url(overlays/02.png) center center;
 }
 .vegas-timer{
     top:auto;
@@ -186,11 +186,13 @@ body.vegas-container>.vegas-overlay,body.vegas-container>.vegas-slide,body.vegas
 }
 .vegas-transition-zoomOut2-out{
     -webkit-transform:scale(0);
-    transform:scale(0);opacity:0
+    transform:scale(0);
+    opacity:0
 }
 .vegas-transition-swirlLeft,.vegas-transition-swirlLeft2{
     -webkit-transform:scale(2) rotate(35deg);
-    transform:scale(2) rotate(35deg);opacity:0
+    transform:scale(2) rotate(35deg);
+    opacity:0
 }
 .vegas-transition-swirlLeft-in,.vegas-transition-swirlLeft2-in{
     -webkit-transform:scale(1) rotate(0);
@@ -199,7 +201,8 @@ body.vegas-container>.vegas-overlay,body.vegas-container>.vegas-slide,body.vegas
 }
 .vegas-transition-swirlLeft2-out,.vegas-transition-swirlRight,.vegas-transition-swirlRight2{
     -webkit-transform:scale(2) rotate(-35deg);
-    transform:scale(2) rotate(-35deg);opacity:0
+    transform:scale(2) rotate(-35deg);
+    opacity:0
 }
 .vegas-transition-swirlRight-in,.vegas-transition-swirlRight2-in{
     -webkit-transform:scale(1) rotate(0);
