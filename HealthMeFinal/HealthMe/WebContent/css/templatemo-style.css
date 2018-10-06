@@ -1,11 +1,4 @@
-/*
-
-Get Ready Template
-
-http://www.templatemo.com/tm-521-get-ready
-
-*/
-  
+ 
   @import url('https://fonts.googleapis.com/css?family=Poppins:300,400');
 
   body {
@@ -35,6 +28,10 @@ http://www.templatemo.com/tm-521-get-ready
   h1 {
     color: #ffffff;
     font-size: 2em;
+  }
+  h3 {
+    color: #ffffff;
+    font-size: 1em;
   }
 
   h2 {
@@ -293,7 +290,7 @@ http://www.templatemo.com/tm-521-get-ready
     right: 0;
     left: 0;
   }
-
+  /*글자 위에 마우스 가져가면 가로 줄 효과*/
   .menu-items ul.menu li a:hover:after {
     content: "";
     background: #d2b48c;
@@ -307,15 +304,31 @@ http://www.templatemo.com/tm-521-get-ready
   }
 
   .menu-items.fs ul li {
+    opacity: 1; /*투명도 설정*/
+  }
+
+/*로그인 버튼*/
+.menu-local{
+    color: #ffffff;
+    position: relative;
+    font-size:22px;
+    width:100%;
+    height: 100%;
     opacity: 1;
-  }
-
-  address p {
-    color: #f9f9f9;
-  }
-
-
-
+    background-color:#FF9B55;
+}
+/*아이디/비밀번호찾기 조회 글씨 */
+.menu-local-font{
+    color:#ffffff;
+    font-size: 13px;
+    opacity: 1;
+}
+.menu-local-font-join{
+    color:#ffffff;
+    font-size: 13px;
+    opacity: 1;
+    float:right;
+}
   /*---------------------------------------
       HOME          
   -----------------------------------------*/
@@ -371,7 +384,11 @@ http://www.templatemo.com/tm-521-get-ready
     margin: 10px 0;
   }
 
-
+  .home-img{
+      background-image: url(../images/dayeon.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+  }
 
   /*---------------------------------------
      SOCIAL ICON              

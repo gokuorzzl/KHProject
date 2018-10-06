@@ -18,8 +18,7 @@
      <link rel="stylesheet" href="css/templatemo-style.css">
 
 </head>
-<body>
-
+<body onclick="showImage()">
      <!-- PRE LOADER -->
      <section class="preloader">
           <div class="spinner">
@@ -66,21 +65,23 @@
             <h1>Navigations</h1>
              <ul class="menu">
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Our Studio</a></li>
-                <li><a href="#">Journal</a></li>
-                <li><a href="#">Start a project</a></li>
-                <li><a href="#">Email Us</a></li>
+                <li><a href="#">Trainner Search</a></li>
+                <li><a href="#">Trainner Registration</a></li>
+                <li><a href="#">Board</a></li>
+                <li><a href="#">Q & A</a></li>
             </ul>
            </div>
-			 <!--우리 지역은 없어서 로그인으로 변경-->
+			 <!--로그인-->
            <div class="col-md-4 col-sm-6">
-             <address>
-               <h1>Our Studio</h1>
-               <p>1234 New Street View, <br> Kumasi, Ghana</p>
-               <div class="google-map">
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1197183.8373802372!2d-1.9415093691103689!3d6.781986417238027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdb96f349e85efd%3A0xb8d1e0b88af1f0f5!2sKumasi+Central+Market!5e0!3m2!1sen!2sth!4v1532967884907" allowfullscreen></iframe>
+             <div class="container">
+                 <div class="col-md-offset-2 col-md-4 col-sm-6">
+                     <br><br>
+                     <h3>heal th me를 더 안전하고 편리하게 이용하세요.</h3>
+                     <button type="submit" class="menu-local btn btn-primary btn-lg">heal th me 로그인</button>
+                     <a herf="http://www.naver.com/" class="menu-local-font">아이디ㆍ비밀번호 찾기</a>
+                     <a herf="http://www.naver.com" class="menu-local-font-join" >회원가입</a>
+                 </div>
                </div>
-             </address>
            </div> 
          </div>
        </div>
@@ -88,14 +89,14 @@
 
 
      <!-- HOME -->
-     <section id="home">
+     <section id="home" class="home-img">
         <div class="overlay"></div>
           <div class="container">
                <div class="row">
 				   <!--이 부분에 로고 삽입으로 변경하기-->
                     <div class="col-md-12 col-sm-12">
                          <div class="home-info">
-                              <h1>We are getting ready <br>to launch new CREATIVE site!</h1><br><br>
+                              <img src="images/"><br><br>
                               <div class="subscribe-form">
                                 <form action="" method="get">
                                   <input type="text" name="search" class="form-control" placeholder="지역 / 종목 / 트레이너 검색" required="">
@@ -117,6 +118,24 @@
      <script src="js/countdown.js"></script>
      <script src="js/init.js"></script>
      <script src="js/custom.js"></script>
+    
+    <script>
+        var imgArr = new Array(7);  //img파일을 저장할 배열
+        imgArr[0] = "../images/dayeon.png";
+        imgArr[1] = "../images/hyeyeon.png";
+        imgArr[2] = "../images/jongkyu.png";
+        imgArr[3] = "../images/myeongsang.png";
+        imgArr[4] = "../images/sola.png";
+        imgArr[5] = "../images/yeonggi.png";
+        imgArr[6] = "../images/yongseon.png";
+        
+        function showImage(){
+            var imgNum = Math.round(Math.random()*6);
+            var objImg = document.getElementById("home");
+            document.write("<body background="+imgArr[imgNum]+">");
+            setTimeout("showImage()",5000);
+        }
+    </script>
 
 </body>
 </html>
