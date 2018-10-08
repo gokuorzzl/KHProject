@@ -48,16 +48,25 @@ table {
 /*css 공통코드 작성부분*/
 /* div전체 */
 div{
-    border: 1px solid black;
     box-sizing: border-box;
     margin: 0;
 }
 
+#searchBox{
+    border: 1px solid black;
+    background-color: #3c3e3a;
+}
+
 #realSearchBox{
     box-sizing: border-box;
-    background-color: #F6F6F6;
-        line-height: 35px;
+    background-color: white;
+    border: 2px solid #FF9B55;
+    line-height: 35px;
     text-indent: 0.5em;
+}
+
+#area, #subArea, #field, #subField, #searchName>div{
+    border: 1px solid #FF9B55;
 }
 
 li{
@@ -82,7 +91,7 @@ li:hover{
 ::-webkit-scrollbar-button:end:increment {
     display: block; 
     height: 10px; 
-    background: #efefef
+    background: #efefef;
 }
 
 ::-webkit-scrollbar-track {
@@ -92,10 +101,12 @@ li:hover{
 ::-webkit-scrollbar-thumb {
     height: 50px; 
     width: 50px; 
-    background: rgba(0,0,0,.2); 
+    background: #FF9B55; 
 }
 
-
+#bottom{
+    background-color: #3c3e3a;
+}
 
 
 
@@ -122,6 +133,15 @@ li:hover{
         height:7%;
     }
     
+    #logo{
+        text-align: right;
+    }
+    
+    #logo>img{
+        height: 99%;
+        margin-top: 15px;
+    }
+    
     #mobileMenu{
         display: none;
     }
@@ -144,6 +164,16 @@ li:hover{
         float: left;
     }
     
+    #searchInput{
+        width: 70%;
+        height: 40px;
+        margin-top: 25px;
+        margin-left: 10px;
+        border: 1.5px solid #FF9B55;
+        border-radius: 20px;
+        text-indent: 10px;
+    }
+    
     /*middle부분*/
     #middle{
         width: 100%;
@@ -154,6 +184,11 @@ li:hover{
         width: 100%;
         height: 25%;
     }
+    
+    #searchName{
+        line-height: 50px;
+    }
+    
     #contents{
         width: 100%;
         height: 75%;
@@ -203,6 +238,18 @@ li:hover{
         overflow-y: auto;
     }
     
+    .trainerBox{
+        width: 30%;
+        height: 45%;
+        border: 2px solid #3c3e3a;
+        float: left;
+    }
+    .blank{
+        width: 3%;
+        height: 45%;
+        float: left;
+    }
+    
     /*bottom*/
     #bottom{
         width: 100%;
@@ -219,6 +266,15 @@ li:hover{
         position: absolute;
         width:100%;
         height:1000px;    
+    }
+    
+    #logo{
+        text-align: right;
+    }
+    
+    #logo>img{
+        height: 99%;
+        margin-top: 15px;
     }
     
     /*top부분*/
@@ -247,6 +303,16 @@ li:hover{
         width: 25%;
         height: 100%;
         float: left;
+    }
+    
+    #searchInput{
+        width: 70%;
+        height: 40px;
+        margin-top: 25px;
+        margin-left: 10px;
+        border: 1.5px solid #FF9B55;
+        border-radius: 20px;
+        text-indent: 10px;
     }
     
     /*middle부분*/
@@ -309,6 +375,19 @@ li:hover{
         overflow-y: auto;
     }
     
+    .trainerBox{
+        width: 47.5%;
+        height: 47.5%;
+        border: 2px solid #3c3e3a;
+        float: left;
+    }
+    
+    .blank{
+        width: 5%;
+        height: 47.5%;
+        float: left;
+    }
+    
     /*bottom*/
     #bottom{
         width: 100%;
@@ -333,14 +412,21 @@ li:hover{
         height: 25%;
     }
     
+    #logo{
+        text-align: center;
+        width: 100%;
+        height: 65%;
+        overflow: hidden;
+    }
+    
+    #logo>img{
+        height: 99%;
+        margin-top: 20px;
+    }
+    
     #mobileMenu{
         width: 100%;
         height: 15%;
-    }
-    
-    #logo{
-        width: 100%;
-        height: 65%;
     }
     
     #searchBar{
@@ -350,6 +436,15 @@ li:hover{
     
     #menu{
         display: none;
+    }
+    
+    #searchInput{
+        width: 70%;
+        height: 70%;
+        margin-left: 15%;
+        border: 1.5px solid #FF9B55;
+        border-radius: 20px;
+        text-align: center;
     }
     
     /*middle부분*/
@@ -411,6 +506,17 @@ li:hover{
     
     #subArea, #subField{
         display: none;
+    }
+    
+    .trainerBox{
+        width: 100%;
+        height: 47.5%;
+        border: 2px solid #3c3e3a;
+    }
+    
+    .blank{
+        width: 100%;
+        height: 5%;
     }
     
     /*bottom*/
