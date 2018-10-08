@@ -124,21 +124,12 @@ div{
         height: 85%;
     }
     
-    #searchBox{
-        width: 100%;
-        height: 25%;
-    }
+
     #contents{
         width: 100%;
-        height: 75%;
+        height: 100%;
     }
-    
-    #realSearchBox{
-        width: 70%;
-        height: 90%;
-        margin: auto;
-        margin-top: 1%;
-    }
+
     
     #realContents{
         width: 70%;
@@ -146,13 +137,22 @@ div{
         margin: auto;
         margin-top: 2.5%;
     }
-    
+    #montage{
+        
+        position: relative;
+        width : 100%;
+        height : 0;
+        overflow : hidden;
+        padding-bottom: 50%;
+    }
     
     /*bottom*/
     #bottom{
         width: 100%;
         height: 8%;
     }
+    
+
 
 }
 
@@ -182,12 +182,6 @@ div{
         float: left;
     }
     
-    #searchBar{
-        width: 50%;
-        height: 100%;
-        float: left;
-    }
-    
     #menu{
         width: 25%;
         height: 100%;
@@ -200,35 +194,37 @@ div{
         height: 80%;
     }
     
-    #searchBox{
-        width: 100%;
-        height: 30%;
-    }
-    
+   
     #contents{
         width: 100%;
-        height: 70%;
+        height:100%;
     }
-    
-    #realSearchBox{
-        width: 80%;
-        height: 90%;
-        margin: auto;
-        margin-top: 1%;
+     #searchBar{
+        width: 50%;
+        height: 100%;
+        float: left;
     }
-    
+       
     #realContents{
         width: 80%;
         height: 90%;
         margin: auto;
         margin-top: 2.5%;
     }
-    
+     
+    #montage{
+        position: relative;
+        width : 100%;
+        height : 0;
+        overflow : hidden;
+        padding-bottom: 50%;
+    }   
     /*bottom*/
     #bottom{
         width: 100%;
         height: 10%;
     }
+
     
 }
 
@@ -272,24 +268,12 @@ div{
         width: 100%;
         height: 65%;
     }
-    
-    #searchBox{
-        width: 100%;
-        height: 30%;
-    }
-    
+     
     #contents{
         width: 100%;
         height: 70%;
     }
-    
-    #realSearchBox{
-        width: 90%;
-        height: 90%;
-        margin: auto;
-        margin-top: 3%;
-    }
-    
+        
     #realContents{
         width: 90%;
         height: 95%;
@@ -297,11 +281,21 @@ div{
         margin-top: 3%;
     }
     
+    #montage{
+        position: relative;
+        width : 100%;
+        height : 0;
+        overflow : hidden;
+        padding-bottom: 50%;
+    }   
+    
     /*bottom*/
     #bottom{
         width: 100%;
         height: 10%;
     }
+    
+
 }
 
 
