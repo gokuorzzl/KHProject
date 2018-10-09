@@ -1,0 +1,214 @@
+@charset "UTF-8";
+
+@font-face{
+font-family:'서울남산체';
+src:url(../../fonts/SeoulNamsan.eot);/*익스플로러*/
+src:url(../../fonts/SeoulNamsan.woff) format('woff');  /*크롬, 파이어폭스*/
+src:local(※), url(../../fonts/SeoulNamsan.woff) format('woff');
+}
+
+div {
+	
+}
+
+#topMenu {
+	width: 1000px;
+	margin: 0 auto; /*중앙정렬 핵심이다.*/
+}
+
+#leftMenu {
+	width: 200px;
+	height: 500px;
+	float: left;
+	font-family: '서울남산체';
+}
+
+#leftMenu ul {
+	
+	margin: 5px;
+	padding: 0;
+	list-style: none;
+	font-family:'서울남산체';
+}
+
+#leftMenu ul li {
+	color: white;
+	background-color : #FF9B55;
+	padding: 10px 5px;
+	border-bottom: 1px solid #DDD;
+	line-height: 30px;
+	text-align: center;
+	position:relative;
+	
+}
+
+
+#leftMenu ul li a {
+	 color: white; text-decoration: none;
+}
+
+#leftMenu ul li a:hover{
+	color: #F00; text-decoration: underline;
+}
+
+.leftLink {
+	text-decoration: none;
+	display: block;
+	font-size : 12px;
+	font-family: '서울남산체';
+	
+}
+
+.leftLink1 {
+	text-decoration: none;
+	display: block;
+	font-size : 10px;
+	font-family: '서울남산체';
+	
+}
+
+#topMenu {
+	height: 50px; 
+	width: 900px; 
+	font-family: '서울남산체';
+	
+}
+
+#topMenu ul { 
+	list-style-type: none; 
+	margin: 5px;
+	padding: 0px; 
+	font-family: '서울남산체';
+}
+
+#topMenu ul li { 
+	color: white; 
+	background-color: #FF9B55; 
+	float: left; 
+	line-height: 30px; 
+	vertical-align: middle;
+	text-align: center; 
+	position: relative; 
+}
+
+.menuLink, .submenuLink { 
+	text-decoration: none; 
+	display: block; 
+	width: 150px; 
+	font-size: 12px;
+	
+	font-family: '서울남산체'; 
+}
+
+.menuLink, .leftLink {
+	color: white;
+}
+
+.topMenuLi:hover .menuLink { 
+	color: red; 
+	background-color: #4d4d4d; 
+	font-family: '서울남산체';
+}
+
+.submenuLink { 
+	color: #2d2d2d; 
+	background-color: white; 
+	border: solid 1px black;
+	margin-top: -1px; 
+	font-family: '서울남산체';
+}
+
+.longLink { 
+	width: 190px; 
+}
+
+.submenu { 
+	position: absolute; 
+	height: 0px; 
+	overflow: hidden; 
+
+}
+
+
+
+.topMenuLi:hover .submenu { 
+	height: 93px; 
+}
+
+.submenuLink:hover { 
+	color: red; 
+	background-color: #dddddd; 
+}
+
+label, #toggle {
+	display: none;
+}
+
+#nav {
+	display: inline;
+}
+
+#nav li {
+	display: inline;
+}
+
+@
+-webkit-keyframes bugfix {from { padding:0;
+	
+}
+
+}
+
+/*태블릿*/
+@media screen and (min-width:640px) and (max-width:1024px) {
+	#nav {
+		display: none;
+	}
+	#toggle:checked+#nav {
+		display: block;
+	}
+	#nav li {
+		display: block;
+		width: 100%;
+		text-align: center;
+		border-top: 1px solid #ccc;
+		padding: 4px;
+	}
+	label {
+		display: block;
+		text-align: center;
+		background-repeat: no-repeat;
+		background-position: 97% 10px;
+		background-size: 24px 19px;
+		font-size: 20px;
+		font-weight: bold;
+		padding: 4px 3%;
+	}
+}
+
+/*모바일*/
+@media screen and (max-width:640px) {
+	#nav {
+		display: none;
+	}
+	#toggle:checked+#nav {
+		display: block;
+	}
+	#nav li {
+		display: block;
+		width: 100%;
+		text-align: center;
+		border-top: 1px solid #ccc;
+		padding: 4px;
+	}
+	label {
+		display: block;
+		text-align: center;
+		background-repeat: no-repeat;
+		background-position: 97% 10px;
+		background-size: 24px 19px;
+		font-size: 20px;
+		font-weight: bold;
+		padding: 4px 3%;
+	}
+}
