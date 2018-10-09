@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<!--반응형 웹을 만들기 위한 meta태그의 viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+     <!--스타일-->
+    <link rel="stylesheet" href="../css/admin/adminMain.css" />
+    
+<title>관리자 페이지</title>
+</head>
+<body>
+
+<!--전체 공간-->    
+    <div id="wrapper">
+                <div id="topMenu">
+                <label for="toggle" onclick>모바일메뉴클릭!</label> <input type="checkbox" id="toggle"/>
+			<ul id="nav">
+				<li class="topMenuLi"><a class="menuLink" href="#">ADMIN</a>
+					<ul class="submenu">
+						<li><a href="#" class="submenuLink longLink">기본환경 설정</a></li>
+						<li><a href="#" class="submenuLink longLink">결제환경 설정</a></li>
+						<li><a href="#" class="submenuLink longLink">가입옵션설정</a></li>
+					</ul></li>
+				<li>|</li>
+				<li class="topMenuLi"><a class="menuLink" href="basic.jsp">회원관리</a>
+					<ul class="submenu">
+						<li><a href="#" class="submenuLink longLink">고객관리</a></li>
+						<li><a href="#" class="submenuLink longLink">트레이너관리</a></li>
+					</ul></li>
+				<li>|</li>
+				<li class="topMenuLi"><a class="menuLink" href="basic.jsp">게시판
+						관리</a>
+					<ul class="submenu">
+						<li><a href="#" class="submenuLink longLink">자유게시판관리</a></li>
+						<li><a href="#" class="submenuLink longLink">Q/A게시판 관리</a></li>
+					</ul></li>
+				<li>|</li>
+				<li class="topMenuLi"><a class="menuLink" href="#">지역관리</a></li>
+				<li>|</li>
+				<li class="topMenuLi"><a class="menuLink" href="#">방문자통계</a></li>
+			</ul>
+		 <div id="menu">
+                로그아웃
+            </div>
+		</div>
+           <!-- 상단 바 끝남! -->  
+     
+     
+           <div id="middle">
+           <div id = "leftMenu">
+            <ul class="leftsubmenu">
+            <li><a href="#" a class="leftLink" >환경설정</a></li>
+            <li><a href="#" a class="leftLink">회원관리</a></li>
+            <li><a href="#" a class="leftLink">게시판관리</a></li>
+            <li><a href="#" a class="leftLink1">게시판관리</a></li>
+            <li><a href="#" a class="leftLink1">질문게시판관리</a></li>
+        	<li><a href="#" a class="leftLink1">Q/A게시판관리</a></li>
+        </ul>
+           </div>
+           <div id = "middleContent">
+	<div class="container">
+		<div class="row">
+	<!--  회색 비슷하게 갈것이다. -->
+	<table class="table table-striped" style="text-align:center; border:1px solid #dddddd">
+	<thead>
+	<tr>
+		<th style="background-color : #eeeeee; text-align: center;">번호</th>
+		<th style="background-color : #eeeeee; text-align: center;">제목</th>
+		<th style="background-color : #eeeeee; text-align: center;">작성자</th>
+		<th style="background-color : #eeeeee; text-align: center;">작성일</th>
+	</tr>
+	</thead>
+	<tbody>
+		<tr>
+		<!-- 게시글을 가져올수 있게끔 만들어보기 -->
+			<td>1</td> <!-- 값을 갖고와서 그대로 보여준다. -->
+			<td><a href="final.html">종규는 멋있다!하하하하하하하하하하하하하하하하하하하하하하하하하</a></td> 
+			<td>김종규</td> 
+			<td>2018-10-10 08:17</td> 
+			</tr>
+	</tbody>
+	</table>
+	<a href="final.html" class="btn btn-primary pull-right">글수정</a>
+	<a href="final.html" class="btn btn-primary pull-right">글삭제불가</a>
+	</div>
+	</div>
+           </div>
+           </div>
+        </div>
+</body>
+</html>
