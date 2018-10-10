@@ -190,6 +190,34 @@ li:hover{
         text-indent: 10px;
     }
     
+    #loginMenu{
+        width: 50%;
+        height: 100%;
+        text-align: right;
+        line-height: 120px;
+        float: left;
+    }
+    
+    #loginMenu>a{
+        text-decoration: none;
+        color: #3c3e3a;
+        font-weight: bold;
+    }
+    
+    #menuButton{
+        width: 50%;
+        height: 100%;
+        text-align: center;
+        line-height: 100px;
+        float: left;
+    }
+    
+    #menuButton>a{
+        font-size: 30px;
+        text-decoration: none;
+        color: #3c3e3a;
+    }
+    
     /*middle부분*/
     #middle{
         width: 100%;
@@ -323,11 +351,23 @@ li:hover{
         line-height: 120px;
     }
     
+    #loginMenu>a{
+        text-decoration: none;
+        color: #3c3e3a;
+        font-weight: bold;
+    }
+    
     #menuButton{
         width: 50%;
         height: 100%;
         text-align: center;
-        line-height: 120px;
+        line-height: 100px;
+    }
+    
+    #menuButton>a{
+        font-size: 30px;
+        text-decoration: none;
+        color: #3c3e3a;
     }
     
     #menu{
@@ -486,6 +526,19 @@ li:hover{
         border: 1.5px solid #FF9B55;
         border-radius: 6px;
         text-align: center;
+    }
+    
+    #mobileMenu>div{
+        width: 15%;
+        height: 100%;
+        line-height: 50px;
+        text-align: center;
+    }
+    
+    #mobileMenu>div>a{
+        text-decoration: none;
+        font-size: 30px;
+        color: #3c3e3a;
     }
     
     /*middle부분*/
