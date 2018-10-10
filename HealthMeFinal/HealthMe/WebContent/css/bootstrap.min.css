@@ -4,10 +4,19 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+@font-face{
+font-family:'서울남산체';
+src:url(../fonts/SeoulNamsan.eot);/*익스플로러*/
+src:url(../fonts/SeoulNamsan.woff) format('woff');  /*크롬, 파이어폭스*/
+src:local(※), url(../fonts/SeoulNamsan.woff) format('woff');
+}
+
+
 html {
 	font-family: sans-serif;
 	-webkit-text-size-adjust: 100%;
-	-ms-text-size-adjust: 100%
+	-ms-text-size-adjust: 100%;
+	font-family: '서울남산체';
 }
 
 body {
@@ -3431,8 +3440,8 @@ a.btn.disabled, fieldset[disabled] a.btn {
 }
 
 .btn-primary:hover {
-	color: #fff;
-	background-color: #286090;
+	color: #3c3e3a;
+	background-color: #fff;
 	border-color: #204d74
 }
 

@@ -1,6 +1,14 @@
  
   @import url('https://fonts.googleapis.com/css?family=Poppins:300,400');
 
+
+@font-face{
+font-family:'서울남산체';
+src:url(../fonts/SeoulNamsan.eot);/*익스플로러*/
+src:url(../fonts/SeoulNamsan.woff) format('woff');  /*크롬, 파이어폭스*/
+src:local(※), url(../fonts/SeoulNamsan.woff) format('woff');
+}
+
   body {
     margin: 0;
     -webkit-perspective: 1000;
@@ -54,6 +62,7 @@
 
   html{
     -webkit-font-smoothing: antialiased;
+	  font-family: '서울남산체';
   }
 
   a {
@@ -67,9 +76,13 @@
     -webkit-transition: 0.5s;
     transition: 0.5s;
   }
-
+  button{
+	-webkit-transition: 0.5s;
+    transition: 0.5s;
+	text-indent: inherit;
+  }
   a:hover, a:active, a:focus {
-    color: #29ca8e;
+    color: #d2b48c;
     outline: none;
   }
 
@@ -126,10 +139,11 @@
     padding: 6px 30px;
   }
 
+
   .subscribe-form button[type="submit"] {
     background: transparent;
-    border: 0;
     outline: none;
+	float : right;
   }
 
   .subscribe-form .fa {
