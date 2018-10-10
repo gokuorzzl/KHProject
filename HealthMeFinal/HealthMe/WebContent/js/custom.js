@@ -4,7 +4,7 @@
 
     // PRE LOADER
     $(window).load(function(){
-      $('.preloader').fadeOut(1000); // set duration in brackets    
+      $('.preloader').fadeOut(5000); // set duration in brackets    
     });
 
 
@@ -26,7 +26,7 @@
             { src: 'images/yeonggi.png' },
             { src: 'images/yongseon.png' },
         ],
-        timer: false,
+        timer: true,
         transition: [ 'zoomOut', ]
     });
 
