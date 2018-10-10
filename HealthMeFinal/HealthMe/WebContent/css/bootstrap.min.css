@@ -4,20 +4,8 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
-@font-face{
-font-family:'서울남산체';
-src:url(../fonts/SeoulNamsan.eot);/*익스플로러*/
-src:url(../fonts/SeoulNamsan.woff) format('woff');  /*크롬, 파이어폭스*/
-src:local(※), url(../fonts/SeoulNamsan.woff) format('woff');
-}
 
 
-html {
-	font-family: sans-serif;
-	-webkit-text-size-adjust: 100%;
-	-ms-text-size-adjust: 100%;
-	font-family: '서울남산체';
-}
 
 body {
 	margin: 0
@@ -262,7 +250,20 @@ td, th {
 		border: 1px solid #ddd !important
 	}
 }
+@font-face{
+font-family:'서울남산체';
+src:url(../fonts/SeoulNamsan.eot);/*익스플로러*/
+src:url(../fonts/SeoulNamsan.woff) format('woff');  /*크롬, 파이어폭스*/
+src:local(※), url(../fonts/SeoulNamsan.woff) format('woff');
+}
+html {
+	font-family: sans-serif;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	font-family: '서울남산체';
+}
 
+/*
 @font-face {
 	font-family: 'Glyphicons Halflings';
 	src: url(../fonts/glyphicons-halflings-regular.eot);
@@ -274,6 +275,8 @@ td, th {
 		url(../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular)
 		format('svg')
 }
+*/
+/*
 
 .glyphicon {
 	position: relative;
@@ -1334,6 +1337,7 @@ td, th {
 .glyphicon-menu-up:before {
 	content: "\e260"
 }
+*/
 
 * {
 	-webkit-box-sizing: border-box;
@@ -1357,7 +1361,7 @@ body {
 	font-size: 14px;
 	line-height: 1.42857143;
 	color: #333;
-	background-color: #fff
+	background-color: #3c3e3a
 }
 
 button, input, select, textarea {
@@ -3429,13 +3433,13 @@ a.btn.disabled, fieldset[disabled] a.btn {
 
 .btn-primary {
 	color: #fff;
-	background-color: #337ab7;
-	border-color: #2e6da4
+	background-color: #FF9B55;
+	border-color: none;
 }
 
 .btn-primary.focus, .btn-primary:focus {
 	color: #fff;
-	background-color: #286090;
+	background-color:#FF9B55;
 	border-color: #122b40
 }
 
@@ -3448,8 +3452,8 @@ a.btn.disabled, fieldset[disabled] a.btn {
 .btn-primary.active, .btn-primary:active, .open>.dropdown-toggle.btn-primary
 	{
 	color: #fff;
-	background-color: #286090;
-	border-color: #204d74
+	background-color: #FF9B55;
+	border-color: none;
 }
 
 .btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover,
