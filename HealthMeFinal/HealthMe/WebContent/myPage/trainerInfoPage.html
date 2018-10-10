@@ -15,6 +15,17 @@
     <!--title-->
     <title>헬th미:나만의 트레이너</title>
     
+
+    <script src="/Scripts/popper.js"></script>
+    <script src="/Scripts/mainbootstrap.js"></script>
+
+    
+    <style>
+        input{
+            box-sizing: border-box;
+            border: solid 2px #FF9B55; border-radius: 7px;
+        }
+    </style>
 </head>
 <body>
     
@@ -43,34 +54,107 @@
         <!--페이지별로 달라지는 부분-->
         <div id="middle">
 
-            <!--트레이너 별점 등 컨텐츠 나오는 부분-->
+        <!--트레이너 별점 등 컨텐츠 나오는 부분-->
+        <!--multipart/form-data	인코딩 안 하고 파일 업로드시 사용-->
+        <form method="post" id="form-register-detail" enctype="multipart/form-data">
             <div id="contents">
                 <div id="realContents">
-                    <div id="montage">
-                    <fieldset style="width:auto">
-                        <h4>프로필사진　　　</h4>
-                            <p style="text-align:center">
-                            <img src="../images/person_image.png" width="30%" height="30%" line-height:normal text-align="center" >
-                            </p>
-                            <label><small><font color="grey">프로필사진을 업로드 해주세요.</font></small></label>
-                        
-                    </fieldset><br>
-                    </div>
-                    <fieldset style="width:auto">
-                        <h4>별명입력　　　　
-                            <input type="text" size="100px" placeholder="튜터님의 정체성을 가장 잘 드러낼 수 있는 별명을 입력해주세요." id="nickname" name="nickname"> 
-                        </h4>
-                    </fieldset><br>
-                    <fieldset style="width:auto">
-                        <h4>휴대폰번호　　　
-                            <input type="text" size="50px" placeholder="010-1234-5678" id="phonenum" name="phonenum">
-                            <input type="button" id="btnNumber" value="번호인증">
-                        </h4>
-                    </fieldset><br>
-                    　<input type="submit" id="btnSubmit" value="제출">
 
-                </div>
+                    <ul>
+                        <li>
+                            <label>프로필사진</label>
+                            <div id="picture-cover" class="picture" style="background-image:url(//WebContent/images/thumb_person.png)">
+                                <div class="picture-overlay">
+                                    <input type="file" id="picture" name="picture"/>
+                                </div>
+                            </div>
+                            <span class="pf_subtxt">
+                                프로필 사진 업로드
+                            </span>
+                        </li>
+                    </ul>
+
+                    <ul>
+                        <li>
+                            <label>닉네임 입력</label>
+                            <input id="Description" name="Description" type="text" placeholder="ex)입술마저근육질 etc.." value="" class="input_tx05"/>
+                        </li>
+                        <li>
+                            <label>휴대폰 번호</label>
+                            <input id="phone" name="phone" type="text" placeholder="010-1234-5678" value="" class="input_txt02"/>
+                            <!--input type="hidden" id="IsPhone" value="0"-->
+							<a class="inputbtn" id="btn-register-phone">번호인증</a>
+                            <p class="regintxt01 clearbt redtxt" id="IsPhoneConfirm">번호인증을 눌러 번호를 인증해주세요.</p>
+                            <p class="regintxt01 clearbt" id="IsPhoneConfirmed" style="display:none;"><font style="border:1px solid red;background:#ff005a;color:#fff;padding:5px;">인증완료</font></p>
+
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <!--모르겠다 이부분 어떻게 하는건지-->
+                            <label style="padding: 0px 15px 0px 15px">신분/학력 인증</label>
+                            <p class="regintxt05">소속학교or최종학교or신분인증을 해주세요.</p>
+                            <label class="radio-inline"><input type="radio" name="univ" checked>대학인증</label>
+                            <label class="radio-inline"><input type="radio" name="univ">대학원인증</label>
+                            <label class="radio-inline"><input type="radio" name="univ">신분증인증</label>
+                        
+                            <div id="SchoolMajor">
+                            <input id="" name="SchoolMajor" type="text" placeholder="학교 예) 태평양대학교" value="" class="input_txt03 clearbt"/>
+                            <input id="" name="SchoolMajorS" type="text" placeholder="학과 예) 해저케이블학과" value="" class="input_txt03"/>
+                            <br>
+                            <label class="radio-inline"><input type="radio" name="univ" checked>졸업</label>
+                            <label class="radio-inline"><input type="radio" name="univ">수료</label>
+                            <label class="radio-inline"><input type="radio" name="univ">재학</label>
+                            <p class="regintxt04 clearbt"><b>학력 인증(<font color="red">필수</font>)</b> - 학생증, 재학증명서, 졸업증명서</p>
+                            <p class="regintxt05 clearbt"><input type="file" name="School"/></p>			
+                            <p class="regintxt01 clearbt redtxt" id="IsSchoolVerified">파일을 업로드해주세요.</p>
+                            </div>
+                            
+                            <div id="Idcard" style="display:none;">
+							<p class="regintxt04 clearbt"><b>신분 인증(<font color="red">필수</font>)</b> - 주민등록증, 운전면허증</p>
+                            <p class="regintxt05 clearbt"><input type="file" name="Idcard"/></p>			
+                            <p class="regintxt01 clearbt redtxt" id="IsSchoolVerified">파일을 업로드해주세요.</p>
+                            </div>
+
+                        </li>
+                        <br /><br />
+                        <li>
+                            <label>자격증<br>(선택)</label>
+                            <input id="Cert0" name="Cert0" type="text" placeholder="예)생활스포츠지도사 2급, 입상경력.." value="" class="input_txt01"/>
+                            <p class="regintxt05 clearbt"><input type="file" name="file0"/></p>
+                            <div id="CertAdd"></div>
+                            <a onclick="addFile();" class="addbtn">((추가 +))</a>
+                            <input type="hidden" id="fileCnt" name="fileCnt" value="0">
+                            
+                            <script>
+                                function addFile(){
+                                    fileCnt = document.getElementById('fileCnt').value;							
+                                    fileCnt++;
+                                    html = '';
+                                    html += '<input id="Cert'+fileCnt+'" name="Cert'+fileCnt+'" type="text" placeholder="예)생활스포츠지도사 2급, 입상경력.." value="" class="input_txt01 clearbt"/>';
+                                    html += '<p class="regintxt05 clearbt"><input type="file" name="file'+fileCnt+'"/></p>';
+
+                                    var div = document.createElement('div');
+                                    div.innerHTML = html;
+                                    document.getElementById('CertAdd').appendChild(div);							
+                                    document.getElementById('fileCnt').value = fileCnt;
+                                }
+                            </script>
+
+                        </li>
+
+                    </ul>
+                
+                </div>      
             </div>
+            <div class="regbtn_cont">
+            <!--a href="#" class="btn_gry">임시 저장</a-->
+            <input type="submit" class="btn btn-info" value="등록 완료">
+            <!--a href class="btn_red">등록 완료</a-->
+            </div>
+            
+        </form>
+                    
         </div>
         
         <!--회사정보가 들어가는 아랫부분-->
