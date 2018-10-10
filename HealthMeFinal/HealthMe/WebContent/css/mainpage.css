@@ -31,6 +31,7 @@ html{
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+/*
 body{
     background:src("../images/dayeon.png");
     -webkit-background-size: cover;
@@ -38,6 +39,7 @@ body{
     -o-background-size: cover;
     background-size: cover;
 }
+*/
 ol, ul {
 	list-style: none;
 }

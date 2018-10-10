@@ -1398,7 +1398,7 @@ img {
 	.thumbnail a>img, .thumbnail>img {
 	display: block;
 	max-width: 100%;
-	height: auto
+	height:inherit;
 }
 
 .img-rounded {
@@ -4365,7 +4365,7 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 }
 
 .nav>li>a>img {
-	max-width: none
+	max-width:inherit;
 }
 
 .nav-tabs {
@@ -5468,8 +5468,8 @@ a.badge:focus, a.badge:hover {
 }
 
 .thumbnail a>img, .thumbnail>img {
-	margin-right: auto;
-	margin-left: auto
+	margin-right:inherit;
+	margin-left:inherit;
 }
 
 a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
@@ -5734,7 +5734,7 @@ to {
 }
 
 .media-object.img-thumbnail {
-	max-width: none
+	max-width: inherit;
 }
 
 .media-right, .media>.pull-right {
@@ -6963,7 +6963,7 @@ button.close {
 }
 
 .carousel-control {
-	position: absolute;
+	position:relative;
 	top: 0;
 	bottom: 0;
 	left: 0;
