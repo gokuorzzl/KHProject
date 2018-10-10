@@ -53,18 +53,24 @@
                 <div id="realContents">
                     <form name="login-form">                      
                         <div class="login-container1">
-                           <label for="userId"></label><br>
+                           <label for="userId"></label>
                           <input type="text" placeholder="아이디 입력해주세요" name="userId" required>
 
                          <label for="psw"></label><br>
                          <input type="password" placeholder="비밀번호 입력해주세요" name="psw" required><br>
                           
-                         <button type="submit" class="login-button">로그인</button><br>
+                         <button type="submit" class="login-button"><p id="login-letter">로그인</p></button><br>
                          <label>
                            <input type="checkbox" checked="checked" name="remember">로그인 상태 유지
-                           <span class="psw"><a href="#">아이디 찾기</a></span>
-                           <span class="psw"><a href="#">비밀번호 찾기</a></span>
-                             
+                           <br><br>
+                            <div id="find-container">
+                            <div id="idfind">
+                           <span class="psw1" dir="ltr"><a href="#">아이디 찾기</a></span>
+                            </div>
+                             <div id="pswfind">
+                           <span class="psw2"><a href="#">비밀번호 찾기</a></span>
+                           </div>
+                            </div> 
                              <hr>
                             
                             

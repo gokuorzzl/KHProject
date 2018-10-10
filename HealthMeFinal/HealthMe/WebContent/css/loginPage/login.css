@@ -158,9 +158,13 @@ table {
       margin-left: auto;
       margin-right: auto;
       width: 20%;
-     
+      
+  
     }
     
+    #login-letter {
+      font-size:25px;
+    }
     
     input[type=text] {
        width:100%;
@@ -191,20 +195,36 @@ table {
     }
     
     .login-container1 {
-        max-width:40%;
+        max-width:38%;
         margin:auto;
     }
     
     .login-container2 {
-        max-width:40%;
+        max-width:38%;
         margin:auto;
         text-align: center;
     }
     
-    .psw {
-       
-       text-decoration:none;
+    #find-container {
+      text-align: center;
+      text-decoration:none;
+    
     }
+    
+    #idfind {
+      width:50%;
+      float:left;
+    }
+    
+    #pswfind {
+    
+    }
+
+    a:link {
+    text-decoration: none;
+	
+	}
+
     
     .login-button {
         background-color:#FF9B55;
@@ -215,6 +235,7 @@ table {
         border:none;
         cursor:pointer;
         width:100%;
+        height:60px;
     }
     
     button:hover { 
@@ -222,14 +243,13 @@ table {
     }
 
      .naver-btn {
-        /* width:100%;
-        padding:14px 20px;
-        margin:8px 0; */
+        width:100%;
+        margin:8px 0;
         border:none;
         cursor:pointer;
         display:inline-block;
         font-size:17px;
-        /* line-height:10px; */
+        line-height:50px;
         text-decoration: none;
         text-align: center;
         background-color:#1EC800;
@@ -238,14 +258,13 @@ table {
     
     
     .google-btn {
-        width:92.5%;
-        padding:14px 20px;
+        width:100%;
         margin:8px 0;
         border:none;
         cursor:pointer;
         display:inline-block;
         font-size:17px;
-        line-height:10px;
+        line-height:50px;
         text-decoration: none;
         text-align: center;
         background-color:#dd4b39;
