@@ -21,6 +21,9 @@ time, mark, audio, video {
 }
 
 html{
+	font-family: sans-serif;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
 	font-family: '서울남산체';
 }
 
