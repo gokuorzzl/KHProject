@@ -1,168 +1,155 @@
 <!DOCTYPE html>
 <html>
 <head>
-    
-    <!--인코딩 문자셋-->
-    <meta charset="UTF-8">
-    <!--반응형 웹을 만들기 위한 meta태그의 viewport-->
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!--페이지 설명-->
-    <meta name="subject" content="헬th미 메인페이지" />
-    <!--키워드-->
-    <meta name="keywords" content="www.healthme.com, 트레이너, 나만의, 맞춤" />
-    <!--스타일-->
-    <link rel="stylesheet" href="trainerInfoPage.css" />
-    <!--title-->
-    <title>헬th미:나만의 트레이너</title>
-    
+<meta charset="UTF-8">
 
-    <script src="/Scripts/popper.js"></script>
-    <script src="/Scripts/mainbootstrap.js"></script>
 
-    
-    <style>
-        input{
-            box-sizing: border-box;
-            border: solid 2px #FF9B55; border-radius: 7px;
-        }
-    </style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<!--반응형 웹을 만들기 위한 meta태그의 viewport-->
+<meta name="viewport" content="width=device-width" , initial-scale="1">
+
+
+<!--스타일-->
+<link rel="stylesheet" href="trainerInfoPage.css" />
+
+
+<title>Insert title here</title>
 </head>
+    
+    
 <body>
-    
- 
-    <!--전체 공간-->    
-    <div id="wrapper">
-        
-        <!--로고, 메뉴가 들어가는 윗부분-->
-        <!--top부분은 관리자페이지 제외한 모든 페이지 통일-->
-        <div id="top">
-            <div id="mobileMenu">
-                핸드폰일 경우 메뉴
-            </div>
-            <div id="logo">
-               로고
-            </div>
-            <div id="searchBar">
-                검색바
-            </div>
-            <div id="menu">
-                로그인, 메뉴
-            </div>
-        </div>
-        
-        <!--컨텐츠가 들어가는 중간부분-->
-        <!--페이지별로 달라지는 부분-->
-        <div id="middle">
-
-        <!--트레이너 별점 등 컨텐츠 나오는 부분-->
-        <!--multipart/form-data	인코딩 안 하고 파일 업로드시 사용-->
-        <form method="post" id="form-register-detail" enctype="multipart/form-data">
-            <div id="contents">
-                <div id="realContents">
-
-                    <ul>
-                        <li>
-                            <label>프로필사진</label>
-                            <div id="picture-cover" class="picture" style="background-image:url(//WebContent/images/thumb_person.png)">
-                                <div class="picture-overlay">
-                                    <input type="file" id="picture" name="picture"/>
-                                </div>
-                            </div>
-                            <span class="pf_subtxt">
-                                프로필 사진 업로드
-                            </span>
-                        </li>
-                    </ul>
-
-                    <ul>
-                        <li>
-                            <label>닉네임 입력</label>
-                            <input id="Description" name="Description" type="text" placeholder="ex)입술마저근육질 etc.." value="" class="input_tx05"/>
-                        </li>
-                        <li>
-                            <label>휴대폰 번호</label>
-                            <input id="phone" name="phone" type="text" placeholder="010-1234-5678" value="" class="input_txt02"/>
-                            <!--input type="hidden" id="IsPhone" value="0"-->
-							<a class="inputbtn" id="btn-register-phone">번호인증</a>
-                            <p class="regintxt01 clearbt redtxt" id="IsPhoneConfirm">번호인증을 눌러 번호를 인증해주세요.</p>
-                            <p class="regintxt01 clearbt" id="IsPhoneConfirmed" style="display:none;"><font style="border:1px solid red;background:#ff005a;color:#fff;padding:5px;">인증완료</font></p>
-
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <!--모르겠다 이부분 어떻게 하는건지-->
-                            <label style="padding: 0px 15px 0px 15px">신분/학력 인증</label>
-                            <p class="regintxt05">소속학교or최종학교or신분인증을 해주세요.</p>
-                            <label class="radio-inline"><input type="radio" name="univ" checked>대학인증</label>
-                            <label class="radio-inline"><input type="radio" name="univ">대학원인증</label>
-                            <label class="radio-inline"><input type="radio" name="univ">신분증인증</label>
-                        
-                            <div id="SchoolMajor">
-                            <input id="" name="SchoolMajor" type="text" placeholder="학교 예) 태평양대학교" value="" class="input_txt03 clearbt"/>
-                            <input id="" name="SchoolMajorS" type="text" placeholder="학과 예) 해저케이블학과" value="" class="input_txt03"/>
-                            <br>
-                            <label class="radio-inline"><input type="radio" name="univ" checked>졸업</label>
-                            <label class="radio-inline"><input type="radio" name="univ">수료</label>
-                            <label class="radio-inline"><input type="radio" name="univ">재학</label>
-                            <p class="regintxt04 clearbt"><b>학력 인증(<font color="red">필수</font>)</b> - 학생증, 재학증명서, 졸업증명서</p>
-                            <p class="regintxt05 clearbt"><input type="file" name="School"/></p>			
-                            <p class="regintxt01 clearbt redtxt" id="IsSchoolVerified">파일을 업로드해주세요.</p>
-                            </div>
-                            
-                            <div id="Idcard" style="display:none;">
-							<p class="regintxt04 clearbt"><b>신분 인증(<font color="red">필수</font>)</b> - 주민등록증, 운전면허증</p>
-                            <p class="regintxt05 clearbt"><input type="file" name="Idcard"/></p>			
-                            <p class="regintxt01 clearbt redtxt" id="IsSchoolVerified">파일을 업로드해주세요.</p>
-                            </div>
-
-                        </li>
-                        <br /><br />
-                        <li>
-                            <label>자격증<br>(선택)</label>
-                            <input id="Cert0" name="Cert0" type="text" placeholder="예)생활스포츠지도사 2급, 입상경력.." value="" class="input_txt01"/>
-                            <p class="regintxt05 clearbt"><input type="file" name="file0"/></p>
-                            <div id="CertAdd"></div>
-                            <a onclick="addFile();" class="addbtn">((추가 +))</a>
-                            <input type="hidden" id="fileCnt" name="fileCnt" value="0">
-                            
-                            <script>
-                                function addFile(){
-                                    fileCnt = document.getElementById('fileCnt').value;							
-                                    fileCnt++;
-                                    html = '';
-                                    html += '<input id="Cert'+fileCnt+'" name="Cert'+fileCnt+'" type="text" placeholder="예)생활스포츠지도사 2급, 입상경력.." value="" class="input_txt01 clearbt"/>';
-                                    html += '<p class="regintxt05 clearbt"><input type="file" name="file'+fileCnt+'"/></p>';
-
-                                    var div = document.createElement('div');
-                                    div.innerHTML = html;
-                                    document.getElementById('CertAdd').appendChild(div);							
-                                    document.getElementById('fileCnt').value = fileCnt;
-                                }
-                            </script>
-
-                        </li>
-
-                    </ul>
-                
-                </div>      
-            </div>
-            <div class="regbtn_cont">
-            <!--a href="#" class="btn_gry">임시 저장</a-->
-            <input type="submit" class="btn btn-info" value="등록 완료">
-            <!--a href class="btn_red">등록 완료</a-->
-            </div>
+<!-- CONTAINER -->
+<div id="container_register">
+   
+   <h1>기본정보 입력</h1>
+   <form method="get" id="frm-register-detail" enctype="multipart/form-data">
+   <div class="register_cont">
+      <div class="reginput">
+         <ul>
+            <li>
+               <label>프로필사진</label>
+               <div id="picture-cover" class="picture" style="background-image:url(../images/person_image.png)">
+                  <div class="picture-overlay">
+                     <i class="glyphicon glyphicon-edit"></i>                        
+                        <input type="file" id="picture" name="picture"/>                        
+                  </div>
+               </div>
             
-        </form>
-                    
-        </div>
-        
-        <!--회사정보가 들어가는 아랫부분-->
-        <!--bottom부분은 관리자페이지 제외한 모든 페이지 통일-->
-        <div id="bottom"><br>
-            김구이김주정조 정보
-        </div>
-    </div>
-    
+               <span class="pf_subtxt">
+                <br>
+                  프로필 사진을 업로드 해 주세요.<br>
+                  수강생 분들에게 신뢰감을 높이기 위해 얼굴이 <br>
+                  나온 사진이 필수 입니다.
+               </span>
+               <div class="pf_image clearbt" style="padding-top:30px;">
+                  <ul>
+                     <li><img src="../images/gd.jpg" width="13%" height="20%">스타일리쉬한 모습
+                     <img src="../images/laewon.jpg" width="13%" height="20%">밝고 쾌활히 웃는
+                     <img src="../images/yuna.jpg" width="13%" height="20%">무언가에 열중</li>
+                  </ul>
+               </div>
+            </li>
+      
+         </ul>
+         <ul id= "nick-name">            
+            <li>
+               <label>별명입력</label>
+               <input id="Description" name="Description" type="text" placeholder="튜터님의 정체성을 가장 잘 드러낼 수 있는 별명을 입력해주세요" value="" class="input_txt05" />
+               
+            </li>            
+            <li>
+               <label>휴대폰 번호</label>
+               <!--select id="Phone1" name="Phone1" class="input_txt04 not">
+                  <option value="010" >010</option>
+                  <option value="011" >011</option>
+                  <option value="019" >019</option>
+                  <option value="016" >016</option>
+               </select-->
+               <input id="Phone" name="Phone" type="text" placeholder="010-1234-5678" value="" class="input_txt02"/>
+               <!--input id="Phone3" name="Phone3" type="text" placeholder="휴대폰번호" value="" class="input_txt04"/-->
+               
+               <input type="hidden" id="IsPhone" value="0">
+                              <a class="inputbtn" id="btn-register-phone">번호인증</a>
+               <p class="regintxt01 clearbt redtxt" id="IsPhoneConfirm">번호인증을 눌러 번호를 인증해주세요.</p>
+               <p class="regintxt01 clearbt" id="IsPhoneConfirmed" style="display:none;"><font style="border:1px solid red;background:#ff005a;color:#fff;padding:5px;">인증완료</font></p>
+                              
+            </li>
+         
+         </ul>
+         <ul>
+            <li>
+               <label style="padding: 0px 15px 0px 15px;">신분/학력<br>인증</label>
+               <p class="regintxt05">소속된 대학이나 졸업한 대학을 인증해주세요. 없으시면 신분증인증을 해주시면 됩니다(필수) </p>
+               <p class="regintxt07 clearbt"></p>
+               <p class="regintxt02"><input id="univ" name="univ" type="radio" value="1" class="innone" checked onclick="checkLayer(1);"/><label for="univ_y" class="chnon" >대학인증</label></p>
+               <p class="regintxt021"><input id="univ" name="univ" type="radio" value="0" class="innone" onclick="checkLayer(2);"/><label for="univ_n" class="chnon" >대학원인증</label></p>
+               <p class="regintxt021"><input id="univ" name="univ" type="radio" value="0" class="innone" onclick="checkLayer(3);"/><label for="univ_n" class="chnon" >신분증인증</label></p>
+               
+               <div id="SchoolMajor">
+                  <input id="" name="SchoolMajor" type="text" placeholder="학교(대학) 예) 탈잉대학교" value="" class="input_txt03 clearbt"/>
+                  <input id="" name="SchoolMajorS" type="text" placeholder="학과 예) 탈잉학과" value="" class="input_txt03"/>               
+                  <p class="regintxt07 clearbt"></p>
+                  <p class="regintxt02"><input id="AcademicStatus" name="AcademicStatus" type="radio" value="0" class="innone" checked/><label for="univ_y" class="chnon">재학</label></p>
+                  <p class="regintxt02"><input id="AcademicStatus" name="AcademicStatus" type="radio" value="1" class="innone" /><label for="univ_y" class="chnon">졸업</label></p>
+                  <p class="regintxt02"><input id="AcademicStatus" name="AcademicStatus" type="radio" value="2" class="innone" /><label for="univ_y" class="chnon">수료</label></p>
+
+                                    <p class="regintxt04 clearbt"><b>학력 인증(<font color="red">필수</font>)</b> - 학생증, 재학증명서, 졸업증명서</p>
+                  <p class="regintxt05 clearbt"><input type="file" name="School"/></p>         
+                  <p class="regintxt01 clearbt redtxt" id="IsSchoolVerified">파일을 업로드해주세요.</p>
+                                 
+               </div>
+
+               <div id="SchoolMajor2" style="display:none;">
+                  <input id="" name="SchoolMajor2" type="text" placeholder="학교(대학) 예) 탈잉대학교" value="" class="input_txt03 clearbt"/>
+                  <input id="" name="SchoolMajor2S" type="text" placeholder="학과 예) 탈잉학과" value="" class="input_txt03"/>               
+                  <p class="regintxt07 clearbt"></p>
+                  <p class="regintxt02"><input id="AcademicStatus2" name="AcademicStatus2" type="radio" value="0" class="innone" /><label for="univ_y" class="chnon">재학</label></p>
+                  <p class="regintxt02"><input id="AcademicStatus2" name="AcademicStatus2" type="radio" value="1" class="innone" /><label for="univ_y" class="chnon">졸업</label></p>
+                  <p class="regintxt02"><input id="AcademicStatus2" name="AcademicStatus2" type="radio" value="2" class="innone" /><label for="univ_y" class="chnon">수료</label></p>
+
+                                    <p class="regintxt04 clearbt"><b>학력 인증(<font color="red">필수</font>)</b> - 학생증, 재학증명서, 졸업증명서</p>
+                  <p class="regintxt05 clearbt"><input type="file" name="School2"/></p>         
+                  <p class="regintxt01 clearbt redtxt" id="IsSchoolVerified">파일을 업로드해주세요.</p>
+                                 
+               </div>
+
+               <div id="Idcard" style="display:none;">
+                                    <p class="regintxt04 clearbt"><b>신분 인증(<font color="red">필수</font>)</b> - 주민등록증, 운전면허증</p>
+                  <p class="regintxt05 clearbt"><input type="file" name="Idcard"/></p>         
+                  <p class="regintxt01 clearbt redtxt" id="IsSchoolVerified">파일을 업로드해주세요.</p>
+                                 
+               </div>
+            </li>
+            <br /><br />
+            <li>
+               <label>자격증<br>(선택)</label>
+                              <input id="Cert0" name="Cert0" type="text" placeholder="예) 토플 117, HSK 6급, GTQ 1급, 입상경력.." value="" class="input_txt01"/>
+               <p class="regintxt05 clearbt"><input type="file" name="file0"/></p>
+               <div id="CertAdd"></div>
+               <a onclick="addFile();" class="addbtn">추가 +</a>
+                              
+               <input type="hidden" id="fileCnt" name="fileCnt" value="0">
+               <script>
+                  function addFile(){
+                     fileCnt = document.getElementById('fileCnt').value;                     
+                     fileCnt++;
+                     html = '';
+                     html += '<input id="Cert'+fileCnt+'" name="Cert'+fileCnt+'" type="text" placeholder="예) 토플 117, HSK 6급, GTQ 1급, 입상경력.." value="" class="input_txt01 clearbt"/>';
+                     html += '<p class="regintxt05 clearbt"><input type="file" name="file'+fileCnt+'"/></p>';
+                     
+                     var div = document.createElement('div');
+                       div.innerHTML = html;
+                       document.getElementById('CertAdd').appendChild(div);                     
+                     document.getElementById('fileCnt').value = fileCnt;
+                  }
+               </script>
+               
+            </li>
+         
+         </ul>
+      </div>
+   </div>
+
 </body>
 </html>
