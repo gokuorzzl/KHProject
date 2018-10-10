@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <!--인코딩 문자셋-->
+    <meta charset="UTF-8">
+    <!--반응형 웹을 만들기 위한 meta태그의 viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--페이지 설명-->
+    <meta name="subject" content="헬th미 메인페이지" />
+    <!--키워드-->
+    <meta name="keywords" content="www.healthme.com, 트레이너, 나만의, 맞춤" />
+    <!--스타일-->
+    <link rel="stylesheet" href="../css/loginPage/userLogin.css"/>
+    <!--title-->
+    <title>헬th미: 트레이너 회원가입</title>
+    
+</head>
+<body>
+    
+ 
+    <!--전체 공간-->    
+    <div id="wrapper">
+        
+        <!--로고, 메뉴가 들어가는 윗부분-->
+        <!--top부분은 관리자페이지 제외한 모든 페이지 통일-->
+        <div id="top">
+            <div id="mobileMenu">
+                핸드폰일 경우 메뉴
+            </div>
+            <div id="logo">
+               로고
+            </div>
+            <div id="searchBar">
+                검색바
+            </div>
+            <div id="menu">
+                로그인, 메뉴
+            </div>
+        </div>
+        
+        <!--컨텐츠가 들어가는 중간부분-->
+        <!--페이지별로 달라지는 부분-->
+        <div id="middle">
+            <!--지역, 종목 등 선택할 수 있는 선택박스-->
+            <div id="searchBox">
+                <img src="../images/soraLogo.png" alt="logo" class="logo-center";>
+            </div><!--트레이너 별점 등 컨텐츠 나오는 부분-->
+            <div id="contents">
+                <div id="realContents">
+                  <div class="info-container">
+                    <form action="/action_page.php">
+                     
+                     
+                        <br><label for="id">아이디</label><br>
+                        <input type="text" id="userId" name="userId"><br>
+                         
+                         <label for="psw">비밀번호</label><br>
+                         <input type="password" name="psw"><br>
+                         
+                         <label for="psw">비밀번호 재확인</label><br>
+                         <input type="password" name="re-psw"><br>
+                        
+                        <label for="name">이름</label><br>
+                        <input type="text" id="name" name="name"><br>
+                         
+                         <label for="name">주민등록번호</label><br>
+                        <input type="text" id="snumber1" name="snumber1"> -
+                        <input type="password" id="snumber2" name="snumber2"><br> 
+                         
+                         <label for="addr">주소</label><br>
+                        <input type="text" name="addr"><br>
+
+                        <label for="mnum">핸드폰 번호</label><br>
+                        <input type="text" id="tel1" name="tel1"> -
+                        <input type="text" id="tel2" name="tel2"> -
+                        <input type="text" id="tel3" name="tel3"><br>
+
+                        <label for="mnum">이메일</label><br>
+                         <input type='text' id="email1" name="email1"> @
+                         <input type='text' id="email2" name="email2">
+                           <select name="emailaddr">
+                               <option value="">직접입력</option>
+                               <option value="daum.net">daum.net</option>
+                               <option value="gmail.com">gmail.com</option>
+                               <option value="naver.com">naver.com</option>
+                               <option value="nate.com">nate.com</option>
+                           </select>
+                         
+                      <br><button type="submit" class="register-button">트레이너 가입하기</button>
+                      
+                   </form>
+                </div>
+                    
+                    
+                    
+                </div>
+            </div>
+        </div>
+        
+        <!--회사정보가 들어가는 아랫부분-->
+        <!--bottom부분은 관리자페이지 제외한 모든 페이지 통일-->
+        <div id="bottom">
+            김구이김주정조 정보
+        </div>
+    </div>
+    
+</body>
+</html>

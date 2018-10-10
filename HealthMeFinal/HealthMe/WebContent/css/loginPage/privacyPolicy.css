@@ -52,12 +52,27 @@ table {
 /*----------------------------------------------*/
 /*css 공통코드 작성부분*/
 /* div전체 */
-  div{
+div{
     border: 1px solid black;
     box-sizing: border-box;
     margin: 0;
    
-  } 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*----------------------------------------------*/
@@ -68,22 +83,17 @@ table {
 /*데스크톱*/
 @media screen and (min-width:1024px){
     
-    div {
-      background-color:white;
-    }    
-    
-    
     /*div전체*/
     #wrapper{
         position: absolute;
         width:100%;
-        height:100%;    
+        height:1500px;    
     }
     
     /*top부분*/
     #top{
         width: 100%;
-        height:1%; /*  */
+        height:1%;
     }
     
     #mobileMenu{
@@ -111,17 +121,16 @@ table {
     /*middle부분*/
     #middle{
         width: 100%;
-        height: 91%; /*  */
+        height: 91%;
     }
     
     #searchBox{
         width: 100%;
-        height: 15%;/*  */
+        height: 10%; /*  */
     }
-    
     #contents{
         width: 100%;
-        height: 85%; /*  */
+        height: 90%; /*  */
     }
     
     #realSearchBox{
@@ -132,7 +141,7 @@ table {
     }
     
     #realContents{
-        width: 70%;
+        width: 50%;
         height: 90%;
         margin: auto;
         margin-top: 2.5%;
@@ -145,62 +154,60 @@ table {
         height: 8%;
     }
     
-    
-    /*-------------추가 Desktop-------------------- */
+       /*-------------추가 Desktop----------------------- */
     .logo-center {
       display: block;
       margin-left:auto;
       margin-right:auto;
-      width:30%;
+      width:25%;
     }
     
-    
-    
-    input[type=text] {
-       width:100%;
-       padding:10px 10px;
-       margin:8px 0;
-       box-sizing:border-box;
-       border: 2px solid #FF9B55;
-       border-radius:6px;
-     
+    .policy-menu {
+      list-style-type:none;
+      margin:0%;
+      padding:0%;
+      overflow: hidden;
+      background-color:#FF9B55;
+      text-align:center;
     }
     
-    input[type=text]:focus {
-      background-color:#f9d3b3;
+    li {
+      float:left;
+      width:33.333%;
+   
     }
     
-     input[type=password] {
-       width:100%;
-       padding:10px 10px;
-       margin:8px 0;
-       box-sizing:border-box;
-       border: 2px solid #FF9B55;
-       border-radius:6px;
-
+    li a {
+      display:inline-block;
+      color:white;
+      padding:5% 5%;  
+      text-decoration:none;
+      font-size: 16px;
+ 
     }
     
-     input[type=password]:focus {
-      background-color:#f9d3b3;
+    li:hover{
+       background-color:#353130;
     }
     
-    .login-container1 {
-        max-width:40%;
-        margin:auto;
+    #tab-1 {
+      height:52px;
     }
     
-    .login-container2 {
-        max-width:40%;
-        margin:auto;
-        text-align: center;
+    #tab-2 {
+      height:52px;
     }
     
-    .psw {
-       
-       text-decoration:none;
+    #tab-3 {
+      height:52px;
     }
     
-    .login-button {
+    .agree-content {
+      width:100%;
+      height:30%;
+    }
+  
+    button {
         background-color:#FF9B55;
         color:white;
         font-size:17px;
@@ -211,54 +218,18 @@ table {
         width:100%;
     }
     
-    button:hover { 
-       background-color:#3c3e3a;
+    button:hover {
+       background-color:#353130;
     }
-   
-     .naver-btn {
-        width:89%;
-        padding:14px 20px;
-        margin:8px 0;
-        border:none;
-        cursor:pointer;
-        display:inline-block;
-        font-size:17px;
-        line-height:10px;
-        text-decoration: none;
-        text-align: center;
-        background-color:#1EC800;
-        color:white;
-    } 
-    
-    
-    .google-btn {
-        width:89%;
-        padding:14px 20px;
-        margin:8px 0;
-        border:none;
-        cursor:pointer;
-        display:inline-block;
-        font-size:17px;
-        line-height:10px;
-        text-decoration: none;
-        text-align: center;
-        background-color:#dd4b39;
-        color:white;
     }
+  
+  
     
-    a:hover {
-       opacity: 0.6;
-    }
-
 }
 
 /*태블릿*/
 @media screen and (min-width:640px) and (max-width:1024px){
     
-    div {
-      background-color:red;
-    }
-
     /*div전체*/
     #wrapper{
         position: absolute;
@@ -330,23 +301,10 @@ table {
         height: 10%;
     }
     
-    /*------------- Tablet----------------------- 추가  */
-    .logo-center {
-      display: block;
-      margin-left:auto;
-      margin-right:auto;
-      width:50%;
-    }
-    
-    
 }
 
 /*모바일*/
 @media screen and (max-width:640px){
-    
-    div {
-      background-color:green;
-    }
     
     /*div전체*/
     #wrapper{
@@ -415,16 +373,6 @@ table {
         width: 100%;
         height: 10%;
     }
-    
-       /*------------- Mobile----------------------- 추가  */
-    .logo-center {
-      display: block;
-      margin-left:auto;
-      margin-right:auto;
-      width:100%;
-    }
-    
-    
 }
 
 

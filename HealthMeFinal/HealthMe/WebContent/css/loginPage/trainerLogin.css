@@ -52,12 +52,27 @@ table {
 /*----------------------------------------------*/
 /*css 공통코드 작성부분*/
 /* div전체 */
-  div{
+div{
     border: 1px solid black;
     box-sizing: border-box;
     margin: 0;
    
-  } 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*----------------------------------------------*/
@@ -68,22 +83,17 @@ table {
 /*데스크톱*/
 @media screen and (min-width:1024px){
     
-    div {
-      background-color:white;
-    }    
-    
-    
     /*div전체*/
     #wrapper{
         position: absolute;
         width:100%;
-        height:100%;    
+        height:1500px;    
     }
     
     /*top부분*/
     #top{
         width: 100%;
-        height:1%; /*  */
+        height:1%;
     }
     
     #mobileMenu{
@@ -111,17 +121,16 @@ table {
     /*middle부분*/
     #middle{
         width: 100%;
-        height: 91%; /*  */
+        height: 91%;
     }
     
     #searchBox{
         width: 100%;
-        height: 15%;/*  */
+        height: 5%;
     }
-    
     #contents{
         width: 100%;
-        height: 85%; /*  */
+        height: 95%;
     }
     
     #realSearchBox{
@@ -145,16 +154,19 @@ table {
         height: 8%;
     }
     
-    
-    /*-------------추가 Desktop-------------------- */
+         /*-------------추가 Desktop----------------------- */
     .logo-center {
       display: block;
       margin-left:auto;
       margin-right:auto;
-      width:30%;
+      width:18%;
     }
     
-    
+    .info-container {
+      width: 40%;
+      margin:auto;
+      text-align: left;
+    }
     
     input[type=text] {
        width:100%;
@@ -184,23 +196,35 @@ table {
       background-color:#f9d3b3;
     }
     
-    .login-container1 {
-        max-width:40%;
-        margin:auto;
+    #snumber1 {
+      width:47.5%;
     }
     
-    .login-container2 {
-        max-width:40%;
-        margin:auto;
-        text-align: center;
+    #snumber2 {
+      width:47.5%;
     }
     
-    .psw {
-       
-       text-decoration:none;
+    #tel1 {
+      width:30%;
     }
     
-    .login-button {
+    #tel2 {
+     width:30%;
+    }
+    
+    #tel3 {
+     width:30%;
+    }
+    
+    #email1 {
+     width:34%;
+    }
+    
+    #email2 {
+     width:34%;
+    }
+ 
+     .register-button {
         background-color:#FF9B55;
         color:white;
         font-size:17px;
@@ -211,54 +235,16 @@ table {
         width:100%;
     }
     
-    button:hover { 
-       background-color:#3c3e3a;
-    }
-   
-     .naver-btn {
-        width:89%;
-        padding:14px 20px;
-        margin:8px 0;
-        border:none;
-        cursor:pointer;
-        display:inline-block;
-        font-size:17px;
-        line-height:10px;
-        text-decoration: none;
-        text-align: center;
-        background-color:#1EC800;
-        color:white;
-    } 
-    
-    
-    .google-btn {
-        width:89%;
-        padding:14px 20px;
-        margin:8px 0;
-        border:none;
-        cursor:pointer;
-        display:inline-block;
-        font-size:17px;
-        line-height:10px;
-        text-decoration: none;
-        text-align: center;
-        background-color:#dd4b39;
-        color:white;
+     button:hover {
+       background-color:#353130;
     }
     
-    a:hover {
-       opacity: 0.6;
-    }
 
 }
 
 /*태블릿*/
 @media screen and (min-width:640px) and (max-width:1024px){
     
-    div {
-      background-color:red;
-    }
-
     /*div전체*/
     #wrapper{
         position: absolute;
@@ -330,23 +316,10 @@ table {
         height: 10%;
     }
     
-    /*------------- Tablet----------------------- 추가  */
-    .logo-center {
-      display: block;
-      margin-left:auto;
-      margin-right:auto;
-      width:50%;
-    }
-    
-    
 }
 
 /*모바일*/
 @media screen and (max-width:640px){
-    
-    div {
-      background-color:green;
-    }
     
     /*div전체*/
     #wrapper{
@@ -415,16 +388,6 @@ table {
         width: 100%;
         height: 10%;
     }
-    
-       /*------------- Mobile----------------------- 추가  */
-    .logo-center {
-      display: block;
-      margin-left:auto;
-      margin-right:auto;
-      width:100%;
-    }
-    
-    
 }
 
 
