@@ -2,9 +2,9 @@
 
   "use strict";
 
-    // PRE LOADER
+    // 시간 설정함수
     $(window).load(function(){
-      $('.preloader').fadeOut(5000); // set duration in brackets    
+      $('.preloader').fadeOut(2000); 
     });
 
 
