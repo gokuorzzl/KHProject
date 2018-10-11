@@ -25,7 +25,7 @@ src:local(※), url(../fonts/SeoulNamsan.woff) format('woff');
 
 
   /*---------------------------------------
-     TYPOGRAPHY              
+     태그별 style              
   -----------------------------------------*/
 
   h1,h2,h3,h4,h5,h6 {
@@ -58,8 +58,6 @@ src:local(※), url(../fonts/SeoulNamsan.woff) format('woff');
     line-height: 24px;
 	  font-family:'서울남산체';
   }
-
-
 
   /*---------------------------------------
      GENERAL               
@@ -168,7 +166,7 @@ src:local(※), url(../fonts/SeoulNamsan.woff) format('woff');
 
 
   /*---------------------------------------
-       PRE LOADER              
+       PRE LOADER style             
   -----------------------------------------*/
 
   .preloader {
@@ -217,7 +215,7 @@ src:local(※), url(../fonts/SeoulNamsan.woff) format('woff');
 
 
   /*---------------------------------------
-      MENU              
+      MENU style           
   -----------------------------------------*/
 
   .menu, .menu-bg, .menu-burger {
@@ -356,7 +354,7 @@ src:local(※), url(../fonts/SeoulNamsan.woff) format('woff');
     float:right;
 }
   /*---------------------------------------
-      HOME          
+      메 style         
   -----------------------------------------*/
 
   #home {
@@ -426,7 +424,7 @@ src:local(※), url(../fonts/SeoulNamsan.woff) format('woff');
 
   }
   /*---------------------------------------
-     BACKGROUND STYLES              
+     배경 STYLES              
   -----------------------------------------*/
 .bg-slide{
     width: 100%;
