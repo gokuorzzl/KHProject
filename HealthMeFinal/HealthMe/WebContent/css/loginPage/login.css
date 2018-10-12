@@ -82,7 +82,7 @@ table {
     /*top부분*/
     #top{
         width: 100%;
-        height:1%; /*  */
+        height:10%; /*  */
     }
     
     #mobileMenu{
@@ -110,7 +110,7 @@ table {
     /*middle부분*/
     #middle{
         width: 100%;
-        height: 91%; /*  */
+        height: 82%; /*  */
     }
     
     #searchBox{
@@ -300,28 +300,23 @@ table {
        opacity: 0.6;
     }
     
-    #userR {
-      width:50%;
-      float:left;
-    }
+   /*  #userR {
+
     
-    #trainerR {
-      width:50%;
-      float:right;
+      background-color:yellow;
     }
+     */
+    
     
     .userR {
       color:#FF9B55;
       font-size:170%;
       font-weight:bold;
-     
+      text-align :center;
+
     }
     
-    .trainerR {
-      color:#FF9B55;
-      font-size:170%;
-      font-weight:bold;
-    }
+   
     a.userR:hover, a.userR:active {
       text-decoration: underline;
     }
