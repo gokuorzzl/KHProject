@@ -1,11 +1,26 @@
 @charset "UTF-8";
 
+
+/*그전적용한 서울남산체*/
 @font-face{
 font-family:'서울남산체';
 src:url(../fonts/SeoulNamsan.eot);/*익스플로러*/
 src:url(../fonts/SeoulNamsan.woff) format('woff');  /*크롬, 파이어폭스*/
 src:local(※), url(../fonts/SeoulNamsan.woff) format('woff');
 }
+
+/*새롭게 적용할 NotoSans-Bold*/
+@font-face{
+font-family:'NotoSans';
+src:url(../fonts/NotoSans-Bold.eot);/*익스플로러*/
+src:url(../fonts/NotoSans-Bold.woff) format('woff');  /*크롬, 파이어폭스*/
+src:local(※), url(../fonts/NotoSans-Bold.woff) format('woff');
+}
+
+
+
+
+
 
 /*각종 인터넷 브라우저에서 코드 작동이 가능하도록 하는 css Reset*/
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp,
@@ -24,7 +39,7 @@ html{
 	font-family: sans-serif;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
-	font-family: '서울남산체';
+	font-family: 'NotoSans';
 }
 
 /* HTML5 display-role reset for older browsers */

@@ -2,6 +2,7 @@
 
 
 
+/*그전적용한 서울남산체*/
 @font-face{
 font-family:'서울남산체';
 src:url(../../fonts/SeoulNamsan.eot);/*익스플로러*/
@@ -9,9 +10,17 @@ src:url(../../fonts/SeoulNamsan.woff) format('woff');  /*크롬, 파이어폭스
 src:local(※), url(../../fonts/SeoulNamsan.woff) format('woff');
 }
 
+/*새롭게 적용할 NotoSans-Bold*/
+@font-face{
+font-family:'NotoSans';
+src:url(../../fonts/NotoSans-Bold.eot);/*익스플로러*/
+src:url(../../fonts/NotoSans-Bold.woff) format('woff');  /*크롬, 파이어폭스*/
+src:local(※), url(../../fonts/NotoSans-Bold.woff) format('woff');
+}
+
 
 div{
-	font-family:'서울남산체';
+	font-family:'NotoSans';
 	
 }
 
@@ -90,7 +99,7 @@ input[type="submit"] {
  background: #FF9B55;
  border-radius: 5px;
  border: none;
- font-family:'서울남산체';
+font-family:'NotoSans';
  color: white;
 }
 input[type="button"] {
@@ -100,10 +109,10 @@ input[type="button"] {
 /*  width: 140px; */
  margin-top:10px;
  margin-right:20px;
- font-family:'서울남산체';
+font-family:'NotoSans';
 }
 input[type="checkbox"] {
  margin-top:20px;
- font-family:'서울남산체';
+ font-family:'NotoSans';
  color: white;
 }
