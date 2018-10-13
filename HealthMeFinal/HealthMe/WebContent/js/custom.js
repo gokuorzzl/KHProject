@@ -15,8 +15,15 @@
     });
 
 
-    // ABOUT SLIDER
+    // 배경 슬라이드 속도 조절
     $('body').vegas({
+          overlay: true,
+        transition: 'fade', 
+        transitionDuration: 4000,
+        delay: 7000,
+        animation: 'random',
+        animationDuration: 20000,
+        backgroundSize:'cover',
         slides: [
             { src: 'images/dayeon.png' },
             { src: 'images/hyeyeon.png' },

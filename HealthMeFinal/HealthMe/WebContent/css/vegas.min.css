@@ -33,6 +33,7 @@
     margin:0;
     padding:0;
     background:center center no-repeat;
+    background-size: cover;
     -webkit-transform:translateZ(0);
     transform:translateZ(0)
 }
