@@ -3,14 +3,13 @@
 @charset "UTF-8";
 
 
-/*새롭게 적용할 NotoSans-Bold*/
+새롭게 적용할 NotoSans-Bold
 @font-face{
 font-family:'NotoSans';
-src:url(../../fonts/NotoSans-Bold.eot);/*익스플로러*/
-src:url(../../fonts/NotoSans-Bold.woff) format('woff');  /*크롬, 파이어폭스*/
+src:url(../../fonts/NotoSans-Bold.eot);익스플로러
+src:url(../../fonts/NotoSans-Bold.woff) format('woff');  크롬, 파이어폭스
 src:local(※), url(../../fonts/NotoSans-Bold.woff) format('woff');
 }
-
 
 
 
@@ -57,7 +56,7 @@ table {
 div{
     /* border: 1px solid black; */
     box-sizing: border-box;
-    margin: 0;
+    margin: 2%;/*  */
    
 }
 
@@ -84,19 +83,18 @@ div{
 
 /*데스크톱*/
 @media screen and (min-width:1024px){
-	
     
     /*div전체*/
     #wrapper{
         position: absolute;
         width:100%;
-        height:120%;    
+        height:1500px;    
     }
     
-    /*top부분*/s
+    /*top부분*/
     #top{
         width: 100%;
-        height:3%;
+        height:7%;
     }
     
     #mobileMenu{
@@ -124,16 +122,16 @@ div{
     /*middle부분*/
     #middle{
         width: 100%;
-        height: 89%;
+        height: 85%;
     }
     
     #searchBox{
         width: 100%;
-        height: 10%; /*  */
+        height: 25%;
     }
     #contents{
         width: 100%;
-        height: 90%; /*  */
+        height: 75%;
     }
     
     #realSearchBox{
@@ -144,7 +142,7 @@ div{
     }
     
     #realContents{
-        width: 50%;
+        width: 70%;
         height: 90%;
         margin: auto;
         margin-top: 2.5%;
@@ -157,108 +155,13 @@ div{
         height: 8%;
     }
     
-       /*-------------추가 Desktop----------------------- */
- 
-      #logoBox {
-     width:100%;
-     height:100%;
-     margin:auto;
-    }
-  
-    .logo-center {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      width: 20%;
-
-    }
     
-    /* .policy-menu {
-      list-style-type:none;
-      margin:0%;
-      padding:0%; 
-      overflow: hidden;
-      background-color:#FF9B55;
-      text-align:center;
-    }
+    /* ---------추가 데스크탑 버젼------------  */
     
-    li {
-      float:left;
-      width:33.333%;
    
-    }
-    
-    li a {
-      display:inline-block;
-      color:white;
-      padding:5% 5%;  
-      text-decoration:none;
-      font-size: 120%;
-  
    
-    }
-    
-    li:hover{
-       background-color:#353130;
-    }
-    
-    #tab-1 {
-      height:52px;
-    
-    }
-    
-    #tab-2 {
-      height:52px;
-    }
-    
-    #tab-3 {
-      height:52px;
-    } */
-    
-    
-    .agree-content {
-      overflow:scroll;
-      width:100%;
-      height:70%;
-      background-color:#f9dfcc;
-    }
-    
-    #title-container {
-      display:table;
-      width:100%;
-      height:7%;
-      background:#FF9B55;
-      
-    }
-    
-    #policyTitle {
-       
-       display:table-cell;
-       vertical-align:middle;
-       text-align:center;
-       color:white;
-       font-size:140%;
-     
-    }
-  
-    .agreeBtn {
-        background-color:#FF9B55;
-        color:white;
-        font-size:17px;
-        padding:14px 20px;
-        margin:8px 0;
-        border:none;
-        cursor:pointer;
-        width:100%;
-    }
-    
-    button.agreeBtn:hover {
-       background-color:#353130;
-    }
-    
-  
-  
-    
+   
+   
 }
 
 /*태블릿*/
@@ -407,9 +310,6 @@ div{
         width: 100%;
         height: 10%;
     }
-    
-    
-    
 }
 
 

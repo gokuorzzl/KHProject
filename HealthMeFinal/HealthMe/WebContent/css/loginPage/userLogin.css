@@ -3,13 +3,20 @@
 @charset "UTF-8";
 
 
-@font-face{
+/* @font-face{
 font-family:'서울남산체';
-src:url(../fonts/SeoulNamsan.eot);/*익스플로러*/
-src:url(../fonts/SeoulNamsan.woff) format('woff');  /*크롬, 파이어폭스*/
+src:url(../fonts/SeoulNamsan.eot);익스플로러
+src:url(../fonts/SeoulNamsan.woff) format('woff');  크롬, 파이어폭스
 src:local(※), url(../fonts/SeoulNamsan.woff) format('woff');
-}
+} */
 
+새롭게 적용할 NotoSans-Bold
+@font-face{
+font-family:'NotoSans';
+src:url(../../fonts/NotoSans-Bold.eot);익스플로러
+src:url(../../fonts/NotoSans-Bold.woff) format('woff');  크롬, 파이어폭스
+src:local(※), url(../../fonts/NotoSans-Bold.woff) format('woff');
+}
 
 
 /*각종 인터넷 브라우저에서 코드 작동이 가능하도록 하는 css Reset*/
@@ -23,7 +30,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-	font-family: '서울남산체';
+	font-family: 'NotoSans';
 	
 }
 /* HTML5 display-role reset for older browsers */
@@ -87,7 +94,7 @@ div{
     #wrapper{
         position: absolute;
         width:100%;
-        height:100%;    
+        height:170%;    
     }
     
     /*top부분*/
@@ -160,7 +167,7 @@ div{
       display: block;
       margin-left:auto;
       margin-right:auto;
-      width:18%;
+      width:24%;
     }
     
     .info-container {
@@ -170,6 +177,7 @@ div{
       margin:auto;
       text-align: left;
     }
+    
     form {
     width:100%;}
    
@@ -213,15 +221,15 @@ div{
     }
     
     #tel1 {
-      width:30%;
+      width:30.9%;
     }
     
     #tel2 {
-     width:30%;
+     width:30.9%;
     }
     
     #tel3 {
-     width:30%;
+     width:30.8%;
     }
     
     #email1 {
