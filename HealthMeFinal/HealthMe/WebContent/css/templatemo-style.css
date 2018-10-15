@@ -2,11 +2,12 @@
   @import url('https://fonts.googleapis.com/css?family=Poppins:300,400');
 
 
+/*새롭게 적용할 NotoSans-Bold*/
 @font-face{
-font-family:'서울남산체';
-src:url(../fonts/SeoulNamsan.eot);/*익스플로러*/
-src:url(../fonts/SeoulNamsan.woff) format('woff');  /*크롬, 파이어폭스*/
-src:local(※), url(../fonts/SeoulNamsan.woff) format('woff');
+font-family:'NotoSans';
+src:url(../fonts/NotoSans-Bold.eot);/*익스플로러*/
+src:url(../fonts/NotoSans-Bold.woff) format('woff');  /*크롬, 파이어폭스*/
+src:local(※), url(../fonts/NotoSans-Bold.woff) format('woff');
 }
 
   body {
@@ -31,7 +32,7 @@ src:local(※), url(../fonts/SeoulNamsan.woff) format('woff');
   h1,h2,h3,h4,h5,h6 {
     font-weight: 300;
     line-height: inherit;
-	  font-family:'서울남산체';
+	  font-family:'NotoSans';
   }
 
   h1 {
@@ -56,7 +57,7 @@ src:local(※), url(../fonts/SeoulNamsan.woff) format('woff');
     font-size: 14px;
     font-weight: normal;
     line-height: 24px;
-	  font-family:'서울남산체';
+	  font-family:'NotoSans';
   }
 
   /*---------------------------------------
@@ -68,13 +69,13 @@ src:local(※), url(../fonts/SeoulNamsan.woff) format('woff');
 	font-family: sans-serif;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
-	font-family: '서울남산체';
+	font-family: 'NotoSans';
   }
 
   a {
     color: #202020;
     text-decoration: none !important;
-	  font-family:'서울남산체';
+	  font-family:'NotoSans';
   }
 
   a,
@@ -82,7 +83,7 @@ src:local(※), url(../fonts/SeoulNamsan.woff) format('woff');
   .form-control {
     -webkit-transition: 0.5s;
     transition: 0.5s;
-	  font-family:'서울남산체';
+	  font-family:'NotoSans';
   }
   button{
 	-webkit-transition: 0.5s;
@@ -181,6 +182,7 @@ src:local(※), url(../fonts/SeoulNamsan.woff) format('woff');
     justify-content: center;
     align-items: center;
     background: none repeat scroll 0 0 #ffffff;
+    background-size:cover;
   }
 
   .spinner {
@@ -202,7 +204,7 @@ src:local(※), url(../fonts/SeoulNamsan.woff) format('woff');
     border-radius: 50%;
     border: 1px solid #575757;
     border-top-color: #ffffff;
-    animation: spinner .9s linear infinite;
+    animation: spinner .20s linear infinite;
   }
 
   @-webkit-@keyframes spinner {
@@ -422,11 +424,12 @@ src:local(※), url(../fonts/SeoulNamsan.woff) format('woff');
      배경 STYLES              
   -----------------------------------------*/
 .bg-slide{
-    width: 100%;
+    width:auto;
     height: 100%;
     position: fixed;
     top:0px;
     left: 0px;
+    background-size: cover;
 }
 .bg-slide li{
     width:100%;

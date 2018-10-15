@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+
+/*그전적용한 서울남산체*/
 @font-face{
 font-family:'서울남산체';
 src:url(../../fonts/SeoulNamsan.eot);/*익스플로러*/
@@ -7,6 +9,13 @@ src:url(../../fonts/SeoulNamsan.woff) format('woff');  /*크롬, 파이어폭스
 src:local(※), url(../../fonts/SeoulNamsan.woff) format('woff');
 }
 
+/*새롭게 적용할 NotoSans-Bold*/
+@font-face{
+font-family:'NotoSans';
+src:url(../../fonts/NotoSans-Bold.eot);/*익스플로러*/
+src:url(../../fonts/NotoSans-Bold.woff) format('woff');  /*크롬, 파이어폭스*/
+src:local(※), url(../../fonts/NotoSans-Bold.woff) format('woff');
+}
 div {
 	
 }
@@ -20,7 +29,7 @@ div {
 	width: 200px;
 	height: 500px;
 	float: left;
-	font-family: '서울남산체';
+	font-family: 'NotoSans';
 }
 
 #leftMenu ul {
@@ -28,7 +37,7 @@ div {
 	margin: 5px;
 	padding: 0;
 	list-style: none;
-	font-family:'서울남산체';
+	font-family:'NotoSans';
 }
 
 #leftMenu ul li {
@@ -55,7 +64,7 @@ div {
 	text-decoration: none;
 	display: block;
 	font-size : 12px;
-	font-family: '서울남산체';
+	font-family: 'NotoSans';
 	
 }
 
@@ -63,14 +72,14 @@ div {
 	text-decoration: none;
 	display: block;
 	font-size : 10px;
-	font-family: '서울남산체';
+	font-family: 'NotoSans';
 	
 }
 
 #topMenu {
 	height: 50px; 
 	width: 900px; 
-	font-family: '서울남산체';
+	font-family: 'NotoSans';
 	
 }
 
@@ -78,7 +87,7 @@ div {
 	list-style-type: none; 
 	margin: 5px;
 	padding: 0px; 
-	font-family: '서울남산체';
+	font-family: 'NotoSans';
 }
 
 #topMenu ul li { 
@@ -97,7 +106,7 @@ div {
 	width: 150px; 
 	font-size: 12px;
 	
-	font-family: '서울남산체'; 
+	font-family: 'NotoSans'; 
 }
 
 .menuLink, .leftLink {
@@ -107,7 +116,7 @@ div {
 .topMenuLi:hover .menuLink { 
 	color: red; 
 	background-color: #4d4d4d; 
-	font-family: '서울남산체';
+	font-family: 'NotoSans';
 }
 
 .submenuLink { 
@@ -115,7 +124,7 @@ div {
 	background-color: white; 
 	border: solid 1px black;
 	margin-top: -1px; 
-	font-family: '서울남산체';
+	font-family: 'NotoSans';
 }
 
 .longLink { 

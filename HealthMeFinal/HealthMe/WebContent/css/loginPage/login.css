@@ -52,7 +52,7 @@ table {
 /*css 공통코드 작성부분*/
 /* div전체 */
   div{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     box-sizing: border-box;
     margin: 0;
    
@@ -82,7 +82,7 @@ table {
     /*top부분*/
     #top{
         width: 100%;
-        height:1%; /*  */
+        height:10%; /*  */
     }
     
     #mobileMenu{
@@ -110,7 +110,7 @@ table {
     /*middle부분*/
     #middle{
         width: 100%;
-        height: 91%; /*  */
+        height: 82%; /*  */
     }
     
     #searchBox{
@@ -158,8 +158,7 @@ table {
       margin-left: auto;
       margin-right: auto;
       width: 20%;
-      
-  
+
     }
     
     #login-letter {
@@ -216,13 +215,26 @@ table {
       float:left;
     }
     
-    #pswfind {
+    .idfindhover {
+      color:#3c3e3a;
+    }
     
+    .pswfindhover {
+      color:#3c3e3a;
+    }
+    
+    a.idfindhover:hover, a.idfindhover:active {
+         
+         text-decoration: underline;
+    }
+    
+    a.pswfindhover:hover, a.pswfindhover:active {
+         text-decoration: underline;
     }
 
+    
     a:link {
     text-decoration: none;
-	
 	}
 
     
@@ -241,7 +253,21 @@ table {
     button:hover { 
        background-color:#3c3e3a;
     }
+    
+  
 
+    input[type=checkbox] + label{
+    display: inline-block;  
+    cursor: pointer;  
+    position: relative;  
+    padding-left: 1%;  
+    font-size: 13px;
+}
+
+    #login {
+     color:white;
+    }
+    
      .naver-btn {
         width:100%;
         margin:8px 0;
@@ -253,9 +279,8 @@ table {
         text-decoration: none;
         text-align: center;
         background-color:#1EC800;
-        color:white; 
+        color:white;
     } 
-    
     
     .google-btn {
         width:100%;
@@ -274,13 +299,40 @@ table {
     a:hover {
        opacity: 0.6;
     }
+    
+   /*  #userR {
 
+    
+      background-color:yellow;
+    }
+     */
+    
+    
+    .userR {
+      color:#FF9B55;
+      font-size:170%;
+      font-weight:bold;
+      text-align :center;
+
+    }
+    
+   
+    a.userR:hover, a.userR:active {
+      text-decoration: underline;
+    }
+
+     a.trainerR:hover, a.trainerR:active {
+      text-decoration: underline;
+     }
+ 
 }
 
 /*태블릿*/
 @media screen and (min-width:640px) and (max-width:1024px){
     
     div {
+    
+    
       background-color:red;
     }
 

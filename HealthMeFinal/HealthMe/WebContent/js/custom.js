@@ -15,12 +15,19 @@
     });
 
 
-    // ABOUT SLIDER
+    // 배경 슬라이드 속도 조절
     $('body').vegas({
+          overlay: true,
+        transition: 'fade', 
+        transitionDuration: 4000,
+        delay: 7000,
+        animation: 'random',
+        animationDuration: 20000,
+        backgroundSize:'cover',
         slides: [
             { src: 'images/dayeon.png' },
             { src: 'images/hyeyeon.png' },
-            { src: 'images/sola.png' },
+            { src: 'images/sola_bg.png' },
             { src: 'images/jongkyu.png' },
             { src: 'images/myeongsang.png' },
             { src: 'images/yeonggi.png' },

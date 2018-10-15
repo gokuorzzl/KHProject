@@ -1,108 +1,96 @@
 <!DOCTYPE html>
 <html>
 <head>
+      <!-- SCRIPTS -->
+     <script src="js/jquery.js"></script>
+     <script src="js/bootstrap.min.js"></script>
+     <script src="js/vegas.min.js"></script>
+     <script src="js/custom.js"></script>			
+	
     
-    <!--인코딩 문자셋-->
-    <meta charset="UTF-8">
-    <!--반응형 웹을 만들기 위한 meta태그의 viewport-->
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!--페이지 설명-->
-    <meta name="subject" content="헬th미 메인페이지" />
-    <!--키워드-->
-    <meta name="keywords" content="www.healthme.com, 트레이너, 나만의, 맞춤" />
-    <!--스타일-->
-    <link rel="stylesheet" href="trainerInfoPage.css" />
-    <!--title-->
-    <title>헬th미:나만의 트레이너</title>
-    
-
-    <script src="/Scripts/popper.js"></script>
-    <script src="/Scripts/mainbootstrap.js"></script>
-
-    
-    <style>
-        input{
-            box-sizing: border-box;
-            border: solid 2px #FF9B55; border-radius: 7px;
-        }
-    </style>
 </head>
 <body>
-    
- 
-    <!--전체 공간-->    
-    <div id="wrapper">
-        
-        <!--로고, 메뉴가 들어가는 윗부분-->
-        <!--top부분은 관리자페이지 제외한 모든 페이지 통일-->
-        <div id="top">
-            <div id="mobileMenu">
-                핸드폰일 경우 메뉴
-            </div>
-            <div id="logo">
-               로고
-            </div>
-            <div id="searchBar">
-                검색바
-            </div>
-            <div id="menu">
-                로그인, 메뉴
-            </div>
-        </div>
-        
-        <!--컨텐츠가 들어가는 중간부분-->
-        <!--페이지별로 달라지는 부분-->
-        <div id="middle">
+<!--스타일-->
+<link rel="stylesheet" href="../css/myPage/trainerList.css" />
 
-        <!--트레이너 별점 등 컨텐츠 나오는 부분-->
-        <!--multipart/form-data	인코딩 안 하고 파일 업로드시 사용-->
-        <form method="post" id="form-register-detail" enctype="multipart/form-data">
-            <div id="contents">
-                <div id="realContents">
-                    <div class="list-row">
-                        <div style="width:73%">
-                            <div class="wishlist-product-checkbox col-2 checkbox-col nopadding-right">
-                                <input type="checkbox" name="pid" id="check" class="product-checkbox">
-                            </div>
-                            <div class="col-7 wishlist-product-image">
-                                <img src="../images/thumb_person.png" width="30%" height="30%" line-height:normal text-align="center" >
-                            </div>
-                            <div class="cell-right">
-                                <div class="col-8 wishlist-product-desc">
-                                    김나영<br>
-                                    27세<br>
-                                    파워트레이너<br>
-                                </div>                                       
-                            </div>
+
+<script>
+   window.onload = function() {
+      var width = screen.availWidth-20;
+      var height = screen.availHeigth-120;
+      var body = document.getElementById("wrapper");
+      body.style.width = width+"px";
+      body.style.height = height+"px";
+      console.log(width+","+height);
+      
+   }
+  
+  </script>
+                <div class="col-sm-9">
+                    <article class="account-content">
+                        <h3><font color="#FF9A55">Trainer-list</font></h3>
+                        <div class="table-responsive">
+                            <table class="table table-products">
+                                <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th><font color="#FF9B55">Product</font></th>
+                                            <th><font color="#FF9B55">detail</font></th>
+                                            <th><font color="#FF9B55">check</font></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                <tbody>
+                                    <tr>
+                                        <!--DISPLAY : NONE 써서 삭제 누르면 삭제되도록.-->
+                                        <td class="col-xs-1"><img img src="../images/jubin.jpg" alt="" class="img-responsive"></td>
+                                        <td class="col-xs-4 col-md-5"><h4><a href="connectToTrainer1.html">이주빈</a><br><br><small>강남, 요가, "Wanna be a supermodel?"</small></h4></td>
+                                        <td class="col-xs-2 col-md-1 text-center" style="text-align:center"><span><b><input type="checkbox" name="pid" id="check" class="product-checkbox"></b></span></td>
+                                        <td class="col-xs-2 text-center">
+                                            <span><b>
+                                                <input class="wl-add-to-cart btn btn-lg btn-primary btn-block" type="submit" value="컨택하기" data-pid="64530" name="pid@64530" data-msg="강사님과 연결됩니다." data-na-msg="죄송하지만, 강사님께서 글을 내리셨습니다." data-ga-event="click" data-ga-event-category="Wishlist-Action" data-ga-event-action="Wishlist" data-ga-event-label="Click - Add product to cart" data-ga-event-value="pid64530">
+
+                                                <input value="64530" name="pid" type="hidden">
+
+                                                <p class="remove link blue-link text-center" id="remove_64530" data-pid="64530" data-msg="삭제되었습니다" data-ga-event="click" data-ga-event-category="Wishlist-Action" data-ga-event-action="Wishlist" data-ga-event-label="Click - Remove product" data-ga-event-value="pid64530">- CLEAR -</p>
+                                            </b></span></td>
+                                        <td class="col-xs-2 text-center"><a href="" class="btn btn-primary"><i class="fa fa-shopping-cart"></i></a><a href="" class="btn btn-primary"><i class="fa fa-times"></i></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-xs-1"><img src="../images/jaehun.jpg" alt="" class="img-responsive"></td>
+                                        <td class="col-xs-4 col-md-5"><h4><a href="connectToTrainer2.html">이제훈</a><br><br><small>강서, 퍼스널 트레이닝, "3주만에 눈에 보이는 체중감량!"</small></h4></td>
+                                        <td class="col-xs-2 col-md-1 text-center" style="text-align:center"><span><b><input type="checkbox" name="pid" id="check" class="product-checkbox"></b></span></td>
+                                        <td class="col-xs-2 text-center">
+                                            <span><b>
+                                                <input class="wl-add-to-cart btn btn-lg btn-primary btn-block" type="submit" value="컨택하기" data-pid="64530" name="pid@64530" data-msg="강사님과 연결됩니다." data-na-msg="죄송하지만, 강사님께서 글을 내리셨습니다." data-ga-event="click" data-ga-event-category="Wishlist-Action" data-ga-event-action="Wishlist" data-ga-event-label="Click - Add product to cart" data-ga-event-value="pid64530">
+
+                                                <input value="64530" name="pid" type="hidden">
+
+                                                <p class="remove link blue-link text-center" id="remove_64530" data-pid="64530" data-msg="삭제되었습니다" data-ga-event="click" data-ga-event-category="Wishlist-Action" data-ga-event-action="Wishlist" data-ga-event-label="Click - Remove product" data-ga-event-value="pid64530">- CLEAR -</p>
+                                            </b></span></td>
+                                        <td class="col-xs-2 text-center"><a href="" class="btn btn-primary"><i class="fa fa-shopping-cart"></i></a><a href="" class="btn btn-primary"><i class="fa fa-times"></i></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-xs-1"><img src="../images/seolhyun.jpg" alt="" class="img-responsive"></td>
+                                        <td class="col-xs-4 col-md-5"><h4><a href="connectToTrainer3.html">김설현</a><br><br><small>강북, 필라테스, "어제 먹은 고기를 불태우자!"</small></h4></td>
+                                        <td class="col-xs-2 col-md-1 text-center" style="text-align:center"><span><b><input type="checkbox" name="pid" id="check" class="product-checkbox"></b></span></td>
+                                        <td class="col-xs-2 text-center">
+                                            <span><b>
+                                                <input class="wl-add-to-cart btn btn-lg btn-primary btn-block" type="submit" value="컨택하기" data-pid="64530" name="pid@64530" data-msg="강사님과 연결됩니다." data-na-msg="죄송하지만, 강사님께서 글을 내리셨습니다." data-ga-event="click" data-ga-event-category="Wishlist-Action" data-ga-event-action="Wishlist" data-ga-event-label="Click - Add product to cart" data-ga-event-value="pid64530">
+
+                                                <input value="64530" name="pid" type="hidden">
+
+                                                <p class="remove link blue-link text-center" id="remove_64530" data-pid="64530" data-msg="삭제되었습니다" data-ga-event="click" data-ga-event-category="Wishlist-Action" data-ga-event-action="Wishlist" data-ga-event-label="Click - Remove product" data-ga-event-value="pid64530">- CLEAR -</p>
+                                            </b></span></td>
+                                        <td class="col-xs-2 text-center"><a href="" class="btn btn-primary"><i class="fa fa-shopping-cart"></i></a><a href="" class="btn btn-primary"><i class="fa fa-times"></i></a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-                        <div style="width:27%">
-                            <div class="wishlist-product-action">
-                                <div style="height:20px">
-                                    <input class="wl-add-to-cart btn btn-lg btn-primary btn-block" type="submit" value="컨택하기" data-pid="00000" name="pid@00000" data-msg="강사님과 연결됩니다." data-na-msg="죄송하지만, 강사님께서 글을 내리셨습니다." data-ga-event="click" data-ga-event-category="Wishlist-Action" data-ga-event-action="Wishlist" data-ga-event-label="Click - Add product to cart" data-ga-event-value="pid64530">
-                                    <input value="00000" name="pid" type="hidden">
-                                    <p class="remove link blue-link text-center" id="remove_00000" data-pid="00000" data-msg="삭제되었습니다" data-ga-event="click" data-ga-event-category="Wishlist-Action" data-ga-event-action="Wishlist" data-ga-event-label="Click - Remove product" data-ga-event-value="pid00000">제거하기</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>      
-            </div>
-            <div class="regbtn_cont">
-            <!--a href="#" class="btn_gry">임시 저장</a-->
-            <input type="submit" class="btn btn-info" value="등록 완료">
-            <!--a href class="btn_red">등록 완료</a-->
-            </div>
-            
-        </form>
-                    
-        </div>
-        
-        <!--회사정보가 들어가는 아랫부분-->
-        <!--bottom부분은 관리자페이지 제외한 모든 페이지 통일-->
-        <div id="bottom"><br>
-            김구이김주정조 정보
-        </div>
-    </div>
-    
+                        <a href="" class="btn btn-primary"> - ALL CLEAR - </a>
+                        <a href="" class="btn btn-primary"> - SELECT CLEAR - </a>
+                    </article>
+                </div>
+
 </body>
 </html>

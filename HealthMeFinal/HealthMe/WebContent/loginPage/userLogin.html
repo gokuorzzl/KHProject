@@ -13,10 +13,23 @@
     <!--스타일-->
     <link rel="stylesheet" href="../css/loginPage/userLogin.css"/>
     <!--title-->
-    <title>헬th미: 이용자 회원가입</title>
+    <title>헬th미: 회원가입</title>
     
 </head>
 <body>
+
+  <script>
+   window.onload = function() {
+	   var width = screen.availWidth-20;
+	   var height = screen.availHeigth-120;
+	   var body = document.getElementById("wrapper");
+	   body.style.width = width+"px";
+	   body.style.height = height+"px";
+	   console.log(width+","+height);
+	   
+   }
+  
+  </script>
     
  
     <!--전체 공간-->    
@@ -44,15 +57,16 @@
         <div id="middle">
             <!--지역, 종목 등 선택할 수 있는 선택박스-->
             <div id="searchBox">
-                <img src="../images/soraLogo.png" alt="logo" class="logo-center";>
+                
+                 <img src="../images/soraLogo.png" alt="logo" class="logo-center";>
+                
             </div><!--트레이너 별점 등 컨텐츠 나오는 부분-->
             <div id="contents">
                 <div id="realContents">
                   <div class="info-container">
-                    <form action="/action_page.php">
+                    <form action="/action_page.php" id="userR">
                      
-                     
-                        <br><label for="id">아이디</label><br>
+                        <label for="id">아이디</label><br>
                         <input type="text" id="userId" name="userId"><br>
                          
                          <label for="psw">비밀번호</label><br>
@@ -86,8 +100,8 @@
                                <option value="naver.com">naver.com</option>
                                <option value="nate.com">nate.com</option>
                            </select>
-                         
-                      <br><button type="submit" class="register-button">가입하기</button>
+                       
+                      <button type="submit" class="register-button">가입하기</button>
                       
                    </form>
                 </div>
