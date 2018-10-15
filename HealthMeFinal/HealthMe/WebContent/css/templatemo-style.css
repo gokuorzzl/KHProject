@@ -1,11 +1,20 @@
  
   @import url('https://fonts.googleapis.com/css?family=Poppins:300,400');
 
+
+/*새롭게 적용할 NotoSans-Bold*/
+@font-face{
+font-family:'NotoSans';
+src:url(../fonts/NotoSans-Bold.eot);/*익스플로러*/
+src:url(../fonts/NotoSans-Bold.woff) format('woff');  /*크롬, 파이어폭스*/
+src:local(※), url(../fonts/NotoSans-Bold.woff) format('woff');
+}
+
   body {
     margin: 0;
     -webkit-perspective: 1000;
     font-family: 'Poppins', sans-serif;
-    background: #303030;
+    background: #3c3e3a;
   }
 
   body, html {
@@ -17,26 +26,30 @@
 
 
   /*---------------------------------------
-     TYPOGRAPHY              
+     태그별 style              
   -----------------------------------------*/
 
   h1,h2,h3,h4,h5,h6 {
     font-weight: 300;
     line-height: inherit;
+	  font-family:'NotoSans';
   }
 
   h1 {
     color: #ffffff;
     font-size: 2em;
+
   }
   h3 {
     color: #ffffff;
     font-size: 1em;
+
   }
 
   h2 {
     color: #353535;
     font-size: 2em;
+
   }
 
   p {
@@ -44,9 +57,8 @@
     font-size: 14px;
     font-weight: normal;
     line-height: 24px;
+	  font-family:'NotoSans';
   }
-
-
 
   /*---------------------------------------
      GENERAL               
@@ -54,11 +66,16 @@
 
   html{
     -webkit-font-smoothing: antialiased;
+	font-family: sans-serif;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	font-family: 'NotoSans';
   }
 
   a {
     color: #202020;
     text-decoration: none !important;
+	  font-family:'NotoSans';
   }
 
   a,
@@ -66,10 +83,16 @@
   .form-control {
     -webkit-transition: 0.5s;
     transition: 0.5s;
+	  font-family:'NotoSans';
   }
-
+  button{
+	-webkit-transition: 0.5s;
+    transition: 0.5s;
+	text-indent: inherit;
+	  
+  }
   a:hover, a:active, a:focus {
-    color: #29ca8e;
+    color: #d2b48c;
     outline: none;
   }
 
@@ -128,8 +151,8 @@
 
   .subscribe-form button[type="submit"] {
     background: transparent;
-    border: 0;
     outline: none;
+	float : right;
   }
 
   .subscribe-form .fa {
@@ -144,7 +167,7 @@
 
 
   /*---------------------------------------
-       PRE LOADER              
+       PRE LOADER style             
   -----------------------------------------*/
 
   .preloader {
@@ -159,6 +182,7 @@
     justify-content: center;
     align-items: center;
     background: none repeat scroll 0 0 #ffffff;
+    background-size:cover;
   }
 
   .spinner {
@@ -180,7 +204,7 @@
     border-radius: 50%;
     border: 1px solid #575757;
     border-top-color: #ffffff;
-    animation: spinner .9s linear infinite;
+    animation: spinner .20s linear infinite;
   }
 
   @-webkit-@keyframes spinner {
@@ -193,7 +217,7 @@
 
 
   /*---------------------------------------
-      MENU              
+      MENU style           
   -----------------------------------------*/
 
   .menu, .menu-bg, .menu-burger {
@@ -210,7 +234,8 @@
   }
 
   .menu-bg {
-    background: #101010;
+    background: #3c3e3a; 
+/*원래 배경색 #101010*/
     pointer-events: none;
     transition: .3s;
     right: 50px;
@@ -227,6 +252,7 @@
 
   .menu-burger {
     color: #ffffff;
+	background-color: break;
     padding-top: 11px;
     -webkit-user-select: none;
     cursor: pointer;
@@ -322,6 +348,7 @@
     color:#ffffff;
     font-size: 13px;
     opacity: 1;
+	
 }
 .menu-local-font-join{
     color:#ffffff;
@@ -330,7 +357,7 @@
     float:right;
 }
   /*---------------------------------------
-      HOME          
+      메인 style         
   -----------------------------------------*/
 
   #home {
@@ -360,86 +387,12 @@
     width: 100%;
     height: 100vh;
   }
-  
-  .countdown {
-    text-align: center;
-    margin: 50px 0;
-    padding: 0;
-  }
-
-  .countdown li {
-    color: #ffffff;
-    list-style: none;
-    display: inline-block;
-    margin: 0 20px;
-  }
-
-  .countdown span {
-    font-size: 25px;
-  }
-
-  .countdown h3 {
-    font-size: 14px;
-    text-transform: uppercase;
-    margin: 10px 0;
-  }
-
-  .home-img{
-      background-image: url("../images/sola.png");
-      background-repeat: no-repeat;
-      background-size:contain;
-      background-position: center;
-  }
 .rogo-img{
     position: absolute;
     width: 100%;
     height: 100%;
     
 }
-  /*---------------------------------------
-     SOCIAL ICON              
-  -----------------------------------------*/
-
-  .social-icon {
-    position: relative;
-    padding: 0;
-    margin: 30px 0 0 0;
-    text-align: center;
-  }
-
-  .social-icon .line {
-    background: #ffffff;
-    width: 50px;
-    height: 2px;
-    margin-right: 10px;
-    position: relative;
-    bottom: 5px;
-  }
-
-  .social-icon li {
-    display: inline-block;
-    list-style: none;
-  }
-
-  .social-icon li a {
-    border-radius: 50px;
-    color: #ffffff;
-    font-size: 15px;
-    width: 35px;
-    height: 35px;
-    line-height: 35px;
-    text-decoration: none;
-    text-align: center;
-    position: relative;
-    margin: 5px 5px 5px 0;
-  }
-
-  .social-icon li a:hover {
-    background: #d2b48c;
-    color: #ffffff;
-  }
-
-
 
   /*---------------------------------------
      RESPONSIVE STYLES              
@@ -450,11 +403,7 @@
     .home-info {
       padding: 0 1em 0 1em;
     }
-
-    .countdown li {
-      margin: 0 12px;
-    }
-
+	  
     address {
       margin-top: 50px;
     }
@@ -470,23 +419,17 @@
       margin: 100px 0;
     }
 
-    .countdown span {
-      font-size: 20px;
-    }
-
-    .countdown h3 {
-      font-size: 12px;
-    }
   }
   /*---------------------------------------
-     BACKGROUND STYLES              
+     배경 STYLES              
   -----------------------------------------*/
 .bg-slide{
-    width: 100%;
+    width:auto;
     height: 100%;
     position: fixed;
     top:0px;
     left: 0px;
+    background-size: cover;
 }
 .bg-slide li{
     width:100%;

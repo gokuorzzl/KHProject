@@ -1,4 +1,5 @@
 /*vegas 보기 편하게 정리함 css*/
+/*배경이미지 슬라이드를 위한 css*/
 
 .vegas-overlay,.vegas-slide,.vegas-slide-inner,.vegas-timer,.vegas-wrapper{
     position:absolute;
@@ -15,14 +16,14 @@
     opacity:.5;
     background:url(overlays/02.png) center center;
 }
-.vegas-timer{
+.vegas-timer{s
     top:auto;
     bottom:0;
     height:2px
 }
 .vegas-timer-progress{
     width:0;
-    height:100%;
+    height:90%;
     background:#fff;
     -webkit-transition:width ease-out;
     transition:width ease-out
@@ -32,6 +33,7 @@
     margin:0;
     padding:0;
     background:center center no-repeat;
+    background-size: cover;
     -webkit-transform:translateZ(0);
     transform:translateZ(0)
 }
