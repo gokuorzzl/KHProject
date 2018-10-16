@@ -149,6 +149,8 @@
                </div>
             </li>
             <!--<br /><br />-->
+            </ul>
+          <ul>
             <li>
                <label>자격증<br>(선택)</label>
                               <input id="Cert0" name="Cert0" type="text" placeholder="예) 토플 117, HSK 6급, GTQ 1급, 입상경력.." value="" class="input_txt01"/>
@@ -172,8 +174,21 @@
                   }
                </script>
             </li>
-             
-             
+            </ul>
+          <ul>
+            <li>
+                <div class="career-group">
+                    <p>경력사항</p>
+                    <form id="career_start" action="action.jsp">
+                        <div>
+                            <input type="date" id="userdate_start" name="userdate" value="2015-10-10">
+                            ~
+                            <input type="date" id="userdate_finish" name="userdate" value="2015-10-10">
+                            <input type="submit" value="전송">
+                        </div>
+                    </form>
+                </div>
+            </li>
             <li>
                 <!--<br>
                 <br>-->
@@ -182,14 +197,13 @@
                   <textarea class="form-control" rows="5" id="comment"></textarea>
                 </div>
             </li>
-         </ul>
+        </ul>
       </div>
    </div>
 </form>
 </div>
     
-    
 </div>
-    
+
 </body>
 </html>
