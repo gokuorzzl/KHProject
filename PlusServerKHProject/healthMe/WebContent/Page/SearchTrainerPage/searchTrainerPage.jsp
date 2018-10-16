@@ -13,7 +13,12 @@
     <!--키워드-->
     <meta name="keywords" content="www.healthme.com, 트레이너, 나만의, 맞춤" />
     <!--스타일-->
-    <link rel="stylesheet" href="../../CSS/SearchTrainerPage/serchTrainerPage.css" />
+    <link rel="stylesheet" href="../../css/SearchTrainerPage/serchTrainerPage.css" />
+    <!-- 스크립트 -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+ 			integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  			crossorigin="anonymous"></script>
+  	<script type="text/javascript" src="../../js/searchTrainerPage/searchingArea.js"></script>
     <!--title-->
     <title>헬th미:나만의 트레이너</title>
 
@@ -32,7 +37,7 @@
                 </div>
             </div>
             <div id="logo">
-               <img src="../images/%EB%A1%9C%EA%B3%A0.png">
+               <img src="../../img/%EB%A1%9C%EA%B3%A0.png">
             </div>
             <div id="searchBar">
                 <input type="text" name="searchInput" id="searchInput" value="지역, 종목 검색" />
@@ -54,9 +59,9 @@
             <div id="searchBox">
                 <div id="realSearchBox">
                     <div id="searchName">
-                        <div>지역</div>
-                        <div>세부지역</div>
-                        <div>분야</div>
+                        <div>광역시/도</div>
+                        <div>시/군/구</div>
+                        <div>읍/면/동</div>
                         <div>종목</div>
                     </div>
                     <div id="selectMenu">
@@ -82,16 +87,16 @@
                             </ul>
                         </div>
                         <div id="subArea" class="scrollStyle">
-                            서울특별시를 선택하면 동대문구, 중랑구 등 단위로 나올 수 있도록 스크립트? 작성
+  							<ul>
+  							<!-- id="area"에서 선택한 지역의 세부지역이 나오는 부분 -->
+  							</ul>
                         </div>
-                        <div id="field" class="scrollStyle">
+                        <div id="subArea2" class="scrollStyle">
                             <ul>
-                                <li>다이어트</li>
-                                <li>체형교정</li>
-                                <li>...</li>
+                            <!-- id="subArea2"에서 선택한 지역의 세부지역이 나오는 부분 -->
                             </ul>
                         </div>
-                        <div id="subField" class="scrollStyle">
+                        <div id="field" class="scrollStyle">
                             다이어트도 체형교정도 헬스 할 수 있잖아??
                             세부종목 말고 다른 것 들어가도 좋을 것 같은데..
                         </div>
