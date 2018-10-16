@@ -1,15 +1,21 @@
 /*----------------------------------------------*/
 /*인코딩 문자셋*/
 @charset "UTF-8";
-
-
+/* 
 @font-face{
 font-family:'서울남산체';
-src:url(../fonts/SeoulNamsan.eot);/*익스플로러*/
-src:url(../fonts/SeoulNamsan.woff) format('woff');  /*크롬, 파이어폭스*/
-src:local(※), url(../fonts/SeoulNamsan.woff) format('woff');
-}
+src:url(../../fonts/SeoulNamsan.eot);익스플로러
+src:url(../../fonts/SeoulNamsan.woff) format('woff');  크롬, 파이어폭스
+src:local(※), url(../../fonts/SeoulNamsan.woff) format('woff');
+} */
 
+/*새롭게 적용할 NotoSans-Bold*/
+@font-face{
+font-family:'NotoSans';
+src:url(../../fonts/NotoSans-Bold.eot);/*익스플로러*/
+src:url(../../fonts/NotoSans-Bold.woff) format('woff');  /*크롬, 파이어폭스*/
+src:local(※), url(../../fonts/NotoSans-Bold.woff) format('woff');
+}
 
 
 /*각종 인터넷 브라우저에서 코드 작동이 가능하도록 하는 css Reset*/
@@ -23,7 +29,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-	font-family: '서울남산체';
+	font-family: 'NotoSans';
 	
 }
 /* HTML5 display-role reset for older browsers */
@@ -53,7 +59,7 @@ table {
 /*css 공통코드 작성부분*/
 /* div전체 */
   div{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     box-sizing: border-box;
     margin: 0;
    
@@ -77,13 +83,13 @@ table {
     #wrapper{
         position: absolute;
         width:100%;
-        height:100%;    
+        height:120%;    
     }
     
     /*top부분*/
     #top{
         width: 100%;
-        height:1%; /*  */
+        height:10%; /*  */
     }
     
     #mobileMenu{
@@ -111,7 +117,7 @@ table {
     /*middle부분*/
     #middle{
         width: 100%;
-        height: 91%; /*  */
+        height: 82%; /*  */
     }
     
     #searchBox{
@@ -147,14 +153,24 @@ table {
     
     
     /*-------------추가 Desktop-------------------- */
+    
+    #logoBox {
+     width:100%;
+     height:100%;
+     margin:auto;
+    }
+  
     .logo-center {
       display: block;
-      margin-left:auto;
-      margin-right:auto;
-      width:30%;
+      margin-left: auto;
+      margin-right: auto;
+      width: 20%;
+
     }
     
-    
+    #login-letter {
+      font-size:25px;
+    }
     
     input[type=text] {
        width:100%;
@@ -185,20 +201,49 @@ table {
     }
     
     .login-container1 {
-        max-width:40%;
+        max-width:38%;
         margin:auto;
     }
     
     .login-container2 {
-        max-width:40%;
+        max-width:38%;
         margin:auto;
         text-align: center;
     }
     
-    .psw {
-       
-       text-decoration:none;
+    #find-container {
+      text-align: center;
+      text-decoration:none;
+    
     }
+    
+    #idfind {
+      width:50%;
+      float:left;
+    }
+    
+    .idfindhover {
+      color:#3c3e3a;
+    }
+    
+    .pswfindhover {
+      color:#3c3e3a;
+    }
+    
+    a.idfindhover:hover, a.idfindhover:active {
+         
+         text-decoration: underline;
+    }
+    
+    a.pswfindhover:hover, a.pswfindhover:active {
+         text-decoration: underline;
+    }
+
+    
+    a:link {
+    text-decoration: none;
+	}
+
     
     .login-button {
         background-color:#FF9B55;
@@ -209,37 +254,49 @@ table {
         border:none;
         cursor:pointer;
         width:100%;
+        height:60px;
     }
     
     button:hover { 
        background-color:#3c3e3a;
     }
-   
+    
+  
+
+    input[type=checkbox] + label{
+    display: inline-block;  
+    cursor: pointer;  
+    position: relative;  
+    padding-left: 1%;  
+    font-size: 13px;
+}
+
+    #login {
+     color:white;
+    }
+    
      .naver-btn {
-        width:89%;
-        padding:14px 20px;
+        width:100%;
         margin:8px 0;
         border:none;
         cursor:pointer;
         display:inline-block;
         font-size:17px;
-        line-height:10px;
+        line-height:50px;
         text-decoration: none;
         text-align: center;
         background-color:#1EC800;
         color:white;
     } 
     
-    
     .google-btn {
-        width:89%;
-        padding:14px 20px;
+        width:100%;
         margin:8px 0;
         border:none;
         cursor:pointer;
         display:inline-block;
         font-size:17px;
-        line-height:10px;
+        line-height:50px;
         text-decoration: none;
         text-align: center;
         background-color:#dd4b39;
@@ -249,13 +306,40 @@ table {
     a:hover {
        opacity: 0.6;
     }
+    
+   /*  #userR {
 
+    
+      background-color:yellow;
+    }
+     */
+    
+    
+    .userR {
+      color:#FF9B55;
+      font-size:170%;
+      font-weight:bold;
+      text-align :center;
+
+    }
+    
+   
+    a.userR:hover, a.userR:active {
+      text-decoration: underline;
+    }
+
+     a.trainerR:hover, a.trainerR:active {
+      text-decoration: underline;
+     }
+ 
 }
 
 /*태블릿*/
 @media screen and (min-width:640px) and (max-width:1024px){
     
     div {
+    
+    
       background-color:red;
     }
 
