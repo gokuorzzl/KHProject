@@ -1,0 +1,429 @@
+/*----------------------------------------------*/
+/*인코딩 문자셋*/
+@charset "UTF-8";
+
+
+/*새롭게 적용할 NotoSans-Bold*/
+@font-face{
+font-family:'NotoSans';
+src:url(../../fonts/NotoSans-Bold.eot);/*익스플로러*/
+src:url(../../fonts/NotoSans-Bold.woff) format('woff');  /*크롬, 파이어폭스*/
+src:local(※), url(../../fonts/NotoSans-Bold.woff) format('woff');
+}
+
+
+
+
+/*각종 인터넷 브라우저에서 코드 작동이 가능하도록 하는 css Reset*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, b, u, i, center,
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	font-family: 'NotoSans';
+	
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*----------------------------------------------*/
+/*css 공통코드 작성부분*/
+/* div전체 */
+div{
+    /* border: 1px solid black; */
+    box-sizing: border-box;
+    margin: 0;
+   
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----------------------------------------------*/
+/* 반응형 웹 부분 */
+/*데스크톱, 태블릿, 모바일 세 개의 사이즈로 나눠집니다.*/ 
+/*전체적인 틀은 변하지 않고 화면의 사이즈가 줄어들에 따라 콘텐츠의 배치만 달라집니다.*/
+
+/*데스크톱*/
+@media screen and (min-width:1024px){
+	
+    
+    /*div전체*/
+    #wrapper{
+        position: absolute;
+        width:100%;
+        height:100%;    
+    }
+    
+    /*top부분*/
+    #top{
+        width: 100%;
+        height:7%;
+    }
+    
+    #mobileMenu{
+        display: none;
+    }
+    
+    #logo{
+        width: 25%;
+        height: 100%;
+        float: left;
+    }
+    
+    #searchBar{
+        width: 50%;
+        height: 100%;
+        float: left;
+    }
+    
+    #menu{
+        width: 25%;
+        height: 100%;
+        float: left;
+    }
+    
+    /*middle부분*/
+    #middle{
+        width: 100%;
+        height: 85%;
+    }
+    
+    #searchBox{
+        width: 100%;
+        height: 10%; /*  */
+    }
+    #contents{
+        width: 100%;/*  */
+        height: 90%; /*  */
+    }
+    
+    #realSearchBox{
+        width: 70%;
+        height: 90%;
+        margin: auto;
+        margin-top: 1%;
+    }
+    
+    #realContents{
+        width: 40%;
+        height: 90%;
+        margin: auto;
+        margin-top: 2.5%;
+    }
+    
+    
+    /*bottom*/
+    #bottom{
+        width: 100%;
+        height: 8%;
+    }
+    
+       /*-------------추가 Desktop----------------------- */
+ 
+      #logoBox {
+     width:100%;
+     height:100%;
+     margin:auto;
+    }
+  
+    .logo-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 16%;
+
+    }
+    
+    /* .policy-menu {
+      list-style-type:none;
+      margin:0%;
+      padding:0%; 
+      overflow: hidden;
+      background-color:#FF9B55;
+      text-align:center;
+    }
+    
+    li {
+      float:left;
+      width:33.333%;
+   
+    }
+    
+    li a {
+      display:inline-block;
+      color:white;
+      padding:5% 5%;  
+      text-decoration:none;
+      font-size: 120%;
+  
+   
+    }
+    
+    li:hover{
+       background-color:#353130;
+    }
+    
+    #tab-1 {
+      height:52px;
+    
+    }
+    
+    #tab-2 {
+      height:52px;
+    }
+    
+    #tab-3 {
+      height:52px;
+    } */
+    
+    
+    .agree-content {
+      overflow:scroll;
+      width:100%;
+      height:70%;
+      background-color:#f9dfcc;
+    }
+    
+    #title-container {
+      display:table;
+      width:100%;
+      height:7%;
+      background:#FF9B55;
+      
+    }
+    
+    #policyTitle {
+       
+       display:table-cell;
+       vertical-align:middle;
+       text-align:center;
+       color:white;
+       font-size:140%;
+     
+    }
+  
+    .agreeBtn {
+        background-color:#FF9B55;
+        color:white;
+        font-size:25px;
+        padding:14px 20px;
+        margin:8px 0;
+        border:none;
+        cursor:pointer;
+        width:100%;
+ 
+    }
+    
+    button.agreeBtn:hover {
+       background-color:#353130;
+    }
+    
+  
+  
+    
+}
+
+/*태블릿*/
+@media screen and (min-width:640px) and (max-width:1024px){
+    
+    /*div전체*/
+    #wrapper{
+        position: absolute;
+        width:100%;
+        height:1000px;    
+    }
+    
+    /*top부분*/
+    #top{
+        width: 100%;
+        height: 10%;
+    }
+    
+    #mobileMenu{
+        display: none;
+    }
+    
+    #logo{
+        width: 25%;
+        height: 100%;
+        float: left;
+    }
+    
+    #searchBar{
+        width: 50%;
+        height: 100%;
+        float: left;
+    }
+    
+    #menu{
+        width: 25%;
+        height: 100%;
+        float: left;
+    }
+    
+    /*middle부분*/
+    #middle{
+        width: 100%;
+        height: 80%;
+    }
+    
+    #searchBox{
+        width: 100%;
+        height: 30%;
+    }
+    
+    #contents{
+        width: 100%;
+        height: 70%;
+    }
+    
+    #realSearchBox{
+        width: 80%;
+        height: 90%;
+        margin: auto;
+        margin-top: 1%;
+    }
+    
+    #realContents{
+        width: 80%;
+        height: 90%;
+        margin: auto;
+        margin-top: 2.5%;
+    }
+    
+    /*bottom*/
+    #bottom{
+        width: 100%;
+        height: 10%;
+    }
+    
+}
+
+/*모바일*/
+@media screen and (max-width:640px){
+    
+    /*div전체*/
+    #wrapper{
+        position: absolute;
+        width:100%;
+        height: 1200px;    
+    }
+    
+    /*top부분*/
+    #top{
+        width: 100%;
+        height: 25%;
+    }
+    
+    #mobileMenu{
+        width: 100%;
+        height: 15%;
+    }
+    
+    #logo{
+        width: 100%;
+        height: 65%;
+    }
+    
+    #searchBar{
+        width: 100%;
+        height: 20%;
+    }
+    
+    #menu{
+        display: none;
+    }
+    
+    /*middle부분*/
+    #middle{
+        width: 100%;
+        height: 65%;
+    }
+    
+    #searchBox{
+        width: 100%;
+        height: 30%;
+    }
+    
+    #contents{
+        width: 100%;
+        height: 70%;
+    }
+    
+    #realSearchBox{
+        width: 90%;
+        height: 90%;
+        margin: auto;
+        margin-top: 3%;
+    }
+    
+    #realContents{
+        width: 90%;
+        height: 95%;
+        margin: auto;
+        margin-top: 3%;
+    }
+    
+    /*bottom*/
+    #bottom{
+        width: 100%;
+        height: 10%;
+    }
+    
+    
+    
+}
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
