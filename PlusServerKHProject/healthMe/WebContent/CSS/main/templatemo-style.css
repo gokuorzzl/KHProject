@@ -1,0 +1,526 @@
+ 
+  @import url('https://fonts.googleapis.com/css?family=Poppins:300,400');
+
+
+/*새롭게 적용할 NotoSans-Bold*/
+@font-face{
+font-family:'NotoSans';
+src:url(../fonts/NotoSans-Bold.eot);/*익스플로러*/
+src:url(../fonts/NotoSans-Bold.woff) format('woff');  /*크롬, 파이어폭스*/
+src:local(※), url(../fonts/NotoSans-Bold.woff) format('woff');
+}
+
+  body {
+    margin: 0;
+    -webkit-perspective: 1000;
+    font-family: 'Poppins', sans-serif;
+    background: #3c3e3a;
+  }
+
+  body, html {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+
+
+  /*---------------------------------------
+     태그별 style              
+  -----------------------------------------*/
+
+  h1,h2,h3,h4,h5,h6 {
+    font-weight: 300;
+    line-height: inherit;
+	  font-family:'NotoSans';
+  }
+
+  h1 {
+    color: #ffffff;
+    font-size: 2em;
+
+  }
+  h3 {
+    color: #ffffff;
+    font-size: 1em;
+
+  }
+
+  h2 {
+    color: #353535;
+    font-size: 2em;
+
+  }
+
+  p {
+    color: #757575;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 24px;
+	  font-family:'NotoSans';
+  }
+
+  /*---------------------------------------
+     GENERAL               
+  -----------------------------------------*/
+
+  html{
+    -webkit-font-smoothing: antialiased;
+	font-family: sans-serif;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	font-family: 'NotoSans';
+  }
+
+  a {
+    color: #202020;
+    text-decoration: none !important;
+	  font-family:'NotoSans';
+  }
+
+  a,
+  input, button,
+  .form-control {
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+	  font-family:'NotoSans';
+  }
+  button{
+	-webkit-transition: 0.5s;
+    transition: 0.5s;
+	text-indent: inherit;
+	  
+  }
+  a:hover, a:active, a:focus {
+    color: #d2b48c;
+    outline: none;
+  }
+
+  ::-webkit-scrollbar{
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    background: #202020;
+  }
+
+  .overlay {
+    background: linear-gradient(to top right, #d2b48c, #000000);
+    opacity: 0.9;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .grid {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .grid-line {
+    height: 300vh;
+    border-right: 1px solid rgba(255,255,255,0.02);
+  }
+
+  .google-map iframe {
+    border: 0;
+    margin-top: 20px;
+  }
+
+  .subscribe-form {
+    position: relative;
+  }
+
+  .subscribe-form .form-control {
+    background: #ffffff;
+    box-shadow: none;
+    border: 0;
+    border-radius: 50px;
+	width: 340px;
+    height: 45px;
+    padding: 6px 30px;
+  }
+
+  .subscribe-form button[type="submit"] {
+    background: transparent;
+    outline: none;
+	float : right;
+  }
+
+  .subscribe-form .fa {
+    cursor: pointer;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    color: #d2b48c;
+    font-size: 20px;
+  }
+
+
+
+  /*---------------------------------------
+       PRE LOADER style             
+  -----------------------------------------*/
+
+  .preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    background: none repeat scroll 0 0 #ffffff;
+    background-size:cover;
+  }
+
+  .spinner {
+    border: 1px solid transparent;
+    border-radius: 3px;
+    position: relative;
+  }
+
+  .spinner:before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 45px;
+    height: 45px;
+    margin-top: -10px;
+    margin-left: -10px;
+    border-radius: 50%;
+    border: 1px solid #575757;
+    border-top-color: #ffffff;
+    animation: spinner .20s linear infinite;
+  }
+
+  @-webkit-@keyframes spinner {
+    to {transform: rotate(360deg);}
+  }
+
+  @keyframes spinner {
+    to {transform: rotate(360deg);}
+  }
+
+
+  /*---------------------------------------
+      MENU style           
+  -----------------------------------------*/
+
+  .menu, .menu-bg, .menu-burger {
+    position: fixed;
+    z-index: 222;
+    width: 50px;
+    height: 50px;
+    line-height: 30px;
+    font-size: 25px;
+    text-align: center;
+    border-radius: 100%;
+    right: 25px;
+    top: 25px;
+  }
+
+  .menu-bg {
+    background: #3c3e3a; 
+/*원래 배경색 #101010*/
+    pointer-events: none;
+    transition: .3s;
+    right: 50px;
+    top: 50px;
+    transform: translate3d(50%, -50%, 0);
+    transform-origin: center center;
+  }
+
+  .menu-bg.fs {
+    transform: translate3d(50%, -50%, 0);
+    width: 500vw;
+    height: 500vw;
+  }
+
+  .menu-burger {
+    color: #ffffff;
+	background-color: break;
+    padding-top: 11px;
+    -webkit-user-select: none;
+    cursor: pointer;
+    transition: .4s;
+    transform-origin: center;
+    z-index: 9999;
+  }
+
+  .menu-burger.fs {
+    transform: rotate(-180deg) translateY(5px);
+  }
+
+  .menu-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    position: absolute;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: .4s;
+    margin-top: 50px;
+    transform: translateY(-200%);
+    pointer-events: none;
+  }
+
+  .menu-items ul.menu {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    top: 10px;
+  }
+
+  .menu-items ul.menu li {
+    display: block;
+    list-style: none;
+    transition: 1s;
+    opacity: 0;
+    margin: 5px 0;
+  }
+
+  .menu-items ul.menu li a {
+    color: #ffffff;
+    font-size: 18px;
+    position: relative;
+  }
+
+  .menu-items ul.menu li a:after {
+    content: "";
+    width: 0;
+    height: 2px;
+    border-radius: 50px;
+    position: absolute;
+    bottom: 13px;
+    transition: 0.5s;
+    margin: 0 auto;
+    display: block;
+    right: 0;
+    left: 0;
+  }
+  /*글자 위에 마우스 가져가면 가로 줄 효과*/
+  .menu-items ul.menu li a:hover:after {
+    content: "";
+    background: #d2b48c;
+    width: 100%;
+  }
+
+  .menu-items.fs {
+    transform: translateY(0);
+    pointer-events: auto;
+    opacity: 1;
+  }
+
+  .menu-items.fs ul li {
+    opacity: 1; /*투명도 설정*/
+  }
+
+/*로그인 버튼*/
+.menu-local{
+    color: #ffffff;
+    position: relative;
+    font-size:22px;
+    width:100%;
+    height: 100%;
+    opacity: 1;
+    background-color:#FF9B55;
+}
+/*아이디/비밀번호찾기 조회 글씨 */
+.menu-local-font{
+    color:#ffffff;
+    font-size: 13px;
+    opacity: 1;
+	
+}
+.menu-local-font-join{
+    color:#ffffff;
+    font-size: 13px;
+    opacity: 1;
+    float:right;
+}
+  /*---------------------------------------
+      메인 style         
+  -----------------------------------------*/
+
+  #home {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+  }
+
+  #home .container {
+    width: 100%;
+  }
+
+  .home-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100vh;
+  }
+.rogo-img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    
+}
+
+  /*---------------------------------------
+     RESPONSIVE STYLES              
+  -----------------------------------------*/
+
+  @media screen and (max-width: 480px) {
+
+    .home-info {
+      padding: 0 1em 0 1em;
+    }
+	  
+    address {
+      margin-top: 50px;
+    }
+  }
+
+  @media screen and (max-width: 360px) {
+
+    h1 {
+      font-size: 1.50em;
+    }
+
+    .menu-items {
+      margin: 100px 0;
+    }
+
+  }
+  /*---------------------------------------
+     배경 STYLES              
+  -----------------------------------------*/
+.bg-slide{
+    width:auto;
+    height: 100%;
+    position: fixed;
+    top:0px;
+    left: 0px;
+    background-size: cover;
+}
+.bg-slide li{
+    width:100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position: 50% 50%;
+    -webkit-animation: bg-slide-animation 45s linear infinite 0s;
+    animation: bg-slide-animation 45s linear infinite 0s;
+}
+
+.bg-slide li:nth-child(1){
+    background-image: url(../images/dayeon.png);
+}
+.bg-slide li:nth-child(2){
+    background-image: url(../images/hyeyeon.png);
+    -webkit-animation-delay: 7s;
+    animation-delay: 7s;  
+}    
+.bg-slide li:nth-child(3){
+    background-image: url(../images/jongkyu.png);
+    -webkit-animation-delay: 14s;
+    animation-delay: 14s;
+}
+.bg-slide li:nth-child(4){
+    background-image: url(../images/myeongsang.png);
+    -webkit-animation-delay: 21s;
+    animation-delay: 21s;
+}
+.bg-slide li:nth-child(5){
+    background-image: url(../images/sola.png);
+    -webkit-animation-delay: 28s;
+    animation-delay: 28s;
+}
+.bg-slide li:nth-child(6){
+    background-image: url(../images/yeonggi.png);
+    -webkit-animation-delay: 35s;
+    animation-delay: 35s;
+}
+.bg-slide li:nth-child(7){
+    background-image: url(../images/yongseon.png);
+    -webkit-animation-delay: 42s;
+    animation-delay: 42s;
+}
+
+@-webwit-keyframes bg-slide-animation{
+    0%{
+        -webkit-animation-timing-function: ease-in;
+        opacity: 0;
+    }
+    10%{
+        -webkit-transform: scale(1);
+        -webkit-animation-timing-function: ease-out;
+        opacity: 1;
+    }
+    30%{
+        -webkit-transform: scale(1);
+        opacity: 1;
+    }
+    50%{
+        -webkit-transform: scale(1);
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes bg-slide-animation{
+    0%{
+        animation-timing-function: ease-in;
+        opacity: 0;
+    }
+    50%{
+        transform: scale(1);
+        animation-timing-function: ease-out;
+        opacity: 1;
+    }
+    30%{
+        transform: scale(1);
+        opacity: 1;
+    }
+    50%{
+        transform: scale(1);
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+
+}
