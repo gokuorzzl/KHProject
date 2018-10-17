@@ -152,24 +152,29 @@
             </ul>
           <ul>
             <li>
-               <label>자격증<br>(선택)</label>
-                              <input id="Cert0" name="Cert0" type="text" placeholder="예) 토플 117, HSK 6급, GTQ 1급, 입상경력.." value="" class="input_txt01"/>
-               <p class="regintxt05 clearbt"><input type="file" name="file0"/></p>
+               <label>자격증(최대 5개)<br>(선택)</label>
+                <input id="Cert0" name="Cert0" type="text" placeholder="예) 토플 117, HSK 6급, GTQ 1급, 입상경력.." value="" class="input_txt01"/>
+               <p><input type="file" name="file0"/></p>
                <div id="CertAdd"></div>
                <a onclick="addFile();" class="addbtn">추가 +</a>
                               
                <input type="hidden" id="fileCnt" name="fileCnt" value="0">
                <script>
                   function addFile(){
-                     fileCnt = document.getElementById('fileCnt').value;                     
-                     fileCnt++;
+                      fileCnt = document.getElementById('fileCnt').value;   
+                      if(fileCnt==4){
+                          alert("그만눌러라");
+                          return false;
+                      }else{
+                         fileCnt++; 
+                      }               
                      html = '';
                      html += '<input id="Cert'+fileCnt+'" name="Cert'+fileCnt+'" type="text" placeholder="예) 토플 117, HSK 6급, GTQ 1급, 입상경력.." value="" class="input_txt01 clearbt"/>';
-                     html += '<p class="regintxt05 clearbt"><input type="file" name="file'+fileCnt+'"/></p>';
+                     html += '<p><input type="file" name="file'+fileCnt+'"/></p>';
                      
                      var div = document.createElement('div');
                        div.innerHTML = html;
-                       document.getElementById('CertAdd').appendChild(div);                     
+                        document.getElementById('CertAdd').appendChild(div);                     
                      document.getElementById('fileCnt').value = fileCnt;
                   }
                </script>
@@ -180,14 +185,39 @@
                 <div class="career-group">
                     <p>경력사항</p>
                     <form id="career_start" action="action.jsp">
-                        <div>
-                            <input type="date" id="userdate_start" name="userdate" value="2015-10-10">
+                        <div >
+                            <input id="career0" type="text" placeholder="ex)고라니GYM 근무" value=""/>
+                            <input type="date" id="userdate_start0" name="userdate0" value="2015-10-10">
                             ~
                             <input type="date" id="userdate_finish" name="userdate" value="2015-10-10">
                             <input type="submit" value="전송">
                         </div>
-                    </form>
+                         <div id="CertCareer"></div>
+                         <a onclick="addcareer();">추가 +</a>
+                        <input type="hidden" id="careerfileCnt" name="fileCnt" value="0">
+                    </form>             
                 </div>
+                <script>
+                  function addcareer(){
+                      fileCnt = document.getElementById('careerfileCnt').value;   
+                      if(fileCnt==4){
+                          alert("그만눌러라");
+                          return false;
+                      }else{
+                         fileCnt++; 
+                      }               
+                     html = '';
+                     html += '<input id="career'+fileCnt+'" type="text" placeholder="ex)고라니GYM 근무" value=""/>';
+                     html += '<input type="date" id="userdate_start'+fileCnt+'" name="userdate'+fileCnt+'" value="2015-10-10"> ~ ';
+                     html += '<input type="date" id="userdate_finish'+fileCnt+'" name="userdate'+fileCnt'" value="2015-10-10">';
+                     html += '<input type="submit" value="전송">';
+                     
+                     var div = document.createElement('div');
+                       div.innerHTML = html;
+                        document.getElementById("CertCareer").appendChild(div);                     
+                     document.getElementById('fileCnt').value = fileCnt;
+                  }
+               </script>
             </li>
             <li>
                 <!--<br>
