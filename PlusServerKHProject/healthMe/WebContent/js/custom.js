@@ -27,7 +27,7 @@
         slides: [
             { src: 'img/dayeon.png' },
             { src: 'img/hyeyeon.png' },
-            { src: 'img/sola_bg.png' },
+            { src: 'img/sola.png' },
             { src: 'img/jongkyu.png' },
             { src: 'img/myeongsang.png' },
             { src: 'img/yeonggi.png' },
