@@ -30,9 +30,9 @@
             <h1>Navigations</h1>
              <ul class="menu">
                 <li><a href="#">메인</a></li>
-                <li><a href="#">Trainner Search</a></li>
-                <li><a href="#">Trainner Registration</a></li>
-                <li><a href="#">Board</a></li>
+                <li><a href="#">트레이너 찾기</a></li>
+                <li><a href="#">트레이너 등록</a></li>
+                <li><a href="#">게시판</a></li>
                 <li><a href="#">Q & A</a></li>
             </ul>
            </div>
