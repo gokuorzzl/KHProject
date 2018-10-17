@@ -41,10 +41,11 @@
              <div class="container">
                  <div class="col-md-offset-1 col-md-4 col-sm-6">
                      <br><br>
+                     <form action="/Page/loginPage/login.jsp">
                      <h3>heal th me를 더 안전하고 편리하게 이용하세요.</h3>
-                     <button type="submit" class="menu-local btn btn-primary btn-lg">heal th me 로그인</button>
-                     <a herf="http://www.naver.com/" class="menu-local-font">아이디ㆍ비밀번호 찾기</a>
-                     <a herf="http://www.naver.com" class="menu-local-font-join" >회원가입</a>
+                     <input type="submit" class="menu-local btn btn-primary btn-lg" value="heal th me 로그인"></form>
+                     <a href="" class="menu-local-font">아이디ㆍ비밀번호 찾기</a>
+                     <a href="/Page/loginPage/userLogin.jsp" class="menu-local-font-join" >회원가입</a>
                  </div>
                </div>
            </div> 
@@ -65,7 +66,7 @@
                             </div> 
 							 <!-- 검색바 -->
 							 <div class="subscribe-form">
-							 <form action="" method="get">
+							 <form action="/Page/SearchTrainerPage/searchTrainerPage.jsp" method="get">
                             <input type="text" name="search" class="form-control" placeholder="지역 / 종목 / 트레이너 검색" required="">
 							<button type="submit" class="form-control">
 							<i class="fa fa-search"></i>
