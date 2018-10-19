@@ -94,7 +94,7 @@ div{
     #wrapper{
         position: absolute;
         width:100%;
-        height:170%;    
+        height:130%;    
     }
     
     /*top부분*/
@@ -220,8 +220,18 @@ div{
       width:49.3%;
     }
     
+    #sample6_postcode {
+      width:40%;
+    }
+    
+    #sample6_fpostcode {
+      width:20%;
+      height:36px;
+    }
+    
     #tel1 {
       width:30.9%;
+      
     }
     
     #tel2 {
