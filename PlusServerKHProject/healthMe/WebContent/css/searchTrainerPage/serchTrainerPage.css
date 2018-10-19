@@ -132,7 +132,7 @@ li:hover{
     background-color: #3c3e3a;
 }
 
-li, p{
+li, p, #logo>img{
 	cursor: pointer;
 }
 
@@ -353,6 +353,9 @@ a{
         height: 80%;
     }
     
+    #mobileFieldSearchName{
+    	display:none;
+    }
     
     #area, #field{
         width: 25%;
@@ -585,6 +588,10 @@ a{
         height: 80%;
     }
     
+    #mobileFieldSearchName{
+    	display:none;
+    }
+    
     #area, #field{
         width: 25%;
         height: 100%;
@@ -628,13 +635,13 @@ a{
     #wrapper{
         position: absolute;
         width:100%;
-        height: 1200px;    
+        height: 1500px;    
     }
     
     /*top부분*/
     #top{
         width: 100%;
-        height: 25%;
+        height: 20%;
     }
     
     #logo{
@@ -748,7 +755,7 @@ a{
     /*middle부분*/
     #middle{
         width: 100%;
-        height: 65%;
+        height: 70%;
     }
     
     #searchBox{
@@ -777,16 +784,16 @@ a{
     
     #searchName{
         width: 100%;
-        height: 20%;
+        height: 15%;
     }
     
-    #areaSearchName, #fieldSearchName{
+    #areaSearchName, #subAreaSearchName{
         width: 50%;
         height: 100%;
         float: left;
     }
     
-    #subAreaSearchName, #subArea2SearchName{
+    #subArea2SearchName, #fieldSearchName{
         display: none;
     }
     
@@ -795,14 +802,29 @@ a{
         height: 80%;
     }
     
-    #area, #field{
+    #mobileFieldSearchName{
+    	border: 1px solid #FF9B55;
+    	width: 100%;
+    	height: 18%;
+    	float: left;
+    	text-align: center;
+    }
+    
+    #area, #subArea{
         width: 50%;
-        height: 100%;
+        height: 43%;
         float: left;
         overflow-y: auto;
     }
     
-    #subArea, #subArea2{
+    #field{
+    	width: 100%;
+        height: 46%;
+        text-align: center;
+        overflow-y: auto;
+    }
+    
+    #subArea2{
         display: none;
     }
     

@@ -2,22 +2,50 @@
  * 광역시/도, 시/군/구, 읍/면/동 선택, 종목선택
  */
 
+	
 $(function(){
-
+	
 	var area1=null;
 	var area2=null;
 	var area3=new Array();
 	var field=new Array();
 	
 	$('#field li').click(function(){
-		$(this).css('background', '#FF9B55');
-		field.push($(this).html());
+		var index=0;
+		
+		if(field==""){
+			$(this).css('background-color', '#FF9B55');
+			field.push($(this).html());	
+		}else if(field.includes($(this).html())){
+			$(this).css('background-color', 'white');
+			for(var i=0; i<field.length; i++){
+				if(field[i]==$(this).html()){
+					index=i;
+				}
+			}
+			field.splice(index, 1);
+		}else{
+			$(this).css('background-color', '#FF9B55');
+			field.push($(this).html());	
+		}
+
 	});
-	
+
 	$('#area li:eq(0)').click(function(){//서울특별시 선택
-		$('#area li').css('background', 'white');
-		$(this).css('background', '#FF9B55');
-		area1 = $(this).html();
+		
+		$('#area li').css('background-color', 'white');
+		if(area1==null){
+			$(this).css('background-color', '#FF9B55');
+			area1=$(this).html();
+		}else if(area1==$(this).html()){
+			$(this).css('background-color', 'white');
+			location.reload();
+		}else{
+			$(this).css('background-color', '#FF9B55');
+			area1=$(this).html();
+			location.reload();
+		}
+		
 		$('#subArea>ul').html('<li>종로구</li>');
 		$('#subArea>ul').append('<li>중구</li>');
 		$('#subArea>ul').append('<li>용산구</li>');
@@ -43,33 +71,60 @@ $(function(){
 		$('#subArea>ul').append('<li>강남구</li>');
 		$('#subArea>ul').append('<li>송파구</li>');
 		$('#subArea>ul').append('<li>강동구</li>');
-		
+			
 		$('#subArea li:eq(0)').click(function(){//서울특별시 종로구 선택
-			$('#subArea li').css('background', 'white');
-			$(this).css('background', '#FF9B55');
-			area2 = $(this).html();
-			$('#subArea2>ul').html('<li>청운효자동</li>');
-			$('#subArea2>ul').append('<li>사직동</li>');
-			$('#subArea2>ul').append('<li>삼청동</li>');
-			$('#subArea2>ul').append('<li>부암동</li>');
-			$('#subArea2>ul').append('<li>평창동</li>');
-			$('#subArea2>ul').append('<li>무악동</li>');
-			$('#subArea2>ul').append('<li>교남동</li>');
-			$('#subArea2>ul').append('<li>가회동</li>');
-			$('#subArea2>ul').append('<li>종로1/2/3/4동</li>');
-			$('#subArea2>ul').append('<li>종로5/6동</li>');
-			$('#subArea2>ul').append('<li>이화동</li>');
-			$('#subArea2>ul').append('<li>혜화동</li>');
-			$('#subArea2>ul').append('<li>창신1동</li>');
-			$('#subArea2>ul').append('<li>창신2동</li>');
-			$('#subArea2>ul').append('<li>창신3동</li>');
-			$('#subArea2>ul').append('<li>숭인1동</li>');
-			$('#subArea2>ul').append('<li>숭인2동</li>');
+		
+			$('#subArea li').css('background-color', 'white');
+			if(area2==null){
+				$(this).css('background-color', '#FF9B55');
+				area2=$(this).html();
+				$('#subArea2>ul').html('<li>청운효자동</li>');
+				$('#subArea2>ul').append('<li>사직동</li>');
+				$('#subArea2>ul').append('<li>삼청동</li>');
+				$('#subArea2>ul').append('<li>부암동</li>');
+				$('#subArea2>ul').append('<li>평창동</li>');
+				$('#subArea2>ul').append('<li>무악동</li>');
+				$('#subArea2>ul').append('<li>교남동</li>');
+				$('#subArea2>ul').append('<li>가회동</li>');
+				$('#subArea2>ul').append('<li>종로1/2/3/4동</li>');
+				$('#subArea2>ul').append('<li>종로5/6동</li>');
+				$('#subArea2>ul').append('<li>이화동</li>');
+				$('#subArea2>ul').append('<li>혜화동</li>');
+				$('#subArea2>ul').append('<li>창신1동</li>');
+				$('#subArea2>ul').append('<li>창신2동</li>');
+				$('#subArea2>ul').append('<li>창신3동</li>');
+				$('#subArea2>ul').append('<li>숭인1동</li>');
+				$('#subArea2>ul').append('<li>숭인2동</li>');
+			}else if(area2==$(this).html()){
+				$(this).css('background-color', 'white');
+				area2=null;
+				area3.length=0;
+				$('#subArea2 ul').html('');
+			}else{
+				$(this).css('background-color', '#FF9B55');
+				area2=$(this).html();
+			}
 			
 			$('#subArea2 li').click(function(){
-				$(this).css('background', '#FF9B55');
-				area3.push($(this).html());
+				var index2=0;
+				
+				if(area3==""){
+					$(this).css('background-color', '#FF9B55');
+					area3.push($(this).html());	
+				}else if(area3.includes($(this).html())){
+					$(this).css('background-color', 'white');
+					for(var i=0; i<area3.length; i++){
+						if(area3[i]==$(this).html()){
+							index2=i;
+						}
+					}
+					area3.splice(index2, 1);
+				}else{
+					$(this).css('background-color', '#FF9B55');
+					area3.push($(this).html());	
+				}
 			});
+			
 		});
 		
 		$('#subArea li:eq(1)').click(function(){//서울특별시 중구 선택
@@ -261,14 +316,26 @@ $(function(){
 				$(this).css('background', '#FF9B55');
 				area3.push($(this).html());
 			});
+
 		});
-		
 	});
 	
+
+	
 	$('#area li:eq(1)').click(function(){//부산광역시 선택
-		$('#area li').css('background', 'white');
-		$(this).css('background', '#FF9B55');
-		area1 = $(this).html();
+		
+		$('#area li').css('background-color', 'white');
+		if(area1==null){
+			$(this).css('background-color', '#FF9B55');
+			area1=$(this).html();
+		}else if(area1==$(this).html()){
+			$(this).css('background-color', 'white');
+			location.reload();
+		}else{
+			$(this).css('background-color', '#FF9B55');
+			area1=$(this).html();
+		}
+		
 		$('#subArea>ul').html('<li>중구</li>');
 		$('#subArea>ul').append('<li>서구</li>');
 		$('#subArea>ul').append('<li>동구</li>');
@@ -284,12 +351,28 @@ $(function(){
 		$('#subArea>ul').append('<li>연제구</li>');
 		$('#subArea>ul').append('<li>수영구</li>');
 		$('#subArea>ul').append('<li>사상구</li>');
+		
+		$('#subArea li').click(function(){
+			$(this).css('background', '#FF9B55');
+			area2.push($(this).html());
+		});		
+		
 	});
 	
 	$('#area li:eq(2)').click(function(){//대구광역시 선택
-		$('#area li').css('background', 'white');
-		$(this).css('background', '#FF9B55');
-		area1 = $(this).html();
+
+		$('#area li').css('background-color', 'white');
+		if(area1==null){
+			$(this).css('background-color', '#FF9B55');
+			area1=$(this).html();
+		}else if(area1==$(this).html()){
+			$(this).css('background-color', 'white');
+			location.reload();
+		}else{
+			$(this).css('background-color', '#FF9B55');
+			area1=$(this).html();
+		}
+		
 		$('#subArea>ul').html('<li>중구</li>');
 		$('#subArea>ul').append('<li>동구</li>');
 		$('#subArea>ul').append('<li>서구</li>');
@@ -297,12 +380,27 @@ $(function(){
 		$('#subArea>ul').append('<li>북구</li>');
 		$('#subArea>ul').append('<li>수성구</li>');
 		$('#subArea>ul').append('<li>달서구</li>');
+		
+		$('#subArea li').click(function(){
+			$(this).css('background', '#FF9B55');
+			area2.push($(this).html());
+		});
 	});
 	
 	$('#area li:eq(3)').click(function(){//인천광역시 선택
-		$('#area li').css('background', 'white');
-		$(this).css('background', '#FF9B55');
-		area1 = $(this).html();
+		
+		$('#area li').css('background-color', 'white');
+		if(area1==null){
+			$(this).css('background-color', '#FF9B55');
+			area1=$(this).html();
+		}else if(area1==$(this).html()){
+			$(this).css('background-color', 'white');
+			location.reload();
+		}else{
+			$(this).css('background-color', '#FF9B55');
+			area1=$(this).html();
+		}
+		
 		$('#subArea>ul').html('<li>중구</li>');
 		$('#subArea>ul').append('<li>동구</li>');
 		$('#subArea>ul').append('<li>미추홀구</li>');
@@ -313,51 +411,125 @@ $(function(){
 		$('#subArea>ul').append('<li>서구</li>');
 		$('#subArea>ul').append('<li>강화군</li>');
 		$('#subArea>ul').append('<li>옹진군</li>');
+		
+		$('#subArea li').click(function(){
+			$(this).css('background', '#FF9B55');
+			area2.push($(this).html());
+		});
 	});
 	
 	$('#area li:eq(4)').click(function(){//광주광역시 선택
-		$('#area li').css('background', 'white');
-		$(this).css('background', '#FF9B55');
-		area1 = $(this).html();
+		
+		$('#area li').css('background-color', 'white');
+		if(area1==null){
+			$(this).css('background-color', '#FF9B55');
+			area1=$(this).html();
+		}else if(area1==$(this).html()){
+			$(this).css('background-color', 'white');
+			location.reload();
+		}else{
+			$(this).css('background-color', '#FF9B55');
+			area1=$(this).html();
+		}
+		
 		$('#subArea>ul').html('<li>동구</li>');
 		$('#subArea>ul').append('<li>서구</li>');
 		$('#subArea>ul').append('<li>남구</li>');
 		$('#subArea>ul').append('<li>북구</li>');
 		$('#subArea>ul').append('<li>광산구</li>');
+		
+		$('#subArea li').click(function(){
+			$(this).css('background', '#FF9B55');
+			area2.push($(this).html());
+		});
 	});
 	
 	$('#area li:eq(5)').click(function(){//대전광역시 선택
-		$('#area li').css('background', 'white');
-		$(this).css('background', '#FF9B55');
-		area1 = $(this).html();
+		
+		$('#area li').css('background-color', 'white');
+		if(area1==null){
+			$(this).css('background-color', '#FF9B55');
+			area1=$(this).html();
+		}else if(area1==$(this).html()){
+			$(this).css('background-color', 'white');
+			location.reload();
+		}else{
+			$(this).css('background-color', '#FF9B55');
+			area1=$(this).html();
+		}
+		
 		$('#subArea>ul').html('<li>동구</li>');
 		$('#subArea>ul').append('<li>중구</li>');
 		$('#subArea>ul').append('<li>서구</li>');
 		$('#subArea>ul').append('<li>유성구</li>');
 		$('#subArea>ul').append('<li>대덕구</li>');
+		
+		$('#subArea li').click(function(){
+			$(this).css('background', '#FF9B55');
+			area2.push($(this).html());
+		});
 	});
 	
 	$('#area li:eq(6)').click(function(){//울산광역시 선택
-		$('#area li').css('background', 'white');
-		$(this).css('background', '#FF9B55');
-		area1 = $(this).html();
+		
+		$('#area li').css('background-color', 'white');
+		if(area1==null){
+			$(this).css('background-color', '#FF9B55');
+			area1=$(this).html();
+		}else if(area1==$(this).html()){
+			$(this).css('background-color', 'white');
+			location.reload();
+		}else{
+			$(this).css('background-color', '#FF9B55');
+			area1=$(this).html();
+		}
+		
 		$('#subArea>ul').html('<li>동구</li>');
 		$('#subArea>ul').append('<li>남구</li>');
 		$('#subArea>ul').append('<li>동구</li>');
 		$('#subArea>ul').append('<li>북구</li>');
 		$('#subArea>ul').append('<li>울주군</li>');
+		
+		$('#subArea li').click(function(){
+			$(this).css('background', '#FF9B55');
+			area2.push($(this).html());
+		});
 	});
 	
 	$('#area li:eq(7)').click(function(){//세종시 선택
-		$('#area li').css('background', 'white');
-		$(this).css('background', '#FF9B55');
-		area1 = $(this).html();
+
+		$('#area li').css('background-color', 'white');
+		if(area1==null){
+			$(this).css('background-color', '#FF9B55');
+			area1=$(this).html();
+		}else if(area1==$(this).html()){
+			$(this).css('background-color', 'white');
+			location.reload();
+		}else{
+			$(this).css('background-color', '#FF9B55');
+			area1=$(this).html();
+		}
+		
+		$('#subArea li').click(function(){
+			$(this).css('background', '#FF9B55');
+			area2.push($(this).html());
+		});
 	});
 	
 	$('#area li:eq(8)').click(function(){//경기도 선택
-		$('#area li').css('background', 'white');
-		$(this).css('background', '#FF9B55');
-		area1 = $(this).html();
+		
+		$('#area li').css('background-color', 'white');
+		if(area1==null){
+			$(this).css('background-color', '#FF9B55');
+			area1=$(this).html();
+		}else if(area1==$(this).html()){
+			$(this).css('background-color', 'white');
+			location.reload();
+		}else{
+			$(this).css('background-color', '#FF9B55');
+			area1=$(this).html();
+		}
+		
 		$('#subArea>ul').html('<li>수원시 장안구</li>');
 		$('#subArea>ul').append('<li>수원시 권선구</li>');
 		$('#subArea>ul').append('<li>수원시 팔달구</li>');
@@ -400,12 +572,27 @@ $(function(){
 		$('#subArea>ul').append('<li>포천시</li>');
 		$('#subArea>ul').append('<li>연천군</li>');
 		$('#subArea>ul').append('<li>가평군</li>');
+		
+		$('#subArea li').click(function(){
+			$(this).css('background', '#FF9B55');
+			area2.push($(this).html());
+		});
 	});
 	
 	$('#area li:eq(9)').click(function(){//강원도 선택
-		$('#area li').css('background', 'white');
-		$(this).css('background', '#FF9B55');
-		area1 = $(this).html();
+		
+		$('#area li').css('background-color', 'white');
+		if(area1==null){
+			$(this).css('background-color', '#FF9B55');
+			area1=$(this).html();
+		}else if(area1==$(this).html()){
+			$(this).css('background-color', 'white');
+			location.reload();
+		}else{
+			$(this).css('background-color', '#FF9B55');
+			area1=$(this).html();
+		}
+		
 		$('#subArea>ul').html('<li>춘천시</li>');
 		$('#subArea>ul').append('<li>원주시</li>');
 		$('#subArea>ul').append('<li>강릉시</li>');
@@ -424,12 +611,27 @@ $(function(){
 		$('#subArea>ul').append('<li>인제군</li>');
 		$('#subArea>ul').append('<li>고성군</li>');
 		$('#subArea>ul').append('<li>양양군</li>');
+		
+		$('#subArea li').click(function(){
+			$(this).css('background', '#FF9B55');
+			area2.push($(this).html());
+		});
 	});
 	
 	$('#area li:eq(10)').click(function(){//충청북도 선택
-		$('#area li').css('background', 'white');
-		$(this).css('background', '#FF9B55');
-		area1 = $(this).html();
+		
+		$('#area li').css('background-color', 'white');
+		if(area1==null){
+			$(this).css('background-color', '#FF9B55');
+			area1=$(this).html();
+		}else if(area1==$(this).html()){
+			$(this).css('background-color', 'white');
+			location.reload();
+		}else{
+			$(this).css('background-color', '#FF9B55');
+			area1=$(this).html();
+		}
+		
 		$('#subArea>ul').html('<li>청주시 상당구</li>');
 		$('#subArea>ul').append('<li>청주시 서원구</li>');
 		$('#subArea>ul').append('<li>청주시 흥덕구</li>');
@@ -444,12 +646,27 @@ $(function(){
 		$('#subArea>ul').append('<li>음성군</li>');
 		$('#subArea>ul').append('<li>단양군</li>');
 		$('#subArea>ul').append('<li>증평군</li>');
+		
+		$('#subArea li').click(function(){
+			$(this).css('background', '#FF9B55');
+			area2.push($(this).html());
+		});
 	});
 	
 	$('#area li:eq(11)').click(function(){//충청남도 선택
-		$('#area li').css('background', 'white');
-		$(this).css('background', '#FF9B55');
-		area1 = $(this).html();
+		
+		$('#area li').css('background-color', 'white');
+		if(area1==null){
+			$(this).css('background-color', '#FF9B55');
+			area1=$(this).html();
+		}else if(area1==$(this).html()){
+			$(this).css('background-color', 'white');
+			location.reload();
+		}else{
+			$(this).css('background-color', '#FF9B55');
+			area1=$(this).html();
+		}
+		
 		$('#subArea>ul').html('<li>천안시 동남구</li>');
 		$('#subArea>ul').append('<li>천안시 서북구</li>');
 		$('#subArea>ul').append('<li>공주시</li>');
@@ -466,12 +683,27 @@ $(function(){
 		$('#subArea>ul').append('<li>홍성군</li>');
 		$('#subArea>ul').append('<li>예산군</li>');
 		$('#subArea>ul').append('<li>태안군</li>');
+		
+		$('#subArea li').click(function(){
+			$(this).css('background', '#FF9B55');
+			area2.push($(this).html());
+		});
 	});
 	
 	$('#area li:eq(12)').click(function(){//전라북도 선택
-		$('#area li').css('background', 'white');
-		$(this).css('background', '#FF9B55');
-		area1 = $(this).html();
+		
+		$('#area li').css('background-color', 'white');
+		if(area1==null){
+			$(this).css('background-color', '#FF9B55');
+			area1=$(this).html();
+		}else if(area1==$(this).html()){
+			$(this).css('background-color', 'white');
+			location.reload();
+		}else{
+			$(this).css('background-color', '#FF9B55');
+			area1=$(this).html();
+		}
+		
 		$('#subArea>ul').html('<li>전주시 완산구</li>');
 		$('#subArea>ul').append('<li>전주시 덕진구</li>');
 		$('#subArea>ul').append('<li>군산시</li>');
@@ -487,12 +719,27 @@ $(function(){
 		$('#subArea>ul').append('<li>순창군</li>');
 		$('#subArea>ul').append('<li>고창군</li>');
 		$('#subArea>ul').append('<li>부안군</li>');
+		
+		$('#subArea li').click(function(){
+			$(this).css('background', '#FF9B55');
+			area2.push($(this).html());
+		});
 	});
 	
 	$('#area li:eq(13)').click(function(){//전라남도 선택
-		$('#area li').css('background', 'white');
-		$(this).css('background', '#FF9B55');
-		area1 = $(this).html();
+		
+		$('#area li').css('background-color', 'white');
+		if(area1==null){
+			$(this).css('background-color', '#FF9B55');
+			area1=$(this).html();
+		}else if(area1==$(this).html()){
+			$(this).css('background-color', 'white');
+			location.reload();
+		}else{
+			$(this).css('background-color', '#FF9B55');
+			area1=$(this).html();
+		}
+		
 		$('#subArea>ul').html('<li>목포시</li>');
 		$('#subArea>ul').append('<li>여수시</li>');
 		$('#subArea>ul').append('<li>순천시</li>');
@@ -515,12 +762,27 @@ $(function(){
 		$('#subArea>ul').append('<li>완도군</li>');
 		$('#subArea>ul').append('<li>진도군</li>');
 		$('#subArea>ul').append('<li>신안군</li>');
+		
+		$('#subArea li').click(function(){
+			$(this).css('background', '#FF9B55');
+			area2.push($(this).html());
+		});
 	});
 	
 	$('#area li:eq(14)').click(function(){//경상북도 선택
-		$('#area li').css('background', 'white');
-		$(this).css('background', '#FF9B55');
-		area1 = $(this).html();
+
+		$('#area li').css('background-color', 'white');
+		if(area1==null){
+			$(this).css('background-color', '#FF9B55');
+			area1=$(this).html();
+		}else if(area1==$(this).html()){
+			$(this).css('background-color', 'white');
+			location.reload();
+		}else{
+			$(this).css('background-color', '#FF9B55');
+			area1=$(this).html();
+		}
+		
 		$('#subArea>ul').html('<li>포항시 남구</li>');
 		$('#subArea>ul').append('<li>포항시 북구</li>');
 		$('#subArea>ul').append('<li>경주시</li>');
@@ -545,12 +807,27 @@ $(function(){
 		$('#subArea>ul').append('<li>봉화군</li>');
 		$('#subArea>ul').append('<li>울진군</li>');
 		$('#subArea>ul').append('<li>울릉군</li>');
+		
+		$('#subArea li').click(function(){
+			$(this).css('background', '#FF9B55');
+			area2.push($(this).html());
+		});
 	});
 	
 	$('#area li:eq(15)').click(function(){//경상남도 선택
-		$('#area li').css('background', 'white');
-		$(this).css('background', '#FF9B55');
-		area1 = $(this).html();
+
+		$('#area li').css('background-color', 'white');
+		if(area1==null){
+			$(this).css('background-color', '#FF9B55');
+			area1=$(this).html();
+		}else if(area1==$(this).html()){
+			$(this).css('background-color', 'white');
+			location.reload();
+		}else{
+			$(this).css('background-color', '#FF9B55');
+			area1=$(this).html();
+		}
+		
 		$('#subArea>ul').html('<li>창원시 의창구</li>');
 		$('#subArea>ul').append('<li>창원시 성산구</li>');
 		$('#subArea>ul').append('<li>창원시 마산합포구</li>');
@@ -573,14 +850,31 @@ $(function(){
 		$('#subArea>ul').append('<li>함양군</li>');
 		$('#subArea>ul').append('<li>거창군</li>');
 		$('#subArea>ul').append('<li>합천군</li>');
+		
+		$('#subArea li').click(function(){
+			$(this).css('background', '#FF9B55');
+			area2.push($(this).html());
+		});
 	});
 	
 	$('#area li:eq(16)').click(function(){//제주도 선택
-		$('#area li').css('background', 'white');
-		$(this).css('background', '#FF9B55');
-		area1 = $(this).html();
+
+		$('#area li').css('background-color', 'white');
+		if(area1==null){
+			$(this).css('background-color', '#FF9B55');
+			area1=$(this).html();
+		}else if(area1==$(this).html()){
+			$(this).css('background-color', 'white');
+			location.reload();
+		}else{
+			$(this).css('background-color', '#FF9B55');
+			area1=$(this).html();
+		}
+		
 		$('#subArea>ul').html('<li>제주시</li>');
 		$('#subArea>ul').append('<li>서귀포시</li>');
 	});
+
+
 	
 });

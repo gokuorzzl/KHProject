@@ -56,7 +56,7 @@
             <div id="searchBar">
            		<form>
            			<div>
-           				<input type="text" name="searchInput" id="searchInput" value="지역, 종목 검색" />
+           				<input type="text" name="searchInput" id="searchInput" placeholder="지역, 종목 검색" />
                			<button type="submit"><i class="fa fa-search"></i></button>
            			</div>
            		</form>
@@ -117,6 +117,7 @@
                             <!-- id="subArea2"에서 선택한 지역의 세부지역이 나오는 부분 -->
                             </ul>
                         </div>
+                        <div id="mobileFieldSearchName">종목</div>
                         <div id="field" class="scrollStyle">
                         	 <ul>
                                 <li>헬스</li>
