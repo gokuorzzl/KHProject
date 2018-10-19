@@ -153,13 +153,17 @@
           <ul>
             <li>
                <label>자격증(최대 5개)<br>(선택)</label>
+                
+                <!--input 추가됨-->
                 <input id="Cert0" name="Cert0" type="text" placeholder="예) 토플 117, HSK 6급, GTQ 1급, 입상경력.." value="" class="input_txt01"/>
                <p><input type="file" name="file0"/></p>
                <div id="CertAdd"></div>
                <a onclick="addFile();" class="addbtn">추가 +</a>
                               
                <input type="hidden" id="fileCnt" name="fileCnt" value="0">
-               <script>
+              
+                
+                <script>
                   function addFile(){
                       fileCnt = document.getElementById('fileCnt').value;   
                       if(fileCnt==4){
@@ -179,11 +183,20 @@
                   }
                </script>
             </li>
-            </ul>
+              </ul>
+              <!--자격증 부분 끝-->
+              
+              
+              
+              
+              
+            
           <ul>
             <li>
                 <div class="career-group">
                     <p>경력사항</p>
+                    
+                    
                     <form id="career_start" action="action.jsp">
                         <div >
                             <input id="career0" type="text" placeholder="ex)고라니GYM 근무" value=""/>
@@ -193,11 +206,11 @@
                             <input type="submit" value="전송">
                         </div>
                          <div id="CertCareer"></div>
-                         <a onclick="addcareer();">추가 +</a>
+                         <a onclick="addcareer();" class="addbtn">추가 +</a>
                         <input type="hidden" id="careerfileCnt" name="fileCnt" value="0">
-                    </form>             
-                </div>
-                <script>
+                    </form>     
+                    
+                      <script>
                   function addcareer(){
                       fileCnt = document.getElementById('careerfileCnt').value;   
                       if(fileCnt==4){
@@ -207,7 +220,7 @@
                          fileCnt++; 
                       }               
                      html = '';
-                     html += '<input id="career'+fileCnt+'" type="text" placeholder="ex)고라니GYM 근무" value=""/>';
+                     html += '<input id="career'+fileCnt+'" name="career'+fileCnt+'" type="text" placeholder="ex)고라니GYM 근무" value=""/>';
                      html += '<input type="date" id="userdate_start'+fileCnt+'" name="userdate'+fileCnt+'" value="2015-10-10"> ~ ';
                      html += '<input type="date" id="userdate_finish'+fileCnt+'" name="userdate'+fileCnt'" value="2015-10-10">';
                      html += '<input type="submit" value="전송">';
@@ -218,6 +231,16 @@
                      document.getElementById('fileCnt').value = fileCnt;
                   }
                </script>
+                    
+                    
+                </div>
+              
+                
+                
+                
+                
+                
+              
             </li>
             <li>
                 <!--<br>
@@ -230,6 +253,9 @@
         </ul>
       </div>
    </div>
+       
+       
+       
 </form>
 </div>
     
