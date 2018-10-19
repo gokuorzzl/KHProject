@@ -31,9 +31,9 @@
              <ul class="menu">
                 <li><a href="/index.jsp">메인</a></li>
                 <li><a href="/Page/SearchTrainerPage/searchTrainerPage.jsp">트레이너 찾기</a></li>
-                <li><a href="#">트레이너 등록</a></li>
-                <li><a href="#">게시판</a></li>
-                <li><a href="#">Q & A</a></li>
+                <li><a href="">트레이너 등록</a></li>
+                <li><a href="/Page/communityPage/boardPage.jsp">게시판</a></li>
+                <li><a href="/Page/communityPage/Q&APage.jsp">Q & A</a></li>
             </ul>
            </div>
 			 <!--로그인-->
