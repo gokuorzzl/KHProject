@@ -53,26 +53,27 @@
             <!--트레이너 별점 등 컨텐츠 나오는 부분-->
             <div id="contents">
                 <div id="realContents">
-                    <form name="login-form">                      
+                
+                    <form action="/login.do" method="post" name="login-form">                      
                         <div class="login-container1">
                            <label for="userId"></label>
-                          <input type="text" placeholder="아이디 입력해주세요" name="userId" required>
+                          <input type="text" placeholder="아이디 입력해주세요" id="memberId" name="memberId" required>
 
                          <label for="psw"></label><br>
-                         <input type="password" placeholder="비밀번호 입력해주세요" name="psw" required><br>
+                         <input type="password" placeholder="비밀번호 입력해주세요" id="memberPw" name="memberPw" required><br>
                           
-                         <button type="submit" class="login-button"><p id="login-letter">로그인</p></button><br>
+                         <button type="submit" class="login-button" value="로그인"><p id="login-letter">로그인</p></button><br>
                          <label>
                            <input type="checkbox" checked="checked" id="loginkeep" name="remember"><label for="keep">로그인 상태 유지</label>
                            <br><br>
-                            <div id="find-container">
-                            <div id="idfind">
-                           <span class="psw1" dir="ltr"><a class="idfindhover" href="#">아이디 찾기</a></span>
-                            </div>
-                             <div id="pswfind">
-                           <span class="psw2"><a class="pswfindhover" href="#">비밀번호 찾기</a></span>
-                           </div>
-                            </div> 
+                           <div id="find-container">
+                              <div id="idfind">
+                                 <span class="psw1" dir="ltr"><a class="idfindhover" href="#">아이디 찾기</a></span>
+                              </div>
+                              <div id="pswfind">
+                                  <span class="psw2"><a class="pswfindhover" href="#">비밀번호 찾기</a></span>
+                              </div>
+                           </div> 
                              <hr>
                             
                             
@@ -85,14 +86,15 @@
                            </a>
                          </label><br><br> 
                         </div>
-
+                   </form>
+                   
                         <div class="login-container2" style="background-color:#f1f1f1">
                            <div id="userR">
-                           <span><a class="userR" href="#">회원가입</a></span>
+                           <span><a class="userR" href="/page/loginPage/enroll.jsp">회원가입</a></span>
                            </div>
                            
                         </div>
-                    </form>
+          
                 </div>
             </div>
         </div>
