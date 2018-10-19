@@ -1,0 +1,373 @@
+@charset "UTF-8";
+
+/*==============================================
+    BASIC  STYLES    
+    =============================================*/
+@font-face {
+	font-family: 'NotoSans';
+	src: url(../fonts/NotoSansBold.eot); /*익스플로러*/
+	src: url(../fonts/NotoSansBold.woff) format('woff'); /*크롬, 파이어폭스*/
+	src: local(※), url(../fonts/NotoSansBold.woff) format('woff');
+}
+
+div {
+	font-family: 'NotoSans';
+}
+
+body {
+	line-height: 25px;
+	font-family: 'NotoSans';
+}
+
+#wrapper {
+	width: 100%;
+	background: #FF9B55;
+}
+
+#page-wrapper {
+	padding: 15px 15px;
+	min-height: 600px;
+	background: #F3F3F3;
+}
+
+#page-inner {
+	width: 100%;
+	margin: 10px 20px 10px 0px;
+	background-color: #fff !important;
+	padding: 15px;
+	min-height: 925px;
+}
+
+.page-head-line {
+	font-size: 25px;
+	text-transform: uppercase;
+	color: #383737;
+	font-weight: 800;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #383737;
+	margin-bottom: 10px;
+}
+
+.page-subhead-line {
+	font-size: 14px;
+	padding-top: 5px;
+	padding-bottom: 20px;
+	font-style: italic;
+	margin-bottom: 30px;
+	border-bottom: 1px dashed #236651;
+}
+/*==============================================
+    BREADCRUMBS
+        =============================================*/
+.breadcrumbs {
+	list-style: none;
+	height: 30px;
+	background: #fff;
+	color: #383737 !important;
+	text-decoration: none;
+	padding: 4px 0 4px 10px;
+	border-bottom: 1px solid #ccc;
+	position: relative;
+}
+
+.breadcrumbs>li span.separator {
+	width: 5px;
+	height: 9px;
+	vertical-align: middle;
+	display: inline-block;
+	background: url(../images/bcarrow.png) no-repeat 0 0;
+	margin-left: 2px;
+}
+
+.mb-red {
+	background-color: #236651;
+	text-align: center;
+	padding: 10px;
+}
+
+/*==============================================
+    MENU STYLES    
+    =============================================*/
+.logout {
+	width: 50%;
+}
+
+.message {
+	width: 3%;
+}
+
+.newuser {
+	width: 3%;
+}
+
+.success {
+	width: 7%;
+}
+
+.logo {
+	width: 100%;
+	max-width: 760px;
+	vertical-align: middle;
+	height: 65px;
+}
+
+.iconposition {
+	position: absolute;
+	padding-left: 35px;
+	color: white;
+	font-weight: bold;
+	margin-top: -8px;
+}
+
+.left-head-icon {
+	padding: 15px 20px;
+	color: white;
+	font-weight: bold;
+}
+
+.left-head-icon:hover {
+	padding: 15px 20px;
+	color: #202020;
+	font-weight: bold;
+}
+
+.navbar-cls-top .navbar-brand {
+	color: #fff;
+	background: #f5deb3;
+	width: 260px;
+	height: 75px;
+	font-size: 20px;
+	letter-spacing: 1px;
+	font-weight: 700;
+	padding-top: 25px;
+	text-transform: uppercase;
+}
+
+.header-right {
+	color: #fff;
+	padding: 15px 50px 5px 50px;
+	float: right;
+	font-size: 16px;
+}
+
+.header-left {
+	color: #fff;
+	padding: 15px 50px 5px 50px;
+	float: left;
+}
+
+.navbar-cls-top .navbar-brand:hover {
+	background: #202020;
+	color: #fff;
+}
+
+.active-menu {
+	background-color: #F3F3F3 !important;
+	color: #000 !important;
+}
+
+.arrow {
+	float: right;
+}
+
+.fa.arrow:before {
+	content: "\f104";
+}
+
+.active>a>.fa.arrow:before {
+	content: "\f107";
+}
+
+.nav-second-level li, .nav-third-level li {
+	border-bottom: none !important;
+}
+
+.nav-second-level li a {
+	padding-left: 37px;
+}
+
+.nav-third-level li a {
+	padding-left: 55px;
+}
+
+.sidebar-collapse, .sidebar-collapse .nav {
+	background: none;
+}
+
+.sidebar-collapse .nav {
+	padding: 0;
+}
+
+.sidebar-collapse .nav>li>a {
+	color: #fff;
+	text-transform: uppercase;
+	background: #ff8000;
+	text-shadow: none;
+	padding: 15px 10px !important;
+	font-size: small;
+	border-bottom: 1px solid #5E8C91;
+}
+
+.sidebar-collapse>.nav>li>a {
+	padding: 15px 10px;
+}
+
+.sidebar-collapse .nav>li>a:hover, .sidebar-collapse .nav>li>a:focus {
+	background: #0A0A0A;
+	outline: 0;
+}
+
+.nav-second-level>li:last-child>a:after, .nav-third-level>li:last-child>a:after
+	{
+	height: 50%;
+}
+
+.nav-third-level>li>a:after, .nav-third-level>li>a:before {
+	left: 40px;
+}
+
+.navbar-side {
+	border: none;
+	background-color: #202020;
+}
+
+.navbar-cls-top {
+	background: #f5deb3;
+	border-bottom: none;
+}
+
+.navbar-default {
+	border: 0px solid black;
+}
+
+.navbar-header {
+	background: white;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus
+	{
+	background-color: #236651;
+}
+
+.navbar-default .navbar-toggle {
+	border-color: #fff;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+	background-color: #FFF;
+}
+
+.nav>li>a>i {
+	margin-right: 10px;
+}
+
+/*==============================================
+    MEDIA QUERIES     
+    =============================================*/
+@media ( min-width :768px) {
+	#page-wrapper {
+		margin: 0 0 0 260px;
+		padding: 6px 16px;
+		min-height: 925px;
+	}
+	.navbar-side {
+		z-index: 1;
+		position: absolute;
+		width: 260px;
+	}
+	.navbar {
+		border-radius: 0px;
+	}
+}
+/*==============================================
+    MAIN BOX  STYLES    
+    =============================================*/
+.main-box {
+	text-align: center;
+	padding: 10px;
+	border-radius: 0px;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	margin-bottom: 40px;
+}
+
+.main-box a, .main-box a:hover {
+	color: #fff;
+	text-decoration: none;
+}
+
+.mb-dull {
+	background-color: #FF9B55;
+}
+
+.mb-red {
+	background-color: #FF9B55;
+}
+
+.mb-pink {
+	background-color: #FF9B55;
+}
+
+.main-box h5 {
+	font-size: 14px;
+	font-weight: 800;
+	text-transform: uppercase;
+}
+/* Dashboard Chat */
+.chat {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.chat li {
+	margin-bottom: 10px;
+	padding-bottom: 5px;
+	border-bottom: 1px dotted #B3A9A9;
+}
+
+.chat li.left .chat-body {
+	margin-left: 60px;
+}
+
+.chat li.right .chat-body {
+	margin-right: 60px;
+}
+
+.chat li .chat-body p {
+	margin: 0;
+	color: #777777;
+}
+
+.panel .slidedown .glyphicon, .chat .glyphicon {
+	margin-right: 5px;
+}
+
+.chat-panel .panel-body {
+	height: 280px;
+	overflow-y: scroll;
+}
+
+/* Login Page */
+.login-panel {
+	margin-top: 15%;
+}
+
+.body-Backcolor {
+	background-color: #000;
+}
+
+.logo-margin {
+	margin-top: 100px;
+}
+
+/* Flot Chart Containers */
+.flot-chart {
+	display: block;
+	height: 400px;
+}
+
+.flot-chart-content {
+	width: 100%;
+	height: 100%;
+}

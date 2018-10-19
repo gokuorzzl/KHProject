@@ -111,7 +111,7 @@ li:hover{
 }
 
 #bottom{
-    background-color: #3c3e3a;
+/*    background-color: #3c3e3a;*/
 }
 
 
@@ -182,83 +182,83 @@ li:hover{
     
     /*middle부분*/
     #middle{
-        width: 100%;
-        height: 85%;
+        
     }
-    
-/*
-    #searchBox{
-        width: 100%;
-        height: 25%;
+    #area01{
+        width: 1000px;
+        height: 150px;
+        margin-left: 20px;
+        margin-top: 20px;
+        margin-right: 20px;
+/*        border: 1px solid black;*/
+        background-color: #3c3e3a;
+/*        display: inline-block;*/
     }
-    
-    #searchName{
-        line-height: 50px;
-    }
-    
-    #contents{
-        width: 100%;
-        height: 75%;
-    }
-    
-    #realSearchBox{
-        width: 60%;
-        height: 90%;
-        margin: auto;
-        margin-top: 1%;
-    }
-    
-    #realContents{
-        width: 60%;
-        height: 90%;
-        margin: auto;
-        margin-top: 2.5%;
-    }
-    
-    #searchName{
-        width: 100%;
-        height: 20%;
-    }
-    
-    #searchName>div{
-        width: 25%;
+    #sec01{
+        float: left;
+        display: inline-block;
+        width: 33%;
         height: 100%;
+    }
+    #sec01 .box{
+        height: 90px;
+        margin: 30px 0 0 30px;
+        border-right: 1px solid #999;
+    }
+    #sec03{
         float: left;
-    }
-    
-    #selectMenu{
-        width: 100%;
-        height: 80%;
-    }
-    
-    #area, #field{
-        width: 25%;
+        width: 33%;
         height: 100%;
+    }
+    #img01{
+        width: 100px;
+        height: 120px;
         float: left;
-        overflow-y: auto;
+        border-radius: 100px;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: -15px;
+    }
+    #p1{
+        font-size: 20px;
+        margin-top: 30px;
+/*        float: left;*/
+    }
+    #p2{
+        margin-top: 10px;
+        font-size: 12px;
+        margin-bottom: 25px;
+    }
+    #p3{
+        float: left;
+        font-size: 14px;
+        border: 1px solid;
+    }
+    #p4{
+        color: #999;
+        float: left;
+        font-size: 14px;
+        border: 1px solid #999;
+        margin-left: 10px;
+    }
+    .box>p{
+        color: #999;
     }
     
-    #subArea, #subField{
-        width: 25%;
+    #sec02{
+        float: left;
+        width: 39%;
         height: 100%;
-        float: left;
-        overflow-y: auto;
     }
+    #sec02 .box{ height: 100px; margin: 15px 0 0 0; border-right: 1px solid #999;}
     
-    .trainerBox{
-        width: 30%;
-        height: 45%;
-        border: 2px solid #3c3e3a;
-        float: left;
-    }
-    .blank{
-        width: 3%;
-        height: 45%;
-        float: left;
-    }
-*/
+    #sec02 .box1{ float: left; margin: 10px 0 0 20px;}
+    #sec02 .box2{ float: left; margin: 10px 0 0 20px; }
+    #sec02 .box3{float: left; margin: 10px 0 0 20px;}
+    #sec02 p{font-size: 14px; color: #999}
     
-    /*bottom*/
+    
+/*    bottom*/
     #bottom{
         width: 100%;
         height: 8%;

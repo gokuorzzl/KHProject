@@ -12,11 +12,10 @@ src:local(※), url(../fonts/SeoulNamsan.woff) format('woff');
 
 
 
-
 /*각종 인터넷 브라우저에서 코드 작동이 가능하도록 하는 css Reset*/
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var, b, u, i, center,
-dl, dt, dd, ol, fieldset, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
 	padding: 0;
@@ -35,7 +34,7 @@ body {
 	line-height: 1;
 }
 ol, ul {
-
+	list-style: none;
 }
 blockquote, q {
 	quotes: none;
@@ -53,45 +52,118 @@ table {
 /*----------------------------------------------*/
 /*css 공통코드 작성부분*/
 /* div전체 */
-div{
-    /*border: 1px solid #FF9B55;*/
-    border: 1px solid black;
-    box-sizing: border-box;
-    margin: 0;
-   
-}
-
-::-webkit-scrollbar {
-    width: 8px; 
-    height: 8px; 
-    border: 3px solid #fff; 
-}
-
-::-webkit-scrollbar-button:start:decrement, 
-::-webkit-scrollbar-button:end:increment {
-    display: block; 
-    height: 10px; 
-    background: #efefef;
-}
-
-::-webkit-scrollbar-track {
-    background: #efefef; 
+    div{
+        border: 1px solid black;
+        box-sizing: border-box;
+        margin: 0;
+        text-align-last: center;
+    }
+    #communityMenuFrame{
+        width: 100%;
+        height: 7%;
+    }
+    #QandAListFrame{
+        width: 100%;
+        height: 79%;
+        line-height: 2;
+    }
+    #writeFrame{
+        width: 100%;
+        height: 7%;
+    }
+    .communityMenu{
+        width: 33.33%;
+        height: 100%;
+        float: left;
+        line-height: 2;
+        background-color: #F8ECE0;
+    }
+    #writeBtnEmptySpace{
+        width: 80%;
+        height: 100%;
+        float: left;
+        line-height: 2;
+        background-color: #F8ECE0;
+    }
+    #writeBtnFrame{
+        width: 20%;
+        height: 100%;
+        float: left;
+    }
+    #write{
+        width: 100%;
+        height: 100%;
+    }
+    #QnadASearchFrame{
+        width: 100%;
+        height: 7%;
+    }
+    #search{
+        width: 50%;
+        height: 100%;
+        float: left;
+    }
+    .searchEmptyPlace{
+        width: 10%;
+        height: 100%;
+        float: left;
+        background-color: #F8ECE0;
+    }
+    #searchMenu{
+        width: 15%;
+        height: 100%;
+        float: left;
+    }
+    #searchSelect{
+        width: 100%;
+        height: 100%;
+    }
+    #searchSubmit{
+        width: 15%;
+        height: 100%;
+        float: left;
+    }
+    input{
+        box-sizing:border-box;
+        width: 100%;
+        height: 100%;
+    }
+    #QandABtn{
+        background-color: #FF9B55;
+    }
+    th{
+        background-color: #2E2E2E;
+        font-weight: bold;
+        color: white;
+    }
+    tr{
+        border: 1px solid black;
+    }
+    table{
+        background-color: #FAFAFA;
+        width: 100%;
+        height: 100%;
+    }
+    a{
+        text-decoration:none;
+        color: black;
+    }
+    a:hover{
+        text-decoration:underline;
+        color: #5F04B4;
+    }
+    .communityMenu>a:hover{
+        background-color: #FF9B55;
+        color: white;
+    }
+    #writeBtnEmptySpace>a:hover{
+        background-color: black;
+        color: white;
     }
 
-::-webkit-scrollbar-thumb {
-    height: 50px; 
-    width: 50px; 
-    background: #FF9B55; 
-}
 
-#bottom{
-    background-color: #3c3e3a;
-}
 
-.finalli{
-    width: auto;
-    height: auto;
-}
+
 
 /*----------------------------------------------*/
 /* 반응형 웹 부분 */
@@ -105,22 +177,13 @@ div{
     #wrapper{
         position: absolute;
         width:100%;
-        height:1080px;    
+        height:100%;    
     }
     
     /*top부분*/
     #top{
         width: 100%;
         height:7%;
-    }
-    
-    #logo{
-        text-align: center;
-    }
-    
-    #logo>img{
-        height: 99%;
-        margin-top: 15px;
     }
     
     #mobileMenu{
@@ -145,41 +208,19 @@ div{
         float: left;
     }
     
-    #searchInput{
-        width: 70%;
-        height: 40px;
-        margin-top: 25px;
-        margin-left: 10px;
-        border: 1.5px solid #FF9B55;
-        border-radius: 20px;
-        text-indent: 10px;
-    }
-    
-     
     /*middle부분*/
-     #middle{
+    #middle{
         width: 100%;
-        height: 80%;
-    }
-    
-    #container_register{
-        width: 100%;
-        height: auto;
-    }
-    
-    
-    #frm-register-detail{
-        width: 100%;
-        height: 100%;
+        height: 85%;
     }
     
     #contents{
         width: 100%;
-        height:90%;
+        height: 100%;
     }
-
+      
     #realContents{
-        width: 80%;
+        width: 70%;
         height: 90%;
         margin: auto;
         margin-top: 2.5%;
@@ -188,7 +229,7 @@ div{
     /*bottom*/
     #bottom{
         width: 100%;
-        height: 10%;
+        height: 8%;
     }
 
 }
@@ -200,16 +241,7 @@ div{
     #wrapper{
         position: absolute;
         width:100%;
-        height:auto;    
-    }
-    
-    #logo{
-        text-align: center;
-    }
-    
-    #logo>img{
-        height: 99%;
-        margin-top: 15px;
+        height:100%;    
     }
     
     /*top부분*/
@@ -240,46 +272,23 @@ div{
         float: left;
     }
     
-    #searchInput{
-        width: 70%;
-        height: 40px;
-        margin-top: 25px;
-        margin-left: 10px;
-        border: 1.5px solid #FF9B55;
-        border-radius: 20px;
-        text-indent: 10px;
-    }
-    
     /*middle부분*/
-     #middle{
+    #middle{
         width: 100%;
         height: 80%;
     }
-      
-    #container_register{
-        width: 100%;
-        height: auto;
-    }
-    
-    
-    #frm-register-detail{
+     
+    #contents{
         width: 100%;
         height: 100%;
     }
     
-    #contents{
-        width: 100%;
-        height:90%;
-    }
-
     #realContents{
         width: 80%;
         height: 90%;
         margin: auto;
         margin-top: 2.5%;
     }
-    
-    
     
     /*bottom*/
     #bottom{
@@ -296,7 +305,7 @@ div{
     #wrapper{
         position: absolute;
         width:100%;
-        height: 1200px;    
+        height:100%;   
     }
     
     /*top부분*/
@@ -305,21 +314,14 @@ div{
         height: 25%;
     }
     
-    #logo{
-        text-align: center;
-        width: 100%;
-        height: 65%;
-        overflow: hidden;
-    }
-    
-    #logo>img{
-        height: 99%;
-        margin-top: 20px;
-    }
-    
     #mobileMenu{
         width: 100%;
         height: 15%;
+    }
+    
+    #logo{
+        width: 100%;
+        height: 65%;
     }
     
     #searchBar{
@@ -331,47 +333,23 @@ div{
         display: none;
     }
     
-    #searchInput{
-        width: 70%;
-        height: 70%;
-        margin-left: 15%;
-        border: 1.5px solid #FF9B55;
-        border-radius: 20px;
-        text-align: center;
-    }
-      
     /*middle부분*/
-     #middle{
+    #middle{
         width: 100%;
-        height: 80%;
+        height: 65%;
     }
     
-    #container_register{
-        width: 100%;
-        height: auto;
-    }
-    
-    
-    #frm-register-detail{
+    #contents{
         width: 100%;
         height: 100%;
     }
     
-    
-    #contents{
-        width: 100%;
-        height:90%;
-    }
-
     #realContents{
-        width: 80%;
-        height: 90%;
+        width: 90%;
+        height: 95%;
         margin: auto;
-        margin-top: 2.5%;
+        margin-top: 3%;
     }
-    
-  
-    
     
     /*bottom*/
     #bottom{
@@ -379,3 +357,18 @@ div{
         height: 10%;
     }
 }
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

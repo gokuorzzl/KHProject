@@ -2,12 +2,12 @@
   @import url('https://fonts.googleapis.com/css?family=Poppins:300,400');
 
 
-/*새롭게 적용할 NotoSans-Bold*/
+/*NotoSans-Bold*/
 @font-face{
 font-family:'NotoSans';
-src:url(../fonts/NotoSans-Bold.eot);/*익스플로러*/
-src:url(../fonts/NotoSans-Bold.woff) format('woff');  /*크롬, 파이어폭스*/
-src:local(※), url(../fonts/NotoSans-Bold.woff) format('woff');
+src:url(../fonts/NotoSans-Bold.eot);/*�씡�뒪�뵆濡쒕윭*/
+src:url(../fonts/NotoSans-Bold.woff) format('woff');  /*�겕濡�, �뙆�씠�뼱�룺�뒪*/
+src:local(��), url(../fonts/NotoSans-Bold.woff) format('woff');
 }
 
   body {
@@ -26,7 +26,7 @@ src:local(※), url(../fonts/NotoSans-Bold.woff) format('woff');
 
 
   /*---------------------------------------
-     태그별 style              
+     태그 style              
   -----------------------------------------*/
 
   h1,h2,h3,h4,h5,h6 {
@@ -83,7 +83,7 @@ src:local(※), url(../fonts/NotoSans-Bold.woff) format('woff');
   .form-control {
     -webkit-transition: 0.5s;
     transition: 0.5s;
-	  font-family:'NotoSans';
+	font-family:'NotoSans';
   }
   button{
 	-webkit-transition: 0.5s;
@@ -235,7 +235,7 @@ src:local(※), url(../fonts/NotoSans-Bold.woff) format('woff');
 
   .menu-bg {
     background: #3c3e3a; 
-/*원래 배경색 #101010*/
+/*원래 색상 #101010*/
     pointer-events: none;
     transition: .3s;
     right: 50px;
@@ -316,7 +316,7 @@ src:local(※), url(../fonts/NotoSans-Bold.woff) format('woff');
     right: 0;
     left: 0;
   }
-  /*글자 위에 마우스 가져가면 가로 줄 효과*/
+  /*메뉴 style*/
   .menu-items ul.menu li a:hover:after {
     content: "";
     background: #d2b48c;
@@ -330,10 +330,10 @@ src:local(※), url(../fonts/NotoSans-Bold.woff) format('woff');
   }
 
   .menu-items.fs ul li {
-    opacity: 1; /*투명도 설정*/
+    opacity: 1; /*�닾紐낅룄 �꽕�젙*/
   }
 
-/*로그인 버튼*/
+
 .menu-local{
     color: #ffffff;
     position: relative;
@@ -343,7 +343,7 @@ src:local(※), url(../fonts/NotoSans-Bold.woff) format('woff');
     opacity: 1;
     background-color:#FF9B55;
 }
-/*아이디/비밀번호찾기 조회 글씨 */
+/*메뉴 폰트 스타일*/
 .menu-local-font{
     color:#ffffff;
     font-size: 13px;
@@ -357,7 +357,7 @@ src:local(※), url(../fonts/NotoSans-Bold.woff) format('woff');
     float:right;
 }
   /*---------------------------------------
-      메인 style         
+  	메인 style         
   -----------------------------------------*/
 
   #home {
@@ -421,7 +421,7 @@ src:local(※), url(../fonts/NotoSans-Bold.woff) format('woff');
 
   }
   /*---------------------------------------
-     배경 STYLES              
+    배경 STYLES(애니메이션만 활용)          
   -----------------------------------------*/
 .bg-slide{
     width:auto;
@@ -446,35 +446,35 @@ src:local(※), url(../fonts/NotoSans-Bold.woff) format('woff');
 }
 
 .bg-slide li:nth-child(1){
-    background-image: url(../images/dayeon.png);
+    background-image: url(../img/dayeon.png);
 }
 .bg-slide li:nth-child(2){
-    background-image: url(../images/hyeyeon.png);
+    background-image: url(../img/hyeyeon.png);
     -webkit-animation-delay: 7s;
     animation-delay: 7s;  
 }    
 .bg-slide li:nth-child(3){
-    background-image: url(../images/jongkyu.png);
+    background-image: url(../img/jongkyu.png);
     -webkit-animation-delay: 14s;
     animation-delay: 14s;
 }
 .bg-slide li:nth-child(4){
-    background-image: url(../images/myeongsang.png);
+    background-image: url(../img/myeongsang.png);
     -webkit-animation-delay: 21s;
     animation-delay: 21s;
 }
 .bg-slide li:nth-child(5){
-    background-image: url(../images/sola.png);
+    background-image: url(../img/sola.png);
     -webkit-animation-delay: 28s;
     animation-delay: 28s;
 }
 .bg-slide li:nth-child(6){
-    background-image: url(../images/yeonggi.png);
+    background-image: url(../img/yeonggi.png);
     -webkit-animation-delay: 35s;
     animation-delay: 35s;
 }
 .bg-slide li:nth-child(7){
-    background-image: url(../images/yongseon.png);
+    background-image: url(../img/yongseon.png);
     -webkit-animation-delay: 42s;
     animation-delay: 42s;
 }
