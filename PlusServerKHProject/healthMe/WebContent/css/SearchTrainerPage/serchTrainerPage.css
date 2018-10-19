@@ -182,21 +182,41 @@ li:hover{
         float: left;
     }
     
-    #menu{
-        width: 25%;
-        height: 100%;
-        float: left;
-    }
-    
-    #searchInput{
-        width: 70%;
+    #searchBar div{
+    	width: 70%;
         height: 40px;
         margin-top: 25px;
         margin-left: 10px;
         border: 1.5px solid #FF9B55;
         border-radius: 6px;
-        text-indent: 10px;
-        font-family:'서울남산체';
+    }
+
+	#searchBar input{
+		width: 85%;
+		height: 100%;
+		float: left;
+		box-sizing: border-box;
+		border: 0;
+		decoration: none;
+		background: transparent;
+		text-indent: 5px;
+    }
+    
+    #searchBar button{
+    	width: 15%;
+    	height: 100%;
+    	outline: 0;
+    	border-radius: 6px 0 0 6px;
+    	float: left;
+    	border: 0;
+    	box-sizing: border-box;
+    	background: transparent;
+    }
+    
+    #menu{
+        width: 25%;
+        height: 100%;
+        float: left;
     }
     
     #loginMenu{
@@ -355,6 +375,37 @@ li:hover{
         float: left;
     }
     
+    #searchBar div{
+    	width: 70%;
+        height: 40px;
+        margin-top: 25px;
+        margin-left: 10px;
+        border: 1.5px solid #FF9B55;
+        border-radius: 6px;
+    }
+
+	#searchBar input{
+		width: 85%;
+		height: 100%;
+		float: left;
+		box-sizing: border-box;
+		border: 0;
+		decoration: none;
+		background: transparent;
+		text-indent: 5px;
+    }
+    
+    #searchBar button{
+    	width: 15%;
+    	height: 100%;
+    	outline: 0;
+    	border-radius: 6px 0 0 6px;
+    	float: left;
+    	border: 0;
+    	box-sizing: border-box;
+    	background: transparent;
+    }   
+
     #loginMenu{
         width: 50%;
         height: 100%;
@@ -385,16 +436,6 @@ li:hover{
         width: 25%;
         height: 100%;
         float: left;
-    }
-    
-    #searchInput{
-        width: 70%;
-        height: 40px;
-        margin-top: 25px;
-        margin-left: 10px;
-        border: 1.5px solid #FF9B55;
-        border-radius: 6px;
-        text-indent: 10px;
     }
     
     #loginMenu{

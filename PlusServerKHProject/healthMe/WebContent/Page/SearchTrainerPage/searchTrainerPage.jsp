@@ -19,6 +19,8 @@
  			integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   			crossorigin="anonymous"></script>
   	<script type="text/javascript" src="../../js/searchTrainerPage/searchingArea.js"></script>
+  	<!-- fa 아이콘 링크  -->
+  	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--title-->
     <title>헬th미:나만의 트레이너</title>
 
@@ -40,7 +42,12 @@
                <img src="../../img/%EB%A1%9C%EA%B3%A0.png">
             </div>
             <div id="searchBar">
-                <input type="text" name="searchInput" id="searchInput" value="지역, 종목 검색" />
+           		<form>
+           			<div>
+           				<input type="text" name="searchInput" id="searchInput" value="지역, 종목 검색" />
+               			<button type="submit"><i class="fa fa-search"></i></button>
+           			</div>
+           		</form>
             </div>
             <div id="menu">
                 <div id="loginMenu">
@@ -65,7 +72,7 @@
                         <div>종목</div>
                     </div>
                     <div id="selectMenu">
-                        <div id="area" class="scrollStyle">
+                        <div id="area" name = "area" class="scrollStyle">
                             <ul>
                                 <li>서울특별시</li>
                                 <li>부산광역시</li>
@@ -85,6 +92,8 @@
                                 <li>경상남도</li>
                                 <li>제주특별자치도</li>
                             </ul>
+                            <!-- input에 정보를 담아서 가져옴 -> 자바 변수에 저장 -->
+							<input type="hidden" name="areaInput"/>
                         </div>
                         <div id="subArea" class="scrollStyle">
   							<ul>
@@ -97,8 +106,15 @@
                             </ul>
                         </div>
                         <div id="field" class="scrollStyle">
-                            다이어트도 체형교정도 헬스 할 수 있잖아??
-                            세부종목 말고 다른 것 들어가도 좋을 것 같은데..
+                        	 <ul>
+                                <li>헬스</li>
+                                <li>요가</li>
+                                <li>구기종목</li>
+                                <li>무술</li>
+                                <li>라켓</li>
+                                <li>워터스포츠</li>
+                                <li>유산소운동</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -121,6 +137,7 @@
             김구이김주정조 정보
         </div>
     </div>
+   
 
 </body>
 </html>
