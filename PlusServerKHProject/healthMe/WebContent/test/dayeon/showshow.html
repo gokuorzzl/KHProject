@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>http://www.blueb.co.kr</title>
+      <link rel="stylesheet" type="text/css" href="demo.css" />
+      <link rel="stylesheet" type="text/css" href="backgroundTransition.css" />
+  </head>
+  <body>
+
+      <div class="backgroundTransition">
+          <div class="content">
+              <h1>다연아 이거 배경이미지 바뀌는것!!</h1>
+         
+              <p>창크기줄어들면 이미지도 자동적으로 줄어들어!!</p>
+            
+          </div>
+      </div>
+
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="backgroundTransition.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+	  $('.backgroundTransition').backgroundTransition({
+		  backgrounds:[
+			  { src: '../../img/dayeon.png' },
+			  { src: '../../img/hyeyeon.png' },
+			  { src: '../../img/jongkyu.png' },
+			  { src: '../../img/sola.png' },
+			  { src: '../../img/myeongsang.png' },
+			  { src: '../../img/yeonggi.png' },
+			  { src: '../../img/yongseon.png' }
+		  ],
+		  transitionDelay: 3,
+		  animationSpeed: 800
+	  });
+  });
+</script>
+</body>
+</html>

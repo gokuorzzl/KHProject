@@ -1,0 +1,15 @@
+
+.backgroundTransition {
+  background-image: url('https://unsplash.it/1920/1400?image=933');
+}
+
+
+.content {
+    margin-top: 50px;
+    width: 728px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    background-color: rgba(0,0,0,.3);
+    color:#fff;
+}
