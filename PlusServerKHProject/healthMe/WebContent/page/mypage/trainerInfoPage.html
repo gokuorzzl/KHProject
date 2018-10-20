@@ -11,7 +11,7 @@
 
 
 <!--스타일-->
-<link rel="stylesheet" href="../css/myPage/trainerInfoPage.css" />
+<link rel="stylesheet" href="trainerInfoPage.css" />
 
 <!--script>
    window.onload = function() {
@@ -25,7 +25,7 @@
 </script-->
 
 
-<title>Insert title here</title>
+<title>트레이너가입</title>
 </head>
 <body>
     
@@ -173,7 +173,7 @@
                          fileCnt++; 
                       }               
                      html = '';
-                     html += '<input id="Cert'+fileCnt+'" name="Cert'+fileCnt+'" type="text" placeholder="예) 토플 117, HSK 6급, GTQ 1급, 입상경력.." value="" class="input_txt01 clearbt"/>';
+                     html += '<input id="Cert'+fileCnt+'" name="Cert'+fileCnt+'" type="text" placeholder="예) 토플 117, HSK 6급, GTQ 1급, 입상경력.." value="" />';
                      html += '<p><input type="file" name="file'+fileCnt+'"/></p>';
                      
                      var div = document.createElement('div');
@@ -191,6 +191,7 @@
               
               
             
+             
           <ul>
             <li>
                 <div class="career-group">
@@ -202,12 +203,12 @@
                             <input id="career0" type="text" placeholder="ex)고라니GYM 근무" value=""/>
                             <input type="date" id="userdate_start0" name="userdate0" value="2015-10-10">
                             ~
-                            <input type="date" id="userdate_finish" name="userdate" value="2015-10-10">
+                            <input type="date" id="userdate_finish0" name="userdate1" value="2015-10-10">
                             <input type="submit" value="전송">
                         </div>
                          <div id="CertCareer"></div>
                          <a onclick="addcareer();" class="addbtn">추가 +</a>
-                        <input type="hidden" id="careerfileCnt" name="fileCnt" value="0">
+                        <input type="hidden" id="careerfileCnt" name="careerfileCnt" value="0">
                     </form>     
                     
                       <script>
@@ -220,22 +221,22 @@
                          fileCnt++; 
                       }               
                      html = '';
-                     html += '<input id="career'+fileCnt+'" name="career'+fileCnt+'" type="text" placeholder="ex)고라니GYM 근무" value=""/>';
-                     html += '<input type="date" id="userdate_start'+fileCnt+'" name="userdate'+fileCnt+'" value="2015-10-10"> ~ ';
-                     html += '<input type="date" id="userdate_finish'+fileCnt+'" name="userdate'+fileCnt'" value="2015-10-10">';
+                     html += '<input id="Cert'+careerfileCnt+'" name="Cert'+careerfileCnt+'" type="text" placeholder="ex)고라니GYM 근무" value=""/>';
+                     html += '<input type="date" id="userdate_start'+careerfileCnt+'" name="userdate0'+careerfileCnt+'" value="2015-10-10">~';
+                     html += '<input type="date" id=userdate_finish'+careerfileCnt+'" name="userdate1'+careerfileCnt+'" value="2015-10-10">';
+                  
                      html += '<input type="submit" value="전송">';
                      
                      var div = document.createElement('div');
                        div.innerHTML = html;
                         document.getElementById("CertCareer").appendChild(div);                     
-                     document.getElementById('fileCnt').value = fileCnt;
+                     document.getElementById('careerfileCnt').value = careerfileCnt;
                   }
                </script>
                     
                     
                 </div>
               
-                
                 
                 
                 
