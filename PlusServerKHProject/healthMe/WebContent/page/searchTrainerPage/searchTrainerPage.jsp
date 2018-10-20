@@ -13,7 +13,7 @@
     <!--키워드-->
     <meta name="keywords" content="www.healthme.com, 트레이너, 나만의, 맞춤" />
     <!--스타일-->
-    <link rel="stylesheet" href="../../css/SearchTrainerPage/serchTrainerPage.css" />
+    <link rel="stylesheet" href="../../css/searchTrainerPage/serchTrainerPage.css" />
     <!-- 스크립트 -->
     <script src="https://code.jquery.com/jquery-3.3.1.js"
  			integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
@@ -131,6 +131,7 @@
                         </div>
                     </div>
                 </div>
+                <div id="submitButton"><button type="submit">검색</button></div>
             </div>
             <!--트레이너 별점 등 컨텐츠 나오는 부분-->
             <div id="contents">
