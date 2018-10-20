@@ -7,7 +7,7 @@
 font-family:'NotoSans';
 src:url(../fonts/NotoSans-Bold.eot);/*�씡�뒪�뵆濡쒕윭*/
 src:url(../fonts/NotoSans-Bold.woff) format('woff');  /*�겕濡�, �뙆�씠�뼱�룺�뒪*/
-src:local(��), url(../fonts/NotoSans-Bold.woff) format('woff');
+src:local(※), url(../fonts/NotoSans-Bold.woff) format('woff');
 }
 
   body {
