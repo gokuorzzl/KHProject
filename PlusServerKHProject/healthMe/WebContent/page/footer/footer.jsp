@@ -9,6 +9,10 @@
 <body>
 <hr>
 <footer>
+<div>
+<img src="img/%EB%A1%9C%EA%B3%A0.png" width="15%" height="9%">
+</div> 
+
 <a href=""> 회사소개 </a> | <a href=""> 이용약관 </a> | <a href=""> 개인정보처리방침 </a> | <a href=""> 고객센터 </a>
 
 </footer>
