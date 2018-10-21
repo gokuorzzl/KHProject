@@ -20,7 +20,6 @@
 </head>
 <body>
     
- 
     <!--전체 공간-->    
     <div id="wrapper">
         
@@ -47,48 +46,49 @@
             <!--지역, 종목 등 선택할 수 있는 선택박스-->
             <!--트레이너 별점 등 컨텐츠 나오는 부분-->
             <div id="contents">
+                <form action="#" method="get">
                 <div id="realContents">
                     <div id="wirtePartFrame">
                         <div id="divisionframe">
-                            <div id="realDivisionframe">구&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;분 :
-                                <select>
-                                    <option>게시판</option>
-                                    <option>Q&A</option>
+                            <div id="realDivisionframe"><pre>구     분 : <select name="boardDivision">
+                                    <option value="0">게시판</option>
+                                    <option value="1">Q&A</option>
                                 </select>
+                            </pre>
                             </div>
                         </div>
                         <div id="titleframe">
                             <div id="realTitleframe">
-                                제&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;목 : 
-                                <input type="text"/>
+                                <pre>제     목 : <input type="text" id="TitleText" name="TitleText" />
+                                </pre>
                             </div>
                         </div>
                         <div id="writeContentsframe">
                             <div id="realWriteContentsframe">
-                                <span>내&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;용 :</span> 
-                                <textarea></textarea>
+                                <pre><span>내     용 :</span> <textarea id="ContentsText" name="ContentsText"></textarea>
+                                </pre>
                             </div>
                         </div>
                         <div id="passwordframe">
                             <div id="realPasswordframe">
-                                비밀번호 : 
-                                <input id="passwordTextStyle" type="text"/>&nbsp;&nbsp;
-                                on<input type="radio"/>
-                                off<input type="radio"/>
+                                	비밀번호 : 
+                                <input id="passwordText" type="text"/>
+                                on<input type="radio" name="pwdRadio" value="on"/>
+                                off<input type="radio" checked name="pwdRadio" value="off"/>
                             </div>
                         </div>
                     </div>
                     <div id="writePageBtnFrame">
                         <div id="wirteEmptyPlace"></div>
                         <div id="writeBtnFrame">
-                            <button id="writeBtn">글쓰기</button>
+                            <input type="submit" id="writeBtn" onclick="return check();" value="글쓰기"/>
                         </div>
                         <div id="cancelBtnFrame">
-                            <button id="cancelBtn">취소</button>
+                            <input type="button" id="cancelBtn" onclick="back();" value="취소"/>
                         </div>
                     </div>
-                    
                 </div>
+            </form>  
             </div>
         </div>
         
@@ -98,6 +98,37 @@
             김구이김주정조 정보
         </div>
     </div>
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
     
+    <script>
+        $('input:radio[name="pwdRadio"]').change(function(){
+        if ($(this).val()=='on') {
+            $('#passwordText').css("display" ,"");
+            alert("on");
+        }else if($(this).val()=='off'){
+            $('#passwordText').css("display" ,"none");
+            alert("off");
+        }
+        });
+        </script>
+        <script>
+        function check(){
+            var TitleText = document.getElementById("TitleText").value;
+            var ContentsText = document.getElementById("ContentsText").value;
+            if(TitleText==""){
+                alert("제목을 작성해주세요!");
+                return false;
+            }else if(ContentsText==""){
+                alert("내용을 작성해주세요!");
+                return false;
+            }
+        }
+        function back(){
+        	history.go(-1);
+		}
+    </script>
 </body>
 </html>

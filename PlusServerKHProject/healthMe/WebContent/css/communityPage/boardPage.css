@@ -19,7 +19,6 @@ dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tf
 time, mark, audio, video {
 	margin: 0;
 	padding: 0;
-	border: 0;
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
@@ -52,8 +51,8 @@ table {
 /*----------------------------------------------*/
 /*css 공통코드 작성부분*/
 /* div전체 */
-    div{
-        border: 1px solid black;
+ div{
+        border-collapse: collapse;
         box-sizing: border-box;
         margin: 0;
         text-align-last: center;
@@ -65,25 +64,28 @@ table {
     #noticeBoardListFrame{
         width: 100%;
         height: 79%;
-        line-height: 3;
+        line-height: 2;
     }
     #writeFrame{
         width: 100%;
         height: 7%;
     }
     .communityMenu{
-        width: 33.33%;
+        width: 50%;
         height: 100%;
         float: left;
-        line-height: 3;
+        line-height: 2;
         background-color: #F8ECE0;
+        border: 1px solid black;
+        border-bottom: none;
     }
     #writeBtnEmptySpace{
         width: 80%;
         height: 100%;
         float: left;
-        line-height: 3;
+        line-height: 2;
         background-color: #F8ECE0;
+        border: 1px solid black;
     }
     #writeBtnFrame{
         width: 20%;
@@ -97,6 +99,7 @@ table {
     #noticeBoardSearchFrame{
         width: 100%;
         height: 7%;
+        border-top: 1px solid black;
     }
     #search{
         width: 50%;
@@ -108,6 +111,9 @@ table {
         height: 100%;
         float: left;
         background-color: #F8ECE0;
+        border: 1px solid black;
+        border-top: none;
+        border-bottom: none;
     }
     #searchMenu{
         width: 15%;
@@ -130,6 +136,7 @@ table {
     }
     #noticeBoardBtn{
         background-color: #FF9B55;
+        border-right: none;
     }
     th{
         background-color: #2E2E2E;
@@ -138,6 +145,7 @@ table {
     }
     tr{
         border: 1px solid black;
+        border-bottom: 1px solid #D8D8D8;
     }
     table{
         background-color: #FAFAFA;
@@ -160,8 +168,10 @@ table {
         background-color: black;
         color: white;
     }
-
-
+	form{
+	width: 100%;
+	height: 100%;
+	}
 
 
 
@@ -177,7 +187,7 @@ table {
     #wrapper{
         position: absolute;
         width:100%;
-        height:100%;    
+        height:700px;    
     }
     
     /*top부분*/
@@ -241,7 +251,7 @@ table {
     #wrapper{
         position: absolute;
         width:100%;
-        height:100%;    
+        height:700px;    
     }
     
     /*top부분*/
@@ -304,8 +314,8 @@ table {
     /*div전체*/
     #wrapper{
         position: absolute;
-        width:100%;
-        height:100%;   
+        width:630px;
+        height:800px;   
     }
     
     /*top부분*/
@@ -357,4 +367,3 @@ table {
         height: 10%;
     }
 }
-

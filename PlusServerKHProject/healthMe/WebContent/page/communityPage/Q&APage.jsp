@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
     
     <!--인코딩 문자셋-->
@@ -49,10 +50,7 @@
                 <div id="realContents">
                     <div id="communityMenuFrame">
                         <div class="communityMenu">
-                            <a href="#">공지사항</a>
-                        </div>
-                        <div class="communityMenu">
-                            <a href="#">게시판</a></div>
+                            <a href="/page/communityPage/boardPage.jsp">게시판</a></div>
                         <div class="communityMenu" id="QandABtn">
                             Q&A
                         </div>
@@ -61,9 +59,9 @@
                         <table>
                             <colgroup>
                                 <col style="width:*%">
+                                <col style="width:14%">
                                 <col style="width:18%">
-                                <col style="width:18%">
-                                <col style="width:13%">
+                                <col style="width:10%">
                             </colgroup>
                             <thead>
                                 <tr>
@@ -75,7 +73,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><a href="#">Q&A입니다!!</a></td>
+                                    <td><a href="/page/communityPage/readingPage.jsp">Q&A입니다!!</a></td>
                                     <td>주용선</td>
                                     <td>2018-10-09</td>
                                     <td>0</td>
@@ -138,12 +136,7 @@
                         
                         </table>
                     </div>
-                    <div id="writeFrame">
-                        <div id="writeBtnEmptySpace" ><a href="#">1</a></div>
-                        <div id="writeBtnFrame">
-                            <button id="write">글쓰기</button>
-                        </div>
-                    </div>
+                    
                     <div id="QnadASearchFrame">
                         <div class="searchEmptyPlace"></div>
                         <div id="searchMenu">
@@ -157,9 +150,15 @@
                             <input type="text" id="searchText">
                         </div>
                         <div id="searchSubmit">
-                            <input type="submit" id="submit" value="검색">
+                            <button onclick="searchBtn();">검색</button>
                         </div>
                         <div class="searchEmptyPlace"></div>
+                    </div>
+                    <div id="writeFrame">
+                        <div id="writeBtnEmptySpace" ><a href="#">1</a></div>
+                        <div id="writeBtnFrame">
+                            <button id="write" onclick="writeBtn();">글쓰기</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -171,6 +170,17 @@
             김구이김주정조 정보
         </div>
     </div>
+    <script>
+        function searchBtn(){
+            var searchText = document.getElementById("searchText").value;
+            if(searchText==""){
+                alert("검색할 내용을 입력하세요!");
+            }
+        }
+        function writeBtn(){
+        	location.href="/page/communityPage/writingPage.jsp"
+        }
+    </script>
     
 </body>
 </html>

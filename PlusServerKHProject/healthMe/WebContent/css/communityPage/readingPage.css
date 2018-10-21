@@ -1,5 +1,3 @@
-/*----------------------------------------------*/
-/*인코딩 문자셋*/
 @charset "UTF-8";
 
 
@@ -53,127 +51,135 @@ table {
 /*css 공통코드 작성부분*/
 /* div전체 */
     div{
-        border-collapse: collapse;
         box-sizing: border-box;
         margin: 0;
-        text-align-last: center;
     }
-    #communityMenuFrame{
+    #titleFrame{
         width: 100%;
-        height: 7%;
-    }
-    #QandAListFrame{
-        width: 100%;
-        height: 79%;
+        height: 8%;
         line-height: 2;
+        background-color: #FF9B55;
+        border-bottom: 1px solid #D8D8D8;
     }
-    #writeFrame{
+    #title{
+        text-align: left;
+        color: white;
+        float: left;
+        text-indent: 1em;
+        font-weight: bold;
+        font-size: 18px;
+    }  
+    #otherInformationFrame{
         width: 100%;
-        height: 7%;
+        height: 8%;
+        background-color: #F2F2F2;
     }
-    .communityMenu{
-        width: 50%;
+    #writerView{
+        width: 65%;
         height: 100%;
         float: left;
-        line-height: 2;
-        background-color: #F8ECE0;
-        border: 1px solid black;
-        border-bottom: none;
+        line-height: 2.2;
+        border-bottom: 1px solid #D8D8D8;
     }
-    #writeBtnEmptySpace{
+    #writerBundle{
+        text-indent: 1em;
+    }
+    #dateCreatedView{
+        width: 35%;
+        height: 100%;
+        float: left;
+        line-height: 2.2;
+    }
+    #mainContentsFrame{
+        width: 100%;
+        height: 53%;
+        line-height: 2;
+        border-bottom: 1px solid #D8D8D8;
+    }
+    #buttonsFrame{
+        width: 100%;
+        height: 6%;
+        text-align-last: center;
+        background-color: #F2F2F2;
+    }
+    #listButton{
+        width: 10%;
+        height: 100%;
+        float:right;
+    }
+    #writeCommentFrame{
+        width: 100%;
+        height: 10%;
+        background-color: #F2F2F2;
+    }
+    #writeCommentTextView{
         width: 80%;
         height: 100%;
         float: left;
-        line-height: 2;
-        background-color: #F8ECE0;
-        border: 1px solid black;
-    }
-    #writeBtnFrame{
-        width: 20%;
-        height: 100%;
-        float: left;
-    }
-    #write{
-        width: 100%;
-        height: 100%;
-    }
-    #QnadASearchFrame{
-        width: 100%;
-        height: 7%;
-        border-top: 1px solid black;
-    }
-    #search{
-        width: 50%;
-        height: 100%;
-        float: left;
-    }
-    .searchEmptyPlace{
-        width: 10%;
-        height: 100%;
-        float: left;
-        background-color: #F8ECE0;
-        border: 1px solid black;
-        border-top: none;
-        border-bottom: none;
-    }
-    #searchMenu{
-        width: 15%;
-        height: 100%;
-        float: left;
-    }
-    #searchSelect{
-        width: 100%;
-        height: 100%;
-    }
-    #searchSubmit{
-        width: 15%;
-        height: 100%;
-        float: left;
-    }
-    input{
-        box-sizing:border-box;
-        width: 100%;
-        height: 100%;
-    }
-    #QandABtn{
-        background-color: #FF9B55;
-        border-left: none;
-    }
-    th{
-        background-color: #2E2E2E;
-        font-weight: bold;
-        color: white;
-    }
-    tr{
-        border: 1px solid black;
         border-bottom: 1px solid #D8D8D8;
     }
-    table{
-        background-color: #FAFAFA;
+    #writeCommentText{
+        box-sizing: border-box;
         width: 100%;
         height: 100%;
+        border: 1px solid black;
     }
-    a{
-        text-decoration:none;
-        color: black;
+    #writeCommentBtnView{
+        width: 20%;
+        height: 100%;
+        float: left; 
+        line-height: 3;
+        text-align-last: center;
     }
-    a:hover{
-        text-decoration:underline;
-        color: #5F04B4;
+    #writeCommentBtn{
+        width: 65%;
+        height: 65%;
     }
-    .communityMenu>a:hover{
+    #commentFrame{
+        width: 100%;
+        height: 15%;
         background-color: #FF9B55;
-        color: white;
     }
-    #writeBtnEmptySpace>a:hover{
-        background-color: black;
-        color: white;
-    }
-    button{
-        width: 100%;
+    #commentWriterView{
+        width: 25%;
         height: 100%;
+        float: left;
+        line-height: 2;
     }
-
+    #commentWriter{
+        float: left;
+        text-indent: 0.5em;
+    }
+    #bundleComment{
+        width: 75%;
+        height: 100%;
+        float: left;
+        background-color: #F8ECE0;
+    }
+    #commentContentsView{
+        width: 100%;
+        height: 65%;
+        line-height: 1.5;
+        border-bottom: 1px solid #D8D8D8;
+    }
+    #commentContents{
+        float: left;
+        text-indent: 1em;
+    }
+    #commentDateCreatedView{
+        width: 100%;
+        height: 35%;
+        line-height: 2;
+    }
+    #commentDateCreated{
+        float: left;
+        text-indent: 1em;
+        font-size: 12px;
+    }
+    #mainContents{
+        float: left;
+        text-indent: 1em;
+    }
 
 
 
@@ -237,6 +243,7 @@ table {
         height: 90%;
         margin: auto;
         margin-top: 2.5%;
+        border: 1px solid black;
     }
     
     /*bottom*/
@@ -301,6 +308,7 @@ table {
         height: 90%;
         margin: auto;
         margin-top: 2.5%;
+        border: 1px solid black;
     }
     
     /*bottom*/
@@ -362,6 +370,7 @@ table {
         height: 95%;
         margin: auto;
         margin-top: 3%;
+        border: 1px solid black;
     }
     
     /*bottom*/
@@ -372,17 +381,4 @@ table {
 }
 
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
