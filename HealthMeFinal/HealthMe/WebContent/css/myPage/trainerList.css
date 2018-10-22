@@ -3,11 +3,12 @@
 @charset "UTF-8";
 
 
+/*새롭게 적용할 NotoSans-Bold*/
 @font-face{
-font-family:'서울남산체';
-src:url(../fonts/SeoulNamsan.eot);/*익스플로러*/
-src:url(../fonts/SeoulNamsan.woff) format('woff');  /*크롬, 파이어폭스*/
-src:local(※), url(../fonts/SeoulNamsan.woff) format('woff');
+font-family:'NotoSans';
+src:url(../../fonts/NotoSans-Bold.eot);/*익스플로러*/
+src:url(../../fonts/NotoSans-Bold.woff) format('woff');  /*크롬, 파이어폭스*/
+src:local(※), url(../../fonts/NotoSans-Bold.woff) format('woff');
 }
 
 
