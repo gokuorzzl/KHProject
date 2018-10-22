@@ -6,22 +6,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.healthme.member.model.service.MemberService;
 import com.healthme.member.vo.Member;
 
 /**
- * Servlet implementation class LoginServlet
+ * Servlet implementation class EnrollServlet
  */
-@WebServlet(name = "Login", urlPatterns = { "/login.do" })
-public class LoginServlet extends HttpServlet {
+@WebServlet(name = "Enroll", urlPatterns = { "/enroll.do" })
+public class EnrollServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginServlet() {
+    public EnrollServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,25 +32,24 @@ public class LoginServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("utf-8");
 		
-		String memberId = request.getParameter("memberId");
-		String memberPw = request.getParameter("memberPw");
+		Member m = new Member();
+		m.setMemberId(request.getParameter("memberId"));
+		m.setMemberPw(request.getParameter("memberPw"));
+		m.setMemberName(request.getParameter("memberName"));
+		m.setMemberSocialId(request.getParameter("memberSocialId"));
+		m.setMemberAddr(request.getParameter("memberAddr"));
+		m.setMemberPhone(request.getParameter("memberPhone"));
+		m.setMemberEmail(request.getParameter("memberEmail"));
+	
 		
-		Member member = new MemberService().selectOneMember(memberId, memberPw);
+		int result = new MemberService().insertMember(m);
 		
-		if(member!=null) {
-			
-			HttpSession session = request.getSession(true);
-			
-			System.out.println("발급된 세션 ID: "+session.getId());
-			
-			session.setAttribute("member", member);
-			
-			response.sendRedirect("/page/loginPage/loginSuccess.jsp");
-			
+		if (result>0) {
+			response.sendRedirect("/page/loginPage/enrollSuccess.jsp");
 		} else {
-			
-			response.sendRedirect("/page/loginPage/loginFail.jsp");
+			response.sendRedirect("/page/loginPage/error.jsp");
 		}
+
 	}
 
 	/**

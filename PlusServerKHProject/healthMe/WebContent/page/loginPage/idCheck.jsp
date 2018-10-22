@@ -12,7 +12,7 @@
 <% String checkId = request.getParameter("checkId"); %>
 
 <!--  아이디 DB통해 건너 왔는지 확인-->
-<%--  <%=checkId %> --%>
+ <%=checkId %>
 
 <% boolean result = new MemberService().checkId(checkId);
 

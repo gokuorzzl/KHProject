@@ -9,40 +9,34 @@
 	   
 	   return false;
    }
-
-   function memberSubmit(check) {
-	   
+   
+   
+   
+   
+   function checked() {
+ 	   
+ 	   var memberId = documnet.getElementById("memberId").value;
+ 	   var memberPw = document.getElementById('memberPw').value;
+ 	   var memberPw2 = document.getElementById('memberPw2').value;
+ 	   
+ 	   var idReg = /^[a-z0-9_]{4,12}$/;
+ 	   var pwReg =  /^(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]|.*[0-9]).{8,24}$/;
+ 	 
+ 	   if(!idReg.test(memberId)) {
+ 		   alert("아이디 형식에 맞게 입력해주세요.");
+ 		   memberId.focus();
+ 		   return false;
+ 		   
+ 	   } else if (!pwReg.test(memberPw)) {
+ 		   alert("비밀번호 형식에 맞게 입력해주세요.");
+ 		   memberPw.focus();
+ 		   return false;
+ 		   
+ 	   } else if(memberPw != memberPw2) {
+ 		   alert("비밀번호가 일치하지 않습니다.");
+ 		   memberPw2.focus();
+ 	   } 
    }
-   
-   
-  /* function checked() {
-	   
-	   var memberId = documnet.getElementById("memberId").value;
-	   var memberPw = document.getElementById('memberPw').value;
-	   var memberPw2 = document.getElementById('memberPw2').value;
-	   
-	   var idReg = /^[a-z0-9_]{4,12}$/;
-	   var pwReg =  /^(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]|.*[0-9]).{8,24}$/;
-	 
-	   if(!idReg.test(memberId)) {
-		   alert("아이디 형식에 맞게 입력해주세요.");
-		   memberId.focus();
-		   return false;
-	   } else if (!pwReg.test(memberPw)) {
-		   alert("비밀번호 형식에 맞게 입력해주세요.");
-		   memberPw.focus();
-		   return false;
-		   
-	   } else if(memberPw != memberPw2) {
-		   alert("비밀번호가 일치하지 않습니다.");
-		   memberPw2.focus();
-	   } 
-	   */
-	   
-   }
-  	 
-   
-   
 
     function sample6_execDaumPostcode() {
         new daum.Postcode({
@@ -78,11 +72,12 @@
 
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
                 document.getElementById('sample6_postcode').value = data.zonecode; //5자리 새우편번호 사용
-                document.getElementById('sample6_address').value = fullAddr;
+                document.getElementById('memberAddr').value = fullAddr;
 
                 // 커서를 상세주소 필드로 이동한다.
                 document.getElementById('sample6_address2').focus();
             }
         }).open();
     }
+    
 
