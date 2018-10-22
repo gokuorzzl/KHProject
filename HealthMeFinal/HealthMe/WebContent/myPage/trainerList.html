@@ -195,32 +195,16 @@
                         <td><input type="submit" value="컨택하기">
                         <a href="#">-CLEAR-</a></td>
                     </tr>
-                    <tr>
-                        <td><img img src="../images/jubin.jpg"></td>
-                        <td><a href="#">이주빈</a></td>
-                        <td>강남</td>
-                        <td>요가</td>
-                        <td>Wanna be a supermodel?</td>
-                        <td><input type="checkbox" name="pid" id="check"></td>
-                        <td><input type="submit" value="컨택하기">
-                        <a href="#">-CLEAR-</a></td>
-                    </tr>
-                    <tr>
-                        <td><img img src="../images/jubin.jpg"></td>
-                        <td><a href="#">이주빈</a></td>
-                        <td>강남</td>
-                        <td>요가</td>
-                        <td>Wanna be a supermodel?</td>
-                        <td><input type="checkbox" name="pid" id="check"></td>
-                        <td><input type="submit" value="컨택하기">
-                        <a href="#">-CLEAR-</a></td>
-                    </tr>
+
                 </tbody>
             </table>
                 </div>
                 <div id="trainerBtnSpace">
-                    <a href="" class="btn btn-primary"> - ALL CLEAR - </a>
-                    <a href="" class="btn btn-primary"> - SELECT CLEAR - </a>
+                    <input type="button" id="chkObj" onclick="check1Btn();" value="전체선택"/>
+                    <input type="button" id="chkObj" onclick="check2Btn();" value="전체취소"/>
+
+                    <a href="" class="btn btn-primary"> - CLEAR - </a>
+
                 </div>
                 
             
@@ -235,6 +219,20 @@
             김구이김주정조 정보
         </div>
     </div>
-    
+            <!--체크박스 전체선택-->
+            <script>
+        function check1Btn(){
+            var checkbox = document.getElementsByName("pid");
+            for(i=0; i<checkbox.length; i++){
+                checkbox[i].checked = true;
+            }
+        }
+        function check2Btn(){
+            var checkbox = document.getElementsByName("pid");
+            for(i=0; i<checkbox.length; i++){
+                checkbox[i].checked = false;
+            }
+        }
+    </script>
 </body>
 </html>
