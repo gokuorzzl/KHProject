@@ -14,6 +14,7 @@
     <!--키워드-->
     <meta name="keywords" content="www.healthme.com, 트레이너, 나만의, 맞춤" />
     <!--스타일-->
+    <script type="text/javascript" src="../../js/loginPage/login.js"></script>
     <link rel="stylesheet" href="../../css/loginPage/login.css" />
     <!--title-->
     <title>헬th미: 로그인</title> <!--로그인 첫페이지-->
@@ -28,16 +29,16 @@
         <!--top부분은 관리자페이지 제외한 모든 페이지 통일-->
         <div id="top">
             <div id="mobileMenu">
-                핸드폰일 경우 메뉴
+              <!--   핸드폰일 경우 메뉴 -->
             </div>
             <div id="logo">
-               로고
+               <!-- 로고 -->
             </div>
             <div id="searchBar">
-                검색바
+      <!--           검색바 -->
             </div>
             <div id="menu">
-                로그인, 메뉴
+              <!--   로그인, 메뉴 -->
             </div>
         </div>
         

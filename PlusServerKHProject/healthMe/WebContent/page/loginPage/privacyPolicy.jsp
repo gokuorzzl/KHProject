@@ -14,7 +14,7 @@
     <!--키워드-->
     <meta name="keywords" content="www.healthme.com, 트레이너, 나만의, 맞춤" />
     <!--스타일-->
-    <link rel="stylesheet" href="../../css/loginPage/privacyPolicy.css" />
+    <link rel="stylesheet" href="../../css/loginPage/privacyPolicy.css?after" />
     <!--title-->
     <title>헬th미: 회원가입(이용약관)</title>
     

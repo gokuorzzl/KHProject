@@ -3,13 +3,6 @@
 @charset "UTF-8";
 
 
-/* @font-face{
-font-family:'서울남산체';
-src:url(../fonts/SeoulNamsan.eot);익스플로러
-src:url(../fonts/SeoulNamsan.woff) format('woff');  크롬, 파이어폭스
-src:local(※), url(../fonts/SeoulNamsan.woff) format('woff');
-} */
-
 새롭게 적용할 NotoSans-Bold
 @font-face{
 font-family:'NotoSans';
@@ -17,6 +10,7 @@ src:url(../../fonts/NotoSans-Bold.eot);익스플로러
 src:url(../../fonts/NotoSans-Bold.woff) format('woff');  크롬, 파이어폭스
 src:local(※), url(../../fonts/NotoSans-Bold.woff) format('woff');
 }
+
 
 
 /*각종 인터넷 브라우저에서 코드 작동이 가능하도록 하는 css Reset*/
@@ -94,13 +88,13 @@ div{
     #wrapper{
         position: absolute;
         width:100%;
-        height:130%;    
+        height:1500px;    
     }
     
     /*top부분*/
     #top{
         width: 100%;
-        height:5%;
+        height:7%;
     }
     
     #mobileMenu{
@@ -128,18 +122,17 @@ div{
     /*middle부분*/
     #middle{
         width: 100%;
-        height: 87%;
+        height: 85%;
     }
     
     #searchBox{
         width: 100%;
-        height: 15%;
+        height: 25%;
     }
     #contents{
         width: 100%;
-        height: 85%;
+        height: 75%;
     }
-    
     
     #realSearchBox{
         width: 70%;
@@ -162,107 +155,66 @@ div{
         height: 8%;
     }
     
-         /*-------------추가 Desktop----------------------- */
-    .logo-center {
-      display: block;
-      margin-left:auto;
-      margin-right:auto;
-      width:24%;
+    /* ---------------------추가 Desktop-------------- */
+    
+    #logo {
+      text-align:center;
     }
     
-    .info-container {
-     
-      width: 500px;
-      height:100%;
-      margin:auto;
-      text-align: left;
+    #logo>img{
+        width:50%;
+        height: 98%;
+        margin-top: 15px;
     }
     
-    form {
-    width:100%;}
-   
     
-
     
-    input[type=text] {
-       width:100%;
-       padding:10px 10px;
-       margin:8px 0;
-       box-sizing:border-box;
-       border: 2px solid #FF9B55;
-       border-radius:6px;
-     
+    #picture_Container {
+       width:40%;
+       height:100%;
+       float:left;   
     }
     
-    input[type=text]:focus {
-      background-color:#f9d3b3;
+    #picC1 {
+       width:30%;
+       height:100%;
+       float:left; 
     }
     
-     input[type=password] {
-       width:100%;
-       padding:10px 10px;
-       margin:8px 0;
-       box-sizing:border-box;
-       border: 2px solid #FF9B55;
-       border-radius:6px;
-
+    #picC2 {
+       width:50%;
+       height:100%;
+       float:left; 
+       overflow: hidden;
     }
     
-     input[type=password]:focus {
-      background-color:#f9d3b3;
+    #picture_frame {
+     width: 100%; 
+     height: 100%;
+     border-radius: 10px;
     }
     
-    #snumber1 {
-      width:47%;
-    }
-    
-    #snumber2 {
-      width:49.3%;
-    }
-    
-    #sample6_postcode {
-      width:40%;
-    }
-    
-    #sample6_fpostcode {
+    #picC3 {
       width:20%;
-      height:36px;
+      height:100%;
+      float:left; 
     }
     
-    #tel1 {
-      width:30.9%;
-      
+    #title_Container {
+        width:60%;
+        height:50%; 
+        float:left;    
     }
     
-    #tel2 {
-     width:30.9%;
+    #name_Container {
+       width:60%;
+        height:50%; 
+        float:left;   
     }
     
-    #tel3 {
-     width:30.8%;
-    }
-    
-    #email1 {
-     width:34%;
-    }
-    
-    #email2 {
-     width:34%;
-    }
- 
-     .register-button {
-        background-color:#FF9B55;
-        color:white;
-        font-size:17px;
-        padding:14px 20px;
-        margin:8px 0;
-        border:none;
-        cursor:pointer;
-        width:100%;
-    }
-    
-     button:hover {
-       background-color:#353130;
+    #item {
+      width:10%;
+      font-size:80%;
     }
     
 
@@ -417,16 +369,6 @@ div{
 }
 
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     

@@ -10,11 +10,11 @@ src:url(../fonts/SeoulNamsan.woff) format('woff');  크롬, 파이어폭스
 src:local(※), url(../fonts/SeoulNamsan.woff) format('woff');
 } */
 
-새롭게 적용할 NotoSans-Bold
+/*새롭게 적용할 NotoSans-Bold*/
 @font-face{
 font-family:'NotoSans';
-src:url(../../fonts/NotoSans-Bold.eot);익스플로러
-src:url(../../fonts/NotoSans-Bold.woff) format('woff');  크롬, 파이어폭스
+src:url(../../fonts/NotoSans-Bold.eot);/*익스플로러*/
+src:url(../../fonts/NotoSans-Bold.woff) format('woff');  /*크롬, 파이어폭스*/
 src:local(※), url(../../fonts/NotoSans-Bold.woff) format('woff');
 }
 
@@ -22,7 +22,7 @@ src:local(※), url(../../fonts/NotoSans-Bold.woff) format('woff');
 /*각종 인터넷 브라우저에서 코드 작동이 가능하도록 하는 css Reset*/
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var, b, u, i, center,
-dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+dl, dt, dd, ol, ul, li, fieldset, form, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
 	padding: 0;
@@ -60,26 +60,11 @@ table {
 /*css 공통코드 작성부분*/
 /* div전체 */
 div{
-    border: 1px solid black;
+    
     box-sizing: border-box;
     margin: 0;
    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /*----------------------------------------------*/
@@ -163,6 +148,24 @@ div{
     }
     
          /*-------------추가 Desktop----------------------- */
+         
+     label {
+      font-family:NotoSans;
+      font-size:100%;
+      font-weight:bold;
+     }
+     
+     .conditionId {
+       font-size:70%;
+       color:#147fe2;
+     }
+     
+     .conditionPw {
+       font-size:70%;
+       color:#147fe2;
+     }
+     
+     
     .logo-center {
       display: block;
       margin-left:auto;
@@ -180,10 +183,7 @@ div{
     
     form {
     width:100%;}
-   
-    
-
-    
+ 
     input[type=text] {
        width:100%;
        padding:10px 10px;
@@ -209,6 +209,20 @@ div{
     }
     
      input[type=password]:focus {
+      background-color:#f9d3b3;
+    }
+    
+     input[type=email] {
+       width:100%;
+       padding:10px 10px;
+       margin:8px 0;
+       box-sizing:border-box;
+       border: 2px solid #FF9B55;
+       border-radius:6px;
+     
+    }
+    
+    input[type=email]:focus {
       background-color:#f9d3b3;
     }
     
@@ -241,15 +255,7 @@ div{
     #tel3 {
      width:30.8%;
     }
-    
-    #email1 {
-     width:34%;
-    }
-    
-    #email2 {
-     width:34%;
-    }
- 
+
      .register-button {
         background-color:#FF9B55;
         color:white;
@@ -261,10 +267,32 @@ div{
         width:100%;
     }
     
-     button:hover {
+    
+    .doubleCheck {
+     font-family:NotoSans;
+     display:inline-block;
+     cursor:pointer;
+     padding-bottom:0%;
+     padding-left:2%;
+     padding-right:2%;
+     color:white;
+     background-color:#FF9B55;
+     border:none;
+     font-size:90%;
+     
+    }
+       
+    .doubleCheck:hover {
+       background-color:#353130;
+    }
+       
+     .register-button:hover {
        background-color:#353130;
     }
     
+
+
+
 
 }
 
@@ -417,16 +445,4 @@ div{
 }
 
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
