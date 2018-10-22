@@ -10,11 +10,11 @@
     overflow:hidden;
     border:none;
     padding:0;
-    margin:0
+    margin:0;
+    background-size: cover;
 }
 .vegas-overlay{
     opacity:.5;
-    background:url(overlays/02.png) center center;
 }
 .vegas-timer{s
     top:auto;
@@ -32,7 +32,7 @@
 .vegas-slide,.vegas-slide-inner{
     margin:0;
     padding:0;
-    background:center center no-repeat;
+    background:no-repeat;
     background-size: cover;
     -webkit-transform:translateZ(0);
     transform:translateZ(0)

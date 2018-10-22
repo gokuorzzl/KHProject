@@ -24,6 +24,7 @@
         animation: 'random',
         animationDuration: 20000,
         backgroundSize:'cover',
+        align:'top',
         slides: [
             { src: 'img/dayeon.png' },
             { src: 'img/hyeyeon.png' },

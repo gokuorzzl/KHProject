@@ -80,7 +80,7 @@ sub {
 }
 
 img {
-	border: 0
+	border: 0;
 }
 
 svg:not (:root ){
@@ -250,33 +250,6 @@ td, th {
 		border: 1px solid #ddd !important
 	}
 }
-@font-face{
-font-family:'서울남산체';
-src:url(../fonts/SeoulNamsan.eot);/*익스플로러*/
-src:url(../fonts/SeoulNamsan.woff) format('woff');  /*크롬, 파이어폭스*/
-src:local(※), url(../fonts/SeoulNamsan.woff) format('woff');
-}
-html {
-	font-family: sans-serif;
-	-webkit-text-size-adjust: 100%;
-	-ms-text-size-adjust: 100%;
-	font-family: '서울남산체';
-}
-
-/*
-@font-face {
-	font-family: 'Glyphicons Halflings';
-	src: url(../fonts/glyphicons-halflings-regular.eot);
-	src: url(../fonts/glyphicons-halflings-regular.eot?#iefix)
-		format('embedded-opentype'),
-		url(../fonts/glyphicons-halflings-regular.woff2) format('woff2'),
-		url(../fonts/glyphicons-halflings-regular.woff) format('woff'),
-		url(../fonts/glyphicons-halflings-regular.ttf) format('truetype'),
-		url(../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular)
-		format('svg')
-}
-*/
-/*
 
 .glyphicon {
 	position: relative;
