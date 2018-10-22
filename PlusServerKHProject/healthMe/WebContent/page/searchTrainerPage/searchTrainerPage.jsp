@@ -13,7 +13,7 @@
     <!--키워드-->
     <meta name="keywords" content="www.healthme.com, 트레이너, 나만의, 맞춤" />
     <!--스타일-->
-    <link rel="stylesheet" href="../../css/searchTrainerPage/serchTrainerPage.css" />
+    <link rel="stylesheet" href="../../css/SearchTrainerPage/serchTrainerPage.css" />
     <!-- 스크립트 -->
     <script src="https://code.jquery.com/jquery-3.3.1.js"
  			integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
@@ -54,10 +54,10 @@
                <img src="../../img/%EB%A1%9C%EA%B3%A0.png">
             </div>
             <div id="searchBar">
-           		<form>
+           		<form action="/searchInput.do" method="post">
            			<div>
-           				<input type="text" name="searchInput" id="searchInput" placeholder="지역, 종목 검색" />
-               			<button type="submit"><i class="fa fa-search"></i></button>
+           					<input type="text" name="searchInput" id="searchInput" placeholder="지역, 종목 검색" />
+           					<button type="submit"><i class="fa fa-search"></i></button>
            			</div>
            		</form>
             </div>
@@ -105,7 +105,6 @@
                                 <li>제주특별자치도</li>
                             </ul>
                             <!-- input에 정보를 담아서 가져옴 -> 자바 변수에 저장 -->
-							<input type="hidden" name="areaInput"/>
                         </div>
                         <div id="subArea" class="scrollStyle">
   							<ul>
@@ -131,17 +130,22 @@
                         </div>
                     </div>
                 </div>
-                <div id="submitButton"><button type="submit">검색</button></div>
+                <div id="submitButton"><button type="submit"><i class="fa fa-search"></i></button></div>
             </div>
             <!--트레이너 별점 등 컨텐츠 나오는 부분-->
             <div id="contents">
-                <div id="realContents">
+            	<div id="ment">
+					<img style="height:100%; width:100%;" src="../../img/searchTrainerMainImg.PNG">
+            	</div>
+         	<!--  
+        		<div id="realContents">
                     <div class="trainerBox">
                         <div class="boxImg"><img src="#"/></div>
                         <div class="boxInfo"></div>
                     </div>
                     <div class="blank"></div>
-                </div>
+               	</div>
+       		-->
             </div>
         </div>
         

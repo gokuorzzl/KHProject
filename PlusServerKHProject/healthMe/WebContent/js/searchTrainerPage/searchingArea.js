@@ -29,6 +29,23 @@ $(function(){
 		}
 	});
 	
+	$.cliclkSubArea = function(){$('#subArea2 li').click(function(){//읍/면/동 선택 -> 메소드로 만들어서 중복코드 줄이기
+		if(area3==""){//읍/면/동을 최초로 선택하는 경우(area3 배열이 비어있는 경우)
+			$(this).css('background-color', '#FF9B55'); //주황색으로 배경색 변경
+			area3.push($(this).html());	//area3배열에 담아줌
+		}else if(area3.includes($(this).html())){ //한 번 선택한 값을 다시 선택하는 경우(사용자가 취소하는 경우)(area3 배열에 해당 값이 있는 경우)
+			$(this).css('background-color', 'white'); //배경색을 흰색으로 변경
+			for(var i=0; i<area3.length; i++){
+				if(area3[i]==$(this).html()){ //area3 배열 내에 현재 선택한 내용과 일치하는 내용이 있는경우
+					field.splice(i, 1); //해당 값을 area3에서 삭제
+				}
+			}
+		}else{
+			$(this).css('background-color', '#FF9B55'); //처음 선택한 값은 아니지만 새로운 값을 선택한 경우
+			area3.push($(this).html());	//배열에 해당 값 추가
+		}
+	})};
+	
 	$('#area li:eq(0)').click(function(){//서울특별시 선택
 		
 		if(area1==$(this).html()){
@@ -92,26 +109,9 @@ $(function(){
 					$('#subArea2>ul').append('<li>창신3동</li>');
 					$('#subArea2>ul').append('<li>숭인1동</li>');
 					$('#subArea2>ul').append('<li>숭인2동</li>');
-					
-					$('#subArea2 li').click(function(){//읍/면/동 선택 -> 메소드로 만들어서 중복코드 줄이기
-						if(area3==""){//읍/면/동을 최초로 선택하는 경우(area3 배열이 비어있는 경우)
-							$(this).css('background-color', '#FF9B55'); //주황색으로 배경색 변경
-							area3.push($(this).html());	//area3배열에 담아줌
-						}else if(area3.includes($(this).html())){ //한 번 선택한 값을 다시 선택하는 경우(사용자가 취소하는 경우)(area3 배열에 해당 값이 있는 경우)
-							$(this).css('background-color', 'white'); //배경색을 흰색으로 변경
-							for(var i=0; i<area3.length; i++){
-								if(area3[i]==$(this).html()){ //area3 배열 내에 현재 선택한 내용과 일치하는 내용이 있는경우
-									field.splice(i, 1); //해당 값을 area3에서 삭제
-								}
-							}
-						}else{
-							$(this).css('background-color', '#FF9B55'); //처음 선택한 값은 아니지만 새로운 값을 선택한 경우
-							area3.push($(this).html());	//배열에 해당 값 추가
-						}
-					});
 
+					$.cliclkSubArea();
 
-					
 				}
 			});//서울특별시 종로구 '읍/면/동'함수 끝
 			
@@ -139,6 +139,9 @@ $(function(){
 					$('#subArea2>ul').append('<li>동화동</li>');
 					$('#subArea2>ul').append('<li>황학동</li>');
 					$('#subArea2>ul').append('<li>중림동</li>');
+					
+					$.cliclkSubArea();
+					
 				}
 			});//서울특별시 중구 '읍/면/동'함수 끝
 			
@@ -167,6 +170,9 @@ $(function(){
 					$('#subArea2>ul').append('<li>한남동</li>');
 					$('#subArea2>ul').append('<li>서빙고동</li>');
 					$('#subArea2>ul').append('<li>보광동</li>');
+					
+					$.cliclkSubArea();
+					
 				}
 			});//서울특별시 용산구 '읍/면/동'함수 끝
 			
@@ -196,6 +202,9 @@ $(function(){
 					$('#subArea2>ul').append('<li>송정동</li>');
 					$('#subArea2>ul').append('<li>용답동</li>');
 					$('#subArea2>ul').append('<li>옥수동</li>');
+					
+					$.cliclkSubArea();
+					
 				}
 			});//서울특별시 성동구 '읍/면/동'함수 끝
 			
@@ -223,6 +232,9 @@ $(function(){
 					$('#subArea2>ul').append('<li>자양제4동</li>');
 					$('#subArea2>ul').append('<li>화양동</li>');
 					$('#subArea2>ul').append('<li>군자동</li>');
+					
+					$.cliclkSubArea();
+					
 				}
 			});//서울특별시 광진구 '읍/면/동'함수 끝
 			
@@ -249,6 +261,9 @@ $(function(){
 					$('#subArea2>ul').append('<li>휘경제2동</li>');
 					$('#subArea2>ul').append('<li>이문제1동</li>');
 					$('#subArea2>ul').append('<li>이문제2동</li>');
+					
+					$.cliclkSubArea();
+					
 				}
 			});//서울특별시 동대문구 '읍/면/동'함수 끝
 			
@@ -277,6 +292,9 @@ $(function(){
 					$('#subArea2>ul').append('<li>망우제3동</li>');
 					$('#subArea2>ul').append('<li>신내1동</li>');
 					$('#subArea2>ul').append('<li>신내2동</li>');
+					
+					$.cliclkSubArea();
+					
 				}
 			});//서울특별시 중랑구 '읍/면/동'함수 끝
 			
@@ -310,6 +328,9 @@ $(function(){
 					$('#subArea2>ul').append('<li>장위제2동</li>');
 					$('#subArea2>ul').append('<li>장위제3동</li>');
 					$('#subArea2>ul').append('<li>석관동</li>');
+					
+					$.cliclkSubArea();
+					
 				}
 			});//서울특별시 성북구 '읍/면/동'함수 끝
 			
@@ -334,6 +355,9 @@ $(function(){
 					$('#subArea2>ul').append('<li>수유제3동</li>');
 					$('#subArea2>ul').append('<li>우이동</li>');
 					$('#subArea2>ul').append('<li>인수동</li>');
+					
+					$.cliclkSubArea();
+					
 				}
 			});//서울특별시 강북구 '읍/면/동'함수 끝
 			
@@ -359,6 +383,9 @@ $(function(){
 					$('#subArea2>ul').append('<li>창제5동</li>');
 					$('#subArea2>ul').append('<li>도봉제1동</li>');
 					$('#subArea2>ul').append('<li>도봉제2동</li>');
+					
+					$.cliclkSubArea();
+					
 				}
 			});//서울특별시 도봉구 '읍/면/동'함수 끝
 			
@@ -390,6 +417,9 @@ $(function(){
 					$('#subArea2>ul').append('<li>상계8동</li>');
 					$('#subArea2>ul').append('<li>상계9동</li>');
 					$('#subArea2>ul').append('<li>상계10동</li>');
+					
+					$.cliclkSubArea();
+					
 				}
 			});//서울특별시 노원구 '읍/면/동'함수 끝
 			
@@ -418,6 +448,9 @@ $(function(){
 					$('#subArea2>ul').append('<li>증산동</li>');
 					$('#subArea2>ul').append('<li>수색동</li>');
 					$('#subArea2>ul').append('<li>진관동</li>');
+					
+					$.cliclkSubArea();
+					
 				}
 			});//서울특별시 은평구 '읍/면/동'함수 끝
 			
@@ -444,6 +477,9 @@ $(function(){
 					$('#subArea2>ul').append('<li>남가좌제2동</li>');
 					$('#subArea2>ul').append('<li>북가좌제1동</li>');
 					$('#subArea2>ul').append('<li>북가좌제2동</li>');
+					
+					$.cliclkSubArea();
+					
 				}
 			});//서울특별시 서대문구 '읍/면/동'함수 끝
 			
@@ -472,6 +508,9 @@ $(function(){
 					$('#subArea2>ul').append('<li>성산제1동</li>');
 					$('#subArea2>ul').append('<li>성산제2동</li>');
 					$('#subArea2>ul').append('<li>상암동</li>');
+					
+					$.cliclkSubArea();
+					
 				}
 			});//서울특별시 마포구 '읍/면/동'함수 끝
 			
@@ -502,6 +541,9 @@ $(function(){
 					$('#subArea2>ul').append('<li>신정4동</li>');
 					$('#subArea2>ul').append('<li>신정6동</li>');
 					$('#subArea2>ul').append('<li>신정7동</li>');
+					
+					$.cliclkSubArea();
+					
 				}
 			});//서울특별시 양천구 '읍/면/동'함수 끝
 			
@@ -534,6 +576,9 @@ $(function(){
 					$('#subArea2>ul').append('<li>방화제1동</li>');
 					$('#subArea2>ul').append('<li>방화제2동</li>');
 					$('#subArea2>ul').append('<li>방화제3동</li>');
+					
+					$.cliclkSubArea();
+					
 				}
 			});//서울특별시 강서구 '읍/면/동'함수 끝
 			
@@ -561,6 +606,9 @@ $(function(){
 					$('#subArea2>ul').append('<li>오류제1동</li>');
 					$('#subArea2>ul').append('<li>오류제2동</li>');
 					$('#subArea2>ul').append('<li>수궁동</li>');
+					
+					$.cliclkSubArea();
+					
 				}
 			});//서울특별시 구로구 '읍/면/동'함수 끝
 			
@@ -584,6 +632,9 @@ $(function(){
 					$('#subArea2>ul').append('<li>시흥제3동</li>');
 					$('#subArea2>ul').append('<li>시흥제4동</li>');
 					$('#subArea2>ul').append('<li>시흥제5동</li>');
+					
+					$.cliclkSubArea();
+					
 				}
 			});//서울특별시 금천구 '읍/면/동'함수 끝
 			
@@ -614,6 +665,9 @@ $(function(){
 					$('#subArea2>ul').append('<li>대림제2동</li>');
 					$('#subArea2>ul').append('<li>대림제3동</li>');
 					$('#subArea2>ul').append('<li>도림동</li>');
+					
+					$.cliclkSubArea();
+					
 				}
 			});//서울특별시 영등포구 '읍/면/동'함수 끝
 			
@@ -641,6 +695,9 @@ $(function(){
 					$('#subArea2>ul').append('<li>대방동</li>');
 					$('#subArea2>ul').append('<li>신대방제1동</li>');
 					$('#subArea2>ul').append('<li>신대방제2동</li>');
+					
+					$.cliclkSubArea();
+					
 				}
 			});//서울특별시 동작구 '읍/면/동'함수 끝
 			
@@ -674,6 +731,9 @@ $(function(){
 					$('#subArea2>ul').append('<li>난곡동</li>');
 					$('#subArea2>ul').append('<li>삼성동</li>');
 					$('#subArea2>ul').append('<li>미성동</li>');
+					
+					$.cliclkSubArea();
+					
 				}
 			});//서울특별시 관악구 '읍/면/동'함수 끝
 			
@@ -703,6 +763,9 @@ $(function(){
 					$('#subArea2>ul').append('<li>양재1동</li>');
 					$('#subArea2>ul').append('<li>양재2동</li>');
 					$('#subArea2>ul').append('<li>내곡동</li>');
+					
+					$.cliclkSubArea();
+					
 				}
 			});//서울특별시 서초구 '읍/면/동'함수 끝
 			
@@ -737,6 +800,9 @@ $(function(){
 					$('#subArea2>ul').append('<li>일원1동</li>');
 					$('#subArea2>ul').append('<li>일원2동</li>');
 					$('#subArea2>ul').append('<li>수성동</li>');
+					
+					$.cliclkSubArea();
+					
 				}
 			});//서울특별시 강남구 '읍/면/동'함수 끝
 			
@@ -776,6 +842,10 @@ $(function(){
 					$('#subArea2>ul').append('<li>잠실4동</li>');
 					$('#subArea2>ul').append('<li>잠실6동</li>');
 					$('#subArea2>ul').append('<li>잠실7동</li>');
+					
+					$.cliclkSubArea();
+					
+					
 				}
 			});//서울특별시 송파구 '읍/면/동'함수 끝
 			
@@ -806,6 +876,9 @@ $(function(){
 					$('#subArea2>ul').append('<li>길동</li>');
 					$('#subArea2>ul').append('<li>둔촌1동</li>');
 					$('#subArea2>ul').append('<li>둔촌2동</li>');
+					
+					$.cliclkSubArea();
+					
 				}
 			});//서울특별시 강동구 '읍/면/동'함수 끝
 			
