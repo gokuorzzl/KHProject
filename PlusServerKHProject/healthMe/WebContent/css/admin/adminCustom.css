@@ -165,6 +165,7 @@ body {
 .active-menu {
 	background-color: #F3F3F3 !important;
 	color: #000 !important;
+	text-align: left;
 }
 
 .arrow {
@@ -261,6 +262,9 @@ body {
 .nav>li>a>i {
 	margin-right: 10px;
 }
+
+
+
 
 /*==============================================
     MEDIA QUERIES     
