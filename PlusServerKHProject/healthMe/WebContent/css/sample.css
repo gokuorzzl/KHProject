@@ -2,14 +2,6 @@
 /*인코딩 문자셋*/
 @charset "UTF-8";
 
-/* 이거일경우 예전것을 의미한다.*/
-@font-face{
-font-family:'NotoSansBold';
-src:url(../../fonts/NotoSansBold.eot);/*익스플로러*/
-src:url(../../fonts/NotoSansBold.woff) format('woff');  /*크롬, 파이어폭스*/
-src:local(※), url(../../fonts/NotoSansBold.woff) format('woff');
-}
-
 
 /* 이거일경우 한글영어특수문자 다 적용된다.아래것보다 약간 얇다.*/
 @font-face{
@@ -18,14 +10,6 @@ src:url(../../fonts/NotoSansCJKkrBold.woff) format('woff');  /*크롬, 파이어
 src:local(※), url(../../fonts/NotoSansCJKkrBold.woff) format('woff');
 }
 
-
-
-/* 이거일경우 한글영어특수문자 다 적용된다.제일 두껍다.*/
-@font-face{
-font-family:'NotoSansMonoCJKkrBold';
-src:url(../../fonts/NotoSansMonoCJKkrBold.woff) format('woff');  /*크롬, 파이어폭스*/
-src:local(※), url(../../fonts/NotoSansMonoCJKkrBold.woff) format('woff');
-}
 
 
 
@@ -40,7 +24,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-	font-family: '서울남산체';
+	font-family:'NotoSansCJKkrBold';
 	
 }
 /* HTML5 display-role reset for older browsers */

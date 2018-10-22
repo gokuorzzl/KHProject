@@ -1,18 +1,17 @@
 @charset "UTF-8";
 
 
+/* 이거일경우 한글영어특수문자 다 적용된다.아래것보다 약간 얇다.*/
 @font-face{
-font-family:'NotoSans';
-src:url(../fonts/NotoSansBold.eot);/*익스플로러*/
-src:url(../fonts/NotoSansBold.woff) format('woff');  /*크롬, 파이어폭스*/
-src:local(※), url(../fonts/NotoSansBold.woff) format('woff');
+font-family:'NotoSansCJKkrBold';
+src:url(../fonts/NotoSansCJKkrBold.woff) format('woff');  /*크롬, 파이어폭스*/
+src:local(※), url(../fonts/NotoSansCJKkrBold.woff) format('woff');
 }
 
 
 
-
 html {
-  font-family:'NotoSans';
+ font-family:'NotoSansCJKkrBold';
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
@@ -276,7 +275,7 @@ th {
   position: relative;
   top: 1px;
   display: inline-block;
-  font-family:'NotoSans';
+ font-family:'NotoSansCJKkrBold';
   font-style: normal;
   font-weight: normal;
   line-height: 1;
@@ -902,7 +901,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
- font-family:'NotoSans';
+font-family:'NotoSansCJKkrBold';
   font-size: 14px;
   line-height: 1.42857143;
   color: #333;
@@ -912,7 +911,7 @@ input,
 button,
 select,
 textarea {
-  font-family:'NotoSans';
+ font-family:'NotoSansCJKkrBold';
   font-size: inherit;
   line-height: inherit;
 }
@@ -1001,7 +1000,7 @@ h6,
 .h4,
 .h5,
 .h6 {
- font-family:'NotoSans';
+ font-family:'NotoSansCJKkrBold';
   font-weight: 500;
   line-height: 1.1;
   color: inherit;
@@ -3945,7 +3944,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-brand {
   float: left;
   height: 50px;
-  padding: 15px 15px;
+  padding: 45px 45px;
   font-size: 18px;
   line-height: 20px;
 }
@@ -5593,7 +5592,7 @@ button.close {
   position: absolute;
   z-index: 1070;
   display: block;
-  font-family:'NotoSans';
+  font-family:'NotoSansCJKkrBold';
   font-size: 12px;
   font-weight: normal;
   line-height: 1.4;
@@ -5701,7 +5700,7 @@ button.close {
   display: none;
   max-width: 276px;
   padding: 1px;
- font-family:'NotoSans';
+ font-family:'NotoSansCJKkrBold';
   font-size: 14px;
   font-weight: normal;
   line-height: 1.42857143;
@@ -5950,7 +5949,7 @@ button.close {
   width: 20px;
   height: 20px;
   margin-top: -10px;
-  font-family:'NotoSans';
+  font-family:'NotoSansCJKkrBold';
 }
 .carousel-control .icon-prev:before {
   content: '\2039';

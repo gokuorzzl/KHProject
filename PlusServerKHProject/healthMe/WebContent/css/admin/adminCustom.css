@@ -3,20 +3,21 @@
 /*==============================================
     BASIC  STYLES    
     =============================================*/
-@font-face {
-	font-family: 'NotoSans';
-	src: url(../fonts/NotoSansBold.eot); /*익스플로러*/
-	src: url(../fonts/NotoSansBold.woff) format('woff'); /*크롬, 파이어폭스*/
-	src: local(※), url(../fonts/NotoSansBold.woff) format('woff');
+/* 이거일경우 한글영어특수문자 다 적용된다.아래것보다 약간 얇다.*/
+@font-face{
+font-family:'NotoSansCJKkrBold';
+src:url(../fonts/NotoSansCJKkrBold.woff) format('woff');  /*크롬, 파이어폭스*/
+src:local(※), url(../fonts/NotoSansCJKkrBold.woff) format('woff');
 }
 
+
 div {
-	font-family: 'NotoSans';
+	font-family:'NotoSansCJKkrBold';
 }
 
 body {
 	line-height: 25px;
-	font-family: 'NotoSans';
+	font-family:'NotoSansCJKkrBold';
 }
 
 #wrapper {
@@ -101,7 +102,7 @@ body {
 }
 
 .success {
-	width: 7%;
+	width: 4%;
 }
 
 .logo {
@@ -139,7 +140,7 @@ body {
 	font-size: 20px;
 	letter-spacing: 1px;
 	font-weight: 700;
-	padding-top: 25px;
+	padding-top: 50px;
 	text-transform: uppercase;
 }
 
@@ -241,7 +242,7 @@ body {
 }
 
 .navbar-header {
-	background: white;
+	background: #f5deb3;
 }
 
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus
