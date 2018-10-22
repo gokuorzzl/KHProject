@@ -66,7 +66,7 @@
 
 
                     <li>
-                        <a class="active-menu" href="dashboard.html"><i class="fa fa-desktop "></i>홈</a>
+                        <a class="active-menu" href="adminMain.jsp"><i class="fa fa-desktop "></i>홈</a>
                     </li>
                     <!-- 홈 하나 끝 -->
                     
@@ -291,5 +291,9 @@
 
 
 -->
+
+<jsp:include page="/page/footer/footer.jsp"/>
+
+
 </body>
 </html>

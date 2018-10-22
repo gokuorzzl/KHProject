@@ -67,6 +67,13 @@
                        
                         </div>
                    </form>
+                   <div align="center">
+                   <br>
+                   	* 이곳은 관리자 영역입니다. <br><br>
+                   	* 관리자 외에 접근할 수 없도록 비밀번호 관리를 잘 하여주시기 바랍니다.<br><br>
+                   	<a href="/index.jsp">홈으로 돌아가기</a>
+                   	
+                   </div>
           
                 </div>
             </div>
