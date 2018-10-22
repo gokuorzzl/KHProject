@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+.totalSize{
+	width:100%;
+	heigth:100px;
+}
+.imgLine{
+	width:100%;
+	heigth:120px;
+	float:left;
+}
+.tagStyle{
+	width:100px;
+	float:left;
+}
+.imgStyle{
+	width:150px;
+	heigth:90px;
+	float:left;
+}
+
