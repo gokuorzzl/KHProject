@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   <%@ page import="com.healthme.admin.vo.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,11 +38,22 @@
                 <a href="#" class="left-head-icon" title="새메세지"><span class="iconposition">93 </span><img src="../../img/message.png" class="message"></a>
                 <a href="#" class="left-head-icon" title="새로운사용자"><span class="iconposition">08 </span><img src="../../img/newuser.png" class="newuser"></a>
                  <a href="#" class="left-head-icon" title="매칭회원"><span class="iconposition">17 </span><img src="../../img/success.png" class="success"></a>
-
+				<%
+				session = request.getSession(false);
+				Admin admin = (Admin)session.getAttribute("admin");
+				if(admin!=null){
+				%>
+				<H3>[<%=admin.getAdminId()%>]님 환영합니다.</H3>
+				<%
+				}else{
+				%>
+				<H3><a href="/page/admin/adminlogin.jsp">관리자가 아닙니다.(로그인화면돌아가기)</a></H3>
+				<%} %>
+				
             </div>
             <div class="header-right">
 
-             <a href="#" class="left-head-icon" title="Sign Out"><img src="../../img/logout.png" class="logout"></a>
+             <a href="/adminLoginOut.do" class="left-head-icon" title="Sign Out"><img src="../../img/logout.png" class="logout"></a>
              
 
             </div>
