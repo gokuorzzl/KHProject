@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 import com.healthme.admin.vo.Admin;
 import com.healthme.common.JDBCTemplate;
@@ -51,6 +53,54 @@ public class AdminDao {
 		
 		
 	
+	}
+
+	public ArrayList<Member> AdminAllList(Connection conn) {
+		// TODO Auto-generated method stub
+		
+		ArrayList<Member> list = new ArrayList<Member>();
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		String query = "select * from member order by active desc";
+		
+		try {
+			stmt = conn.createStatement();
+			rset = stmt.executeQuery(query);
+			
+			while(rset.next()) {
+				Member m = new Member();
+				m.setMemberId(rset.getString("memberId"));
+				m.setMemberPw(rset.getString("memberPw"));
+				m.setMemberName(rset.getString("memberName"));
+				m.setMemberSocialId(rset.getString("socialId"));
+				m.setMemberAddr(rset.getString("memberAddr"));
+				m.setMemberPhone(rset.getString("memberPhone"));
+				m.setMemberEmail(rset.getString("memberEmail"));
+			
+				list.add(m);
+				
+			}
+			
+			
+			
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(stmt);
+		}
+		
+		
+		
+		
+		
+		
+		
+		return list;
 	}
 
 }

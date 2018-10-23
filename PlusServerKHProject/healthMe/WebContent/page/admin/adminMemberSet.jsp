@@ -1,6 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-      <%@ page import="com.healthme.admin.vo.*" %>
+      <%@ page import="com.healthme.admin.vo.*" 
+      		   import="java.util.ArrayList"
+      %>
+      
+      <%
+      	ArrayList<Admin> list = (ArrayList<Admin>)request.getAttribute("AdminList");
+      %>
+      
+      
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -147,7 +155,31 @@
             </div>
 
         </nav>
-
+	<div class="container">
+	
+	<table border="1">
+	<tr>
+	<th>ID</th><th>이름</th><th>주민번호</th><th>주소</th><th>가입날짜</th><th>회원등급</th><th>Email</th><th>핸드폰번호</th><th>탈퇴여부</th>
+	</tr>
+	
+	<%for(Admin m:list){ %>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<%} %>
+	</table>
+	
+	
+	
+	</div>
 
 
 </body>

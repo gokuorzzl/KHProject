@@ -54,6 +54,9 @@
 				<%} %>
 				
             </div>
+            
+            
+            
             <div class="header-right">
 
              <a href="/adminLoginOut.do" class="left-head-icon" title="Sign Out"><img src="../../img/logout.png" class="logout"></a>
