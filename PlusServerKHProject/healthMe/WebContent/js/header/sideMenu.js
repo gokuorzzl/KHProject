@@ -17,16 +17,12 @@ $(function(){
 	//mobileMenu에서 누르면 왼쪽에서 떠야 함
 	$('#mobileMenu>div>p').click(function(){
 		$('#navigation').css('display', 'block');
-		$('#loginMenu>a').css('display', 'none');
-		$('#menuButton p').css('display', 'none');
 	});
 	
 	//x표시 누르면 메뉴 빠잉빠잉
 	//모바일메뉴에서 껐을 수도 있으므로 css 값을 초기화
 	$('#navigation>div>p').click(function(){
 		$('#navigation').css('display', 'none');
-		$('#loginMenu>a').css('display', 'block');
-		$('#menuButton p').css('display', 'block');
 	});
 	
 });

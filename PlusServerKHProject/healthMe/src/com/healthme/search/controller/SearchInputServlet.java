@@ -1,6 +1,7 @@
 package com.healthme.search.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,7 +36,14 @@ public class SearchInputServlet extends HttpServlet {
 		String search = request.getParameter("searchInput");
 		
 		//3. 검색 처리
-		//컴마, 공백 등 기타 구분자로 넘어온 검색어를 StringTokenizer를 이용해 배열에 저장
+		//replace 메소드를 이용해 검색어를 모두 (공백)구분자로 변경
+		search = search.replace(",", " ");
+		search = search.replace("/", " ");
+		search = search.replace("\"", " ");
+		search = search.replace("\'", " ");
+		
+		//공백 등 기타 구분자로 넘어온 검색어를 StringTokenizer를 이용해 배열에 저장
+		ArrayList<String> searchList = new ArrayList<>();
 		
 		//배열을 
 		
