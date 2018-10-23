@@ -48,7 +48,9 @@
             <div><p>☰</p></div>
         </div>
         <div id="logo">
-           <img src="../../img/%EB%A1%9C%EA%B3%A0.png">
+           <div>
+           	<img src="../../img/%EB%A1%9C%EA%B3%A0.png">
+           </div>
         </div>
         <div id="searchBar">
        		<form action="/searchInput.do" method="post">

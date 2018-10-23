@@ -63,6 +63,35 @@ div{
 	position: absolute;
 }
 
+li, p, #logo>img, button{
+	cursor: pointer;
+}
+
+#navigation-login{
+	border-radius : 6px 6px 6px 6px;
+	margin-top: 20px;
+	margin-left: 10px;
+	width:90%;
+	height: 60px;
+	text-align: center;
+	line-height: 60px;
+	background: #FF9B55;
+}
+
+a{
+	width: 100%;
+	height: 100%;
+}
+
+input:focus{
+	outline: none;
+	box-shadow: none;
+}
+
+input:autofill{
+	box-shadow: none;
+}
+
 /*----------------------------------------------*/
 /* 반응형 웹 부분 */
 /*데스크톱, 태블릿, 모바일 세 개의 사이즈로 나눠집니다.*/ 
@@ -74,26 +103,24 @@ div{
     /*top부분*/
     #top{
         width: 100%;
-        height:7%;
-    }
-    
-    #logo{
-        text-align: right;
-    }
-    
-    #logo>img{
-        height: 99%;
-        margin-top: 15px;
-    }
-    
-    #mobileMenu{
-        display: none;
+        height: 7%;
     }
     
     #logo{
         width: 25%;
         height: 100%;
         float: left;
+        text-align: right;
+    }
+    
+    #logo img{
+    	width: 50%;
+    	height: 30%;
+        margin-top: 2px;
+    }
+    
+    #mobileMenu{
+        display: none;
     }
     
     #searchBar{
@@ -225,6 +252,24 @@ div{
         width: 25%;
         height: 100%;
         float: left;
+    }
+    
+    #logo>img{
+        height: 99%;
+        margin-top: 15px;
+    }
+    
+    #logo{
+        width: 25%;
+        height: 100%;
+        float: left;
+        text-align: right;
+    }
+    
+    #logo img{
+    	width: 50%;
+    	height: 30%;
+        margin-top: 2px;
     }
     
     #searchBar{
