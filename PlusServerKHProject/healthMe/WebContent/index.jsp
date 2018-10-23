@@ -85,8 +85,8 @@
                             </div> 
 							 <!-- 검색바 -->
 							 <div class="subscribe-form">
-							 <form action="/Page/SearchTrainerPage/searchTrainerPage.jsp" method="get">
-                            <input type="text" name="search" class="form-control" placeholder="지역 / 종목 / 트레이너 검색" required="">
+							 <form action="/Page/searchTrainerPage/searchTrainerPage.jsp" method="get">
+                            <input type="text" name="search" class="form-control" placeholder="지역 / 종목 검색" required="">
 							<button type="submit" class="form-control">
 							<i class="fa fa-search"></i>
 							</button>
@@ -102,12 +102,7 @@
      <script src="js/bootstrap.min.js"></script>
      <script src="js/vegas.min.js"></script>
      <script src="js/custom.js"></script>			
-	 <script>
-	 	.myinfo{
-	 		
-	 	}
-	 
-	 </script>
+
 
 
 </body>

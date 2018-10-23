@@ -26,4 +26,17 @@ html{
 	heigth:90px;
 	float:left;
 }
+ a:link { 
+ 	color: black; 
+ 	text-decoration: none;
+ }
+ a:visited { 
+	color: black; 
+	text-decoration: none;
+}
+ a:hover { 
+ 	color: #FF9B55; 
+ 	text-decoration: none; 
+ 	}
+ 	
 
