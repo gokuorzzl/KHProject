@@ -1,0 +1,272 @@
+/*----------------------------------------------*/
+/*인코딩 문자셋*/
+@charset "UTF-8";
+
+
+@font-face{
+font-family:'NotoSansCJKkrBold';
+src:url(../../fonts/NotoSansCJKkrBold.woff) format('woff');  /*크롬, 파이어폭스*/
+src:local(※), url(../../fonts/NotoSansCJKkrBold.woff) format('woff');
+}
+
+
+/*각종 인터넷 브라우저에서 코드 작동이 가능하도록 하는 css Reset*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, b, u, i, center,
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	font-family:'NotoSansCJKkrBold';
+	
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*----------------------------------------------*/
+/*css 공통코드 작성부분*/
+/* div전체 */
+
+div{
+    border: 1px solid black;
+    box-sizing: border-box;
+    margin: 0;
+   
+}
+
+
+
+/*----------------------------------------------*/
+/* 반응형 웹 부분 */
+/*데스크톱, 태블릿, 모바일 세 개의 사이즈로 나눠집니다.*/ 
+/*전체적인 틀은 변하지 않고 화면의 사이즈가 줄어들에 따라 콘텐츠의 배치만 달라집니다.*/
+
+/*데스크톱*/
+@media screen and (min-width:1024px){
+    
+    /*div전체*/
+    #wrapper{
+        position: absolute;
+        width:100%;
+        height:1500px;    
+    }
+    
+    /*middle부분*/
+    #middle{
+        width: 100%;
+        height: 85%;
+    }
+    
+    #searchBox{
+        width: 100%;
+        height: 25%;
+    }
+    #contents{
+        width: 100%;
+        height: 75%;
+    }
+    
+    #realSearchBox{
+        width: 70%;
+        height: 90%;
+        margin: auto;
+        margin-top: 1%;
+    }
+    
+    #realContents{
+        width: 70%;
+        height: 90%;
+        margin: auto;
+        margin-top: 2.5%;
+    }
+    
+    
+    /*bottom*/
+    #bottom{
+        width: 100%;
+        bottom:0px;
+        position:absolute;
+        height:110px;   
+    }
+    
+    /* ---------------------추가 css-------------- */
+    
+    
+    #picture_Container {
+       width:40%;
+       height:100%;
+       float:left;   
+    }
+    
+    #picC1 {
+       width:30%;
+       height:100%;
+       float:left; 
+    }
+    
+    #picC2 {
+       width:50%;
+       height:100%;
+       float:left; 
+       overflow: hidden;
+    }
+    
+    #picture_frame {
+     width: 100%; 
+     height: 100%;
+     border-radius: 10px;
+    }
+    
+    #picC3 {
+      width:20%;
+      height:100%;
+      float:left; 
+    }
+    
+    #title_Container {
+        width:60%;
+        height:50%; 
+        float:left;    
+    }
+    
+    #name_Container {
+       width:60%;
+        height:50%; 
+        float:left;   
+    }
+    
+    #item {
+      width:10%;
+      font-size:80%;
+    }
+}
+
+/*태블릿*/
+@media screen and (min-width:640px) and (max-width:1024px){
+    
+    /*div전체*/
+    #wrapper{
+        position: absolute;
+        width:100%;
+        height:1000px;    
+    }
+    
+ 
+    /*middle부분*/
+    #middle{
+        width: 100%;
+        height: 80%;
+    }
+    
+    #searchBox{
+        width: 100%;
+        height: 30%;
+    }
+    
+    #contents{
+        width: 100%;
+        height: 70%;
+    }
+    
+    #realSearchBox{
+        width: 80%;
+        height: 90%;
+        margin: auto;
+        margin-top: 1%;
+    }
+    
+    #realContents{
+        width: 80%;
+        height: 90%;
+        margin: auto;
+        margin-top: 2.5%;
+    }
+    
+    /*bottom*/
+    #bottom{
+        width: 100%;
+        bottom:0px;
+        position:absolute;
+        height:110px; 
+    }
+    
+}
+
+/*모바일*/
+@media screen and (max-width:640px){
+    
+    /*div전체*/
+    #wrapper{
+        position: absolute;
+        width:100%;
+        height: 1200px;    
+    }
+    
+
+    /*middle부분*/
+    #middle{
+        width: 100%;
+        height: 65%;
+    }
+    
+    #searchBox{
+        width: 100%;
+        height: 30%;
+    }
+    
+    #contents{
+        width: 100%;
+        height: 70%;
+    }
+    
+    #realSearchBox{
+        width: 90%;
+        height: 90%;
+        margin: auto;
+        margin-top: 3%;
+    }
+    
+    #realContents{
+        width: 90%;
+        height: 95%;
+        margin: auto;
+        margin-top: 3%;
+    }
+    
+    /*bottom*/
+    #bottom{
+        width: 100%;
+        bottom:0px;
+        position:absolute;
+        height:110px; 
+    }
+}
+
+
+    
+    
+    
