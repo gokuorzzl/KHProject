@@ -4,16 +4,15 @@
 
 /*NotoSans-Bold*/
 @font-face{
-font-family:'NotoSans';
-src:url(../fonts/NotoSans-Bold.eot);/*�씡�뒪�뵆濡쒕윭*/
-src:url(../fonts/NotoSans-Bold.woff) format('woff');  /*�겕濡�, �뙆�씠�뼱�룺�뒪*/
-src:local(※), url(../fonts/NotoSans-Bold.woff) format('woff');
+font-family:'NotoSansCJKkrBold';
+src:url(../../fonts/NotoSansCJKkrBold.woff) format('woff');  /*크롬, 파이어폭스*/
+src:local(※), url(../../fonts/NotoSansCJKkrBold.woff) format('woff');
 }
 
   body {
     margin: 0;
     -webkit-perspective: 1000;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'NotoSansCJKkrBold';
     background: #3c3e3a;
   }
 
@@ -32,7 +31,7 @@ src:local(※), url(../fonts/NotoSans-Bold.woff) format('woff');
   h1,h2,h3,h4,h5,h6 {
     font-weight: 300;
     line-height: inherit;
-	  font-family:'NotoSans';
+	  font-family:'NotoSansCJKkrBold';
   }
 
   h1 {
@@ -57,25 +56,27 @@ src:local(※), url(../fonts/NotoSans-Bold.woff) format('woff');
     font-size: 14px;
     font-weight: normal;
     line-height: 24px;
-	  font-family:'NotoSans';
+	  font-family:'NotoSansCJKkrBold';
   }
-
+	
   /*---------------------------------------
      GENERAL               
   -----------------------------------------*/
 
   html{
     -webkit-font-smoothing: antialiased;
-	font-family: sans-serif;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
-	font-family: 'NotoSans';
+	font-family: 'NotoSansCJKkrBold';
   }
 
   a {
     color: #202020;
     text-decoration: none !important;
-	  font-family:'NotoSans';
+	  font-family:'NotoSansCJKkrBold';
+  }
+  input{
+  	font-family:'NotoSansCJKkrBold';
   }
 
   a,
@@ -83,13 +84,17 @@ src:local(※), url(../fonts/NotoSans-Bold.woff) format('woff');
   .form-control {
     -webkit-transition: 0.5s;
     transition: 0.5s;
-	font-family:'NotoSans';
+	font-family:'NotoSansCJKkrBold';
+	line-height: normal;
+	margin:auto;
   }
   button{
 	-webkit-transition: 0.5s;
     transition: 0.5s;
 	text-indent: inherit;
-	  
+	text-align: center;
+	margin:auto;
+
   }
   a:hover, a:active, a:focus {
     color: #d2b48c;
