@@ -88,9 +88,11 @@ input:focus{
 	box-shadow: none;
 }
 
-input:autofill{
-	box-shadow: none;
+input:-webkit-autofill { 
+	-webkit-box-shadow: 0 0 0 30px #fff inset ; 
+	-webkit-text-fill-color: #000; 
 }
+
 
 /*----------------------------------------------*/
 /* 반응형 웹 부분 */
