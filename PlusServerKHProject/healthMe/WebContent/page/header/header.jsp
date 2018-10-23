@@ -27,6 +27,19 @@
 
 </head>
 <body>
+	<!-- Menu -->
+	<div id="navigation">
+		<div><p>✕</p></div>
+		<div id="navigation-login"><a href = "../loginPage/login.jsp">로그인</a></div>
+		<ul>
+			<li><a href="../../index.jsp">메인</a></li>
+	        <li><a href="searchTrainerPage.jsp">트레이너 찾기</a></li>
+	        <li><a href="#">트레이너 등록</a></li>
+	        <li><a href="../communityPage/boardPage.jsp">게시판</a></li>
+	        <li><a href="../communityPage/Q&APage.jsp">Q & A</a></li>
+		</ul>
+	</div>
+
 
     <!--로고, 메뉴가 들어가는 윗부분-->
     <!--top부분은 관리자페이지 제외한 모든 페이지 통일-->
