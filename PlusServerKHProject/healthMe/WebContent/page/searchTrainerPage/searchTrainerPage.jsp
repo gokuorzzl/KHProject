@@ -19,7 +19,6 @@
  			integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   			crossorigin="anonymous"></script>
   	<script type="text/javascript" src="../../js/searchTrainerPage/searchingArea.js"></script>
-  	<script type="text/javascript" src="../../js/searchTrainerPage/searchTrainerPageMenu.js"></script>
   	<!-- fa 아이콘 링크  -->
   	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--title-->
@@ -28,7 +27,18 @@
 </head>
 <body>
 
-
+	<!-- Menu -->
+	<div id="navigation">
+		<div><p>✕</p></div>
+		<div id="navigation-login"><a href = "../loginPage/login.jsp">로그인</a></div>
+		<ul>
+			<li><a href="../../index.jsp">메인</a></li>
+	        <li><a href="searchTrainerPage.jsp">트레이너 찾기</a></li>
+	        <li><a href="#">트레이너 등록</a></li>
+	        <li><a href="../communityPage/boardPage.jsp">게시판</a></li>
+	        <li><a href="../communityPage/Q&APage.jsp">Q & A</a></li>
+		</ul>
+	</div>
 
 <!--전체 공간-->    
     <div id="wrapper">
