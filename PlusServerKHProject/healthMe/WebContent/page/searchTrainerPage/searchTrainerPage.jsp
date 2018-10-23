@@ -26,11 +26,10 @@
 
 </head>
 <body>
-
 <!--전체 공간-->    
     <div id="wrapper">
         <div id="top">
-        		<jsp:include page="/page/header/header.jsp"/>
+      		<jsp:include page="/page/header/header.jsp"/>  	
         </div>
         <!--컨텐츠가 들어가는 중간부분-->
         <!--페이지별로 달라지는 부분-->

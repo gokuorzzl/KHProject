@@ -40,33 +40,28 @@
 		</ul>
 	</div>
 
-
     <!--로고, 메뉴가 들어가는 윗부분-->
     <!--top부분은 관리자페이지 제외한 모든 페이지 통일-->
-    <div id="top">
-        <div id="mobileMenu">
+    <div id="mobileMenu">
+        <div><p>☰</p></div>
+    </div>
+    <div id="logo">
+       	<div><img src="../../img/%EB%A1%9C%EA%B3%A0.png"></div>
+    </div>
+    <div id="searchBar">
+   		<form action="/searchInput.do" method="post">
+   			<div>
+   					<input type="text" name="searchInput" id="searchInput" placeholder="지역, 종목 검색" />
+   					<button type="submit"><i class="fa fa-search"></i></button>
+   			</div>
+   		</form>
+    </div>
+    <div id="menu">
+        <div id="loginMenu">
+            <a href="../loginPage/login.jsp">로그인</a> 
+        </div>
+        <div id="menuButton">
             <div><p>☰</p></div>
-        </div>
-        <div id="logo">
-           <div>
-           	<img src="../../img/%EB%A1%9C%EA%B3%A0.png">
-           </div>
-        </div>
-        <div id="searchBar">
-       		<form action="/searchInput.do" method="post">
-       			<div>
-       					<input type="text" name="searchInput" id="searchInput" placeholder="지역, 종목 검색" />
-       					<button type="submit"><i class="fa fa-search"></i></button>
-       			</div>
-       		</form>
-        </div>
-        <div id="menu">
-            <div id="loginMenu">
-                <a href="../loginPage/login.jsp">로그인</a> 
-            </div>
-            <div id="menuButton">
-                <div><p>☰</p></div>
-            </div>
         </div>
     </div>
         
