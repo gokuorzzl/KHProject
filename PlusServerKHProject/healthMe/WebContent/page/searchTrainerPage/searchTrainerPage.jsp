@@ -13,7 +13,7 @@
     <!--키워드-->
     <meta name="keywords" content="www.healthme.com, 트레이너, 나만의, 맞춤" />
     <!--스타일-->
-    <link rel="stylesheet" href="../../css/SearchTrainerPage/serchTrainerPage.css" />
+    <link rel="stylesheet" href="../../css/searchTrainerPage/serchTrainerPage.css" />
     <!-- 스크립트 -->
     <script src="https://code.jquery.com/jquery-3.3.1.js"
  			integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
@@ -28,48 +28,12 @@
 </head>
 <body>
 
-<!-- Menu -->
-<div id="navigation">
-	<div><p>✕</p></div>
-	<div id="navigation-login"><a href = "../loginPage/login.jsp">로그인</a></div>
-	<ul>
-		<li><a href="../../index.jsp">메인</a></li>
-        <li><a href="searchTrainerPage.jsp">트레이너 찾기</a></li>
-        <li><a href="#">트레이너 등록</a></li>
-        <li><a href="../communityPage/boardPage.jsp">게시판</a></li>
-        <li><a href="../communityPage/Q&APage.jsp">Q & A</a></li>
-	</ul>
-</div>
+
 
 <!--전체 공간-->    
     <div id="wrapper">
         
-        <!--로고, 메뉴가 들어가는 윗부분-->
-        <!--top부분은 관리자페이지 제외한 모든 페이지 통일-->
-        <div id="top">
-            <div id="mobileMenu">
-                <div><p>☰</p></div>
-            </div>
-            <div id="logo">
-               <img src="../../img/%EB%A1%9C%EA%B3%A0.png">
-            </div>
-            <div id="searchBar">
-           		<form action="/searchInput.do" method="post">
-           			<div>
-           					<input type="text" name="searchInput" id="searchInput" placeholder="지역, 종목 검색" />
-           					<button type="submit"><i class="fa fa-search"></i></button>
-           			</div>
-           		</form>
-            </div>
-            <div id="menu">
-                <div id="loginMenu">
-                    <a href="../loginPage/login.jsp">로그인</a> 
-                </div>
-                <div id="menuButton">
-                    <div><p>☰</p></div>
-                </div>
-            </div>
-        </div>
+		<jsp:include page="/page/header/header.jsp"/>
         
         <!--컨텐츠가 들어가는 중간부분-->
         <!--페이지별로 달라지는 부분-->
@@ -151,9 +115,9 @@
         
         <!--회사정보가 들어가는 아랫부분-->
         <!--bottom부분은 관리자페이지 제외한 모든 페이지 통일-->
-        <div id="bottom">
-            김구이김주정조 정보
-        </div>
+
+       <jsp:include page="/page/footer/footer.jsp"/>
+
     </div>
    
 
