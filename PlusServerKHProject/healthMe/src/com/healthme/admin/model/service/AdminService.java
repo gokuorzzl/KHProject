@@ -22,7 +22,7 @@ public class AdminService {
 		
 	}
 
-	public ArrayList<Member> adminAllList() {
+	public ArrayList <Member> adminAllList() {
 		// TODO Auto-generated method stub
 		Connection conn = JDBCTemplate.getConnection();
 		ArrayList<Member> list = new AdminDao().AdminAllList(conn);

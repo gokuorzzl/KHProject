@@ -35,7 +35,7 @@ public class AdminMemberServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 	HttpSession session = request.getSession(false);
-	Member admin = (Member)session.getAttribute("admin");
+	Member admin = (Member)session.getAttribute("member");
 	
 	//1. 비즈니스 로직을 통해 전체 회원 리스트를 가져오는 작업
 	ArrayList<Member> list = new AdminService().adminAllList();
@@ -45,7 +45,7 @@ public class AdminMemberServlet extends HttpServlet {
 	
 	if(!list.isEmpty()) {
 		RequestDispatcher view = request.getRequestDispatcher("/page/admin/adminMemberSet.jsp");
-		request.setAttribute("adminList", list);//객체명,객체
+		request.setAttribute("AdminList", list);//객체명,객체
 		
 		view.forward(request, response);
 	}else {

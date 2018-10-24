@@ -56,7 +56,7 @@ public class AdminDao {
 	}
 
 	public ArrayList<Member> AdminAllList(Connection conn) {
-		// TODO Auto-generated method stub
+		// 여러명을 처리하기 위한 컬렉션을 사용
 		
 		ArrayList<Member> list = new ArrayList<Member>();
 		Statement stmt = null;
