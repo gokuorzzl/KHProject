@@ -26,6 +26,7 @@
 
 </head>
 <body>
+
 <!--전체 공간-->    
     <div id="wrapper">
         <div id="top">
