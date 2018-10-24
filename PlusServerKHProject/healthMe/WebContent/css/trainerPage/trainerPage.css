@@ -51,11 +51,8 @@ table {
 /*css 공통코드 작성부분*/
 /* div전체 */
 
-div{
-    border: 1px solid black;
-    box-sizing: border-box;
-    margin: 0;
-   
+.border{
+    border: 1px solid black; 
 }
 
 

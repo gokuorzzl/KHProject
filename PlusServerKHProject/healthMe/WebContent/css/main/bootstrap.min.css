@@ -108,6 +108,7 @@ pre {
 
 code, kbd, pre, samp {
 	font-family:'NotoSansCJKkrBold';
+		font-family: monospace, monospace;
 	font-size: 1em
 }
 
@@ -1329,12 +1330,14 @@ td, th {
 }
 
 html {
+	font-family:sans-serif;
 	font-size: 10px;
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	font-family:'NotoSansCJKkrBold';
 }
 
 body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-family:'NotoSansCJKkrBold';
 	font-size: 14px;
 	line-height: 1.42857143;
@@ -1343,6 +1346,7 @@ body {
 }
 
 button, input, select, textarea {
+	font-family:inherit;
 	font-family:'NotoSansCJKkrBold';
 	font-size: inherit;
 	line-height: inherit
@@ -1402,6 +1406,7 @@ img {
 }
 
 hr {
+	font-family:inherit;
 	margin-top: 20px;
 	margin-bottom: 20px;
 	border: 0;
@@ -1762,6 +1767,7 @@ address {
 
 code, kbd, pre, samp {
 	font-family:'NotoSansCJKkrBold';
+	font-family: Menlo, Monaco, Consolas, "Courier New", monospace
 }
 
 code {
@@ -6581,6 +6587,7 @@ button.close {
 	position: absolute;
 	z-index: 1070;
 	display: block;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-family:'NotoSansCJKkrBold';
 	font-size: 12px;
 	font-style: normal;
@@ -7017,7 +7024,8 @@ button.close {
 .carousel-control .icon-next, .carousel-control .icon-prev {
 	width: 20px;
 	height: 20px;
-font-family:'NotoSansCJKkrBold';
+	font-family: serif;
+	font-family:'NotoSansCJKkrBold';
 	line-height: 1
 }
 
