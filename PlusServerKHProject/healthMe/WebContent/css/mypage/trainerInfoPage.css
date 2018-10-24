@@ -54,6 +54,7 @@ table {
 div{
     /*border: 1px solid #FF9B55;*/
     /*border: 1px solid black;*/
+    line-height: 150%;
     box-sizing: border-box;
     margin: 0;
    
@@ -188,6 +189,7 @@ img{
         margin-top: 2.5%;
     }
     #picture_cover{
+        line-height: 120%;
         display:inline-block;
     }
     #ex_image{
@@ -281,6 +283,7 @@ img{
     #picture_cover{
         display:inline-block;
     }
+
     #ex_image{
         display:inline-block;
     }
