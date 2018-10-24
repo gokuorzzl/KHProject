@@ -24,6 +24,9 @@ time, mark, audio, video {
 	font-family:'NotoSansCJKkrBold';
 	
 }
+html{
+	font-family:'NotoSansCJKkrBold';
+}
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 	display: block;
@@ -53,6 +56,7 @@ table {
 
 .border{
     border: 1px solid black; 
+    position: absolute;
 }
 
 
@@ -74,34 +78,11 @@ table {
     
     /*middle부분*/
     #middle{
+    	position: absolute;
         width: 100%;
         height: 85%;
     }
-    
-    #searchBox{
-        width: 100%;
-        height: 25%;
-    }
-    #contents{
-        width: 100%;
-        height: 75%;
-    }
-    
-    #realSearchBox{
-        width: 70%;
-        height: 90%;
-        margin: auto;
-        margin-top: 1%;
-    }
-    
-    #realContents{
-        width: 70%;
-        height: 90%;
-        margin: auto;
-        margin-top: 2.5%;
-    }
-    
-    
+
     /*bottom*/
     #bottom{
         width: 100%;
@@ -109,58 +90,232 @@ table {
         position:absolute;
         height:110px;   
     }
-    
-    /* ---------------------추가 css-------------- */
-    
-    
-    #picture_Container {
-       width:40%;
-       height:100%;
-       float:left;   
+
+    .contents{
+    	position:static;
+    	width:75%;
+    	height:98%;
+    	float:left;
+    	background-color: red;
+    	margin: 0;
+    	padding: 0;
     }
-    
-    #picC1 {
-       width:30%;
-       height:100%;
-       float:left; 
+
+    .imgBoxSize{
+    	position:relative;
+    	width:200px;
+    	height:230px;
+    	background-color: orange;
+    	line-height:inherit;
+    	vertical-align: middle;
+    	margin:auto;
+    	margin-top: 6%;
     }
-    
-    #picC2 {
-       width:50%;
-       height:100%;
-       float:left; 
-       overflow: hidden;
+    .imgUnderText{
+   	 position:relative;
+    	width:80%;
+    	height:30%;
+    	background-color:silver;
+    	vertical-align: middle;
+    	margin:auto;
+    	text-align: center;
+    	font-size:22px;
+    	font-family:'NotoSansCJKkrBold';
     }
-    
-    #picture_frame {
-     width: 100%; 
-     height: 100%;
-     border-radius: 10px;
+    .textMiddle{
+    	display:flex;
+    	align-items: center;
+    	justify-content:center;
     }
-    
-    #picC3 {
-      width:20%;
-      height:100%;
-      float:left; 
+    .imgSize{
+    	position:inherit;
+    	width:100%;
+    	height:100%;
+    	border-radius: 45%;
+    	
     }
-    
-    #title_Container {
-        width:60%;
-        height:50%; 
-        float:left;    
+    .resume{
+    	position:relative;
+    	width:95%;
+    	height: 30%;
+    	text-align: center;
+    	vertical-align: middle;
+    	margin: auto;
+    	top:2%;
     }
-    
-    #name_Container {
-       width:60%;
-        height:50%; 
-        float:left;   
+    .resumeDivL{
+    	position:relative;
+    	width:30%;
+    	height:100%;
+    	background-color: green;
+    	float:left;
     }
-    
-    #item {
-      width:10%;
-      font-size:80%;
+    .resumeDivR{
+        position:relative;
+    	width:70%;
+    	height:100%;
+    	background-color:black;
+    	float:left;
+
     }
-}
+    .resumeTextBox{
+    	position:relative;
+    	width:90%;
+    	height:90%;
+    	background-color: blue;
+    	vertical-align: middle;
+    	margin: auto;
+    	top:5%;
+    }
+    .resumeTextTop{
+    	position:relative;
+    	width:100%;
+    	height:30%;
+    	background-color:white;	
+    	top:12%;
+    }
+    .resumeTextMiddle{
+    	position:relative;
+    	width:100%;
+    	height:15%;
+    	background-color:red;  
+    	top:12%;  
+    }
+    .resumeTextButtom{
+    	position:relative;
+    	width:100%;
+    	height:30%;   
+    	background-color:white;
+    	top:12%;	
+    }
+/* 오른쪽 스크롤바 */ 
+	.contents_2{
+    	position:static;
+    	width:25%;
+    	height:98%;
+    	background-color:blue;
+    	float:left;
+    	margin: 0;
+    	padding: 0;
+    }
+    .infoBox{
+    	position:inherit;
+    	width:90%;
+    	height:47%;
+    	background-color:white;
+    	vertical-align: middle;
+    	margin: auto;
+    }
+    .infoButtom{
+    	position: relative;
+    	width:90%;
+    	height:7%;
+    	background-color:orange;
+    	vertical-align: middle;
+    	margin: auto;
+    }  
+    .infoBox_1{
+    	position: relative;
+    	width:95%;
+    	height:11%;  
+    	vertical-align: middle;
+    	margin: auto;
+    	background-color: red;  	
+    }
+    .infoBox_2{
+    	position: relative;
+    	width:95%;
+    	height:11%;  
+    	vertical-align: middle;
+    	margin: auto;
+    	background-color: orange;  	
+    }
+    .infoBox_3{
+    	position: relative;
+    	width:95%;
+    	height:11%;  
+    	vertical-align: middle;
+    	margin: auto;
+    	background-color: yellow;  	
+    }
+    .infoBox_4{
+    	position: relative;
+    	width:95%;
+    	height:11%;  
+    	vertical-align: middle;
+    	margin: auto;
+    	background-color: green;  	
+    }
+    .infoBox_5{
+    	position: relative;
+    	width:95%;
+    	height:11%;  
+    	vertical-align: middle;
+    	margin: auto;
+    	background-color: blue;  	
+    }
+    .infoBox_6{
+    	position: relative;
+    	width:95%;
+    	height:11%;   
+    	vertical-align: middle;
+    	margin: auto;
+    	background-color: navy;  	
+    }
+    .infoBox_7{
+    	position: relative;
+    	width:95%;
+    	height:12%;  
+    	vertical-align: middle;
+    	margin: auto;
+    	background-color: purple;  	
+    }
+    .infoButtomIconBox{
+    	position: relative;
+    	width:50%;
+    	height:50%;
+    	vertical-align: middle;
+    	margin: auto;
+    	background-color: purple;  
+		top:27%;
+    }
+    .iconLeft{
+    	position: relative;
+    	width:33%;
+    	height:100%;   
+    	float:left;
+    }
+    .iconImg{
+    	position: inherit;
+    	width:100%;
+    	height:100%;     
+    }
+    .iconRight{
+    	position: relative;
+    	width:67%;
+    	height:100%;  
+    	float:left;
+    	background-color: pink; 
+    	
+    	font-family:'NotoSansCJKkrBold';     	
+    }
+}   
+
+/* 위에 데스크탑이야!!!!!!!!!!!!!!*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*태블릿*/
 @media screen and (min-width:640px) and (max-width:1024px){
@@ -177,41 +332,136 @@ table {
     #middle{
         width: 100%;
         height: 80%;
+        z-index:0;
     }
-    
-    #searchBox{
-        width: 100%;
-        height: 30%;
+    .contents{
+    	position:static;
+    	width:70%;
+    	height:98%;
+    	float:left;
+    	background-color: red;
+    	margin: 0;
+    	padding: 0;
     }
-    
-    #contents{
-        width: 100%;
-        height: 70%;
+    .contents_2{
+    	position:static;
+    	width:30%;
+    	height:98%;
+    	background-color:blue;
+    	float:left;
+    	margin: 0;
+    	padding: 0;
     }
-    
-    #realSearchBox{
-        width: 80%;
-        height: 90%;
-        margin: auto;
-        margin-top: 1%;
+    .resume{
+    	position:relative;
+    	width:95%;
+    	height: 40%;
+    	background-color: purple;
+    	text-align: center;
+    	vertical-align: middle;
+    	margin: auto;
+    	top:2%;
     }
-    
-    #realContents{
-        width: 80%;
-        height: 90%;
-        margin: auto;
-        margin-top: 2.5%;
-    }
-    
     /*bottom*/
     #bottom{
-        width: 100%;
+        width:100%;
         bottom:0px;
         position:absolute;
         height:110px; 
     }
-    
+    .imgBoxSize{
+    	position:relative;
+    	width:150px;
+    	height:180px;
+    	background-color: orange;
+    	line-height:inherit;
+    	vertical-align: middle;
+    	margin:auto;
+    	margin-top:8%;
+    }
+    .imgUnderText{
+   	 	position:relative;
+    	width:140px;
+    	height:30%;
+    	background-color:silver;
+    	vertical-align: middle;
+    	font-size:20px;
+    	margin:auto;
+    	font-family:'NotoSansCJKkrBold';  	
+    }
+    .imgSize{
+    	position:inherit;
+    	width:100%;
+    	height:100%;
+    	border-radius:45%;
+    }
+    .resumeDivL{
+    	position:relative;
+    	width:35%;
+    	height:100%;
+    	background-color: green;
+    	float:left;
+    	min-width:120px;
+    }
+    .resumeDivR{
+        position:relative;
+    	width:65%;
+    	height:100%;
+    	background-color:black;
+    	float:left;
+    }
+   	.textMiddle{
+    	display:flex;
+    	align-items: center;
+    	justify-content:center;
+    }
+    .resumeTextBox{
+    	position:relative;
+    	width:90%;
+    	height:90%;
+    	background-color: blue;
+    	vertical-align: middle;
+    	margin: auto;
+    	top:5%;
+    }
+    .resumeTextTop{
+    	position:relative;
+    	width:100%;
+    	height:30%;
+    	background-color:white;	
+    	top:12%;
+    }
+    .resumeTextMiddle{
+    	position:relative;
+    	width:100%;
+    	height:15%;
+    	background-color:red;  
+    	top:12%;  
+    }
+    .resumeTextButtom{
+    	position:relative;
+    	width:100%;
+    	height:30%;   
+    	background-color:white;
+    	top:12%;	
+ 
+    }
 }
+
+
+/* 위에 테블릿이야!!!!!!!!!!!!!!*/
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*모바일*/
 @media screen and (max-width:640px){
@@ -227,39 +477,148 @@ table {
     /*middle부분*/
     #middle{
         width: 100%;
-        height: 65%;
+        height: 60%;
     }
     
-    #searchBox{
-        width: 100%;
-        height: 30%;
-    }
-    
-    #contents{
-        width: 100%;
-        height: 70%;
-    }
-    
-    #realSearchBox{
-        width: 90%;
-        height: 90%;
-        margin: auto;
-        margin-top: 3%;
-    }
-    
-    #realContents{
-        width: 90%;
-        height: 95%;
-        margin: auto;
-        margin-top: 3%;
-    }
-    
+     
     /*bottom*/
     #bottom{
         width: 100%;
         bottom:0px;
         position:absolute;
         height:110px; 
+    }
+   	.contents{
+    	position:static;
+    	width:100%;
+    	height:70%;
+    	float:left;
+    	background-color: red;
+    	margin: 0;
+    	padding: 0;
+    }
+    .contents_2{
+    	position:static;
+    	width:100%;
+    	height:30%;
+    	background-color:blue;
+    	float:left;
+    	margin: 0;
+    	padding: 0;
+    }
+    .imgBoxSize{
+    	position:relative;
+    	width:150px;
+    	height:180px;
+    	background-color: orange;
+    	line-height:inherit;
+    	vertical-align: middle;
+    	margin:auto;
+    	margin-top:2%;
+    	
+    }
+    .imgUnderText{
+   	 	position:relative;
+    	width:140px;
+    	height:30%;
+    	background-color:silver;
+    	vertical-align: middle;
+    	font-size:20px;
+    	margin:auto;
+    	font-family:'NotoSansCJKkrBold';  	
+    }
+    .resume{
+    	position:relative;
+    	width:95%;
+    	height: 50%;
+    	background-color: pink;
+    	text-align: center;
+    	vertical-align: middle;
+    	margin: auto;
+    	top:2%;
+    }
+    .resumeDiv{
+    	position:absolute;
+    	width:50%;
+    	height:50%;
+    }
+    .imgUnderText{
+   	 position:relative;
+    	width:80%;
+    	height:20%;
+    	background-color:silver;
+    	vertical-align: middle;
+    	margin:auto;
+    	text-align: center;
+    	font-size:22px;
+    	font-family:'NotoSansCJKkrBold';
+    }
+    .textMiddle{
+    	display:flex;
+    	align-items: center;
+    	justify-content:center;
+    }
+    .imgSize{
+    	position:inherit;
+    	width:100%;
+    	height:100%;
+    	border-radius: 45%;
+    }
+    .resume{
+    	position:relative;
+    	width:95%;
+    	height:95%;
+    	text-align: center;
+    	vertical-align: middle;
+    	margin: auto;
+    	top:2%;
+    }
+    .resumeDivL{
+    	position:relative;
+    	width:50%;
+    	height:50%;
+    	background-color: green;
+    	text-align: center;
+    	vertical-align: middle;
+    	margin: auto;	
+    }
+    .resumeDivR{
+        position:relative;
+    	width:90%;
+    	height:50%;
+    	background-color:black;
+    	vertical-align: middle;
+    	margin: auto;
+    }
+    .resumeTextBox{
+    	position:relative;
+    	width:90%;
+    	height:90%;
+    	background-color: blue;
+    	vertical-align: middle;
+    	margin: auto;
+    	top:5%;
+    }
+    .resumeTextTop{
+    	position:relative;
+    	width:100%;
+    	height:30%;
+    	background-color:white;	
+    	top:12%;
+    }
+    .resumeTextMiddle{
+    	position:relative;
+    	width:100%;
+    	height:15%;
+    	background-color:red;  
+    	top:12%;  
+    }
+    .resumeTextButtom{
+    	position:relative;
+    	width:100%;
+    	height:30%;   
+    	background-color:white;
+    	top:12%;	
     }
 }
 

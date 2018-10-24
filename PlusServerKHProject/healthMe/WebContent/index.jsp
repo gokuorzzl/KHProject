@@ -86,7 +86,7 @@
                             </div> 
 							 <!-- 검색바 -->
 							 <div class="subscribe-form">
-							 <form action="/page/searchTrainerPage/searchTrainerPage.jsp" method="get">
+							 <form action="/searchInput.do" method="get">
                             <input type="text" name="search" class="form-control" placeholder="지역 / 종목 검색" required="">
 							<button type="submit" class="form-control">
 							<i class="fa fa-search"></i>

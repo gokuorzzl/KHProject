@@ -24,9 +24,66 @@
 
     <!--전체 공간-->    
     <div id="wrapper">
+    	<div id="top">
         <jsp:include page="/page/header/header.jsp"/>
+        </div>
+        <br>
         <div id="middle" class="border">
-
+        	<div class="contents">
+        		<div class="resume">
+        			<div class="resumeDivL border">      			
+        				<div class="imgBoxSize">
+        					<img src="../../img/dayeon.png" class="imgSize">
+        				</div>
+        				<div class="imgUnderText textMiddle">
+        					<h1>트레이너 이름</h1>
+        				</div>
+        			</div>
+        			<div class="resumeDivR border">
+        				<div class="resumeTextBox">
+        					<div class="resumeTextTop textMiddle">
+        						위
+        					</div>
+        					<div class="resumeTextMiddle textMiddle">
+        						중간
+        					</div>
+        					<div class="resumeTextButtom textMiddle">
+        						아래
+        					</div>
+        				</div>
+        			</div>
+        			
+        		</div>
+			</div>
+			<div class="contents_2 border">
+				<div class="infoBox">
+					<br>
+					<div class="infoBox_1"></div>
+					<hr>
+					<div class="infoBox_2"></div>
+					<hr>
+					<div class="infoBox_3"></div>
+					<hr>
+					<div class="infoBox_4"></div>
+					<hr>
+					<div class="infoBox_5"></div>
+					<br>
+					<div class="infoBox_6"></div>
+					<br>
+					<div class="infoBox_7"></div>
+				</div>
+				<br>
+				<div class="infoButtom">
+					<div class="infoButtomIconBox">
+						<div class="iconLeft">
+							<img src="../../img/handheart.PNG" class="iconImg">
+						</div>
+						<div class="iconRight textMiddle">
+							찜하기
+						</div>
+					</div>
+				</div>
+			</div>
         </div>
                 
         <!--회사정보가 들어가는 아랫부분-->
