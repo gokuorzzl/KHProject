@@ -4,14 +4,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.healthme.search.model.vo.SearchedTrainer;
+import com.healthme.search.model.vo.SearchedTrainerResult;
 import com.healtme.search.model.service.SearchService;
 
 /**
@@ -41,7 +40,7 @@ public class SearchInputServlet extends HttpServlet {
 		String search = request.getParameter("searchInput"); 
 			//StringTokenizer는  마지막에 구분자가 없으면 마지막 문자열을 반환하지 않으므로 뒤에 공백을 하나 추가해줌
 		
-		//3. 검색 처리
+		//3. 검색어 처리
 		//replace 메소드를 이용해 검색어를 모두 (공백)구분자로 변경
 		search = search.replace(",", " ");
 		search = search.replace("/", " ");
@@ -55,19 +54,33 @@ public class SearchInputServlet extends HttpServlet {
 			searchList.add(st.nextToken());
 		}
 		
-		//ArrayList를 Service로 전송
-		ArrayList<SearchedTrainer> trainerList = new SearchService().searchBar(searchList);
-		
-		//4. 결과 처리
-		if(!trainerList.isEmpty()) {
-			//url을 복사해서 이용할 수도 있으므로 RequestDispatcher을 사용해 url이 유지되도록 함
-			RequestDispatcher view = request.getRequestDispatcher("page/searchTrainerPage/resultTrainer.jsp");
-			request.setAttribute("trainerList", trainerList);
-			view.forward(request, response);
-			
+		//4. searchTrainerPage 내 페이징 처리를 위해 페이지 번호를 받아옴
+		int currentPage; //현재페이지
+		if(request.getParameter("currentPage")==null) {
+			//페이지 정보를 요청했을 때 null인 경우 첫 페이지이므로  1페이지로 설정
+			currentPage = 1;
 		}else {
-			response.sendRedirect("page/searchTrainerPage/searchError.jsp");
+			//게시판에서 페이지를 이동할 때에는 이미 페이지값이 존재하므로 해당 페이지값을 저장
+			currentPage = Integer.parseInt(request.getParameter("currentPage"));
 		}
+		
+		//5. 검색어를 담은 ArrayList와 현재 페이지 정보를 담은 currentPage를 Service로 전송
+		ArrayList<SearchedTrainerResult> trainerList = new SearchService().searchBar(searchList, currentPage);
+		
+//		//4. 결과 처리
+//		if(!trainerList.isEmpty()) {
+//			//검색결과 url을 복사해서 이용할 수도 있으므로 RequestDispatcher을 사용해 url이 유지되도록 함
+//			RequestDispatcher view = request.getRequestDispatcher("page/searchTrainerPage/resultTrainer.jsp");
+//			request.setAttribute("trainerList", trainerList);
+//			view.forward(request, response); //request와 response 객체를 view로 보냄
+//			
+//		}else {
+//			response.sendRedirect("page/searchTrainerPage/searchError.jsp");
+//		}
+		
+
+		
+		
 		
 	}
 
