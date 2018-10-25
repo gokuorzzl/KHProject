@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
       <%@ page import="com.healthme.admin.vo.*" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
 
 
 
@@ -17,11 +16,9 @@
     <link href="../../css/admin/adminCustom.css" rel="stylesheet" />
 
 
-
-<title>관리자페이지 트레이너관리</title>
+<title>관리자페이지 메인</title>
 </head>
 <body>
-
 
 <!-- 로그인이 안되었을 경우창 띄우게 할지 말지 결정해보기 -->
 
@@ -57,6 +54,9 @@
 				<%} %>
 				
             </div>
+            
+            
+            
             <div class="header-right">
 
              <a href="/adminLoginOut.do" class="left-head-icon" title="Sign Out"><img src="../../img/logout.png" class="logout"></a>
@@ -148,7 +148,157 @@
             </div>
 
         </nav>
+       <div id="page-wrapper">
+        <ul class="breadcrumbs" style="margin-bottom:-10px">
+                <li><a href="dashboard.html" style="text-decoration:none;color:#383737;font-weight:bold"><i class="fa fa-home"></i></a> > <a href="" style="text-decoration:none;color:#383737;font-weight:bold">ADMIN 관리자</a><span class="separator"></span></li>
+            </ul>
+        <div id="page-inner">
+            <div class="row" style="margin-bottom:20px">
+                <div class="col-md-12">
+                    <h1 class="page-head-line"><i class="fa fa-desktop" style="padding-right:10px"></i>Admin Page</h1>
+                </div>
+            </div>
+         <div class="row">
+                <div class="col-md-3">
+                    <div class="main-box mb-red">
+                        <a href="#">
+                            <i class="fa fa-bolt fa-3x"></i>
+                            <h5>새로운정보1</h5>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="main-box mb-dull">
+                        <a href="#">
+                            <i class="fa fa-plug fa-3x"></i>
+                            <h5>새로운정보2</h5>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="main-box mb-pink">
+                        <a href="#">
+                            <i class="fa fa-dollar fa-3x"></i>
+                            <h5>새로운정보3</h5>
+                        </a>
+                    </div>
+                </div>
+             <div class="col-md-3">
+                    <div class="main-box mb-pink">
+                        <a href="#">
+                            <i class="fa fa-dollar fa-3x"></i>
+                            <h5>새로운정보4</h5>
+                        </a>
+                    </div>
+                </div>
+            </div>
+             <hr style="border:1px solid #000;"/>
+                <div class="row">
 
+                    <div class="col-md-8">
+
+                        <div class="table-responsive">
+                        <h3>자유게시판</h3>
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>번호</th>
+                                        <th>제목</th>
+                                        <th>내용</th>
+                                        <th>이름</th>
+                                        <th>Q/A, 자유</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><span class="label label-danger">Mark</span></td>
+                                        <td>Otto</td>
+                                        <td>김종규</td>
+                                        <td><span class="label label-info">100090</span></td>
+                                    </tr>
+                                     <tr>
+                                        <td>1</td>
+                                        <td><span class="label label-danger">Mark</span></td>
+                                        <td>Otto</td>
+                                        <td>김종규</td>
+                                        <td><span class="label label-info">100090</span></td>
+                                    </tr>
+                                       <tr>
+                                        <td>1</td>
+                                        <td><span class="label label-danger">Mark</span></td>
+                                        <td>Otto</td>
+                                        <td>김종규</td>
+                                        <td><span class="label label-info">100090</span></td>
+                                    </tr>
+                                       <tr>
+                                        <td>1</td>
+                                        <td><span class="label label-danger">Mark</span></td>
+                                        <td>Otto</td>
+                                        <td>김종규</td>
+                                        <td><span class="label label-info">100090</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                    </div>
+                    <div class="col-md-4">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <i class="fa fa-bell fa-fw"></i>새로운소식
+                            </div>
+
+                            <div class="panel-body">
+                                <div class="list-group">
+
+                                    <a href="#" class="list-group-item">
+                                        <i class="fa fa-twitter fa-fw"></i>총회원수
+                                    <span class="pull-right text-muted small"><em>100명</em>
+                                    </span>
+                                    </a>
+                                    <a href="#" class="list-group-item">
+                                        <i class="fa fa-envelope fa-fw"></i>트레이너회원
+                                    <span class="pull-right text-muted small"><em>30개</em>
+                                    </span>
+                                    </a>
+                                    <a href="#" class="list-group-item">
+                                        <i class="fa fa-tasks fa-fw"></i>광고수입
+                                    <span class="pull-right text-muted small"><em>100만원</em>
+                                    </span>
+                                    </a>
+                                    <a href="#" class="list-group-item">
+                                        <i class="fa fa-upload fa-fw"></i>새로운게시글
+                                    <span class="pull-right text-muted small"><em>20개</em>
+                                    </span>
+                                    </a>
+                                   
+                                </div>
+                                <!-- /.list-group -->
+                                <a href="#" class="btn btn-info btn-block">View All Alerts</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+              
+        </div>
+        <!-- /. PAGE INNER  -->
+    </div>
+        
+    
+        </div>
+    <!--  
+         <script src="assets/js/jquery-1.10.2.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+         <script src="assets/js/jquery.metisMenu.js"></script>
+         <script src="assets/js/custom.js"></script>
+
+
+-->
+
+<jsp:include page="/page/footer/footer.jsp"/>
 
 
 </body>

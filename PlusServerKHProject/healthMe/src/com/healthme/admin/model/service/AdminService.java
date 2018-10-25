@@ -10,7 +10,7 @@ import com.healthme.member.vo.Member;
 
 public class AdminService {
 
-	public Admin selectOneAdmin(String adminID, String adminPwd)
+	public Admin selectOneAdmin(String adminID, String adminPwd)//로그인 세션 갖고오는거 활동 되나보보는것
 	{
 		Connection conn = JDBCTemplate.getConnection();
 		Admin admin = new AdminDao().selectOneAdmin(adminID,adminPwd,conn);
@@ -22,7 +22,7 @@ public class AdminService {
 		
 	}
 
-	public ArrayList <Member> adminAllList() {
+	public ArrayList <Member> adminAllList() { //회원목록 전체 보기
 		// TODO Auto-generated method stub
 		Connection conn = JDBCTemplate.getConnection();
 		ArrayList<Member> list = new AdminDao().AdminAllList(conn);
@@ -30,9 +30,39 @@ public class AdminService {
 		JDBCTemplate.close(conn);
 		
 		
-		
 		return list;
 	}
+	
+	public int adminInsert(Member m) {//관리자에서 회원 맘대로 추가할수 있게끔 하기
+		Connection conn = JDBCTemplate.getConnection();
+		int result = new AdminDao().AdminInsert(conn,m);
+		
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		
+		
+		return result;
+	}
+	
+	public int adminUpdate(Member m) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = new AdminDao().AdminUpdate(conn,m);
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		
+		return result;
+		
+	}
+	
+	
 	
 	
 }

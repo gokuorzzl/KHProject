@@ -166,7 +166,7 @@
         <div id="page-inner">
             <div class="row" style="margin-bottom:20px">
                 <div class="col-md-12">
-                    <h1 class="page-head-line"><i class="fa fa-desktop" style="padding-right:10px"></i>회원정보수정</h1>
+                    <h1 class="page-head-line"><i class="fa fa-desktop" style="padding-right:10px"></i>회원관리설정</h1>
                 </div>
             </div>
          <div class="row">
@@ -212,7 +212,7 @@
                     <div class="col-md-8">
 
                         <div class="table-responsive">
-                        <h3>회원정보수정</h3>
+                        <h3>자유게시판</h3>
                             <table class="table table-striped table-bordered table-hover">
                                 <thead>
                                     <tr>
