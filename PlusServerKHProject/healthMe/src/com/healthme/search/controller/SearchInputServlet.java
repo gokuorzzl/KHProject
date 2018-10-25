@@ -4,13 +4,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.healthme.search.model.vo.SearchedTrainerResult;
+import com.healthme.search.model.vo.SearchResultPage;
 import com.healtme.search.model.service.SearchService;
 
 /**
@@ -65,21 +66,18 @@ public class SearchInputServlet extends HttpServlet {
 		}
 		
 		//5. 검색어를 담은 ArrayList와 현재 페이지 정보를 담은 currentPage를 Service로 전송
-		ArrayList<SearchedTrainerResult> trainerList = new SearchService().searchBar(searchList, currentPage);
+		SearchResultPage resultPage = new SearchService().searchBar(searchList, currentPage);
 		
-//		//4. 결과 처리
-//		if(!trainerList.isEmpty()) {
-//			//검색결과 url을 복사해서 이용할 수도 있으므로 RequestDispatcher을 사용해 url이 유지되도록 함
-//			RequestDispatcher view = request.getRequestDispatcher("page/searchTrainerPage/resultTrainer.jsp");
-//			request.setAttribute("trainerList", trainerList);
-//			view.forward(request, response); //request와 response 객체를 view로 보냄
-//			
-//		}else {
-//			response.sendRedirect("page/searchTrainerPage/searchError.jsp");
-//		}
-		
-
-		
+		//4. 결과 처리
+		if(resultPage != null) {
+			//검색결과 url을 복사해서 이용할 수도 있으므로 RequestDispatcher을 사용해 url이 유지되도록 함
+			RequestDispatcher view = request.getRequestDispatcher("page/searchTrainerPage/searchSuccess.jsp");
+			request.setAttribute("resultPage", resultPage);
+			view.forward(request, response); //request와 response 객체를 view로 보냄
+			
+		}else {
+			response.sendRedirect("page/searchTrainerPage/searchError.jsp");
+		}
 		
 		
 	}
