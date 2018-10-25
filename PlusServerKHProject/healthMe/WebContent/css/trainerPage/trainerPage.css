@@ -208,13 +208,15 @@ table {
     	height:11%;  
     	vertical-align: middle;
     	margin: auto; 	
+		font-family:'NotoSansCJKkrBold';      	
     }
     .infoBox_2{
     	position: relative;
     	width:95%;
     	height:11%;  
     	vertical-align: middle;
-    	margin: auto; 	
+    	margin: auto; 
+    	font-family:'NotoSansCJKkrBold';  	
     }
     .infoBox_3{
     	position: relative;
@@ -222,6 +224,7 @@ table {
     	height:11%;  
     	vertical-align: middle;
     	margin: auto;  	
+    	font-family:'NotoSansCJKkrBold';  
     }
     .infoBox_4{
     	position: relative;
@@ -229,6 +232,7 @@ table {
     	height:11%;  
     	vertical-align: middle;
     	margin: auto;  	
+    	font-family:'NotoSansCJKkrBold';  
     }
     .infoBox_5{
     	position: relative;
@@ -236,6 +240,7 @@ table {
     	height:11%;  
     	vertical-align: middle;
     	margin: auto;	
+    	font-family:'NotoSansCJKkrBold';  
     }
     .infoBox_6{
     	position: relative;
@@ -243,6 +248,7 @@ table {
     	height:11%;   
     	vertical-align: middle;
     	margin: auto;	
+    	font-family:'NotoSansCJKkrBold';  
     }
     .infoBox_7{
     	position: relative;
@@ -250,6 +256,31 @@ table {
     	height:12%;  
     	vertical-align: middle;
     	margin: auto;	
+    	font-family:'NotoSansCJKkrBold';  
+    }
+    .submitB{
+    	width:80%;
+    	height:100%;
+    	vertical-align: middle;
+    	margin: auto;	
+    	text-align:center;
+		line-height: normal;
+		background-color: #FF9B55;
+    	border-radius: 5px 5px 5px 5px;
+    }
+    .submitBtn{	 
+    	font-size: 24px;
+    	color:white;   	
+    	background-color: #FF9B55;
+    	border:none;
+		font-family:'NotoSansCJKkrBold'; 
+    }
+    .submitBtn{
+    	vertical-align: middle;
+    	margin: auto;	 
+    	line-height: normal;
+    	font-size: 20px;
+    	color:white;   	
     }
     .infoButtomIconBox{
     	position: relative;
@@ -476,6 +507,23 @@ table {
     	height:12%;  
     	vertical-align: middle;
     	margin: auto;
+    }
+    .submitB{
+    	width:80%;
+    	height:100%;
+    	vertical-align: middle;
+    	margin: auto;	
+    	text-align:center;
+		line-height: normal;
+    	background-color: #FF9B55;
+    	border-radius: 5px 5px 5px 5px;
+    }
+    .submitBtn{	 
+    	font-size: 20px;
+    	color:white;   	
+		background-color: #FF9B55;
+    	border:none;
+		font-family:'NotoSansCJKkrBold'; 
     }
     .infoButtomIconBox{
     	position: relative;
@@ -729,6 +777,23 @@ table {
     	vertical-align: middle;
     	margin: auto;  	
     }
+    .submitB{
+    	width:70%;
+    	height:100%;
+    	vertical-align: middle;
+    	margin: auto;	
+    	text-align:center;
+		line-height: normal;
+    	background-color: #FF9B55;
+    	border-radius: 5px 5px 5px 5px;
+    }
+    .submitBtn{	 
+    	font-size: 15px;
+    	color:white;   	
+		background-color: #FF9B55;
+    	border:none;
+		font-family:'NotoSansCJKkrBold'; 
+    }    
     .infoButtomIconBox{
     	position: relative;
     	width:70%;

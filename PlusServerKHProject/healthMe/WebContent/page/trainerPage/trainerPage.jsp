@@ -42,13 +42,22 @@
         			<div class="resumeDivR border">
         				<div class="resumeTextBox">
         					<div class="resumeTextTop textMiddle">
-        						위
+        						제목
         					</div>
         					<div class="resumeTextMiddle textMiddle">
-        						중간
+        						별점
         					</div>
         					<div class="resumeTextButtom textMiddle">
-        						아래
+        						<hr>
+        							<table border="1">
+        								<tr>
+        								<td>지역</td><td>횟수</td><td>인원</td><td>금액</td>
+        								</tr>
+        								<tr>
+        								<td>지역</td><td>횟수</td><td>인원</td><td>금액</td>
+        								</tr>
+        							</table>
+        						<hr>
         					</div>
         				</div>
         			</div>
@@ -59,16 +68,23 @@
 				<div class="infoBox">
 					<br>
 					<div class="infoBox_1"></div>
+					위치&nbsp;&nbsp;&nbsp;
 					<hr>
 					<div class="infoBox_2"></div>
+					요일&nbsp;&nbsp;&nbsp;
 					<hr>
 					<div class="infoBox_3"></div>
+					장소&nbsp;&nbsp;&nbsp;
 					<hr>
 					<div class="infoBox_4"></div>
-					<hr>
 					<div class="infoBox_5"></div>
 					<br>
-					<div class="infoBox_6"></div>
+					<form action = "" method="post">
+					<div class="infoBox_6">
+						<div class="submitB"> 
+						<input type="submit" class="submitBtn" value=" 수업 신청하기 ▶ ">
+					</div></div>
+					</form>
 					<br>
 					<div class="infoBox_7"></div>
 				</div>
@@ -79,7 +95,7 @@
 							<img src="../../img/heart.png" class="iconImg">
 						</div>
 						<div class="iconRight textMiddle">
-							찜하기
+							<input type="submit" class="submitBtn submitB" value="찜하기">
 						</div>
 					</div>
 				</div>

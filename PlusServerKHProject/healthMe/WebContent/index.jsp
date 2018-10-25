@@ -56,10 +56,10 @@
 			<H1><%=member.getMemberName() %>님 환영합니다.</H1>
 			<div class="col-md-offset-1 col-md-4 col-sm-6"></div>
                  	<br><br>
-                 	<form action="">
-                 		<h3>heal th me</h3>
-                 		 <a href="">마이 페이지</a>
-                 		 <a href="">로그아웃</a>
+                 	<form>
+                 		<h2>heal th me</h2>
+                 		 <a href="" class="loginForm">마이 페이지</a>
+                 		 <a href="" class="loginForm">로그아웃</a>
 					
                  	</form>
             </div>

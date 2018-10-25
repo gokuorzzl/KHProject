@@ -390,6 +390,10 @@ src:local(※), url(../../fonts/NotoSansCJKkrBold.woff) format('woff');
     height: 100%;
     
 }
+.loginForm{
+	font-size: 20px;
+	
+}
 
   /*---------------------------------------
      RESPONSIVE STYLES              
