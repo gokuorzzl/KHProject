@@ -1,6 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-      <%@ page import="com.healthme.admin.vo.*" %>
+      <%@ page import="com.healthme.admin.vo.*" 
+      			import="com.healthme.member.vo.*"
+      		   import="java.util.ArrayList"
+      %>
+      
+      <%
+      	ArrayList<Member> list = (ArrayList<Member>)request.getAttribute("AdminList");//멤버변수에 담은걸 AdminList로 갖고온다.
+      	
+      %>
+      
+      
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -147,7 +157,44 @@
             </div>
 
         </nav>
-
+	<div class="page-wrapper">
+		<div class="row">
+		
+		
+	
+	
+	
+	<!-- 흐린연한색 비슷하게 가보자 -->
+		<table class="tablemeber" style="text-align:center; border:1px solid #dddddd">
+		
+	<thead>	
+	<tr>
+	<th>ID</th><th>이름</th><th>주민번호</th><th>주소</th><th>가입날짜</th><th>회원등급</th><th>Email</th><th>핸드폰번호</th><th>탈퇴여부</th>
+	</tr>
+	</thead>
+	<% for(Member m :list){ %>
+	
+		<%} %>
+	
+	
+	<tbody>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	</tbody>
+	</table>
+	
+	
+	</div>
+	</div>
 
 
 </body>

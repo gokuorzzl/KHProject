@@ -1,5 +1,5 @@
 /**
- * enroll.html에서 적용하는 자바스크립트
+ * enroll.jsp에서 적용하는 자바스크립트
  */
   
    function idCheck() {
@@ -9,34 +9,123 @@
 	   
 	   return false;
    }
-   
-   
-   
-   
-   function checked() {
+
+   function validate() {
+	  
+	   var idReg = /^[a-z0-9_]{4,12}$/;
+	   var pwReg =  /^(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]|.*[0-9]).{8,24}$/;
+	   var nameReg =  /^[가-힝]{2,4}$/;
+	   var socialReg = /^(?:[0-9]{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[1,2][0-9]|3[0,1]))-[1-4][0-9]{6}$/;
+	   var phoneReg = /^\d{2,3}-\d{3,4}-\d{4}$/;
+	   var emailReg = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
  	   
- 	   var memberId = documnet.getElementById("memberId").value;
- 	   var memberPw = document.getElementById('memberPw').value;
- 	   var memberPw2 = document.getElementById('memberPw2').value;
+ 	   var memberId = document.getElementById("memberId");
+ 	   var memberPw = document.getElementById("memberPw");
+ 	   var memberName = document.getElementById("memberName");
+ 	   var memberSocialId = document.getElementById("memberSocialId");
+ 	   var memberAddr = document.getElementById("memberAddr");
+ 	   var memberPhone = document.getElementById("memberPhone");
+ 	   var memberEmail = document.getElementById("memberEmail");
  	   
- 	   var idReg = /^[a-z0-9_]{4,12}$/;
- 	   var pwReg =  /^(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]|.*[0-9]).{8,24}$/;
- 	 
- 	   if(!idReg.test(memberId)) {
- 		   alert("아이디 형식에 맞게 입력해주세요.");
- 		   memberId.focus();
+ 	   if(!check(idReg,memberId, "아이디 형식에 맞게 입력해주세요.")) {
  		   return false;
- 		   
- 	   } else if (!pwReg.test(memberPw)) {
- 		   alert("비밀번호 형식에 맞게 입력해주세요.");
- 		   memberPw.focus();
+ 	   }
+ 	   
+ 	   if(!check(pwReg,memberPw, "비밀번호 형식에 맞게 입력해주세요.")) {
  		   return false;
- 		   
- 	   } else if(memberPw != memberPw2) {
- 		   alert("비밀번호가 일치하지 않습니다.");
- 		   memberPw2.focus();
- 	   } 
+ 	   }
+ 	   
+ 	   if(join.memberPw.value != join.memberPw2.value) {
+ 		   alert("비밀번호가 다릅니다. 다시 확인해주세요.");
+ 		   join.memberPw2.value="";
+ 		   join.memberPw2.focus();
+ 		   return false;
+ 	   }
+ 	   
+ 	   if(!check(nameReg,memberName, "이름  한글로 입력해주세요.")) {
+ 		   return false;
+ 	   }
+ 	   
+ 	   if(!check(socialReg,memberSocialId, "주민등록번호 형식에 맞게 입력해주세요.")) {
+ 		   return false;
+ 	   }
+ 	   
+ 	   if(memberAddr.value=="") {
+ 		   alert("주소를 입력해주세요");
+ 		   memberAddr.focus();
+ 		   return false;
+ 	   }
+ 	   
+ 	   if(!check(phoneReg,memberPhone, "핸드폰 번호 형식에 맞게 입력해주세요.")) {
+ 		  return false;
+ 	   }
+ 	   
+ 	   if(!check(emailReg,memberEmail, "이메일 형식에 맞게 입력해주세요.")) {
+ 		   return false;
+ 	   }
    }
+   
+   function check(idReg,what,message) {
+	   if(idReg.test(what.value)) {
+		   return true;
+	   }
+	   alert(message);
+	   what.value="";
+	   what.focus();
+	   return false;
+   }
+   
+   function check(pwReg,what,message) {
+	   if(pwReg.test(what.value)) {
+		   return true;
+	   }
+	   alert(message);
+	   what.value="";
+	   what.focus();
+	   return false;
+   }
+   
+   function check(nameReg,what,message) {
+	   if(nameReg.test(what.value)) {
+		   return true;
+	   }
+	   alert(message);
+	   what.value="";
+	   what.focus();
+	   return false;
+   }
+   
+   function check(socialReg,what,message) {
+	   if(socialReg.test(what.value)) {
+		   return true;
+	   }
+	   alert(message);
+	   what.value="";
+	   what.focus();
+	   return false;
+   }
+   
+   function check(phoneReg,what,message) {
+	   if(phoneReg.test(what.value)) {
+		   return true;
+	   }
+	   alert(message);
+	   what.value="";
+	   what.focus();
+	   return false;
+   }
+   
+   function check(emailReg,what,message) {
+	   if(emailReg.test(what.value)) {
+		   return true;
+	   }
+	   alert(message);
+	   what.value="";
+	   what.focus();
+	   return false;
+   }
+   
+   
 
     function sample6_execDaumPostcode() {
         new daum.Postcode({

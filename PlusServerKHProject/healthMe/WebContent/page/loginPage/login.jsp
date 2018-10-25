@@ -14,8 +14,10 @@
     <!--키워드-->
     <meta name="keywords" content="www.healthme.com, 트레이너, 나만의, 맞춤" />
     <!--스타일-->
+    <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
     <script type="text/javascript" src="../../js/loginPage/login.js"></script>
     <link rel="stylesheet" href="../../css/loginPage/login.css" />
+
     <!--title-->
     <title>헬th미: 로그인</title> <!--로그인 첫페이지-->
 
@@ -79,7 +81,26 @@
                             
                             
                             <a href="#" class="naver-btn">
-                             <i class="login"></i> Login with NAVER
+                              <div id="naverIdLogin"></div>
+                             <!-- <i class="login"></i> Login with NAVER -->
+                             
+                             <script>
+                             var naverLogin = new naver.LoginWithNaverId(
+                            			{
+                            				clientId: "Mvl6A4PJd71edlyhqsJu",
+                            				callbackUrl: "http://localhost/page/loginPage/naverCallback.jsp",
+                            				isPopup: false, /* 팝업을 통한 연동처리 여부 */
+                            				loginButton: {color: "green", type: 3, height: 70} /* 로그인 버튼의 타입을 지정 */
+                            			}
+                            		);
+                            		
+                            		/* 설정정보를 초기화하고 연동을 준비 */
+                            		naverLogin.init();
+                    
+                             </script>
+                             
+                             
+                             
                            </a>
                             <br>
                            <a href="#" class="google-btn">
@@ -91,7 +112,7 @@
                    
                         <div class="login-container2" style="background-color:#f1f1f1">
                            <div id="userR">
-                           <span><a class="userR" href="/page/loginPage/enroll.jsp">회원가입</a></span>
+                           <span><a class="userR" href="/page/loginPage/privacyPolicy.jsp">회원가입</a></span>
                            </div>
                            
                         </div>

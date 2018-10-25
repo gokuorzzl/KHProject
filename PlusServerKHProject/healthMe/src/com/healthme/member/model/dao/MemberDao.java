@@ -118,4 +118,13 @@ public class MemberDao {
 		return memberId;
 		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

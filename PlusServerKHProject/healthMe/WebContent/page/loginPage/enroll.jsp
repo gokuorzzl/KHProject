@@ -22,7 +22,7 @@
     src="http://code.jquery.com/jquery-3.3.1.js"
     integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
     crossorigin="anonymous"></script>
-     <link rel="stylesheet" href="../../css/loginPage/enroll.css?ver=1"/>
+     <link rel="stylesheet" href="../../css/loginPage/enroll.css"/>
     <!--title-->
     <title>헬th미: 회원가입</title>
 
@@ -62,17 +62,17 @@
             <div id="contents">
                 <div id="realContents">
                   <div class="info-container">
-                    
-                    <form  action="/enroll.do" name="data" method="post"> 
-                     <!-- onsubmit="return checked()"> -->
+                 
+                    <form name="join" action="/enroll.do" method="post"> 
+                  
                         <label for="memberId" style="float:left;">아이디</label><div class="conditionId" style="float:left; box-sizing:border-box; margin-left:1%; margin-right:14%; margin-top:1%; ">(4~12자이내 영문소문자, 숫자, 언더라인( _ ) 사용가능)</div>
                         <button class="doubleCheck" onclick="return idCheck();">ID 중복 확인</button><br>
                         <input type="hidden" id="checkFlag" value=0/>
                         
-                        <input type="text" id="memberId" name="memberId" required><br>
+                        <input type="text" maxlength="12" id="memberId" name="memberId" required><br>
     
-                         <label for="memberPw" style="float:left;">비밀번호</label><div class="conditionPw" style="float:left; box-sizing:border-box; margin-left:1%; margin-right:7%; margin-top:0.8%; ">(8~24자이내 영문대소문자, 숫자, 특수문자 혼합 사용)</div>
-                         <input type="password" id="memberPw" name="memberPw" required ><br>
+                         <label for="memberPw" style="float:left;">비밀번호</label><div class="conditionPw" style="float:left; box-sizing:border-box; margin-left:1%; margin-right:7%; margin-top:0.8%; ">(4~12자이내 영문대소문자, 숫자, 특수문자 혼합 사용)</div>
+                         <input type="password" maxlength="12" id="memberPw" name="memberPw" required ><br>
                           
                          <label for="memberPw2">비밀번호 재확인</label><br>
                          <input type="password" name="memberPw2" id="memberPw2" required><br>
@@ -90,13 +90,15 @@
                         <input type="text" id="sample6_address2" placeholder="상세주소">
 
                         <label for="memberPhone" style="float:left;">핸드폰 번호</label><div class="conditionPw" style="float:left; box-sizing:border-box; margin-left:1%; margin-right:7%; margin-top:0.8%; ">(ex. 010-1111-2222 형식으로 입력)</div>
-                        <input type="text" maxlength="13" id="memberPhonㄷ" name="memberPhone" required><br>
+                        <input type="text" maxlength="13" id="memberPhone" name="memberPhone" required><br>
                
                         <label for="memberEmail">이메일</label><br>
                          <input type="email" placeholder="이메일 주소에 '@'를 포함해주세요" id="memberEmail" name="memberEmail" required> 
                           
-                       <button type="submit" value="회원가입"  onclick="return checked()" class="register-button">가입하기</button> 
-                  <!--  if(!memberSubmit(this.form)){return false;} -->
+                       <button type="submit" value="회원가입" onclick="return validate();" class="register-button">가입하기</button> 
+                      
+                      
+                
                    </form>
                 </div>
                     

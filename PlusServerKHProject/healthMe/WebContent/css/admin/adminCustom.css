@@ -10,6 +10,11 @@ src:url(../fonts/NotoSansCJKkrBold.woff) format('woff');  /*크롬, 파이어폭
 src:local(※), url(../fonts/NotoSansCJKkrBold.woff) format('woff');
 }
 
+html {
+		font-family:'NotoSansCJKkrBold';
+}
+
+
 
 div {
 	font-family:'NotoSansCJKkrBold';
@@ -57,6 +62,15 @@ body {
 	margin-bottom: 30px;
 	border-bottom: 1px dashed #236651;
 }
+
+
+
+.container {
+	background-color: black;
+	
+}
+
+
 /*==============================================
     BREADCRUMBS
         =============================================*/
@@ -318,61 +332,4 @@ body {
 	font-weight: 800;
 	text-transform: uppercase;
 }
-/* Dashboard Chat */
-.chat {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
 
-.chat li {
-	margin-bottom: 10px;
-	padding-bottom: 5px;
-	border-bottom: 1px dotted #B3A9A9;
-}
-
-.chat li.left .chat-body {
-	margin-left: 60px;
-}
-
-.chat li.right .chat-body {
-	margin-right: 60px;
-}
-
-.chat li .chat-body p {
-	margin: 0;
-	color: #777777;
-}
-
-.panel .slidedown .glyphicon, .chat .glyphicon {
-	margin-right: 5px;
-}
-
-.chat-panel .panel-body {
-	height: 280px;
-	overflow-y: scroll;
-}
-
-/* Login Page */
-.login-panel {
-	margin-top: 15%;
-}
-
-.body-Backcolor {
-	background-color: #000;
-}
-
-.logo-margin {
-	margin-top: 100px;
-}
-
-/* Flot Chart Containers */
-.flot-chart {
-	display: block;
-	height: 400px;
-}
-
-.flot-chart-content {
-	width: 100%;
-	height: 100%;
-}

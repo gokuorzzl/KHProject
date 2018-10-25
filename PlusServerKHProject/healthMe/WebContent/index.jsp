@@ -30,10 +30,11 @@
             <h1>Navigations</h1>
              <ul class="menu">
                 <li><a href="/index.jsp">메인</a></li>
-                <li><a href="/Page/SearchTrainerPage/searchTrainerPage.jsp">트레이너 찾기</a></li>
+                <li><a href="/page/searchTrainerPage/searchTrainerPage.jsp">트레이너 찾기</a></li>
                 <li><a href="">트레이너 등록</a></li>
-                <li><a href="/Page/communityPage/boardPage.jsp">게시판</a></li>
-                <li><a href="/Page/communityPage/Q&APage.jsp">Q & A</a></li>
+                <li><a href="/page/communityPage/boardPage.jsp">게시판</a></li>
+                <li><a href="/page/communityPage/Q&APage.jsp">Q & A</a></li>
+
             </ul>
            </div>
 			 <!--로그인-->
@@ -59,11 +60,11 @@
 			%>
                  <div class="col-md-offset-1 col-md-4 col-sm-6">
                      <br><br>
-                     <form action="/Page/loginPage/login.jsp">
+                     <form action="/page/loginPage/login.jsp">
                      <h3>heal th me를 더 안전하고 편리하게 이용하세요.</h3>
                      <input type="submit" class="menu-local btn btn-primary btn-lg myinfo" value="heal th me 로그인"></form>
                      <a href="" class="menu-local-font">아이디ㆍ비밀번호 찾기</a>
-                     <a href="/Page/loginPage/userLogin.jsp" class="menu-local-font-join" >회원가입</a>
+                     <a href="/page/loginPage/userLogin.jsp" class="menu-local-font-join" >회원가입</a>
                  </div>
   			<%	} %>
                </div>
@@ -85,7 +86,7 @@
                             </div> 
 							 <!-- 검색바 -->
 							 <div class="subscribe-form">
-							 <form action="/Page/searchTrainerPage/searchTrainerPage.jsp" method="get">
+							 <form action="/searchInput.do" method="get">
                             <input type="text" name="search" class="form-control" placeholder="지역 / 종목 검색" required="">
 							<button type="submit" class="form-control">
 							<i class="fa fa-search"></i>
@@ -107,33 +108,3 @@
 
 </body>
 </html>
-
-<%--
-	        <%
-				session = request.getSession(false);
-				Member member = (Member)session.getAttribute("member");
-				if(member!=null){
-			 %>
-			<H1><%=member.getUserName() %>님 환영합니다.</H1>
-			<div class="col-md-offset-1 col-md-4 col-sm-6" style="display:none;" class="myinfo"></div>
-                 	<br><br>
-                 	<form action="">
-                 		<h3>heal th me</h3>
-                 		 <button type="submit" class="menu-local btn btn-primary btn-lg" value="마이 페이지"></form>
-                 	</form>
-            </div>
-			<%
-				} else{
-			%>
-                 <div class="col-md-offset-1 col-md-4 col-sm-6">
-                     <br><br>
-                     <form action="/Page/loginPage/login.jsp">
-                     <h3>heal th me를 더 안전하고 편리하게 이용하세요.</h3>
-                     <input type="submit" class="menu-local btn btn-primary btn-lg myinfo" value="heal th me 로그인"></form>
-                     <a href="" class="menu-local-font">아이디ㆍ비밀번호 찾기</a>
-                     <a href="/Page/loginPage/userLogin.jsp" class="menu-local-font-join" >회원가입</a>
-                 </div>
-  			<%	} %>
-
-
- --%>

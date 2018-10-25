@@ -1,0 +1,628 @@
+/*----------------------------------------------*/
+/*인코딩 문자셋*/
+@charset "UTF-8";
+
+
+@font-face{
+font-family:'NotoSansCJKkrBold';
+src:url(../../fonts/NotoSansCJKkrBold.woff) format('woff');  /*크롬, 파이어폭스*/
+src:local(※), url(../../fonts/NotoSansCJKkrBold.woff) format('woff');
+}
+
+
+/*각종 인터넷 브라우저에서 코드 작동이 가능하도록 하는 css Reset*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, b, u, i, center,
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	font-family:'NotoSansCJKkrBold';
+	
+}
+html{
+	font-family:'NotoSansCJKkrBold';
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*----------------------------------------------*/
+/*css 공통코드 작성부분*/
+/* div전체 */
+
+.border{
+    border: 1px solid black; 
+    position: absolute;
+}
+
+
+
+/*----------------------------------------------*/
+/* 반응형 웹 부분 */
+/*데스크톱, 태블릿, 모바일 세 개의 사이즈로 나눠집니다.*/ 
+/*전체적인 틀은 변하지 않고 화면의 사이즈가 줄어들에 따라 콘텐츠의 배치만 달라집니다.*/
+
+/*데스크톱*/
+@media screen and (min-width:1024px){
+    
+    /*div전체*/
+    #wrapper{
+        position: absolute;
+        width:100%;
+        height:1500px;    
+    }
+    
+    /*middle부분*/
+    #middle{
+    	position: absolute;
+        width: 100%;
+        height: 85%;
+    }
+
+    /*bottom*/
+    #bottom{
+        width: 100%;
+        bottom:0px;
+        position:absolute;
+        height:110px;   
+    }
+
+    .contents{
+    	position:static;
+    	width:75%;
+    	height:98%;
+    	float:left;
+    	background-color: red;
+    	margin: 0;
+    	padding: 0;
+    }
+
+    .imgBoxSize{
+    	position:relative;
+    	width:200px;
+    	height:230px;
+    	background-color: orange;
+    	line-height:inherit;
+    	vertical-align: middle;
+    	margin:auto;
+    	margin-top: 6%;
+    }
+    .imgUnderText{
+   	 position:relative;
+    	width:80%;
+    	height:30%;
+    	background-color:silver;
+    	vertical-align: middle;
+    	margin:auto;
+    	text-align: center;
+    	font-size:22px;
+    	font-family:'NotoSansCJKkrBold';
+    }
+    .textMiddle{
+    	display:flex;
+    	align-items: center;
+    	justify-content:center;
+    }
+    .imgSize{
+    	position:inherit;
+    	width:100%;
+    	height:100%;
+    	border-radius: 45%;
+    	
+    }
+    .resume{
+    	position:relative;
+    	width:95%;
+    	height: 30%;
+    	text-align: center;
+    	vertical-align: middle;
+    	margin: auto;
+    	top:2%;
+    }
+    .resumeDivL{
+    	position:relative;
+    	width:30%;
+    	height:100%;
+    	background-color: green;
+    	float:left;
+    }
+    .resumeDivR{
+        position:relative;
+    	width:70%;
+    	height:100%;
+    	background-color:black;
+    	float:left;
+
+    }
+    .resumeTextBox{
+    	position:relative;
+    	width:90%;
+    	height:90%;
+    	background-color: blue;
+    	vertical-align: middle;
+    	margin: auto;
+    	top:5%;
+    }
+    .resumeTextTop{
+    	position:relative;
+    	width:100%;
+    	height:30%;
+    	background-color:white;	
+    	top:12%;
+    }
+    .resumeTextMiddle{
+    	position:relative;
+    	width:100%;
+    	height:15%;
+    	background-color:red;  
+    	top:12%;  
+    }
+    .resumeTextButtom{
+    	position:relative;
+    	width:100%;
+    	height:30%;   
+    	background-color:white;
+    	top:12%;	
+    }
+/* 오른쪽 스크롤바 */ 
+	.contents_2{
+    	position:static;
+    	width:25%;
+    	height:98%;
+    	background-color:blue;
+    	float:left;
+    	margin: 0;
+    	padding: 0;
+    }
+    .infoBox{
+    	position:inherit;
+    	width:90%;
+    	height:47%;
+    	background-color:white;
+    	vertical-align: middle;
+    	margin: auto;
+    }
+    .infoButtom{
+    	position: relative;
+    	width:90%;
+    	height:7%;
+    	background-color:orange;
+    	vertical-align: middle;
+    	margin: auto;
+    }  
+    .infoBox_1{
+    	position: relative;
+    	width:95%;
+    	height:11%;  
+    	vertical-align: middle;
+    	margin: auto;
+    	background-color: red;  	
+    }
+    .infoBox_2{
+    	position: relative;
+    	width:95%;
+    	height:11%;  
+    	vertical-align: middle;
+    	margin: auto;
+    	background-color: orange;  	
+    }
+    .infoBox_3{
+    	position: relative;
+    	width:95%;
+    	height:11%;  
+    	vertical-align: middle;
+    	margin: auto;
+    	background-color: yellow;  	
+    }
+    .infoBox_4{
+    	position: relative;
+    	width:95%;
+    	height:11%;  
+    	vertical-align: middle;
+    	margin: auto;
+    	background-color: green;  	
+    }
+    .infoBox_5{
+    	position: relative;
+    	width:95%;
+    	height:11%;  
+    	vertical-align: middle;
+    	margin: auto;
+    	background-color: blue;  	
+    }
+    .infoBox_6{
+    	position: relative;
+    	width:95%;
+    	height:11%;   
+    	vertical-align: middle;
+    	margin: auto;
+    	background-color: navy;  	
+    }
+    .infoBox_7{
+    	position: relative;
+    	width:95%;
+    	height:12%;  
+    	vertical-align: middle;
+    	margin: auto;
+    	background-color: purple;  	
+    }
+    .infoButtomIconBox{
+    	position: relative;
+    	width:50%;
+    	height:50%;
+    	vertical-align: middle;
+    	margin: auto;
+    	background-color: purple;  
+		top:27%;
+    }
+    .iconLeft{
+    	position: relative;
+    	width:33%;
+    	height:100%;   
+    	float:left;
+    }
+    .iconImg{
+    	position: inherit;
+    	width:100%;
+    	height:100%;     
+    }
+    .iconRight{
+    	position: relative;
+    	width:67%;
+    	height:100%;  
+    	float:left;
+    	background-color: pink; 
+    	
+    	font-family:'NotoSansCJKkrBold';     	
+    }
+}   
+
+/* 위에 데스크탑이야!!!!!!!!!!!!!!*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*태블릿*/
+@media screen and (min-width:640px) and (max-width:1024px){
+    
+    /*div전체*/
+    #wrapper{
+        position: absolute;
+        width:100%;
+        height:1000px;    
+    }
+    
+ 
+    /*middle부분*/
+    #middle{
+        width: 100%;
+        height: 80%;
+        z-index:0;
+    }
+    .contents{
+    	position:static;
+    	width:70%;
+    	height:98%;
+    	float:left;
+    	background-color: red;
+    	margin: 0;
+    	padding: 0;
+    }
+    .contents_2{
+    	position:static;
+    	width:30%;
+    	height:98%;
+    	background-color:blue;
+    	float:left;
+    	margin: 0;
+    	padding: 0;
+    }
+    .resume{
+    	position:relative;
+    	width:95%;
+    	height: 40%;
+    	background-color: purple;
+    	text-align: center;
+    	vertical-align: middle;
+    	margin: auto;
+    	top:2%;
+    }
+    /*bottom*/
+    #bottom{
+        width:100%;
+        bottom:0px;
+        position:absolute;
+        height:110px; 
+    }
+    .imgBoxSize{
+    	position:relative;
+    	width:150px;
+    	height:180px;
+    	background-color: orange;
+    	line-height:inherit;
+    	vertical-align: middle;
+    	margin:auto;
+    	margin-top:8%;
+    }
+    .imgUnderText{
+   	 	position:relative;
+    	width:140px;
+    	height:30%;
+    	background-color:silver;
+    	vertical-align: middle;
+    	font-size:20px;
+    	margin:auto;
+    	font-family:'NotoSansCJKkrBold';  	
+    }
+    .imgSize{
+    	position:inherit;
+    	width:100%;
+    	height:100%;
+    	border-radius:45%;
+    }
+    .resumeDivL{
+    	position:relative;
+    	width:35%;
+    	height:100%;
+    	background-color: green;
+    	float:left;
+    	min-width:120px;
+    }
+    .resumeDivR{
+        position:relative;
+    	width:65%;
+    	height:100%;
+    	background-color:black;
+    	float:left;
+    }
+   	.textMiddle{
+    	display:flex;
+    	align-items: center;
+    	justify-content:center;
+    }
+    .resumeTextBox{
+    	position:relative;
+    	width:90%;
+    	height:90%;
+    	background-color: blue;
+    	vertical-align: middle;
+    	margin: auto;
+    	top:5%;
+    }
+    .resumeTextTop{
+    	position:relative;
+    	width:100%;
+    	height:30%;
+    	background-color:white;	
+    	top:12%;
+    }
+    .resumeTextMiddle{
+    	position:relative;
+    	width:100%;
+    	height:15%;
+    	background-color:red;  
+    	top:12%;  
+    }
+    .resumeTextButtom{
+    	position:relative;
+    	width:100%;
+    	height:30%;   
+    	background-color:white;
+    	top:12%;	
+ 
+    }
+}
+
+
+/* 위에 테블릿이야!!!!!!!!!!!!!!*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*모바일*/
+@media screen and (max-width:640px){
+    
+    /*div전체*/
+    #wrapper{
+        position: absolute;
+        width:100%;
+        height: 1200px;    
+    }
+    
+
+    /*middle부분*/
+    #middle{
+        width: 100%;
+        height: 60%;
+    }
+    
+     
+    /*bottom*/
+    #bottom{
+        width: 100%;
+        bottom:0px;
+        position:absolute;
+        height:110px; 
+    }
+   	.contents{
+    	position:static;
+    	width:100%;
+    	height:70%;
+    	float:left;
+    	background-color: red;
+    	margin: 0;
+    	padding: 0;
+    }
+    .contents_2{
+    	position:static;
+    	width:100%;
+    	height:30%;
+    	background-color:blue;
+    	float:left;
+    	margin: 0;
+    	padding: 0;
+    }
+    .imgBoxSize{
+    	position:relative;
+    	width:150px;
+    	height:180px;
+    	background-color: orange;
+    	line-height:inherit;
+    	vertical-align: middle;
+    	margin:auto;
+    	margin-top:2%;
+    	
+    }
+    .imgUnderText{
+   	 	position:relative;
+    	width:140px;
+    	height:30%;
+    	background-color:silver;
+    	vertical-align: middle;
+    	font-size:20px;
+    	margin:auto;
+    	font-family:'NotoSansCJKkrBold';  	
+    }
+    .resume{
+    	position:relative;
+    	width:95%;
+    	height: 50%;
+    	background-color: pink;
+    	text-align: center;
+    	vertical-align: middle;
+    	margin: auto;
+    	top:2%;
+    }
+    .resumeDiv{
+    	position:absolute;
+    	width:50%;
+    	height:50%;
+    }
+    .imgUnderText{
+   	 position:relative;
+    	width:80%;
+    	height:20%;
+    	background-color:silver;
+    	vertical-align: middle;
+    	margin:auto;
+    	text-align: center;
+    	font-size:22px;
+    	font-family:'NotoSansCJKkrBold';
+    }
+    .textMiddle{
+    	display:flex;
+    	align-items: center;
+    	justify-content:center;
+    }
+    .imgSize{
+    	position:inherit;
+    	width:100%;
+    	height:100%;
+    	border-radius: 45%;
+    }
+    .resume{
+    	position:relative;
+    	width:95%;
+    	height:95%;
+    	text-align: center;
+    	vertical-align: middle;
+    	margin: auto;
+    	top:2%;
+    }
+    .resumeDivL{
+    	position:relative;
+    	width:50%;
+    	height:50%;
+    	background-color: green;
+    	text-align: center;
+    	vertical-align: middle;
+    	margin: auto;	
+    }
+    .resumeDivR{
+        position:relative;
+    	width:90%;
+    	height:50%;
+    	background-color:black;
+    	vertical-align: middle;
+    	margin: auto;
+    }
+    .resumeTextBox{
+    	position:relative;
+    	width:90%;
+    	height:90%;
+    	background-color: blue;
+    	vertical-align: middle;
+    	margin: auto;
+    	top:5%;
+    }
+    .resumeTextTop{
+    	position:relative;
+    	width:100%;
+    	height:30%;
+    	background-color:white;	
+    	top:12%;
+    }
+    .resumeTextMiddle{
+    	position:relative;
+    	width:100%;
+    	height:15%;
+    	background-color:red;  
+    	top:12%;  
+    }
+    .resumeTextButtom{
+    	position:relative;
+    	width:100%;
+    	height:30%;   
+    	background-color:white;
+    	top:12%;	
+    }
+}
+
+
+    
+    
+    
