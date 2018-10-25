@@ -34,15 +34,23 @@
                 <li><a href="">트레이너 등록</a></li>
                 <li><a href="/page/communityPage/boardPage.jsp">게시판</a></li>
                 <li><a href="/page/communityPage/Q&APage.jsp">Q & A</a></li>
-
+<%
+				session = request.getSession(false);
+				Member member = (Member)session.getAttribute("member");
+				if(member!=null && member.getMemberId().equals("admin")){
+				
+%>
+				<li><a href="/page/admin/adminlogin.jsp">관리자페이지</a></li>
+<%
+				}
+%>
             </ul>
            </div>
 			 <!--로그인-->
            <div class="col-md-4 col-sm-6">
              <div class="container">
 	        <%
-				session = request.getSession(false);
-				Member member = (Member)session.getAttribute("member");
+
 				if(member!=null){
 			 %>
 			<H1><%=member.getMemberName() %>님 환영합니다.</H1>
@@ -52,7 +60,7 @@
                  		<h3>heal th me</h3>
                  		 <a href="">마이 페이지</a>
                  		 <a href="">로그아웃</a>
-
+					
                  	</form>
             </div>
 			<%

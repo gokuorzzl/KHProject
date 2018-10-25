@@ -76,7 +76,7 @@
 				<div class="infoButtom">
 					<div class="infoButtomIconBox">
 						<div class="iconLeft">
-							<img src="../../img/handheart.PNG" class="iconImg">
+							<img src="../../img/heart.png" class="iconImg">
 						</div>
 						<div class="iconRight textMiddle">
 							찜하기

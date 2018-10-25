@@ -96,7 +96,6 @@ table {
     	width:75%;
     	height:98%;
     	float:left;
-    	background-color: red;
     	margin: 0;
     	padding: 0;
     }
@@ -105,7 +104,6 @@ table {
     	position:relative;
     	width:200px;
     	height:230px;
-    	background-color: orange;
     	line-height:inherit;
     	vertical-align: middle;
     	margin:auto;
@@ -115,7 +113,6 @@ table {
    	 position:relative;
     	width:80%;
     	height:30%;
-    	background-color:silver;
     	vertical-align: middle;
     	margin:auto;
     	text-align: center;
@@ -147,14 +144,12 @@ table {
     	position:relative;
     	width:30%;
     	height:100%;
-    	background-color: green;
     	float:left;
     }
     .resumeDivR{
         position:relative;
     	width:70%;
     	height:100%;
-    	background-color:black;
     	float:left;
 
     }
@@ -162,7 +157,6 @@ table {
     	position:relative;
     	width:90%;
     	height:90%;
-    	background-color: blue;
     	vertical-align: middle;
     	margin: auto;
     	top:5%;
@@ -171,21 +165,18 @@ table {
     	position:relative;
     	width:100%;
     	height:30%;
-    	background-color:white;	
     	top:12%;
     }
     .resumeTextMiddle{
     	position:relative;
     	width:100%;
-    	height:15%;
-    	background-color:red;  
+    	height:15%;  
     	top:12%;  
     }
     .resumeTextButtom{
     	position:relative;
     	width:100%;
     	height:30%;   
-    	background-color:white;
     	top:12%;	
     }
 /* 오른쪽 스크롤바 */ 
@@ -193,7 +184,6 @@ table {
     	position:static;
     	width:25%;
     	height:98%;
-    	background-color:blue;
     	float:left;
     	margin: 0;
     	padding: 0;
@@ -202,7 +192,6 @@ table {
     	position:inherit;
     	width:90%;
     	height:47%;
-    	background-color:white;
     	vertical-align: middle;
     	margin: auto;
     }
@@ -210,7 +199,6 @@ table {
     	position: relative;
     	width:90%;
     	height:7%;
-    	background-color:orange;
     	vertical-align: middle;
     	margin: auto;
     }  
@@ -219,68 +207,60 @@ table {
     	width:95%;
     	height:11%;  
     	vertical-align: middle;
-    	margin: auto;
-    	background-color: red;  	
+    	margin: auto; 	
     }
     .infoBox_2{
     	position: relative;
     	width:95%;
     	height:11%;  
     	vertical-align: middle;
-    	margin: auto;
-    	background-color: orange;  	
+    	margin: auto; 	
     }
     .infoBox_3{
     	position: relative;
     	width:95%;
     	height:11%;  
     	vertical-align: middle;
-    	margin: auto;
-    	background-color: yellow;  	
+    	margin: auto;  	
     }
     .infoBox_4{
     	position: relative;
     	width:95%;
     	height:11%;  
     	vertical-align: middle;
-    	margin: auto;
-    	background-color: green;  	
+    	margin: auto;  	
     }
     .infoBox_5{
     	position: relative;
     	width:95%;
     	height:11%;  
     	vertical-align: middle;
-    	margin: auto;
-    	background-color: blue;  	
+    	margin: auto;	
     }
     .infoBox_6{
     	position: relative;
     	width:95%;
     	height:11%;   
     	vertical-align: middle;
-    	margin: auto;
-    	background-color: navy;  	
+    	margin: auto;	
     }
     .infoBox_7{
     	position: relative;
     	width:95%;
     	height:12%;  
     	vertical-align: middle;
-    	margin: auto;
-    	background-color: purple;  	
+    	margin: auto;	
     }
     .infoButtomIconBox{
     	position: relative;
-    	width:50%;
-    	height:50%;
+    	width:60%;
+    	height:70%;
     	vertical-align: middle;
-    	margin: auto;
-    	background-color: purple;  
-		top:27%;
+    	margin: auto; 
+		top:15%;
     }
     .iconLeft{
-    	position: relative;
+    	position: inherit;
     	width:33%;
     	height:100%;   
     	float:left;
@@ -294,11 +274,10 @@ table {
     	position: relative;
     	width:67%;
     	height:100%;  
-    	float:left;
-    	background-color: pink; 
-    	
+    	float:left;	
     	font-family:'NotoSansCJKkrBold';     	
     }
+
 }   
 
 /* 위에 데스크탑이야!!!!!!!!!!!!!!*/
@@ -326,8 +305,7 @@ table {
         width:100%;
         height:1000px;    
     }
-    
- 
+
     /*middle부분*/
     #middle{
         width: 100%;
@@ -339,7 +317,6 @@ table {
     	width:70%;
     	height:98%;
     	float:left;
-    	background-color: red;
     	margin: 0;
     	padding: 0;
     }
@@ -347,7 +324,6 @@ table {
     	position:static;
     	width:30%;
     	height:98%;
-    	background-color:blue;
     	float:left;
     	margin: 0;
     	padding: 0;
@@ -356,7 +332,6 @@ table {
     	position:relative;
     	width:95%;
     	height: 40%;
-    	background-color: purple;
     	text-align: center;
     	vertical-align: middle;
     	margin: auto;
@@ -373,7 +348,6 @@ table {
     	position:relative;
     	width:150px;
     	height:180px;
-    	background-color: orange;
     	line-height:inherit;
     	vertical-align: middle;
     	margin:auto;
@@ -383,7 +357,6 @@ table {
    	 	position:relative;
     	width:140px;
     	height:30%;
-    	background-color:silver;
     	vertical-align: middle;
     	font-size:20px;
     	margin:auto;
@@ -399,7 +372,6 @@ table {
     	position:relative;
     	width:35%;
     	height:100%;
-    	background-color: green;
     	float:left;
     	min-width:120px;
     }
@@ -407,7 +379,6 @@ table {
         position:relative;
     	width:65%;
     	height:100%;
-    	background-color:black;
     	float:left;
     }
    	.textMiddle{
@@ -419,7 +390,6 @@ table {
     	position:relative;
     	width:90%;
     	height:90%;
-    	background-color: blue;
     	vertical-align: middle;
     	margin: auto;
     	top:5%;
@@ -428,24 +398,111 @@ table {
     	position:relative;
     	width:100%;
     	height:30%;
-    	background-color:white;	
     	top:12%;
     }
     .resumeTextMiddle{
     	position:relative;
     	width:100%;
     	height:15%;
-    	background-color:red;  
     	top:12%;  
     }
     .resumeTextButtom{
     	position:relative;
     	width:100%;
     	height:30%;   
-    	background-color:white;
     	top:12%;	
  
     }
+/* 오른쪽 스크롤바 */ 
+    .infoBox{
+    	position:inherit;
+    	width:90%;
+    	height:60%;
+    	vertical-align: middle;
+    	margin: auto;
+    }
+    .infoButtom{
+    	position: relative;
+    	width:90%;
+    	height:7%;
+    	vertical-align: middle;
+    	margin: auto;
+    }  
+    .infoBox_1{
+    	position: relative;
+    	width:95%;
+    	height:10%;  
+    	vertical-align: middle;
+    	margin: auto;	
+    }
+    .infoBox_2{
+    	position: relative;
+    	width:95%;
+    	height:10%;  
+    	vertical-align: middle;
+    	margin: auto;
+    }
+    .infoBox_3{
+    	position: relative;
+    	width:95%;
+    	height:10%;  
+    	vertical-align: middle;
+    	margin: auto;	
+    }
+    .infoBox_4{
+    	position: relative;
+    	width:95%;
+    	height:10%;  
+    	vertical-align: middle;
+    	margin: auto;
+    }
+    .infoBox_5{
+    	position: relative;
+    	width:95%;
+    	height:10%;  
+    	vertical-align: middle;
+    	margin: auto; 	
+    }
+    .infoBox_6{
+    	position: relative;
+    	width:95%;
+    	height:10%;   
+    	vertical-align: middle;
+    	margin: auto;
+    }
+    .infoBox_7{
+    	position: relative;
+    	width:95%;
+    	height:12%;  
+    	vertical-align: middle;
+    	margin: auto;
+    }
+    .infoButtomIconBox{
+    	position: relative;
+    	width:60%;
+    	height:70%;
+    	vertical-align: middle;
+    	margin: auto;
+		top:15%;
+    }
+    .iconLeft{
+    	position: relative;
+    	width:33%;
+    	height:100%;   
+    	float:left;
+    }
+    .iconImg{
+    	position: inherit;
+    	width:100%;
+    	height:100%;     
+    }
+    .iconRight{
+    	position: relative;
+    	width:67%;
+    	height:100%;  
+    	float:left;	
+    	font-family:'NotoSansCJKkrBold';     	
+    }    
 }
 
 
@@ -479,8 +536,7 @@ table {
         width: 100%;
         height: 60%;
     }
-    
-     
+ 
     /*bottom*/
     #bottom{
         width: 100%;
@@ -491,26 +547,23 @@ table {
    	.contents{
     	position:static;
     	width:100%;
-    	height:70%;
+    	height:50%;
     	float:left;
-    	background-color: red;
     	margin: 0;
     	padding: 0;
     }
     .contents_2{
     	position:static;
     	width:100%;
-    	height:30%;
-    	background-color:blue;
+    	height:50%;
     	float:left;
     	margin: 0;
     	padding: 0;
     }
     .imgBoxSize{
     	position:relative;
-    	width:150px;
-    	height:180px;
-    	background-color: orange;
+    	width:130px;
+    	height:150px;
     	line-height:inherit;
     	vertical-align: middle;
     	margin:auto;
@@ -520,8 +573,7 @@ table {
     .imgUnderText{
    	 	position:relative;
     	width:140px;
-    	height:30%;
-    	background-color:silver;
+    	height:10%;
     	vertical-align: middle;
     	font-size:20px;
     	margin:auto;
@@ -531,7 +583,6 @@ table {
     	position:relative;
     	width:95%;
     	height: 50%;
-    	background-color: pink;
     	text-align: center;
     	vertical-align: middle;
     	margin: auto;
@@ -546,17 +597,17 @@ table {
    	 position:relative;
     	width:80%;
     	height:20%;
-    	background-color:silver;
     	vertical-align: middle;
     	margin:auto;
     	text-align: center;
-    	font-size:22px;
+    	font-size:20px;
     	font-family:'NotoSansCJKkrBold';
     }
     .textMiddle{
     	display:flex;
     	align-items: center;
     	justify-content:center;
+    	font-size: 15px;
     }
     .imgSize{
     	position:inherit;
@@ -576,17 +627,15 @@ table {
     .resumeDivL{
     	position:relative;
     	width:50%;
-    	height:50%;
-    	background-color: green;
+    	height:60%;
     	text-align: center;
     	vertical-align: middle;
     	margin: auto;	
     }
     .resumeDivR{
         position:relative;
-    	width:90%;
-    	height:50%;
-    	background-color:black;
+    	width:80%;
+    	height:40%;
     	vertical-align: middle;
     	margin: auto;
     }
@@ -594,7 +643,6 @@ table {
     	position:relative;
     	width:90%;
     	height:90%;
-    	background-color: blue;
     	vertical-align: middle;
     	margin: auto;
     	top:5%;
@@ -603,23 +651,110 @@ table {
     	position:relative;
     	width:100%;
     	height:30%;
-    	background-color:white;	
     	top:12%;
     }
     .resumeTextMiddle{
     	position:relative;
     	width:100%;
     	height:15%;
-    	background-color:red;  
     	top:12%;  
     }
     .resumeTextButtom{
     	position:relative;
     	width:100%;
     	height:30%;   
-    	background-color:white;
     	top:12%;	
     }
+/* 오른쪽 스크롤바 */ 
+    .infoBox{
+    	position:inherit;
+    	width:100%;
+    	height:80%;
+    	vertical-align: middle;
+    	margin: auto;
+    }
+    .infoButtom{
+    	position: relative;
+    	width:50%;
+    	height:13%;
+    	vertical-align: middle;
+    	margin: auto;
+    }  
+    .infoBox_1{
+    	position: relative;
+    	width:95%;
+    	height:7%;  
+    	vertical-align: middle;
+    	margin: auto; 	
+    }
+    .infoBox_2{
+    	position: relative;
+    	width:95%;
+    	height:7%;  
+    	vertical-align: middle;
+    	margin: auto;	
+    }
+    .infoBox_3{
+    	position: relative;
+    	width:95%;
+    	height:7%;  
+    	vertical-align: middle;
+    	margin: auto; 	
+    }
+    .infoBox_4{
+    	position: relative;
+    	width:95%;
+    	height:7%;  
+    	vertical-align: middle;
+    	margin: auto; 	
+    }
+    .infoBox_5{
+    	position: relative;
+    	width:95%;
+    	height:7%;  
+    	vertical-align: middle;
+    	margin: auto;	
+    }
+    .infoBox_6{
+    	position: relative;
+    	width:95%;
+    	height:7%;   
+    	vertical-align: middle;
+    	margin: auto;	
+    }
+    .infoBox_7{
+    	position: relative;
+    	width:95%;
+    	height:8%;  
+    	vertical-align: middle;
+    	margin: auto;  	
+    }
+    .infoButtomIconBox{
+    	position: relative;
+    	width:70%;
+    	height:80%;
+    	vertical-align: middle;
+    	margin: auto;  
+		top:10%;
+    }
+    .iconLeft{
+    	position: relative;
+    	width:33%;
+    	height:100%;   
+    	float:left;
+    }
+    .iconImg{
+    	position: inherit;
+    	width:100%;
+    	height:100%;     
+    }
+    .iconRight{
+    	position: relative;
+    	width:67%;
+    	height:100%;  
+    	float:left;
+    	font-family:'NotoSansCJKkrBold';     	
+    }     
 }
 
 
