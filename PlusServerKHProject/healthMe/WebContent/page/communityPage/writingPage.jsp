@@ -46,7 +46,7 @@
             <!--지역, 종목 등 선택할 수 있는 선택박스-->
             <!--트레이너 별점 등 컨텐츠 나오는 부분-->
             <div id="contents">
-                <form action="#" method="get">
+                <form action="/writingPage.do" method="post">
                 <div id="realContents">
                     <div id="wirtePartFrame">
                         <div id="divisionframe">
@@ -59,22 +59,22 @@
                         </div>
                         <div id="titleframe">
                             <div id="realTitleframe">
-                                <pre>제     목 : <input type="text" id="TitleText" name="TitleText" />
+                                <pre>제     목 : <input type="text" id="titleText" name="titleText" />
                                 </pre>
                             </div>
                         </div>
                         <div id="writeContentsframe">
                             <div id="realWriteContentsframe">
-                                <pre><span>내     용 :</span> <textarea id="ContentsText" name="ContentsText"></textarea>
+                                <pre><span>내     용 :</span> <textarea id="contentsText" name="contentsText"></textarea>
                                 </pre>
                             </div>
                         </div>
                         <div id="passwordframe">
                             <div id="realPasswordframe">
                                 	비밀번호 : 
-                                <input id="passwordText" type="text"/>
-                                on<input type="radio" name="pwdRadio" value="on"/>
-                                off<input type="radio" checked name="pwdRadio" value="off"/>
+                                <input id="passwordText" name="passwordText" type="text"/>
+                                on<input type="radio" name="pwdRadio" onclick="radioCheck(this.value);" value="on"/>
+                                off<input type="radio" checked name="pwdRadio" onclick="radioCheck(this.value);" value="off"/>
                             </div>
                         </div>
                     </div>
@@ -98,23 +98,19 @@
             김구이김주정조 정보
         </div>
     </div>
-    <script
-    src="https://code.jquery.com/jquery-3.3.1.js"
-    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-    crossorigin="anonymous"></script>
+    
     
     <script>
-        $('input:radio[name="pwdRadio"]').change(function(){
-        if ($(this).val()=='on') {
-            $('#passwordText').css("display" ,"");
-            alert("on");
-        }else if($(this).val()=='off'){
-            $('#passwordText').css("display" ,"none");
-            alert("off");
-        }
-        });
-        </script>
-        <script>
+    	function radioCheck(v){
+		   	 // 라디오 버튼 value 값 조건 비교
+		   	 if(v == "on"){
+		   	  document.getElementById("passwordText").style.display = "inline";
+		   	 }else{
+		   	  document.getElementById("passwordText").style.display = "none";
+		   	 }
+    	}
+
+    	출처: http://l2j.co.kr/1167 [L2J with DuraBoys]
         function check(){
             var TitleText = document.getElementById("TitleText").value;
             var ContentsText = document.getElementById("ContentsText").value;
