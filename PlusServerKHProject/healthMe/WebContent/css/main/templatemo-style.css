@@ -46,7 +46,7 @@ src:local(※), url(../../fonts/NotoSansCJKkrBold.woff) format('woff');
   }
 
   h2 {
-    color: #353535;
+    color: #FF9B55;
     font-size: 2em;
 
   }
@@ -392,7 +392,7 @@ src:local(※), url(../../fonts/NotoSansCJKkrBold.woff) format('woff');
 }
 .loginForm{
 	font-size: 20px;
-	
+	color:white;
 }
 
   /*---------------------------------------

@@ -46,10 +46,11 @@
         					</div>
         					<div class="resumeTextMiddle textMiddle">
         						별점
-        					</div>
+        					</div>       					
         					<div class="resumeTextButtom textMiddle">
+        						<div>
         						<hr>
-        							<table border="1">
+        							<table border=1>
         								<tr>
         								<td>지역</td><td>횟수</td><td>인원</td><td>금액</td>
         								</tr>
@@ -58,12 +59,45 @@
         								</tr>
         							</table>
         						<hr>
+        						</div>
         					</div>
         				</div>
         			</div>
         			
         		</div>
+        		<br><br>
+        		<!--간단 이력 밑 부분-->
+				<div class="contents_3 border">
+					<div class="content3Box">
+					<div class="myInfo_1 textMiddle">
+					트레이너 정보
+					</div><br>
+					<div class="myInfoInner textMiddle" >dddd</div>
+					<hr>
+					<div class="myInfo_2 textMiddle">
+					자격사항
+					</div><br>
+					<div class="myInfoInner textMiddle" >dddd</div>
+					<hr>
+					<div class="myInfo_3 textMiddle">
+					경력사항
+					</div><br>
+					<div class="myInfoInner textMiddle" >dddd</div>
+					<hr>
+					<div class="myInfo_4 textMiddle">
+					수업 소개
+					</div><br>
+					<div class="myInfoInner textMiddle" >dddd</div>
+					<hr>
+					<div class="myInfo_5 textMiddle">
+					위치정보
+					</div><br>
+					<div class="myInfoInner textMiddle" >dddd</div>
+					<br>
+					</div>
+				</div>
 			</div>
+
 			<div class="contents_2 border">
 				<div class="infoBox">
 					<br>

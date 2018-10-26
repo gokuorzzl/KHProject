@@ -58,7 +58,7 @@
                  	<br><br>
                  	<form>
                  		<h2>heal th me</h2>
-                 		 <a href="" class="loginForm">마이 페이지</a>
+                 		 <a href="" class="loginForm">마이 페이지ㆍ</a>
                  		 <a href="" class="loginForm">로그아웃</a>
 					
                  	</form>
@@ -69,7 +69,7 @@
                  <div class="col-md-offset-1 col-md-4 col-sm-6">
                      <br><br>
                      <form action="/page/loginPage/login.jsp">
-                     <h3>heal th me를 더 안전하고 편리하게 이용하세요.</h3>
+                     <h3 style="color:white">heal th me를 더 안전하고 편리하게 이용하세요.</h3>
                      <input type="submit" class="menu-local btn btn-primary btn-lg myinfo" value="heal th me 로그인"></form>
                      <a href="" class="menu-local-font">아이디ㆍ비밀번호 찾기</a>
                      <a href="/page/loginPage/userLogin.jsp" class="menu-local-font-join" >회원가입</a>
