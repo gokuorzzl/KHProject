@@ -1,14 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-      <%@ page import="com.healthme.admin.vo.*" 
-      			import="com.healthme.member.vo.*"
-      %>
-      
-      <%
-      	Admin a = (Admin)request.getAttribute("admin");
-      %>
-      
-      
+   <%@ page import="com.healthme.admin.vo.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +16,7 @@
     <link href="../../css/admin/adminCustom.css" rel="stylesheet" />
 
 
-<title>관리자페이지 관리자수정</title>
+<title>관리자페이지 메인</title>
 </head>
 <body>
 
@@ -60,7 +52,6 @@
 				%>
 				<H3><a href="/page/admin/adminlogin.jsp">관리자가 아닙니다.(로그인화면돌아가기)</a></H3>
 				<%} %>
-			
 				
             </div>
             
@@ -81,23 +72,15 @@
 
 
                     <li>
-                        <a class="active-menu" href="adminMain.jsp"><i class="fa fa-desktop "></i>홈(설정)</a>
+                        <a  href="adminMain.jsp"><i class="fa fa-desktop"></i>홈(설정)</a>
                     </li>
                     <!-- 홈 하나 끝 -->
                     
                     
                     <!-- 일반설정 시작 -->
                     <li>
-                        <a href="adminNormalSet.jsp"><i class="fa fa-desktop "></i>일반설정(설정) <span class="fa arrow"></span></a>
-                         
-                         <ul class="nav nav-second-level">                
-                            <li>
-                                <a href="#"><i class="fa fa-toggle-on"></i>관리자 개인정보 설정(#)</a>
-        	                    </li>
-		                        <li>
-                                <a href="#"><i class="fa fa-pencil-square-o"></i>광고설정(#)</a>
-                            </li>       
-                        </ul>
+                        <a href="adminNormalSet.jsp"><i class="fa fa-desktop"></i>일반설정(설정)</a>
+                    
                     </li>
                     
                     <!-- 일반설정 끝 -->
@@ -105,16 +88,15 @@
                     
                     <!--  게시판 관리 시작 -->
                      <li>
-                        <a href="adminQuestionBoardSet.jsp"><i class="fa fa-yelp "></i>질문게시판관리(설정) <span class="fa arrow"></span></a>
-                        
+                        <a href="adminMemberSet.jsp"><i class="fa fa-desktop"></i>회원설정</a>
                     </li>
                     <li>
-                        <a href="adminFreeBoardSet.jsp"><i class="fa fa-flash "></i>자유게시판(설정) </a>
+                        <a href="adminBoardSet.jsp"><i class="fa fa-desktop"></i>게시판설정 </a>
                         
                     </li>
                 
                     <li>
-                        <a href="#"><i class="fa fa-sign-in "></i>Login Page(#)</a>
+                        <a class="active-menu" href="adminVisitSet.jsp"><i class="fa fa-sign-in "></i>방문자 및 광고</a>
                     </li>
                      <li>
                         <a href="#"><i class="fa fa-sign-in "></i>Chart & Graph(#)</a>
@@ -122,58 +104,30 @@
                     
                     <!-- 게시판 관리 끝 -->
                     
-                    <!-- 회원관리 시작 -->
-                    <li>
-                        <a href="adminMemberSet.jsp"><i class="fa fa-sitemap "></i>회원관리(설정) <span class="fa arrow"></span></a>
-                         <ul class="nav nav-second-level">
-                            <li>
-                                <a href="adminMemberSet.jsp"><i class="fa fa-bicycle "></i>일반 회원 관리(설정)</a>
-                            </li>
-                             <li>
-                                <a href="adminTrainerSet.jsp"><i class="fa fa-flask "></i>트레이너 관리(설정)</a>
-                            </li>
-                           <!-- 회원관리 끝 --> 
-                            
-                            
-                            <li>
-                                <a href="#">Second Level Link(#)<span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#"><i class="fa fa-plus "></i>Third Level Link(#)</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-comments-o "></i>Third Level Link(#)</a>
-                                    </li>
-
-                                </ul>
-
-                            </li>
-                        </ul>
-                    </li>
-                   
+                     
+       
                    
                 </ul>
 
             </div>
 
         </nav>
-        
-       <div id="page-wrapper"><!-- 바디부분시작 -->
+       <div id="page-wrapper">
         <ul class="breadcrumbs" style="margin-bottom:-10px">
                 <li><a href="dashboard.html" style="text-decoration:none;color:#383737;font-weight:bold"><i class="fa fa-home"></i></a> > <a href="" style="text-decoration:none;color:#383737;font-weight:bold">ADMIN 관리자</a><span class="separator"></span></li>
             </ul>
         <div id="page-inner">
             <div class="row" style="margin-bottom:20px">
                 <div class="col-md-12">
-                    <h1 class="page-head-line"><i class="fa fa-desktop" style="padding-right:10px"></i>회원관리설정</h1>
+                    <h1 class="page-head-line"><i class="fa fa-desktop" style="padding-right:10px"></i>관리자 방문자 및 광고설정</h1>
                 </div>
             </div>
          <div class="row">
                 <div class="col-md-3">
                     <div class="main-box mb-red">
-                        <a href="/adminAdmin.do">
+                        <a href="#">
                             <i class="fa fa-bolt fa-3x"></i>
-                            <h5>관리자정보수정</h5>
+                            <h5>광고설정</h5>
                         </a>
                     </div>
                 </div>
@@ -181,7 +135,7 @@
                     <div class="main-box mb-dull">
                         <a href="#">
                             <i class="fa fa-plug fa-3x"></i>
-                            <h5>회원정보수정</h5>
+                            <h5>방문자수(차트)</h5>
                         </a>
                     </div>
                 </div>
@@ -189,7 +143,7 @@
                     <div class="main-box mb-pink">
                         <a href="#">
                             <i class="fa fa-dollar fa-3x"></i>
-                            <h5>트레이너정보수정</h5>
+                            <h5>방문자수(그래프)</h5>
                         </a>
                     </div>
                 </div>
@@ -197,41 +151,59 @@
                     <div class="main-box mb-pink">
                         <a href="#">
                             <i class="fa fa-dollar fa-3x"></i>
-                            <h5>매칭설정</h5>
+                            <h5>작업중</h5>
                         </a>
                     </div>
                 </div>
             </div>
-            <!-- 네모박스 끝 -->
-            <!-- 줄무니 하고 아래부분 설정 -->
-             <hr style="border:1px solid #000;"/><!-- 선 설정 -->
-           
+             <hr style="border:1px solid #000;"/>
                 <div class="row">
 
                     <div class="col-md-8">
 
                         <div class="table-responsive">
-                        <h3>관리자 정보 수정</h3>
+                        <h3>자유게시판</h3>
                             <table class="table table-striped table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>아이디</th>
-                                        <th>비밀번호</th>
+                                        <th>번호</th>
+                                        <th>제목</th>
                                         <th>내용</th>
+                                        <th>이름</th>
+                                        <th>Q/A, 자유</th>
                                     </tr>
                                 </thead>
-                                
                                 <tbody>
                                     <tr>
-                                        <td>admin</td>
-                                        <td></td>
+                                        <td>1</td>
+                                        <td><span class="label label-danger">Mark</span></td>
                                         <td>Otto</td>
-                                       
+                                        <td>김종규</td>
+                                        <td><span class="label label-info">100090</span></td>
                                     </tr>
-                                    
+                                     <tr>
+                                        <td>1</td>
+                                        <td><span class="label label-danger">Mark</span></td>
+                                        <td>Otto</td>
+                                        <td>김종규</td>
+                                        <td><span class="label label-info">100090</span></td>
+                                    </tr>
+                                       <tr>
+                                        <td>1</td>
+                                        <td><span class="label label-danger">Mark</span></td>
+                                        <td>Otto</td>
+                                        <td>김종규</td>
+                                        <td><span class="label label-info">100090</span></td>
+                                    </tr>
+                                       <tr>
+                                        <td>1</td>
+                                        <td><span class="label label-danger">Mark</span></td>
+                                        <td>Otto</td>
+                                        <td>김종규</td>
+                                        <td><span class="label label-info">100090</span></td>
+                                    </tr>
                                 </tbody>
                             </table>
-                            <input type="button" value="수정">
                         </div>
 
 

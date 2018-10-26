@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-      <%@ page import="com.healthme.admin.vo.*" %>
+   <%@ page import="com.healthme.admin.vo.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -72,23 +72,15 @@
 
 
                     <li>
-                        <a class="active-menu" href="adminMain.jsp"><i class="fa fa-desktop "></i>홈(설정)</a>
+                        <a  href="adminMain.jsp"><i class="fa fa-desktop"></i>홈(설정)</a>
                     </li>
                     <!-- 홈 하나 끝 -->
                     
                     
                     <!-- 일반설정 시작 -->
                     <li>
-                        <a href="adminNormalSet.jsp"><i class="fa fa-desktop "></i>일반설정(설정) <span class="fa arrow"></span></a>
-                         
-                         <ul class="nav nav-second-level">                
-                            <li>
-                                <a href="#"><i class="fa fa-toggle-on"></i>관리자 개인정보 설정(#)</a>
-        	                    </li>
-		                        <li>
-                                <a href="#"><i class="fa fa-pencil-square-o"></i>광고설정(#)</a>
-                            </li>       
-                        </ul>
+                        <a class="active-menu" href="adminNormalSet.jsp"><i class="fa fa-desktop"></i>일반설정(설정)</a>
+                    
                     </li>
                     
                     <!-- 일반설정 끝 -->
@@ -96,16 +88,15 @@
                     
                     <!--  게시판 관리 시작 -->
                      <li>
-                        <a href="adminQuestionBoardSet.jsp"><i class="fa fa-yelp "></i>질문게시판관리(설정) <span class="fa arrow"></span></a>
-                        
+                        <a href="adminMemberSet.jsp"><i class="fa fa-desktop"></i>회원설정</a>
                     </li>
                     <li>
-                        <a href="adminFreeBoardSet.jsp"><i class="fa fa-flash "></i>자유게시판(설정) </a>
+                        <a href="adminBoardSet.jsp"><i class="fa fa-desktop"></i>게시판설정 </a>
                         
                     </li>
                 
                     <li>
-                        <a href="#"><i class="fa fa-sign-in "></i>Login Page(#)</a>
+                       <a href="adminVisitSet.jsp"><i class="fa fa-sign-in "></i>방문자 및 광고</a>
                     </li>
                      <li>
                         <a href="#"><i class="fa fa-sign-in "></i>Chart & Graph(#)</a>
@@ -113,35 +104,8 @@
                     
                     <!-- 게시판 관리 끝 -->
                     
-                    <!-- 회원관리 시작 -->
-                    <li>
-                        <a href="adminMemberSet.jsp"><i class="fa fa-sitemap "></i>회원관리(설정) <span class="fa arrow"></span></a>
-                         <ul class="nav nav-second-level">
-                            <li>
-                                <a href="adminMemberSet.jsp"><i class="fa fa-bicycle "></i>일반 회원 관리(설정)</a>
-                            </li>
-                             <li>
-                                <a href="adminTrainerSet.jsp"><i class="fa fa-flask "></i>트레이너 관리(설정)</a>
-                            </li>
-                           <!-- 회원관리 끝 --> 
-                            
-                            
-                            <li>
-                                <a href="#">Second Level Link(#)<span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#"><i class="fa fa-plus "></i>Third Level Link(#)</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-comments-o "></i>Third Level Link(#)</a>
-                                    </li>
-
-                                </ul>
-
-                            </li>
-                        </ul>
-                    </li>
-                   
+                     
+       
                    
                 </ul>
 
@@ -155,7 +119,7 @@
         <div id="page-inner">
             <div class="row" style="margin-bottom:20px">
                 <div class="col-md-12">
-                    <h1 class="page-head-line"><i class="fa fa-desktop" style="padding-right:10px"></i>Admin Page</h1>
+                    <h1 class="page-head-line"><i class="fa fa-desktop" style="padding-right:10px"></i>관리자 일반설정</h1>
                 </div>
             </div>
          <div class="row">

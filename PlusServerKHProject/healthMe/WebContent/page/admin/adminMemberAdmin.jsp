@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-      <%@ page import="com.healthme.admin.vo.*" %>
+   <%@ page import="com.healthme.admin.vo.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -72,23 +72,15 @@
 
 
                     <li>
-                        <a class="active-menu" href="adminMain.jsp"><i class="fa fa-desktop "></i>홈(설정)</a>
+                        <a  href="adminMain.jsp"><i class="fa fa-desktop"></i>홈(설정)</a>
                     </li>
                     <!-- 홈 하나 끝 -->
                     
                     
                     <!-- 일반설정 시작 -->
                     <li>
-                        <a href="adminNormalSet.jsp"><i class="fa fa-desktop "></i>일반설정(설정) <span class="fa arrow"></span></a>
-                         
-                         <ul class="nav nav-second-level">                
-                            <li>
-                                <a href="#"><i class="fa fa-toggle-on"></i>관리자 개인정보 설정(#)</a>
-        	                    </li>
-		                        <li>
-                                <a href="#"><i class="fa fa-pencil-square-o"></i>광고설정(#)</a>
-                            </li>       
-                        </ul>
+                        <a href="adminNormalSet.jsp"><i class="fa fa-desktop"></i>일반설정(설정)</a>
+                    
                     </li>
                     
                     <!-- 일반설정 끝 -->
@@ -96,16 +88,15 @@
                     
                     <!--  게시판 관리 시작 -->
                      <li>
-                        <a href="adminQuestionBoardSet.jsp"><i class="fa fa-yelp "></i>질문게시판관리(설정) <span class="fa arrow"></span></a>
-                        
+                        <a class="active-menu" href="adminMemberSet.jsp"><i class="fa fa-desktop"></i>회원설정</a>
                     </li>
                     <li>
-                        <a href="adminFreeBoardSet.jsp"><i class="fa fa-flash "></i>자유게시판(설정) </a>
+                        <a href="adminBoardSet.jsp"><i class="fa fa-desktop"></i>게시판설정 </a>
                         
                     </li>
                 
                     <li>
-                        <a href="#"><i class="fa fa-sign-in "></i>Login Page(#)</a>
+                       <a href="adminVisitSet.jsp"><i class="fa fa-sign-in "></i>방문자 및 광고</a>
                     </li>
                      <li>
                         <a href="#"><i class="fa fa-sign-in "></i>Chart & Graph(#)</a>
@@ -113,35 +104,8 @@
                     
                     <!-- 게시판 관리 끝 -->
                     
-                    <!-- 회원관리 시작 -->
-                    <li>
-                        <a href="adminMemberSet.jsp"><i class="fa fa-sitemap "></i>회원관리(설정) <span class="fa arrow"></span></a>
-                         <ul class="nav nav-second-level">
-                            <li>
-                                <a href="adminMemberSet.jsp"><i class="fa fa-bicycle "></i>일반 회원 관리(설정)</a>
-                            </li>
-                             <li>
-                                <a href="adminTrainerSet.jsp"><i class="fa fa-flask "></i>트레이너 관리(설정)</a>
-                            </li>
-                           <!-- 회원관리 끝 --> 
-                            
-                            
-                            <li>
-                                <a href="#">Second Level Link(#)<span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#"><i class="fa fa-plus "></i>Third Level Link(#)</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-comments-o "></i>Third Level Link(#)</a>
-                                    </li>
-
-                                </ul>
-
-                            </li>
-                        </ul>
-                    </li>
-                   
+                     
+       
                    
                 </ul>
 
@@ -155,15 +119,15 @@
         <div id="page-inner">
             <div class="row" style="margin-bottom:20px">
                 <div class="col-md-12">
-                    <h1 class="page-head-line"><i class="fa fa-desktop" style="padding-right:10px"></i>Admin Page</h1>
+                    <h1 class="page-head-line"><i class="fa fa-desktop" style="padding-right:10px"></i>관리자 회원설정</h1>
                 </div>
             </div>
          <div class="row">
                 <div class="col-md-3">
                     <div class="main-box mb-red">
-                        <a href="#">
+                        <a href="adminMemberAdmin.jsp">
                             <i class="fa fa-bolt fa-3x"></i>
-                            <h5>새로운정보1</h5>
+                            <h5>관리자설정</h5>
                         </a>
                     </div>
                 </div>
@@ -171,7 +135,7 @@
                     <div class="main-box mb-dull">
                         <a href="#">
                             <i class="fa fa-plug fa-3x"></i>
-                            <h5>새로운정보2</h5>
+                            <h5>회원설정</h5>
                         </a>
                     </div>
                 </div>
@@ -179,7 +143,7 @@
                     <div class="main-box mb-pink">
                         <a href="#">
                             <i class="fa fa-dollar fa-3x"></i>
-                            <h5>새로운정보3</h5>
+                            <h5>트레이너수정</h5>
                         </a>
                     </div>
                 </div>
@@ -187,7 +151,7 @@
                     <div class="main-box mb-pink">
                         <a href="#">
                             <i class="fa fa-dollar fa-3x"></i>
-                            <h5>새로운정보4</h5>
+                            <h5>매칭설정</h5>
                         </a>
                     </div>
                 </div>
@@ -199,47 +163,58 @@
 
                         <div class="table-responsive">
                         <h3>자유게시판</h3>
-                            <table class="table table-striped table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>번호</th>
-                                        <th>제목</th>
-                                        <th>내용</th>
-                                        <th>이름</th>
-                                        <th>Q/A, 자유</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td><span class="label label-danger">Mark</span></td>
-                                        <td>Otto</td>
-                                        <td>김종규</td>
-                                        <td><span class="label label-info">100090</span></td>
-                                    </tr>
-                                     <tr>
-                                        <td>1</td>
-                                        <td><span class="label label-danger">Mark</span></td>
-                                        <td>Otto</td>
-                                        <td>김종규</td>
-                                        <td><span class="label label-info">100090</span></td>
-                                    </tr>
-                                       <tr>
-                                        <td>1</td>
-                                        <td><span class="label label-danger">Mark</span></td>
-                                        <td>Otto</td>
-                                        <td>김종규</td>
-                                        <td><span class="label label-info">100090</span></td>
-                                    </tr>
-                                       <tr>
-                                        <td>1</td>
-                                        <td><span class="label label-danger">Mark</span></td>
-                                        <td>Otto</td>
-                                        <td>김종규</td>
-                                        <td><span class="label label-info">100090</span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                             <table class="table table-striped table-bordered table-hover">
+                          <!--       <table cellSpacing=0 borderColorDark=white width="760" bgColor=#c0c0c0 borderColorLight=#dddddd border=1 class="s1">-->
+	<form name=configForm action="#" onSubmit="return field_check();" method="post">
+		<input type="hidden" name="theme" value="basicinfo/basic_info2_qry">
+		<input type="hidden" name="menushow" value="menu1">
+		
+		<tr bgColor=E0E4E8>
+		<td colSpan=4><font color="#333333">&nbsp; 관리자정보 및 환경을 변경합니다.</font></td>
+		</tr>
+		<tr>
+		<td width=124 bgcolor=E6E9EA><p align="center"><font color="#333333">관리자성명</font></p></td>
+		<td bgColor=#ffffff colSpan=3>
+		<input value="관리자" name="ADMIN_NAME" class="dd1"></td>
+		</tr>
+		
+		<tr>
+		<td width=124 bgcolor=E6E9EA><p align="center"><font color="#333333">이메일주소</font></p></td>
+		<td bgColor=#ffffff colSpan=3>
+		<input value="admin@healthme.com" name="ADMIN_EMAIL" class="dd1"></td>
+		</tr>
+		
+		<tr>
+		<td width=124 bgcolor=E6E9EA><p align="center"><font color="#333333">관리자아이디</font></p></td>
+		<td bgColor=#ffffff colSpan=3>
+		<input value="admin" name="ADMIN_id" class="dd1"></td>
+		</tr>
+		
+		<tr>
+		<td width=124 bgcolor=E6E9EA><p align="center"><font color="#333333">관리자패스워드</font></p></td>
+		<td bgColor=#ffffff colSpan=3>
+		<input typw=password size=15 value="" name="ADMIN_pwd" class="dd1"></td>
+		</tr>
+		
+		<tr>
+		<td bgColor=#ffffff colSpan=4><font color="#333333">*관리자 패스워드는 관리자 화면으로 입장시 필요한 것이다.<br>
+		*패스워드는 중요하므로 타인에게 노출되지 않도록 해주시길 바란다.</font></td></tr>
+		
+		<tr align="center">
+		<td colSpan=4 bgColor=#ffffff><input type="image" src="/img/complete.png" width="68" height="20"> </td></tr>
+		
+		
+		
+		
+	
+	
+	</form>
+
+
+
+
+</table>
+
                         </div>
 
 

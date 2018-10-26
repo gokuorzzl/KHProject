@@ -21,31 +21,6 @@ public class AdminService {
 		
 		
 	}
-
-	public ArrayList <Member> adminAllList() { //회원목록 전체 보기
-		Connection conn = JDBCTemplate.getConnection();
-		ArrayList<Member> list = new AdminDao().AdminAllList(conn);
-		
-		JDBCTemplate.close(conn);
-		
-		
-		return list;
-	}
-	
-	public int adminInsert(Member m) {//관리자에서 회원 맘대로 추가할수 있게끔 하기
-		Connection conn = JDBCTemplate.getConnection();
-		int result = new AdminDao().AdminInsert(conn,m);
-		
-		if(result>0) {
-			JDBCTemplate.commit(conn);
-		}else {
-			JDBCTemplate.rollback(conn);
-		}
-		JDBCTemplate.close(conn);
-		
-		
-		return result;
-	}
 	
 
 	//관리자 정보변경
