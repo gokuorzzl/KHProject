@@ -23,7 +23,6 @@ public class AdminService {
 	}
 
 	public ArrayList <Member> adminAllList() { //회원목록 전체 보기
-		// TODO Auto-generated method stub
 		Connection conn = JDBCTemplate.getConnection();
 		ArrayList<Member> list = new AdminDao().AdminAllList(conn);
 		
@@ -48,9 +47,11 @@ public class AdminService {
 		return result;
 	}
 	
-	public int adminUpdate(Member m) {
+
+	//관리자 정보변경
+	public int updateAdmin(Admin a) {
 		Connection conn = JDBCTemplate.getConnection();
-		int result = new AdminDao().AdminUpdate(conn,m);
+		int result = new AdminDao().updateAdmin(conn, a);
 		if(result>0) {
 			JDBCTemplate.commit(conn);
 		}else {
@@ -59,7 +60,6 @@ public class AdminService {
 		JDBCTemplate.close(conn);
 		
 		return result;
-		
 	}
 	
 	

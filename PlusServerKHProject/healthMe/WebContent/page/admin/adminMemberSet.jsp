@@ -6,11 +6,9 @@
       %>
       
       <%
-      	ArrayList<Member> list = (ArrayList<Member>)request.getAttribute("AdminList");//멤버변수에 담은걸 AdminList로 갖고온다.
-      	
+      ArrayList<Member> list = (ArrayList<Member>)request.getAttribute("adminList");
+//멤버변수에 담은걸 AdminList로 갖고온다.
       %>
-      
-      
 <!DOCTYPE html>
 <html>
 <head>
@@ -125,7 +123,7 @@
                     
                     <!-- 회원관리 시작 -->
                     <li>
-                        <a href="adminMemberSet.jsp"><i class="fa fa-sitemap "></i>회원관리(설정) <span class="fa arrow"></span></a>
+                        <a href="/adminMember.do"><i class="fa fa-sitemap "></i>회원관리(설정) <span class="fa arrow"></span></a>
                          <ul class="nav nav-second-level">
                             <li>
                                 <a href="adminMemberSet.jsp"><i class="fa fa-bicycle "></i>일반 회원 관리(설정)</a>
@@ -172,7 +170,7 @@
          <div class="row">
                 <div class="col-md-3">
                     <div class="main-box mb-red">
-                        <a href="#">
+                        <a href="/adminAdmin.do">
                             <i class="fa fa-bolt fa-3x"></i>
                             <h5>관리자정보수정</h5>
                         </a>
@@ -213,47 +211,7 @@
 
                         <div class="table-responsive">
                         <h3>회원정보수정</h3>
-                            <table class="table table-striped table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>번호</th>
-                                        <th>제목</th>
-                                        <th>내용</th>
-                                        <th>이름</th>
-                                        <th>Q/A, 자유</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td><span class="label label-danger">Mark</span></td>
-                                        <td>Otto</td>
-                                        <td>김종규</td>
-                                        <td><span class="label label-info">100090</span></td>
-                                    </tr>
-                                     <tr>
-                                        <td>1</td>
-                                        <td><span class="label label-danger">Mark</span></td>
-                                        <td>Otto</td>
-                                        <td>김종규</td>
-                                        <td><span class="label label-info">100090</span></td>
-                                    </tr>
-                                       <tr>
-                                        <td>1</td>
-                                        <td><span class="label label-danger">Mark</span></td>
-                                        <td>Otto</td>
-                                        <td>김종규</td>
-                                        <td><span class="label label-info">100090</span></td>
-                                    </tr>
-                                       <tr>
-                                        <td>1</td>
-                                        <td><span class="label label-danger">Mark</span></td>
-                                        <td>Otto</td>
-                                        <td>김종규</td>
-                                        <td><span class="label label-info">100090</span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                         	  회원정보 수정 페이지 위에 메뉴중 선택하세요
                         </div>
 
 
@@ -303,14 +261,7 @@
         
     
         </div>
-    <!--  
-         <script src="assets/js/jquery-1.10.2.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-         <script src="assets/js/jquery.metisMenu.js"></script>
-         <script src="assets/js/custom.js"></script>
 
-
--->
 
 <jsp:include page="/page/footer/footer.jsp"/>
 

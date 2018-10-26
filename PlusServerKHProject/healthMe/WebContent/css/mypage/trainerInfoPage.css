@@ -15,7 +15,7 @@ src:local(※), url(../../fonts/NotoSansBold.woff) format('woff');
 
 
 /*각종 인터넷 브라우저에서 코드 작동이 가능하도록 하는 css Reset*/
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp,
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6,blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var, b, u, i, center,
 dl, dt, dd,  fieldset, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
@@ -106,7 +106,27 @@ img{
     border-bottom: 3px solid #FF9D30;
     font-weight:bold;
 }
+/*라인에 색깔주려함*/
+.linecolor{
+    width: 100%;
+    display: inline-block;
+    margin:auto;
+    text-align: center;
+    border: 1px solid #FF9B55;
+}
 
+#total_sport_tag{
+    /*아래 친구들을 감싸주는 얘한테 안넘치는 값을 줘야됨*/
+    /*즉, ul안의 li 등등의 친구들을 left를 줄때 감싸주는 얘한테 overflow를 막아놔야 안넘침*/
+    overflow: hidden;
+}
+#categoryline{
+    float:left;
+    /* p태그"해당카테고리의~" 부분임*/
+}
+.sport_tag{
+    float:left;
+}
 
 /*----------------------------------------------*/
 /* 반응형 웹 부분 */
@@ -195,8 +215,6 @@ img{
     #ex_image{
         display:inline-block;
     }
-
-    
     /*bottom*/
     #bottom{
         width: 100%;

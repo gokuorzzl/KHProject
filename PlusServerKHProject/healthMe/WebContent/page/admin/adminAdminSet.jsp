@@ -2,12 +2,10 @@
     pageEncoding="UTF-8"%>
       <%@ page import="com.healthme.admin.vo.*" 
       			import="com.healthme.member.vo.*"
-      		   import="java.util.ArrayList"
       %>
       
       <%
-      	ArrayList<Member> list = (ArrayList<Member>)request.getAttribute("AdminList");//멤버변수에 담은걸 AdminList로 갖고온다.
-      	
+      	Admin a = (Admin)request.getAttribute("admin");
       %>
       
       
@@ -26,7 +24,7 @@
     <link href="../../css/admin/adminCustom.css" rel="stylesheet" />
 
 
-<title>관리자페이지 메인</title>
+<title>관리자페이지 관리자수정</title>
 </head>
 <body>
 
@@ -62,6 +60,7 @@
 				%>
 				<H3><a href="/page/admin/adminlogin.jsp">관리자가 아닙니다.(로그인화면돌아가기)</a></H3>
 				<%} %>
+			
 				
             </div>
             
@@ -172,7 +171,7 @@
          <div class="row">
                 <div class="col-md-3">
                     <div class="main-box mb-red">
-                        <a href="#">
+                        <a href="/adminAdmin.do">
                             <i class="fa fa-bolt fa-3x"></i>
                             <h5>관리자정보수정</h5>
                         </a>
@@ -212,48 +211,27 @@
                     <div class="col-md-8">
 
                         <div class="table-responsive">
-                        <h3>자유게시판</h3>
+                        <h3>관리자 정보 수정</h3>
                             <table class="table table-striped table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>번호</th>
-                                        <th>제목</th>
+                                        <th>아이디</th>
+                                        <th>비밀번호</th>
                                         <th>내용</th>
-                                        <th>이름</th>
-                                        <th>Q/A, 자유</th>
                                     </tr>
                                 </thead>
+                                
                                 <tbody>
                                     <tr>
-                                        <td>1</td>
-                                        <td><span class="label label-danger">Mark</span></td>
+                                        <td>admin</td>
+                                        <td></td>
                                         <td>Otto</td>
-                                        <td>김종규</td>
-                                        <td><span class="label label-info">100090</span></td>
+                                       
                                     </tr>
-                                     <tr>
-                                        <td>1</td>
-                                        <td><span class="label label-danger">Mark</span></td>
-                                        <td>Otto</td>
-                                        <td>김종규</td>
-                                        <td><span class="label label-info">100090</span></td>
-                                    </tr>
-                                       <tr>
-                                        <td>1</td>
-                                        <td><span class="label label-danger">Mark</span></td>
-                                        <td>Otto</td>
-                                        <td>김종규</td>
-                                        <td><span class="label label-info">100090</span></td>
-                                    </tr>
-                                       <tr>
-                                        <td>1</td>
-                                        <td><span class="label label-danger">Mark</span></td>
-                                        <td>Otto</td>
-                                        <td>김종규</td>
-                                        <td><span class="label label-info">100090</span></td>
-                                    </tr>
+                                    
                                 </tbody>
                             </table>
+                            <input type="button" value="수정">
                         </div>
 
 

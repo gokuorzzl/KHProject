@@ -62,14 +62,17 @@ public class AdminDao {
 		Statement stmt = null;
 		ResultSet rset = null;
 		
-		String query = "select * from member order by active desc";
+		String query = "select * from member order by pkmembernumber asc";
 		
+		
+		System.out.println(query);
 		try {
 			stmt = conn.createStatement();
 			rset = stmt.executeQuery(query);
 			
 			while(rset.next()) {
 				Member m = new Member();
+				m.setPkMemberNumber(rset.getInt("pkMemberNumber"));
 				m.setMemberId(rset.getString("memberId"));
 				m.setMemberPw(rset.getString("memberPw"));
 				m.setMemberName(rset.getString("memberName"));
@@ -82,10 +85,6 @@ public class AdminDao {
 				
 			}
 			
-			
-			
-			
-			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -93,12 +92,6 @@ public class AdminDao {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(stmt);
 		}
-		
-		
-		
-		
-		
-		
 		
 		return list;
 	}
@@ -136,25 +129,19 @@ public class AdminDao {
 		return result;
 	}
 
-	public int AdminUpdate(Connection conn, Member m) {
+	//관리자 정보 변경하는 것
+	public int updateAdmin(Connection conn, Admin a) {
 		// TODO Auto-generated method stub
 		PreparedStatement pstmt = null;
 		int result = 0;	
 		
-		String query = "update member set user_pwd=?, phone=?,email=?,address=?,"
-				+ "hobby=? where user_id = ? ";
+		String query = "update admin set adminpw=? where adminid=admin";
 
 		try {
 			pstmt = conn.prepareStatement(query);
 			
-			/* 멤버테이블 업데이트 하는거에 따라 값 바꿔보기
-			pstmt.setString(1, m.getUserPwd());
-			pstmt.setString(2, m.getPhone());
-			pstmt.setString(3, m.getEmail());
-			pstmt.setString(4, m.getAddress());
-			pstmt.setString(5, m.getHobby());
-			pstmt.setString(6, m.getUserId());
-			*/
+			pstmt.setString(1,a.getAdminPW());
+		
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
