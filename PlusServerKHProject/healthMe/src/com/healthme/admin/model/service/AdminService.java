@@ -21,12 +21,13 @@ public class AdminService {
 		
 		
 	}
-	
 
-	//관리자 정보변경
-	public int updateAdmin(Admin a) {
+	public int adminMemberAdminUpdate(String adminPW, String adminId) {
+		// TODO Auto-generated method stub
 		Connection conn = JDBCTemplate.getConnection();
-		int result = new AdminDao().updateAdmin(conn, a);
+		
+		int result = new AdminDao().adminMemberAdminUpdate(conn,adminPW,adminId);
+		
 		if(result>0) {
 			JDBCTemplate.commit(conn);
 		}else {
@@ -34,8 +35,11 @@ public class AdminService {
 		}
 		JDBCTemplate.close(conn);
 		
+		
 		return result;
 	}
+	
+
 	
 	
 	

@@ -4,14 +4,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>에러페이지</title>
+<title>Insert title here</title>
 </head>
 <body>
 
-<script>
-	alert("정상 처리 되지 못하였습니다.에러페이지야!!!");
-	location.href="/page/admin/adminMain";
-</script>
+	<!-- 관리자 정보수정 실패 -->
+	<script>
+	alert("관리자 정보 수정 실패");
+	location.href="/page/admin/adminMemberAdmin.jsp"
+	</script>
+	
+
+
 
 </body>
 </html>

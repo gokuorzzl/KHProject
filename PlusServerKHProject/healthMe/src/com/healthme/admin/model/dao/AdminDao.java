@@ -55,102 +55,33 @@ public class AdminDao {
 	
 	}
 
-	public ArrayList<Member> AdminAllList(Connection conn) {
-		// 여러명을 처리하기 위한 컬렉션을 사용
-		
-		ArrayList<Member> list = new ArrayList<Member>();
-		Statement stmt = null;
-		ResultSet rset = null;
-		
-		String query = "select * from member order by pkmembernumber asc";
-		
-		
-		System.out.println(query);
-		try {
-			stmt = conn.createStatement();
-			rset = stmt.executeQuery(query);
-			
-			while(rset.next()) {
-				Member m = new Member();
-				m.setPkMemberNumber(rset.getInt("pkMemberNumber"));
-				m.setMemberId(rset.getString("memberId"));
-				m.setMemberPw(rset.getString("memberPw"));
-				m.setMemberName(rset.getString("memberName"));
-				m.setMemberSocialId(rset.getString("socialId"));
-				m.setMemberAddr(rset.getString("memberAddr"));
-				m.setMemberPhone(rset.getString("memberPhone"));
-				m.setMemberEmail(rset.getString("memberEmail"));
-			
-				list.add(m);
-				
-			}
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}finally {
-			JDBCTemplate.close(rset);
-			JDBCTemplate.close(stmt);
-		}
-		
-		return list;
-	}
-
-	public int AdminInsert(Connection conn, Member m) {
-		//멤버추가시 회원가입으로 넘어가서 회원가입하게끔 만들고 그후 그게 다시 정보페이지로 가서 갖고오는걸로 만들기
-		
+	public int adminMemberAdminUpdate(Connection conn, String adminPW, String adminId) {
+		// TODO Auto-generated method stub
 		PreparedStatement pstmt = null;
 		int result=0;
 		
-		String query="insert into member values(?,?,?,?,?,?,?)";
-		System.out.println(query);
-		try {
-			pstmt = conn.prepareStatement(query);
-			
-			pstmt.setString(1, m.getMemberId());
-			pstmt.setString(2, m.getMemberPw());
-			pstmt.setString(3, m.getMemberName());
-			pstmt.setString(4, m.getMemberSocialId());
-			pstmt.setString(5, m.getMemberAddr());
-			pstmt.setString(6, m.getMemberPhone());
-			pstmt.setString(7, m.getMemberEmail());
-			
-			
-			result = pstmt.executeUpdate();		
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}finally {
-			JDBCTemplate.close(pstmt);
-		}
+		String query = "update admin set adminpw=? where adminid='admin'";
+	
+		
+			try {
+				pstmt = conn.prepareStatement(query);
+				
+				pstmt.setString(1, adminPW);
+				
+				result = pstmt.executeUpdate();
+				
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}finally {
+				JDBCTemplate.close(pstmt);
+			}
 		
 		
 		return result;
 	}
 
-	//관리자 정보 변경하는 것
-	public int updateAdmin(Connection conn, Admin a) {
-		// TODO Auto-generated method stub
-		PreparedStatement pstmt = null;
-		int result = 0;	
-		
-		String query = "update admin set adminpw=? where adminid=admin";
 
-		try {
-			pstmt = conn.prepareStatement(query);
-			
-			pstmt.setString(1,a.getAdminPW());
-		
-			result = pstmt.executeUpdate();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}finally {
-			JDBCTemplate.close(pstmt);
-		}
-		
-		return result;
-	}
 
 }
