@@ -48,4 +48,21 @@ public class MemberService {
 		   return true; //해당 사용자가 있으면 true
 	   }
   }
+
+
+public boolean findOneMember(String fmemberName, String fmemberSocialId, String fmemberPhone) {
+  
+		  Connection conn = JDBCTemplate.getConnection();
+		  
+		  Member member = new MemberDao().findOneMember(fmemberName, fmemberSocialId, fmemberPhone, conn);
+		  
+		  JDBCTemplate.close(conn);
+		  
+		  if(member==null) {
+			  return false;
+		  } else {
+			  return true;
+		  }
+
+   }
 }
