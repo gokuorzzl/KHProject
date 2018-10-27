@@ -1,6 +1,8 @@
 package com.healthme.member.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,11 +36,21 @@ public class SearchIdServlet extends HttpServlet {
 		
 		String fmemberName = request.getParameter("memberName");
 		String fmemberSocialId = request.getParameter("memberSocialId");
-		String fmemberPhone = request.getParameter("memberPhone");
+		String fmemberPhone = request.getParameter("memberPhone");	
 		
-		boolean result = new MemberService().findOneMember(fmemberName,fmemberSocialId,fmemberPhone);
+		String memberId = new MemberService().searchId(fmemberName,fmemberSocialId,fmemberPhone);
 		
-		
+		if (memberId !=null ) {
+			
+			RequestDispatcher view = request.getRequestDispatcher("page/loginPage/searchIdSuccess.jsp");
+			
+			request.setAttribute("memberId", memberId);
+			
+			view.forward(request, response);
+			
+		} else {
+			response.sendRedirect("/page/loginPage/error.jsp");
+		}
 	}
 
 	/**

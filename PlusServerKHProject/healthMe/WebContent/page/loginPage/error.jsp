@@ -9,7 +9,7 @@
 <body>
 
 <script>
-   alert("정상 처리되지 못하였습니다.");
+   alert("정상 처리되지 못하였습니다. 다시 확인해주세요.");
    location.href="/index.jsp";
 </script>
 
