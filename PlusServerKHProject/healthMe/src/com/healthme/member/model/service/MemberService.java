@@ -60,6 +60,20 @@ public class MemberService {
 		
 	      return memberId;
    }
+
+
+public String searchPw(String fmemberId, String fmemberSocialId, String fmemberPhone) {
+	  
+	  Connection conn = JDBCTemplate.getConnection();
+	  
+	  String memberPw = new MemberDao().searchPw(fmemberId, fmemberSocialId, fmemberPhone, conn);
+	  
+	  JDBCTemplate.close(conn);
+	
+     return memberPw;
+}
+  
+  
   
 
 	  

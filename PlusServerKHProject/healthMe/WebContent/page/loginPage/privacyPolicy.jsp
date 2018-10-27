@@ -73,7 +73,7 @@ function myFunction() {
             <div id="contents">
                 <div id="realContents">
                    
-	                 <br>   
+	                 <br><br>  
 	                      <div id="title-container">
 	                        <div id="policyTitle">헬th미 이용약관과 개인 정보 수집 이용 안내</div>
 	                      </div>                                                              
@@ -717,7 +717,7 @@ function myFunction() {
 	</div>
                       
                     </div>
-                    
+                     
                      <button type="submit" class="agreeBtn" onclick="return agree();">위의 약관을 읽고 동의합니다</button>
                       
                       
