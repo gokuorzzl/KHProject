@@ -12,45 +12,53 @@ import com.healthme.search.model.vo.SearchedTrainer;
 
 public class SearchDao {
 
-	public ArrayList<SearchedTrainer> searchMemberInfo(Connection conn, ArrayList<String> searchList) {
+	public ArrayList<SearchedTrainer> searchBarTrainer(Connection conn, ArrayList<String> searchList) {
 		
-		//?부분에만 변화를 주어 계속 사용할 수 있는 PreparedStatement를 사용
+		//쿼리문 전송에 이용할 객체 생성
 		PreparedStatement pstmt = null;
-		//결과를 담을 ResultSet
 		ResultSet rset = null;
-		//SearchedTrainer객체를 저장할 ArrayList<SearchedTrainer>
-		ArrayList<SearchedTrainer> tmpMember = new ArrayList<>(); 
+		//결과 담을 리스트 생성
+		ArrayList<SearchedTrainer> tmpTrainer = new ArrayList<>();
 		
-		//Member테이블로부터 id, name, score, event를 가져올 쿼리
-		String query = "SELECT MEMBERID, MEMBERNAME, TRAINERSCORE, TRAINEREVENT FROM MEMBER WHERE "; 
-		
-		//searchList의 검색어만큼 쿼리문 생성 
+		//전송할 쿼리문 -> TRAINER테이블로부터  아이디, 프로필사진경로, 트레이너 근무지역, 종목을 가져옴
+		String query = "SELECT MEMBERID, PROFILEFILE, TRAINERREGION, TRAINEREVENT FROM TRAINER WHERE "; 
+		//WHERE조건을 완성하기 위해 검색어 리스트 수만큼 for문을 실행
 		for(int i=0 ; i<searchList.size() ; i++) {
-			query += "TRAINEREVENT LIKE ? OR TRAINERREGION LIKE ? ";
+			if(i==searchList.size()-1) {
+				query += "TRAINERREGION LIKE ? OR TRAINEREVENT LIKE ? ";
+			} else {
+				query += "TRAINERREGION LIKE ? OR TRAINEREVENT LIKE ? OR ";
+			}
+			
 		}
-		
-		//사용자의 검색어는 종목 또는 지역이지만 단어만으로는 어떤 범주에 속하는지 알 수 없으므로 지역, 종목 두 필드 모두에 검색어를 넣어서 SELECT
-		
+
 		try {
 			
-			//Connection 객체를 이용해 query문을 전송할 PreparedStatement객체 생성
+			//커넥션을 이용해 PreparedStatement생성
 			pstmt = conn.prepareStatement(query);
 			
 			//?에 들어갈 요소 지정
-			int index = 0; //값을 저장하기 위해 index지정
-			for(int i=0 ; i<searchList.size()*2 ; i+=2) {
-				//searchList의 검색어 하나당 ?가 두 개이므로 두 배만큼 for문 실행
-				pstmt.setString(i, searchList.get(index));
-				pstmt.setString(i+1, searchList.get(index));
-				index++;//for문의 i와 별개로 searchList의 값을 가져오기 위함
+			int index=1;
+			for(int i=0 ; i<searchList.size() ; i++) {				
+				pstmt.setString(index, '%' + searchList.get(i) + '%');
+				index++;
+				pstmt.setString(index, '%' + searchList.get(i) + '%');
+				index++;
 			}
 			
-			//query문 마무리
-			query += "ORDER BY TRAINERSCORE DESC";
-			System.out.println(query);
-			//쿼리문 전송 후 결과를 rset에 저장
+			//쿼리문 전송 및 결과 받기
 			rset = pstmt.executeQuery();
 			
+			//결과 저장
+			while(rset.next()) {
+				SearchedTrainer sT = new SearchedTrainer();
+				sT.setMemberId(rset.getString("MEMBERID"));
+				sT.setProfileFile(rset.getString("PROFILEFILE"));
+				sT.setTrainerEvent(rset.getString("TRAINEREVENT"));
+				sT.setTrainerRegion(rset.getString("TRAINERREGION"));
+				tmpTrainer.add(sT);
+			}
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -59,45 +67,35 @@ public class SearchDao {
 			JDBCTemplate.close(pstmt);
 		}
 		
-		return tmpMember;
+		return tmpTrainer;
+	}
+
+	public String searchBarTrainerName(Connection conn, String memberId) {
 		
-	}//searchMemberInfo 메소드 종료
-	
-	public ArrayList<String> searchTrainerImg(Connection conn, ArrayList<SearchedTrainer> tmpMember) {
-		
-		//?부분에만 변화를 주어 계속 사용할 수 있는 PreparedStatement를 사용
+		//쿼리문 전송에 이용할 객체 생성
 		PreparedStatement pstmt = null;
-		//결과를 담을 ResultSet
 		ResultSet rset = null;
-		//이미지 경로 리스트를 저장할 ArrayList<String>
-		ArrayList<String> tmpImg = new ArrayList<>();
+		//결과 저장할 String
+		String memberName = null;
 		
-		//쿼리문 
-		String query = "SELECT PROFILEFILE FROM IMGCOLLECT WHERE MEMBERID = ?";
+		//쿼리문
+		String query = "SELECT MEMBERNAME FROM MEMBER WHERE MEMBERID = ?";
 		
 		try {
-			int index = 0; //리스트 내 검색어 이용을 위한 index
 			
-			while(!tmpMember.isEmpty() && index<=tmpMember.size()) {
-				
-				//pstmt객체 생성
-				pstmt = conn.prepareStatement(query);
-				
-				//?에 들어갈 요소 지정
-				pstmt.setString(1, tmpMember.get(index).getMemberId());
-				
-				//쿼리 전송 및 결과 저장
-				rset = pstmt.executeQuery();
-				
-				//결과로 돌아온 이미지 경로를 저장
-				if(rset.next()) {
-					tmpImg.add(rset.getString("PROFILEFILE"));
-				}
-				
-				//다음 아이디에 해당하는 결과를 가져오도록  index 증가
-				index++;
-				
-			}//while문 끝
+			//커넥션을 이용해 PreparedStatement객체 생성
+			pstmt = conn.prepareStatement(query);
+			
+			//?에 들어갈 요소 지정
+			pstmt.setString(1, memberId);
+			
+			//쿼리문 전송 및 결과 받기
+			rset = pstmt.executeQuery();
+			
+			//결과는 하나이므로 있는지만 검사
+			if(rset.next()) {
+				memberName = rset.getString("MEMBERNAME");
+			}
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -107,8 +105,12 @@ public class SearchDao {
 			JDBCTemplate.close(pstmt);
 		}
 		
-		return tmpImg;
-	}//searchTrainerImg 메소드 종료
+		return memberName;
+	}
+
+	
+		
+
 
 
 }

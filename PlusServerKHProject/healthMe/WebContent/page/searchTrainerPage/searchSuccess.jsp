@@ -6,9 +6,9 @@
 %>
 <%
 	//컨트롤러에서 온 값
-	SearchResultPage resultPage = (SearchResultPage)request.getAttribute("resultPage");
+	SearchResult resultPage = (SearchResult)request.getAttribute("searchResult");
 	//검색결과인 트레이너 객체
-	ArrayList<SearchedTrainerResult> resultList = resultPage.getResultList();
+	ArrayList<SearchedTrainerResult> trainerList = resultPage.getTrainerList();
 	//페이지 처리 
 	String pageNavi = resultPage.getPageNavi();
 %>
@@ -20,12 +20,13 @@
 </head>
 <body>
 
-	<% for(SearchedTrainerResult n : resultList){ %>
-		아이디 : <%=n.getMemberId() %>
-		이름 : <%=n.getMemberName() %>
-		프로필 경로 : <%=n.getProfileFile() %>
-		종목 : <%=n.getTrainerEvent() %>
-		별점 : <%=n.getTrainerScore() %>
+	<% for(SearchedTrainerResult n : trainerList){ %>
+		아이디 : <%=n.getMemberId() %><br>
+		이름 : <%=n.getMemberName() %><br>
+		프로필 경로 : <%=n.getProfileFile() %><br>
+		종목 : <%=n.getTrainerEvent() %><br>
+		별점 : <br>
+		<br><br><br>
 	<% } %>
 	
 	<div style="width:315px; text-align:center;">

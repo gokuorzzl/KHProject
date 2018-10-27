@@ -2,26 +2,30 @@ package com.healthme.search.model.vo;
 
 public class SearchedTrainerResult extends SearchedTrainer{
 
-	private String profileFile;
+	private String memberName;
 
 	public SearchedTrainerResult() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public SearchedTrainerResult(String memberId, String memberName, String trainerScore, String trainerEvent) {
-		super(memberId, memberName, trainerScore, trainerEvent);
+	public SearchedTrainerResult(String memberId, String profileFile, String trainerRegion, String trainerEvent) {
+		super(memberId, profileFile, trainerRegion, trainerEvent);
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getProfileFile() {
-		return profileFile;
+	public SearchedTrainerResult(String memberName) {
+		super();
+		this.memberName = memberName;
 	}
 
-	public void setProfileFile(String profileFile) {
-		this.profileFile = profileFile;
+	public String getMemberName() {
+		return memberName;
 	}
-	
+
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
+	}
 	
 	
 	

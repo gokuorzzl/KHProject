@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ 
+	page import="com.healthme.search.model.vo.*" 
+		import = "java.util.ArrayList"
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -49,9 +53,9 @@
        	<div><img src="../../img/%EB%A1%9C%EA%B3%A0.png"></div>
     </div>
     <div id="searchBar">
-   		<form action="/searchInput.do" method="get">
+   		<form action="/searchInput.do" method="get" >
    			<div>
-				<input type="text" name="searchInput" id="searchInput" placeholder="지역, 종목 검색" required="검색어를 입력해주세요."/>
+				<input type="text" name="searchInput" id="searchInput" placeholder="지역, 종목 검색" required="검색어를 입력해주세요." value=""/>
 				<button type="submit"><i class="fa fa-search"></i></button>
    			</div>
    		</form>
