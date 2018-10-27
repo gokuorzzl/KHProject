@@ -13,31 +13,40 @@ import com.healthme.member.vo.Member;
 
 public class AdminDao {
 
-	public Admin selectOneAdmin(String adminID, String adminPwd, Connection conn) {
+	public Admin selectOneAdmin(String adminId, String adminPw, Connection conn) {
 		//select 구문을 처리하기 위한 변수 생성
 		//(PreparedStatement, ResultSet, String query)
 		
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String query = "select * from admin where adminID=? and adminPw=?";
+		String query = "select * from admin where adminId=? and adminPw=?";
 		
 		Admin admin = null;
 		
 		try {
 			pstmt = conn.prepareStatement(query);
 			
-			pstmt.setString(1, adminID);
-			pstmt.setString(2, adminPwd);
+			pstmt.setString(1, adminId);
+			pstmt.setString(2, adminPw);
 			
 			rset = pstmt.executeQuery();
 			
+			
+			System.out.println(adminId);
+			System.out.println(adminPw);
+			System.out.println(conn);
+			
+			
 			if(rset.next()) {
 				admin = new Admin();
-				admin.setAdminId(rset.getString("adminID"));
-				admin.setAdminPW(rset.getString("adminPwd"));
-				admin.setMemberMange(rset.getString("memberMange"));
+				admin.setAdminId(rset.getString("adminId"));
+				admin.setAdminPw(rset.getString("adminPw"));
+				admin.setAdminEmail(rset.getString("adminEmail"));
+				admin.setAdminName(rset.getString("adminName"));
 			}
+
+			
 			
 			
 		} catch (SQLException e) {
@@ -55,18 +64,23 @@ public class AdminDao {
 	
 	}
 
-	public int adminMemberAdminUpdate(Connection conn, String adminPW, String adminId) {
+	public int adminMemberAdminUpdate(Connection conn, Admin a) {
 		// TODO Auto-generated method stub
 		PreparedStatement pstmt = null;
 		int result=0;
 		
-		String query = "update admin set adminpw=? where adminid='admin'";
-	
+		String query = "update admin set adminpw=?, adminemail=?, adminname=? where adminid=? ";
+		System.out.println("업데이트DAO"+result);
 		
 			try {
 				pstmt = conn.prepareStatement(query);
 				
-				pstmt.setString(1, adminPW);
+				pstmt.setString(1, a.getAdminPw());
+				pstmt.setString(2, a.getAdminEmail());
+				pstmt.setString(3, a.getAdminName());
+				pstmt.setString(4, a.getAdminId());
+				
+				
 				
 				result = pstmt.executeUpdate();
 				

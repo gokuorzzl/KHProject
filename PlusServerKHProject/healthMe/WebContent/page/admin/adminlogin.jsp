@@ -34,8 +34,6 @@
 
 
 
-
-
  <!--전체 공간-->    
     <div id="wrapper">
         
@@ -75,7 +73,7 @@
                           <input type="text" placeholder="아이디 입력해주세요" id="adminId" name="adminId" required>
 
                          <label for="psw"></label><br>
-                         <input type="password" placeholder="비밀번호 입력해주세요" id="adminPW" name="adminPW" required><br>
+                         <input type="password" placeholder="비밀번호 입력해주세요" id="adminPW" name="adminPw" required><br>
                           
                          <button type="submit" class="login-button" value="로그인"><p id="login-letter">로그인</p></button><br>
                        

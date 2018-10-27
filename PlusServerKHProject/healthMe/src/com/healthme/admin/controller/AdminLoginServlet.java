@@ -37,10 +37,10 @@ public class AdminLoginServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		
 		String adminId = request.getParameter("adminId");
-		String adminPW = request.getParameter("adminPW");
+		String adminPw = request.getParameter("adminPw");
 		
 		
-		Admin admin = new AdminService().selectOneAdmin(adminId,adminPW);
+		Admin admin = new AdminService().selectOneAdmin(adminId,adminPw);
 		
 		if(admin!=null) {
 			

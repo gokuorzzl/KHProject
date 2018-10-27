@@ -10,10 +10,10 @@ import com.healthme.member.vo.Member;
 
 public class AdminService {
 
-	public Admin selectOneAdmin(String adminID, String adminPwd)//로그인 세션 갖고오는거 활동 되나보보는것
+	public Admin selectOneAdmin(String adminId, String adminPw)//로그인 세션 갖고오는거 활동 되나보보는것
 	{
 		Connection conn = JDBCTemplate.getConnection();
-		Admin admin = new AdminDao().selectOneAdmin(adminID,adminPwd,conn);
+		Admin admin = new AdminDao().selectOneAdmin(adminId,adminPw,conn);
 		
 		JDBCTemplate.close(conn);
 		
@@ -22,12 +22,12 @@ public class AdminService {
 		
 	}
 
-	public int adminMemberAdminUpdate(String adminPW, String adminId) {
+	public int adminMemberAdminUpdate(Admin a) {
 		// TODO Auto-generated method stub
 		Connection conn = JDBCTemplate.getConnection();
 		
-		int result = new AdminDao().adminMemberAdminUpdate(conn,adminPW,adminId);
-		
+		int result = new AdminDao().adminMemberAdminUpdate(conn,a);
+		System.out.println("서비스"+result);
 		if(result>0) {
 			JDBCTemplate.commit(conn);
 		}else {
