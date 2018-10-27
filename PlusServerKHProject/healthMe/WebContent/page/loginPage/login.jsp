@@ -74,7 +74,7 @@
                                  <span class="psw1" dir="ltr"><a class="idfindhover" href="searchId.jsp">아이디 찾기</a></span>
                               </div>
                               <div id="pswfind">
-                                  <span class="psw2"><a class="pswfindhover" href="#">비밀번호 찾기</a></span>
+                                  <span class="psw2"><a class="pswfindhover" href="searchPwd.jsp">비밀번호 찾기</a></span>
                               </div>
                            </div> 
                              <hr>

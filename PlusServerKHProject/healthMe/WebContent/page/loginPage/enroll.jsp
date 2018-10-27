@@ -80,7 +80,7 @@
                         <label for="memberName">이름</label><br>
                         <input type="text" id="memberName" name="memberName" required><br>
                          
-                         <label for="memberSocialId" style="float:left;">주민등록번호</label><div class="conditionPw" style="float:left; box-sizing:border-box; margin-left:1%; margin-right:7%; margin-top:0.8%; ">(ex. 123456-7891011 형식으로 입력)</div>
+                        <label for="memberSocialId" style="float:left;">주민등록번호</label><div class="conditionPw" style="float:left; box-sizing:border-box; margin-left:1%; margin-right:7%; margin-top:0.8%; ">(ex. 123456-7891011 형식으로 입력)</div>
                         <input type="text" maxlength="14" id="memberSocialId" name="memberSocialId" required><br> 
      
                          <label for="memberAddr">주소</label><br>

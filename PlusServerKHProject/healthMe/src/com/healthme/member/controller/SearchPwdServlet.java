@@ -10,19 +10,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.healthme.member.model.service.MemberService;
-import com.healthme.member.vo.Member;
 
 /**
- * Servlet implementation class SearchIdServlet
+ * Servlet implementation class SearchPwdServlet
  */
-@WebServlet(name = "SearchId", urlPatterns = { "/searchId.do" })
-public class SearchIdServlet extends HttpServlet {
+@WebServlet(name = "SearchPwd", urlPatterns = { "/searchPwd.do" })
+public class SearchPwdServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SearchIdServlet() {
+    public SearchPwdServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,25 +31,32 @@ public class SearchIdServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setCharacterEncoding("utf-8");
+	request.setCharacterEncoding("utf-8");
 		
-		String fmemberName = request.getParameter("memberName");
+		String fmemberId = request.getParameter("memberId");
 		String fmemberSocialId = request.getParameter("memberSocialId");
 		String fmemberPhone = request.getParameter("memberPhone");	
 		
-		String memberId = new MemberService().searchId(fmemberName,fmemberSocialId,fmemberPhone);
+		String memberPw = new MemberService().searchPw(fmemberId,fmemberSocialId,fmemberPhone);
 		
-		if (memberId !=null ) {
+		if (memberPw !=null ) {
 			
-			RequestDispatcher view = request.getRequestDispatcher("page/loginPage/searchIdSuccess.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("page/loginPage/searchPwdSuccess.jsp");
 			
-			request.setAttribute("memberId", memberId);
+			request.setAttribute("memberPw", memberPw);
 			
 			view.forward(request, response);
 			
 		} else {
 			response.sendRedirect("/page/loginPage/error.jsp");
 		}
+		
+		
+		
+		
+		
+		
+		
 	}
 
 	/**

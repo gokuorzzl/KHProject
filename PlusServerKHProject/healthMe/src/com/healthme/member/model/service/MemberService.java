@@ -12,7 +12,7 @@ public class MemberService {
 	  Connection conn = JDBCTemplate.getConnection();
 	  
 	  Member member = new MemberDao().selectOneMember(memberId, memberPw, conn);
-	  
+
 	  JDBCTemplate.close(conn);
 	  
 	  return member;
@@ -50,19 +50,32 @@ public class MemberService {
   }
 
 
-public boolean findOneMember(String fmemberName, String fmemberSocialId, String fmemberPhone) {
+  public String searchId (String fmemberName, String fmemberSocialId, String fmemberPhone) {
   
 		  Connection conn = JDBCTemplate.getConnection();
 		  
-		  Member member = new MemberDao().findOneMember(fmemberName, fmemberSocialId, fmemberPhone, conn);
+		  String memberId = new MemberDao().searchId(fmemberName, fmemberSocialId, fmemberPhone, conn);
 		  
 		  JDBCTemplate.close(conn);
-		  
-		  if(member==null) {
-			  return false;
-		  } else {
-			  return true;
-		  }
-
+		
+	      return memberId;
    }
+
+
+public String searchPw(String fmemberId, String fmemberSocialId, String fmemberPhone) {
+	  
+	  Connection conn = JDBCTemplate.getConnection();
+	  
+	  String memberPw = new MemberDao().searchPw(fmemberId, fmemberSocialId, fmemberPhone, conn);
+	  
+	  JDBCTemplate.close(conn);
+	
+     return memberPw;
+}
+  
+  
+  
+
+	  
+  
 }

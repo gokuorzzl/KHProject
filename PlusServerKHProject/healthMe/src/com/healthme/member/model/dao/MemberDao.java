@@ -107,6 +107,44 @@ public class MemberDao {
 			if(rset.next()) {
 				memberId = rset.getString("memberId");
 			}
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		
+	
+		return memberId;
+		
+	}
+
+	public String searchId(String fmemberName, String fmemberSocialId, String fmemberPhone, Connection conn) {
+
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String query = "select memberId from member where membername=? and membersocialId=? and memberphone=?";
+		
+		String memberId =null;
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setString(1, fmemberName);
+			pstmt.setString(2, fmemberSocialId);
+			pstmt.setString(3, fmemberPhone);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				memberId = rset.getString("memberId");
+			}
+			
+			
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -116,7 +154,41 @@ public class MemberDao {
 		}
 		
 		return memberId;
+	}
+
+	public String searchPw(String fmemberId, String fmemberSocialId, String fmemberPhone, Connection conn) {
 		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String query = "select memberPw from member where memberId=? and membersocialId=? and memberphone=?";
+		
+		String memberPw =null;
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setString(1, fmemberId);
+			pstmt.setString(2, fmemberSocialId);
+			pstmt.setString(3, fmemberPhone);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				memberPw = rset.getString("memberPw");
+			}
+			
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		
+		return memberPw;
 	}
 	
 	

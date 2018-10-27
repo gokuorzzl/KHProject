@@ -1,13 +1,12 @@
 /*----------------------------------------------*/
 /*인코딩 문자셋*/
 @charset "UTF-8";
-
-
-/* @font-face{
+/* 
+@font-face{
 font-family:'서울남산체';
-src:url(../fonts/SeoulNamsan.eot);익스플로러
-src:url(../fonts/SeoulNamsan.woff) format('woff');  크롬, 파이어폭스
-src:local(※), url(../fonts/SeoulNamsan.woff) format('woff');
+src:url(../../fonts/SeoulNamsan.eot);익스플로러
+src:url(../../fonts/SeoulNamsan.woff) format('woff');  크롬, 파이어폭스
+src:local(※), url(../../fonts/SeoulNamsan.woff) format('woff');
 } */
 
 /*새롭게 적용할 NotoSans-Bold*/
@@ -17,7 +16,6 @@ src:url(../../fonts/NotoSans-Bold.eot);/*익스플로러*/
 src:url(../../fonts/NotoSans-Bold.woff) format('woff');  /*크롬, 파이어폭스*/
 src:local(※), url(../../fonts/NotoSans-Bold.woff) format('woff');
 }
-
 
 /*각종 인터넷 브라우저에서 코드 작동이 가능하도록 하는 css Reset*/
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp,
@@ -59,12 +57,12 @@ table {
 /*----------------------------------------------*/
 /*css 공통코드 작성부분*/
 /* div전체 */
-div{
-    
+  div{
+    /* border: 1px solid black; */
     box-sizing: border-box;
     margin: 0;
    
-}
+  } 
 
 
 /*----------------------------------------------*/
@@ -75,17 +73,22 @@ div{
 /*데스크톱*/
 @media screen and (min-width:1024px){
     
+    div {
+      background-color:white;
+    }    
+    
+    
     /*div전체*/
     #wrapper{
         position: absolute;
         width:100%;
-        height:170%;    
+        height:100%;    
     }
     
     /*top부분*/
     #top{
         width: 100%;
-        height:5%;
+        height:10%; /*  */
     }
     
     #mobileMenu{
@@ -113,18 +116,18 @@ div{
     /*middle부분*/
     #middle{
         width: 100%;
-        height: 87%;
+        height: 82%; /*  */
     }
     
     #searchBox{
         width: 100%;
-        height: 15%;
-    }
-    #contents{
-        width: 100%;
-        height: 85%;
+        height: 15%;/*  */
     }
     
+    #contents{
+        width: 100%;
+        height: 85%; /*  */
+    }
     
     #realSearchBox{
         width: 70%;
@@ -147,43 +150,42 @@ div{
         height: 8%;
     }
     
-         /*-------------추가 Desktop----------------------- */
-         
-     label {
+    
+    /*-------------추가 Desktop-------------------- */
+    
+    label {
       font-family:NotoSans;
       font-size:100%;
       font-weight:bold;
      }
      
-     .conditionId {
+     .conditionSocialId {
        font-size:70%;
        color:#147fe2;
      }
      
-     .conditionPw {
+    .conditionPhone {
        font-size:70%;
        color:#147fe2;
-     }
-     
-     
+    }
+    #logoBox {
+     width:100%;
+     height:100%;
+     margin:auto;
+    }
+  
     .logo-center {
       display: block;
-      margin-left:auto;
-      margin-right:auto;
-      width:24%;
+      margin-left: auto;
+      margin-right: auto;
+      width: 20%;
+
     }
     
-    .info-container {
-     
-      width: 500px;
-      height:100%;
-      margin:auto;
-      text-align: left;
+    #login-letter {
+      font-size:140%;
     }
     
-    form {
-    width:100%;}
- 
     input[type=text] {
        width:100%;
        padding:10px 10px;
@@ -197,59 +199,13 @@ div{
     input[type=text]:focus {
       background-color:#f9d3b3;
     }
-    
-     input[type=password] {
-       width:100%;
-       padding:10px 10px;
-       margin:8px 0;
-       box-sizing:border-box;
-       border: 2px solid #FF9B55;
-       border-radius:6px;
-
-    }
-    
-     input[type=password]:focus {
-      background-color:#f9d3b3;
-    }
-    
-     input[type=email] {
-       width:100%;
-       padding:10px 10px;
-       margin:8px 0;
-       box-sizing:border-box;
-       border: 2px solid #FF9B55;
-       border-radius:6px;
      
+    .login-container1 {
+        max-width:38%;
+        margin:auto;
     }
     
-    input[type=email]:focus {
-      background-color:#f9d3b3;
-    }
-    
-  
-    #sample6_postcode {
-      width:40%;
-    }
-    
-    #sample6_fpostcode {
-      width:20%;
-      height:36px;
-    }
-    
-    #tel1 {
-      width:30.9%;
-      
-    }
-    
-    #tel2 {
-     width:30.9%;
-    }
-    
-    #tel3 {
-     width:30.8%;
-    }
-
-     .register-button {
+    .login-button {
         background-color:#FF9B55;
         color:white;
         font-size:17px;
@@ -258,49 +214,26 @@ div{
         border:none;
         cursor:pointer;
         width:100%;
+        height:60px;
     }
     
-    
-    .doubleCheck {
-     font-family:NotoSans;
-     display:inline-block;
-     cursor:pointer;
-     padding-bottom:0%;
-     padding-left:2%;
-     padding-right:2%;
-     color:white;
-     background-color:#FF9B55;
-     border:none;
-     font-size:90%;
-     
-    }
-       
-    .doubleCheck:hover {
-       background-color:#353130;
-    }
-       
-     .register-button:hover {
-       background-color:#353130;
+    button:hover { 
+       background-color:#3c3e3a;
     }
     
-    #sample6_fpostcode {
-       background-color:#FF9B55;
-        color:white;
-        font-size:17px;
-        padding:14px 20px;
-        margin:8px 0;
-        border:none;
-        cursor:pointer;
-        width:100%;
-    }
 
-
-
+ 
 }
 
 /*태블릿*/
 @media screen and (min-width:640px) and (max-width:1024px){
     
+    div {
+    
+    
+      background-color:red;
+    }
+
     /*div전체*/
     #wrapper{
         position: absolute;
@@ -372,10 +305,23 @@ div{
         height: 10%;
     }
     
+    /*------------- Tablet----------------------- 추가  */
+    .logo-center {
+      display: block;
+      margin-left:auto;
+      margin-right:auto;
+      width:50%;
+    }
+    
+    
 }
 
 /*모바일*/
 @media screen and (max-width:640px){
+    
+    div {
+      background-color:green;
+    }
     
     /*div전체*/
     #wrapper{
@@ -444,7 +390,15 @@ div{
         width: 100%;
         height: 10%;
     }
+    
+       /*------------- Mobile----------------------- 추가  */
+    .logo-center {
+      display: block;
+      margin-left:auto;
+      margin-right:auto;
+      width:100%;
+    }
+    
+    
 }
 
-
-    
