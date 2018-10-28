@@ -14,6 +14,5 @@
    location.href="/page/admin/adminMain.jsp";
 </script>
 
-
 </body>
 </html>
