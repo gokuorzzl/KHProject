@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class SearchResult {
 
-	private ArrayList<SearchedTrainerResult> trainerList;
+	private ArrayList<SearchedTrainerResult> trainerList;     
 	private String pageNavi;
 	
 	public SearchResult() {

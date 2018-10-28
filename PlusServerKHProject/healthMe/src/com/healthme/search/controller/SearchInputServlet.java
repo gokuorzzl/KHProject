@@ -82,10 +82,9 @@ public class SearchInputServlet extends HttpServlet {
 		//4. 결과 처리
 		if(searchResult != null) {
 			//검색결과 url을 복사해서 이용할 수도 있으므로 RequestDispatcher을 사용해 url이 유지되도록 함
-			RequestDispatcher viewTrainer = request.getRequestDispatcher("page/searchTrainerPage/searchTrainerPage.jsp");
+			RequestDispatcher viewTrainer = request.getRequestDispatcher("page/searchTrainerPage/searchSuccess.jsp");
 			request.setAttribute("searchResult", searchResult);
 			viewTrainer.forward(request, response); //request와 response 객체를 view로 보냄
-			
 		}else {
 			response.sendRedirect("page/searchTrainerPage/searchError.jsp");
 		}
