@@ -1,3 +1,4 @@
+<%@page import="java.sql.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
    <%@ page import="com.healthme.admin.vo.*" %>
@@ -47,6 +48,7 @@
 				if(admin!=null){
 				%>
 				<H3>[<%=admin.getAdminId()%>]님 환영합니다.</H3>
+				
 				<%
 				}else{
 				%>

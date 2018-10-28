@@ -127,7 +127,7 @@
                     <div class="main-box mb-red">
                         <a href="#">
                             <i class="fa fa-bolt fa-3x"></i>
-                            <h5>새로운정보1</h5>
+                            <h5>스케줄 확인</h5>
                         </a>
                     </div>
                 </div>
@@ -135,7 +135,7 @@
                     <div class="main-box mb-dull">
                         <a href="#">
                             <i class="fa fa-plug fa-3x"></i>
-                            <h5>새로운정보2</h5>
+                            <h5>메일보내기</h5>
                         </a>
                     </div>
                 </div>
