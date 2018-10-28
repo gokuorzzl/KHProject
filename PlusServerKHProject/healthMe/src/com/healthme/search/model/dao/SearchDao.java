@@ -108,6 +108,45 @@ public class SearchDao {
 		return memberName;
 	}
 
+	public Integer searchBarTrainerScore(Connection conn, String memberId) {
+		
+		//쿼리문 전송에 이용할 객체 생성
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		//결과 저장할 String
+		int matchingScore = 0;
+		
+		//쿼리문
+		String query = "SELECT AVG(MATCHINGSCORE) AS SCOREAVG FROM MATCHING WHERE MATCHEDMEMBERID = ? ";
+		
+		try {
+			
+			//커넥션을 이용해 PreparedStatement객체 생성
+			pstmt = conn.prepareStatement(query);
+			
+			//?에 들어갈 요소 지정
+			pstmt.setString(1, memberId);
+			
+			//쿼리문 전송 및 결과 받기
+			rset = pstmt.executeQuery();
+			
+			//결과가 있으면 결과값의 평균이, 없으면 0이 리턴됨
+			if(rset.next()) {
+				matchingScore = rset.getInt("MEMBERNAME");
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		
+		return matchingScore;
+		
+	}
+
 	
 		
 

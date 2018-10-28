@@ -42,11 +42,14 @@ public class SearchInputServlet extends HttpServlet {
 			//StringTokenizer는  마지막에 구분자가 없으면 마지막 문자열을 반환하지 않으므로 뒤에 공백을 하나 추가해줌
 		
 		//3. 검색어 처리
-		//replace 메소드를 이용해 검색어를 모두 (공백)구분자로 변경
+		//replace 메소드를 이용해 실제 검색어를 제외한 특수문자 등을 모두 (공백)구분자로 변경
 		search = search.replace(",", " ");
 		search = search.replace("/", " ");
 		search = search.replace("\"", " ");
 		search = search.replace("\'", " ");
+		search = search.replace("[", " ");
+		search = search.replace("]", " ");
+		search = search.replace("+", " ");
 		search = search.replace("특별시", " ");
 		search = search.replace("광역시", " ");
 		search = search.replace("시", " ");
@@ -79,12 +82,13 @@ public class SearchInputServlet extends HttpServlet {
 		//5. 검색어를 담은 ArrayList와 현재 페이지 정보를 담은 currentPage를 Service로 전송
 		SearchResult searchResult = new SearchService().searchBar(searchList, currentPage);
 		
-		//4. 결과 처리
+		//6. 결과 처리
 		if(searchResult != null) {
 			//검색결과 url을 복사해서 이용할 수도 있으므로 RequestDispatcher을 사용해 url이 유지되도록 함
-			RequestDispatcher viewTrainer = request.getRequestDispatcher("page/searchTrainerPage/searchSuccess.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("page/searchTrainerPage/searchTrainerPage.jsp");
 			request.setAttribute("searchResult", searchResult);
-			viewTrainer.forward(request, response); //request와 response 객체를 view로 보냄
+			request.setAttribute("searchInput", search);
+			view.forward(request, response); //request와 response 객체를 view로 보냄
 		}else {
 			response.sendRedirect("page/searchTrainerPage/searchError.jsp");
 		}

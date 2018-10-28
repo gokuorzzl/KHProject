@@ -4,10 +4,23 @@
 	page import="com.healthme.search.model.vo.*" 
 		import = "java.util.ArrayList"
 %>
+<%
+	//컨트롤러에서 온 값
+	SearchResult searchResult = (SearchResult)request.getAttribute("searchResult");
+	//검색결과인 트레이너 객체
+	ArrayList<SearchedTrainerResult> trainerList = null;	
+	//페이지 처리 
+	String pageNavi = null;
+	if(searchResult!=null){//받아오는 데이터가 null이 아닐때만 데이터를 읽어야 서버 오류가 나지 않음
+		trainerList = searchResult.getTrainerList();
+		pageNavi = searchResult.getPageNavi();
+	}
+	//searchInput값
+	String searchInput = (String)request.getAttribute("searchInput");
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
     <!--인코딩 문자셋-->
     <meta charset="UTF-8">
     <!--반응형 웹을 만들기 위한 meta태그의 viewport-->
@@ -27,10 +40,11 @@
   	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--title-->
     <title>헬th미:나만의 트레이너</title>
-
 </head>
 <body>
-
+   		<form action="/searchInput.do" method="get" >
+			<input type="hidden" name="searchInput" id="searchInput" value="<%=searchInput%>"/>
+   		</form>
 <!--전체 공간-->    
     <div id="wrapper">
         <div id="top">
@@ -100,17 +114,24 @@
             <!--트레이너 별점 등 컨텐츠 나오는 부분-->
             <div id="contents">
             	<div id="ment">
-					<img style="height:100%; width:100%;" src="../../img/searchTrainerMainImg.PNG">
-					  </div>
-         	<!--  
-        		<div id="realContents">
-                    <div class="trainerBox">
-                        <div class="boxImg"><img src="#"/></div>
-                        <div class="boxInfo"></div>
-                    </div>
-                    <div class="blank"></div>
-               	</div>
-       		-->
+            		<%if(searchResult==null){ %>
+						<img style="height:100%; width:100%;" src="../../img/searchTrainerMainImg.PNG">
+					<%} else { %>
+						<div id="searchResult">
+						<% for(SearchedTrainerResult n : trainerList){ %>
+							아이디 : <%=n.getMemberId() %><br>
+							이름 : <%=n.getMemberName() %><br>
+							프로필 경로 : <%=n.getProfileFile() %><br>
+							종목 : <%=n.getTrainerEvent() %><br>
+							별점 : <%=n.getMatchingScore() %><br>
+							<br><br><br>
+						<% } %>
+						</div>
+						<div id="searchNavi">
+							<label><%=pageNavi %></label>
+						</div>
+					<%} %>
+				</div>
             </div>
         </div>
         
