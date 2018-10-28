@@ -2,21 +2,24 @@ package com.healthme.search.model.vo;
 
 public class SearchedTrainer {
 
-	private String memberId; //트레이너 아이디 -> member테이블
-	private String memberName; //트레이너 이름 -> member테이블
-	private String trainerScore; //트레이너 점수 -> member테이블
-	private String trainerEvent; //트레이너 종목 -> member테이블
+	//SELECT MEMBERID, PROFILEFILE, TRAINERREGION, TRAINEREVENT FROM TRAINER
+	private String memberId; //trainer테이블 -> 트레이너 ID
+							//관리자가 증명을 확인하고 MEMBER테이블의 트레이너 여부를 'y'로 변경하고트레이너테이블에 추가해주므로
+							//검색시 트레이너가 맞는지 여부를 별도로 확인할 필요는 없음ㄴ
+	private String profileFile; //trainer 테이블 -> 트레이너 프로필 사진
+	private String trainerRegion; //trainer 테이블 -> 지역
+	private String trainerEvent; //trainer 테이블 -> 종목
 	
 	public SearchedTrainer() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public SearchedTrainer(String memberId, String memberName, String trainerScore, String trainerEvent) {
+	public SearchedTrainer(String memberId, String profileFile, String trainerRegion, String trainerEvent) {
 		super();
 		this.memberId = memberId;
-		this.memberName = memberName;
-		this.trainerScore = trainerScore;
+		this.profileFile = profileFile;
+		this.trainerRegion = trainerRegion;
 		this.trainerEvent = trainerEvent;
 	}
 
@@ -28,20 +31,20 @@ public class SearchedTrainer {
 		this.memberId = memberId;
 	}
 
-	public String getMemberName() {
-		return memberName;
+	public String getProfileFile() {
+		return profileFile;
 	}
 
-	public void setMemberName(String memberName) {
-		this.memberName = memberName;
+	public void setProfileFile(String profileFile) {
+		this.profileFile = profileFile;
 	}
 
-	public String getTrainerScore() {
-		return trainerScore;
+	public String getTrainerRegion() {
+		return trainerRegion;
 	}
 
-	public void setTrainerScore(String trainerScore) {
-		this.trainerScore = trainerScore;
+	public void setTrainerRegion(String trainerRegion) {
+		this.trainerRegion = trainerRegion;
 	}
 
 	public String getTrainerEvent() {
@@ -51,7 +54,5 @@ public class SearchedTrainer {
 	public void setTrainerEvent(String trainerEvent) {
 		this.trainerEvent = trainerEvent;
 	}
-	
-	
 	
 }

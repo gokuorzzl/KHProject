@@ -2,8 +2,9 @@ package com.healthme.admin.vo;
 
 public class Admin {
 	private String adminId;
-	private String adminPW;
-	private String memberMange;
+	private String adminPw;
+	private String adminEmail;
+	private String adminName;
 	
 	
 	
@@ -11,14 +12,14 @@ public class Admin {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-
-
-	public Admin(String adminId, String adminPW, String memberMange) {
+	
+	
+	public Admin(String adminId, String adminPw, String adminEmail, String adminName) {
 		super();
 		this.adminId = adminId;
-		this.adminPW = adminPW;
-		this.memberMange = memberMange;
+		this.adminPw = adminPw;
+		this.adminEmail = adminEmail;
+		this.adminName = adminName;
 	}
 	
 	
@@ -28,22 +29,26 @@ public class Admin {
 	public void setAdminId(String adminId) {
 		this.adminId = adminId;
 	}
-	public String getAdminPW() {
-		return adminPW;
+	public String getAdminPw() {
+		return adminPw;
 	}
-	public void setAdminPW(String adminPW) {
-		this.adminPW = adminPW;
+	public void setAdminPw(String adminPw) {
+		this.adminPw = adminPw;
 	}
-	public String getMemberMange() {
-		return memberMange;
+	public String getAdminEmail() {
+		return adminEmail;
 	}
-	public void setMemberMange(String memberMange) {
-		this.memberMange = memberMange;
+	public void setAdminEmail(String adminEmail) {
+		this.adminEmail = adminEmail;
 	}
-
-
-
-
+	public String getAdminName() {
+		return adminName;
+	}
+	public void setAdminName(String adminName) {
+		this.adminName = adminName;
+	}
+	
+	
 
 
 }

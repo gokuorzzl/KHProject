@@ -34,41 +34,36 @@ public class AdminMemberAdminUpdateServlet extends HttpServlet {
 		//1. 인코딩
 		request.setCharacterEncoding("utf-8");
 		
-		//2. view에서 넘겨준 데이터를 변수에 저장
-		String adminPW = request.getParameter("adminPW");
-		String adminId = null; //수정을 요청하는 관리자의 ID
-		
-		//3. 해당 글을 수정하기 위하여 작성자를 확인하여 처리 하도록 세션을 이용
+		//2. ID값은 session에서 추출, 나머지 값은 view에서 보내준 값을 추출
 		HttpSession session = request.getSession(false);
 		
-		try {
-			adminId = ((Admin)session.getAttribute("admin")).getAdminId();
-			if(adminId != null) {
-				//4. 비즈니스 로직 처리
-				int result = new AdminService().adminMemberAdminUpdate(adminPW,adminId);
-				
-				if(result>0) {
-					response.sendRedirect("/page/admin/updateSuccess.jsp");
-				}
-				
-				else {
-					response.sendRedirect("/page/admin/updateFail.jsp");
-					
-				}
-				
-				
-				
-				
-			}else {
-				throw new Exception();
-			}
-			
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-			response.sendRedirect("/page/admin/error.jsp");
+		String adminId = ((Admin)session.getAttribute("admin")).getAdminId();
+		String adminPw = request.getParameter("adminPw");
+		String adminEmail = request.getParameter("adminEmail");
+		String adminName = request.getParameter("adminName");
 		
+		Admin a = new Admin();
+		a.setAdminId(adminId);
+		a.setAdminPw(adminPw);
+		a.setAdminEmail(adminEmail);
+		a.setAdminName(adminName);
+		
+		//3. 비즈니스 로직
+		int result = new  AdminService().adminMemberAdminUpdate(a);
+		
+		//세션 정보 업데이트를 위하여 정보 가져오기 및 세션에 저장된 정보 변경
+		
+		Admin admin = new AdminService().selectOneAdmin(adminId, adminPw);
+		session.setAttribute("admin", admin);
+		
+		//4. 결과 리턴
+		
+		if(result>0) {
+			response.sendRedirect("/page/admin/updateSuccess.jsp");
+		}else {
+			response.sendRedirect("/page/admin/updateFail.jsp");
 		}
+		
 		
 		
 	}

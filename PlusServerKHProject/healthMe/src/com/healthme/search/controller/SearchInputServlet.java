@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.healthme.search.model.vo.SearchResultPage;
+import com.healthme.search.model.vo.SearchResult;
 import com.healtme.search.model.service.SearchService;
 
 /**
@@ -47,6 +47,17 @@ public class SearchInputServlet extends HttpServlet {
 		search = search.replace("/", " ");
 		search = search.replace("\"", " ");
 		search = search.replace("\'", " ");
+		search = search.replace("특별시", " ");
+		search = search.replace("광역시", " ");
+		search = search.replace("시", " ");
+		search = search.replace("군", " ");
+		search = search.replace("구", " ");
+		search = search.replace("읍", " ");
+		search = search.replace("면", " ");
+		search = search.replace("동", " ");
+		for(int i=0 ; i<10 ; i++) {//제n동일 때 n이 10을 넘는 경우는 없으므로 for문을 이용해 처리
+			search = search.replace("제"+i, " ");
+		}
 		
 		//공백 등 기타 구분자로 넘어온 검색어를 StringTokenizer를 이용해 ArrayList<String>에 저장
 		StringTokenizer st = new StringTokenizer(search);
@@ -66,14 +77,14 @@ public class SearchInputServlet extends HttpServlet {
 		}
 		
 		//5. 검색어를 담은 ArrayList와 현재 페이지 정보를 담은 currentPage를 Service로 전송
-		SearchResultPage resultPage = new SearchService().searchBar(searchList, currentPage);
+		SearchResult searchResult = new SearchService().searchBar(searchList, currentPage);
 		
 		//4. 결과 처리
-		if(resultPage != null) {
+		if(searchResult != null) {
 			//검색결과 url을 복사해서 이용할 수도 있으므로 RequestDispatcher을 사용해 url이 유지되도록 함
-			RequestDispatcher view = request.getRequestDispatcher("page/searchTrainerPage/searchSuccess.jsp");
-			request.setAttribute("resultPage", resultPage);
-			view.forward(request, response); //request와 response 객체를 view로 보냄
+			RequestDispatcher viewTrainer = request.getRequestDispatcher("page/searchTrainerPage/searchTrainerPage.jsp");
+			request.setAttribute("searchResult", searchResult);
+			viewTrainer.forward(request, response); //request와 response 객체를 view로 보냄
 			
 		}else {
 			response.sendRedirect("page/searchTrainerPage/searchError.jsp");

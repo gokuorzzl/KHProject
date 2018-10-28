@@ -18,7 +18,15 @@
 
 <title>관리자페이지 메인</title>
 </head>
+
+
+
+
+
 <body>
+
+
+
 
 	<!-- 로그인이 안되었을 경우창 띄우게 할지 말지 결정해보기 -->
 
@@ -183,8 +191,8 @@
 										<td width=124 bgcolor=E6E9EA><p align="center">
 												<font color="#333333">관리자성명</font>
 											</p></td>
-										<td bgColor=#ffffff colSpan=3><input value="관리자"
-											name="ADMIN_NAME" class="dd1"></td>
+										<td bgColor=#ffffff colSpan=3><input value="<%=admin.getAdminName()%>"
+											name="adminName" class="dd1"></td>
 									</tr>
 
 									<tr>
@@ -192,23 +200,23 @@
 												<font color="#333333">이메일주소</font>
 											</p></td>
 										<td bgColor=#ffffff colSpan=3><input
-											value="admin@healthme.com" name="ADMIN_EMAIL" class="dd1"></td>
+											value="<%=admin.getAdminEmail()%>" name="adminEmail" class="dd1"></td>
 									</tr>
 
 									<tr>
 										<td width=124 bgcolor=E6E9EA><p align="center">
 												<font color="#333333">관리자아이디</font>
 											</p></td>
-										<td bgColor=#ffffff colSpan=3><input value="admin"
-											name="ADMIN_id" class="dd1"></td>
+										<td bgColor=#ffffff colSpan=3><input value="<%=admin.getAdminId()%>"
+											name="adminId" class="dd1"></td>
 									</tr>
 
 									<tr>
 										<td width=124 bgcolor=E6E9EA><p align="center">
 												<font color="#333333">관리자패스워드</font>
 											</p></td>
-										<td bgColor=#ffffff colSpan=3><input typw=password
-											size=15 value="" name="ADMIN_pwd" class="dd1"></td>
+										<td bgColor=#ffffff colSpan=3><input type=password
+											size=15 value="<%=admin.getAdminPw()%>" name="adminPw" class="dd1"></td>
 									</tr>
 
 									<tr>
@@ -219,13 +227,12 @@
 									</tr>
 
 									<tr align="center">
-										<td colSpan=4 bgColor=#ffffff><input type="image"
-											src="/img/complete.png" width="68" height="20"></td>
+										<td colSpan=4 bgColor=#ffffff>
+										<input type="image" src="/img/complete.png" width="50" height="50">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<input type="image" src="/img/cancel.png" width="50" height="50" onclick="return back();"/></td>
+									
+									
 									</tr>
-
-
-
-
 
 
 								</form>
@@ -277,14 +284,13 @@
 
 
 	</div>
-	<!--  
-         <script src="assets/js/jquery-1.10.2.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-         <script src="assets/js/jquery.metisMenu.js"></script>
-         <script src="assets/js/custom.js"></script>
+<script>
+	function back(){
+		history.go(-1);
+		return false;
+	}
+</script>
 
-
--->
 
 	<jsp:include page="/page/footer/footer.jsp" />
 

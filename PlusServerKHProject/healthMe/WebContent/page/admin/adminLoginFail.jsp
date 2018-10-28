@@ -10,7 +10,7 @@
 
 <script>
    alert("로그인 실패하였습니다. 아이디 또는 비밀번호를 확인해주세요");
-   location.href="../../page/admin/adminLogin.jsp";
+   location.href="../../page/admin/adminlogin.jsp";
 </script>
 
 </body>
