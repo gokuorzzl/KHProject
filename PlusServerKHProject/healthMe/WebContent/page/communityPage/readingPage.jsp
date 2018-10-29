@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import = "com.healthme.community.model.vo.*" %>
+<% Board b = (Board)request.getAttribute("selectBoard"); %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -49,20 +51,20 @@
             <div id="contents">
                 <div id="realContents">
                     <div id="titleFrame">
-                        <span id="title">제목란입니다.</span>
+                        <span id="title"><%=b.getTitle() %></span>
                     </div>
                     <div id="otherInformationFrame">
                         <div id="writerView">
                             <p id="writerBundle">
-                                작성자 : <span id="writer">주용선</span>
+                                작성자 : <span id="writer"><%=b.getUserId() %></span>
                             </p>
                         </div>
                         <div id="dateCreatedView"> 
-                            작성일 : <span id="dateCreated">2018-10-14 </span>
+                            작성일 : <span id="dateCreated"><%=b.getInsertDate() %></span>
                         </div>
                     </div>
                     <div id="mainContentsFrame">
-                        <span id="mainContents">내용들어올 곳</span>
+                        <span id="mainContents"><%=b.getContent() %></span>
                     </div>
                     <div id="buttonsFrame">
                         <button id="listButton" onclick="back();">목록</button>

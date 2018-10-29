@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.healthme.community.model.service.WritingPageService;
+import com.healthme.community.model.service.BoardService;
 
 /**
  * Servlet implementation class WritingServlet
@@ -37,7 +37,7 @@ public class WritingPageServlet extends HttpServlet {
 		String contentsText = request.getParameter("contentsText");
 		String passwordText = request.getParameter("passwordText");
 		if(boardDivision==0) {
-			int result = new WritingPageService().noticeWriting(titleText,contentsText,passwordText);
+			int result = new BoardService().noticeWriting(titleText,contentsText,passwordText);
 			if(result>0) {
 				RequestDispatcher view = request.getRequestDispatcher("page/communityPage/writingResult.jsp?result=1");
 				view.forward(request, response);
@@ -46,7 +46,7 @@ public class WritingPageServlet extends HttpServlet {
 				view.forward(request, response);
 			}
 		}else {
-			int result = new WritingPageService().QnAWriting(titleText,contentsText,passwordText);
+			int result = new BoardService().QnAWriting(titleText,contentsText,passwordText);
 			if(result>0) {
 				RequestDispatcher view = request.getRequestDispatcher("page/communityPage/writingResult.jsp?result=1");
 				view.forward(request, response);

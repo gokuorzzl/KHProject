@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import = "com.healthme.community.model.vo.*" 
+		import = "java.util.ArrayList"%>
+<%
+	BoardPageData bpd = (BoardPageData)request.getAttribute("boardPageData");
+	ArrayList<Board> list = bpd.getList();
+	String pageNavi = bpd.getPageNavi();
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -50,7 +57,7 @@
                         <div class="communityMenu" id="noticeBoardBtn">게시판
                         </div>
                         <div class="communityMenu">
-                            <a href="/page/communityPage/Q&APage.jsp">Q&A</a>
+                            <a href="/qnaPage.do">Q&A</a>
                         </div>
                     </div>
                     <div id="noticeBoardListFrame" >
@@ -70,88 +77,35 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td><a href="/page/communityPage/readingPage.jsp">게시판입니다!!</a></td>
-                                    <td>주용선</td>
-                                    <td>2018-10-09</td>
-                                    <td>0</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">게시판입니다!!</a></td>
-                                    <td>주용선</td>
-                                    <td>2018-10-09</td>
-                                    <td>0</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">게시판입니다!!</a></td>
-                                    <td>주용선</td>
-                                    <td>2018-10-09</td>
-                                    <td>0</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">게시판입니다!!</a></td>
-                                    <td>주용선</td>
-                                    <td>2018-10-09</td>
-                                    <td>0</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">게시판입니다!!</a></td>
-                                    <td>주용선</td>
-                                    <td>2018-10-09</td>
-                                    <td>0</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">게시판입니다!!</a></td>
-                                    <td>주용선</td>
-                                    <td>2018-10-09</td>
-                                    <td>0</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">게시판입니다!!</a></td>
-                                    <td>주용선</td>
-                                    <td>2018-10-09</td>
-                                    <td>0</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">게시판입니다!!</a></td>
-                                    <td>주용선</td>
-                                    <td>2018-10-09</td>
-                                    <td>0</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">게시판입니다!!</a></td>
-                                    <td>주용선</td>
-                                    <td>2018-10-09</td>
-                                    <td>0</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">게시판입니다!!</a></td>
-                                    <td>주용선</td>
-                                    <td>2018-10-09</td>
-                                    <td>0</td>
-                                </tr>
+                              	<%for(Board b : list){ %>
+								<tr>
+									<td><a href="#"><%=b.getTitle() %></a></td>
+									<td><%=b.getUserId() %></td>
+									<td><%=b.getInsertDate() %></td>
+									<td><%=b.getHits() %></td>
+								</tr>
+								<%} %>
                             </tbody>
                         </table>
                     </div>
                     
                     <div id="noticeBoardSearchFrame">
-                    <form>
+                    <form action="/freeSearch.do" method="get">
                         <div class="searchEmptyPlace"></div>
                         <div id="searchMenu">
-                            <select id="searchSelect">
-                                <option>제목</option>
-                                <option>작성자</option>
-                                <option>내용</option>
+                            <select id="searchSelect" name="searchSelect">
+                                <option value="0">제목</option>
+                                <option value="1">작성자</option>
+                                <option value="2">내용</option>
                             </select>
                         </div>
                         <div id="search">
-                            <input type="text" id="searchText">
+                            <input type="text" id="searchText" name="searchText">
                         </div>
                         <div id="searchSubmit">
-                            <input type="submit" value="검색">
+                            <button type="submit" onclick="return searchBtn();">검색</button>
                         </div>
-                        <div class="searchEmptyPlace">
-                        </div>
+                        <div class="searchEmptyPlace"></div>
                         </form>
                     </div>
                     <div id="writeFrame">
@@ -174,6 +128,7 @@
             var searchText = document.getElementById("searchText").value;
             if(searchText==""){
                 alert("검색할 내용을 입력하세요!");
+                return false;
             }
         }
         function writeBtn(){
