@@ -273,18 +273,14 @@ input:focus{
         overflow-y: auto;
     }
     
-    .trainerBox{
-        width: 30%;
-        height: 45%;
-        border: 2px solid #3c3e3a;
-        float: left;
-        border-radius: 6px;
+    #searchResultTrainer{
+    	width:100%;
+    	height:90%;
     }
     
-    .blank{
-        width: 3%;
-        height: 45%;
-        float: left;
+    #searchNavi{
+    	width:100%;
+    	height:10%;
     }
     
     /*bottom*/

@@ -78,7 +78,7 @@ public class SearchInputServlet extends HttpServlet {
 			//게시판에서 페이지를 이동할 때에는 이미 페이지값이 존재하므로 해당 페이지값을 저장
 			currentPage = Integer.parseInt(request.getParameter("currentPage"));
 		}
-		
+
 		//5. 검색어를 담은 ArrayList와 현재 페이지 정보를 담은 currentPage를 Service로 전송
 		SearchResult searchResult = new SearchService().searchBar(searchList, currentPage);
 		

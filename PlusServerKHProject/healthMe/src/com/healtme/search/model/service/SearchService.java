@@ -25,6 +25,7 @@ public class SearchService {
 		//1. TRAINER테이블로부터 MEMBERID, PROFILEFILE, TRAINERREGION, TRAINEREVENT를 가져옴
 		//위의 네가지 정보를 저장하는 SearchedTrainer 객체를 저장할 ArrayList생성
 		ArrayList<SearchedTrainer> tmpTrainer = new SearchDao().searchBarTrainer(conn, searchList);
+
 		if(!tmpTrainer.isEmpty()) {
 			
 			//2. Member테이블로부터 트레이너 이름을 가져옴
@@ -52,7 +53,6 @@ public class SearchService {
 			//1. SearchResult 결과 객체의 ArrayLsit
 			ArrayList<SearchedTrainerResult> trainerList = new ArrayList<>();
 			//2.한 페이지에 표현할 데이터 갯수인 start부터 end까지만 데이터를 잘라서 보냄
-
 			for(int i=sp.getStart() ; i<=sp.getEnd() ; i++) {
 				SearchedTrainerResult str = new SearchedTrainerResult();
 				str.setMemberId(tmpTrainer.get(i).getMemberId());

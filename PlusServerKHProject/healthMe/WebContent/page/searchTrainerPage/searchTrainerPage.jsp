@@ -113,25 +113,43 @@
             </div>
             <!--트레이너 별점 등 컨텐츠 나오는 부분-->
             <div id="contents">
-            	<div id="ment">
-            		<%if(searchResult==null){ %>
+           		<%if(searchResult==null){ %>
+            		<div id="ment">
 						<img style="height:100%; width:100%;" src="../../img/searchTrainerMainImg.PNG">
-					<%} else { %>
-						<div id="searchResult">
-						<% for(SearchedTrainerResult n : trainerList){ %>
-							아이디 : <%=n.getMemberId() %><br>
-							이름 : <%=n.getMemberName() %><br>
-							프로필 경로 : <%=n.getProfileFile() %><br>
-							종목 : <%=n.getTrainerEvent() %><br>
-							별점 : <%=n.getMatchingScore() %><br>
-							<br><br><br>
-						<% } %>
+					</div>
+				<%} else { %>
+					<div id="searchResultTrainer" style="width:100%; height:95%">
+						<div style="width:80%; height:80%;">
+							<table border="1">
+								<tr>
+									<% for(int i=0 ; i<3 ; i++){ %>
+										<td>
+											프로필 경로 : <%=trainerList.get(i).getProfileFile() %><br>
+											이름 : <%=trainerList.get(i).getMemberName() %><br>
+											종목 : <%=trainerList.get(i).getTrainerEvent() %><br>
+											별점 : <%=trainerList.get(i).getMatchingScore() %><br>
+											<br><br><br>	
+										</td>
+									<% } //for문 종료%>
+								</tr>
+								<tr>
+									<% for(int i=3 ; i<6 ; i++){ %>
+										<td>
+											프로필 경로 : <%=trainerList.get(i).getProfileFile() %><br>
+											이름 : <%=trainerList.get(i).getMemberName() %><br>
+											종목 : <%=trainerList.get(i).getTrainerEvent() %><br>
+											별점 : <%=trainerList.get(i).getMatchingScore() %><br>
+											<br><br><br>	
+										</td>
+									<% } //for문 종료%>
+								</tr>
+							</table>
 						</div>
-						<div id="searchNavi">
-							<label><%=pageNavi %></label>
-						</div>
-					<%} %>
-				</div>
+					</div>
+					<div id="searchNavi" style="width:100%; height:5%">
+						<label><%=pageNavi %></label>
+					</div>
+				<%} //if종료%>
             </div>
         </div>
         
