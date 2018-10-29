@@ -94,11 +94,6 @@
 		naver_id_login.init_naver_id_login();
 </script>
                        
-                       
-                       
-                       
-                       
-                       
                         </div>
                    </form>
                    <div align="center">
