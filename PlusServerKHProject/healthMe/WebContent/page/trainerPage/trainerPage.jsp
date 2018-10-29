@@ -40,16 +40,17 @@
         		<div class="resume">
         			<div class="resumeDivL border">      			
         				<div class="imgBoxSize">
-        					<img src="../../img/dayeon.png" class="imgSize">
+        					<img src="<%=t.getTraienrRegion()%>" class="imgSize">
+        					<%System.out.println(t.getProfileFile());%>
         				</div>
         				<div class="imgUnderText textMiddle">
-        					<h1>트레이너 이름</h1>
+        					<div class="textSize"><%=m.getMemberName()%></div>
         				</div>
         			</div>
         			<div class="resumeDivR border">
         				<div class="resumeTextBox">
         					<div class="resumeTextTop textMiddle">
-        						제목
+        						<div class="textSize"><%=t.getTrainerSubject()%></div>
         					</div>
         					<div class="resumeTextMiddle textMiddle">
         						별점
@@ -57,9 +58,9 @@
         					<div class="resumeTextButtom textMiddle">
         						<div>
         						<hr>
-        							<table border=1>
+        							<table border="1">
         								<tr>
-        								<td>지역</td><td>횟수</td><td>인원</td><td>금액</td>
+        								<th>지역</th><th>횟수</th><th>인원</th><th>금액</th>
         								</tr>
         								<tr>
         								<td>지역</td><td>횟수</td><td>인원</td><td>금액</td>
@@ -76,13 +77,13 @@
         		<!--간단 이력 밑 부분-->
 				<div class="contents_3 border">
 					<div class="content3Box">
-					<div class="myInfo_1 textMiddle">
+					<div class="myInfo_1 textMiddle"><br>
 					트레이너 정보
 					</div><br>
 					<div class="myInfoInner textMiddle" >
-						트레이너 이름 : <%=m.getMemberName()%><br>
-						트레이너 이메일 : <%=m.getMemberEmail()%><br>
-						트레이너 번호 : <%=m.getMemberPhone()%><br>						
+						트레이너 이름&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <%=m.getMemberName()%><br><br>
+						트레이너 이메일&nbsp;&nbsp; : <%=m.getMemberEmail()%><br><br>
+						트레이너 번호&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <%=m.getMemberPhone()%><br><br>						
 					</div>
 					<hr>
 					<div class="myInfo_2 textMiddle">
@@ -91,24 +92,29 @@
 					<div class="myInfoInner textMiddle" >
 					<%
 						if(t.getLicenseName1()!=null){ %>
-							자격증 : <%=t.getLicenseName1()%>							
-<%						}%><br>
+							자격증 : <%=t.getLicenseName1()%>	
+							<br>						
+<%						}%>
 					<%
 						if(t.getLicenseName2()!=null){ %>
-							자격증 : <%=t.getLicenseName2()%>							
-<%						}%><br>
+							자격증 : <%=t.getLicenseName2()%>		
+							<br>					
+<%						}%>
 					<%
 						if(t.getLicenseName3()!=null){ %>
-							자격증 : <%=t.getLicenseName3()%>							
-<%						}%><br>
+							자격증 : <%=t.getLicenseName3()%>	
+							<br>						
+<%						}%>
 					<%
 						if(t.getLicenseName4()!=null){ %>
-							자격증 : <%=t.getLicenseName4()%>							
-<%						}%><br>
+							자격증 : <%=t.getLicenseName4()%>			
+							<br>				
+<%						}%>
 					<%
 						if(t.getLicenseName5()!=null){ %>
-							자격증 : <%=t.getLicenseName5()%>				
-<%						}%><br>
+							자격증 : <%=t.getLicenseName5()%>			
+							<br>	
+<%						}%>
 					</div>
 					<hr>
 					<div class="myInfo_3 textMiddle">
@@ -118,26 +124,31 @@
 <%						if(t.getCareerName1()!=null){ %>
 							경력 : <%=t.getCareerName1()%>							
 							기간 : <%=t.getCareerStart1()%> ~ <%=t.getCareerEnd1()%>
-<%						}%><br>			
+							<br>	
+<%						}%>		
 					<%
 						if(t.getCareerName2()!=null){ %>
 							경력 : <%=t.getCareerName2()%>							
 							기간 : <%=t.getCareerStart2()%> ~ <%=t.getCareerEnd2()%>
-<%						}%>	<br>	
+							<br>
+<%						}%>		
 					<%
 						if(t.getCareerName3()!=null){ %>
 							경력 : <%=t.getCareerName3()%>							
 							기간 : <%=t.getCareerStart3()%> ~ <%=t.getCareerEnd3()%>
-<%						}%>	<br>	
+								<br>
+<%						}%>	
 					<%
 						if(t.getCareerName4()!=null){ %>
 							경력 : <%=t.getCareerName4()%>							
 							기간 : <%=t.getCareerStart4()%> ~ <%=t.getCareerEnd4()%>
+							<br>	
 <%						}%>		
 					<%
 						if(t.getCareerName5()!=null){ %>
 							경력 : <%=t.getCareerName5()%>							
 							기간 : <%=t.getCareerStart5()%> ~ <%=t.getCareerEnd5()%>
+							<br>	
 <%						}%>			
 					</div>
 					<hr>
@@ -145,7 +156,9 @@
 					수업 소개
 					</div><br>
 					<div class="myInfoInner textMiddle">
-						수업명 : <%=t.getTrainerSubject()%><br><br>
+						수업명 : <%=t.getTrainerSubject()%><br><br><br>
+					</div>	
+					<div class="myInfoInner textMiddle">
 						<%=t.getTrainerContent()%><br>
 					</div>
 					<hr>
@@ -172,10 +185,7 @@
 							        center: new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
 							        level: 3 // 지도의 확대 레벨
 							    };  
-							<!--지도를 띄우는 코드 작성끝-->
-							
-							
-							
+		
 							// 지도를 생성합니다    
 							var map = new daum.maps.Map(mapContainer, mapOption); 
 
@@ -183,7 +193,7 @@
 							var geocoder = new daum.maps.services.Geocoder();
 
 							// 주소로 좌표를 검색합니다
-							geocoder.addressSearch('제주특별자치도 제주시 첨단로 242', function(result, status) {
+							geocoder.addressSearch("<%=t.getTraienrRegion()%>", function(result, status) {
 
 							    // 정상적으로 검색이 완료됐으면 
 							     if (status === daum.maps.services.Status.OK) {
@@ -196,21 +206,11 @@
 							            position: coords
 							        });
 
-							        // 인포윈도우로 장소에 대한 설명을 표시합니다
-							        var infowindow = new daum.maps.InfoWindow({
-							            content: '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>'
-							        });
-							        infowindow.open(map, marker);
-
 							        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 							        map.setCenter(coords);
 							    } 
 							});    
-							
-						
-							
-							
-							
+	
 							</script>
 						</div>
 					
@@ -224,16 +224,25 @@
 				<div class="infoBox">
 					<br>
 					<div class="infoBox_1"></div>
-					위치&nbsp;&nbsp;&nbsp;
+					<div class="infoBoxFont">
+					위치&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=t.getTraienrRegion()%>
+					</div>
+					<br>
 					<hr>
 					<div class="infoBox_2"></div>
-					요일&nbsp;&nbsp;&nbsp;
+					<div class="infoBoxFont">
+					이메일&nbsp;&nbsp;&nbsp;<%=m.getMemberEmail()%>
+					</div>
+					<br>
 					<hr>
 					<div class="infoBox_3"></div>
-					장소&nbsp;&nbsp;&nbsp;
+					<div class="infoBoxFont">
+					연락처&nbsp;&nbsp;&nbsp;<%=m.getMemberPhone()%>
+					</div>
+					<br>
 					<hr>
 					<div class="infoBox_4"></div>
-					<div class="infoBox_5"></div>
+					<div class="infoBox_5 "></div>
 					<br>
 					<form action = "" method="post">
 					<div class="infoBox_6">
