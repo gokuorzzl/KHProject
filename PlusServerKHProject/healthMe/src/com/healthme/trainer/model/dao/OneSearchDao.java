@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.healthme.common.JDBCTemplate;
+import com.healthme.member.vo.Member;
 import com.healthme.trainer.model.vo.Trainer;
 
 public class OneSearchDao {
@@ -78,6 +79,35 @@ public class OneSearchDao {
 			JDBCTemplate.close(pstmt);
 		}
 		return t;
+	}
+
+	public Member oneSearchName(Connection conn, String memberId) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		Member m = null;
+		String query = "select * from member where memberId=?";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, memberId);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				m = new Member();
+				m.setPkMemberNumber(rset.getInt("pkmembernumber"));
+				m.setMemberId(rset.getString("memberid"));
+				m.setMemberName(rset.getString("membername"));
+				m.setMemberEmail(rset.getString("memberemail"));
+				m.setMemberPhone(rset.getString("memberphone"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace(); 
+		} finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		return m;
+		
 	}
 
 }

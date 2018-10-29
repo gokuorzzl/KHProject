@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.healthme.trainer.model.service.OneSearchService;
-import com.healthme.trainer.model.vo.Trainer;
+import com.healthme.trainer.model.vo.SearchData;
 
 /**
  * Servlet implementation class TrainerOneSearchServlet
@@ -31,13 +31,17 @@ public class TrainerOneSearchServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		request.setCharacterEncoding("utf-8");
 		
-		String memberId = "test11";
-		Trainer t = new OneSearchService().onsSearch(memberId);
+		String memberId = request.getParameter("memberId");
+		SearchData sd = new OneSearchService().onsSearch(memberId);
 		
-		if(t!=null) {
+		
+		if(sd!=null) {
 			RequestDispatcher view = request.getRequestDispatcher("/page/trainerPage/trainerPage.jsp");
+			request.setAttribute("searchData", sd);
+			view.forward(request, response);
 		}else {
 			response.sendRedirect("/page/error.jsp");
 		}

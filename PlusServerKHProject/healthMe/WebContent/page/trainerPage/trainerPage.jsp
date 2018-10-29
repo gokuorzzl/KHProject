@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import ="com.healthme.trainer.model.vo.*" 
+		import = "com.healthme.member.vo.*"		
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -18,7 +21,11 @@
     <title>트레이너 정보</title>
 
 </head>
-
+<%
+	SearchData sd = (SearchData)request.getAttribute("searchData");
+	Member m = sd.getM();
+	Trainer t = sd.getT();
+%>
 
 <body>
 
@@ -72,27 +79,142 @@
 					<div class="myInfo_1 textMiddle">
 					트레이너 정보
 					</div><br>
-					<div class="myInfoInner textMiddle" >dddd</div>
+					<div class="myInfoInner textMiddle" >
+						트레이너 이름 : <%=m.getMemberName()%><br>
+						트레이너 이메일 : <%=m.getMemberEmail()%><br>
+						트레이너 번호 : <%=m.getMemberPhone()%><br>						
+					</div>
 					<hr>
 					<div class="myInfo_2 textMiddle">
-					자격사항
+					자격 사항
 					</div><br>
-					<div class="myInfoInner textMiddle" >dddd</div>
+					<div class="myInfoInner textMiddle" >
+					<%
+						if(t.getLicenseName1()!=null){ %>
+							자격증 : <%=t.getLicenseName1()%>							
+<%						}%><br>
+					<%
+						if(t.getLicenseName2()!=null){ %>
+							자격증 : <%=t.getLicenseName2()%>							
+<%						}%><br>
+					<%
+						if(t.getLicenseName3()!=null){ %>
+							자격증 : <%=t.getLicenseName3()%>							
+<%						}%><br>
+					<%
+						if(t.getLicenseName4()!=null){ %>
+							자격증 : <%=t.getLicenseName4()%>							
+<%						}%><br>
+					<%
+						if(t.getLicenseName5()!=null){ %>
+							자격증 : <%=t.getLicenseName5()%>				
+<%						}%><br>
+					</div>
 					<hr>
 					<div class="myInfo_3 textMiddle">
 					경력사항
 					</div><br>
-					<div class="myInfoInner textMiddle" >dddd</div>
+					<div class="myInfoInner textMiddle" >
+<%						if(t.getCareerName1()!=null){ %>
+							경력 : <%=t.getCareerName1()%>							
+							기간 : <%=t.getCareerStart1()%> ~ <%=t.getCareerEnd1()%>
+<%						}%><br>			
+					<%
+						if(t.getCareerName2()!=null){ %>
+							경력 : <%=t.getCareerName2()%>							
+							기간 : <%=t.getCareerStart2()%> ~ <%=t.getCareerEnd2()%>
+<%						}%>	<br>	
+					<%
+						if(t.getCareerName3()!=null){ %>
+							경력 : <%=t.getCareerName3()%>							
+							기간 : <%=t.getCareerStart3()%> ~ <%=t.getCareerEnd3()%>
+<%						}%>	<br>	
+					<%
+						if(t.getCareerName4()!=null){ %>
+							경력 : <%=t.getCareerName4()%>							
+							기간 : <%=t.getCareerStart4()%> ~ <%=t.getCareerEnd4()%>
+<%						}%>		
+					<%
+						if(t.getCareerName5()!=null){ %>
+							경력 : <%=t.getCareerName5()%>							
+							기간 : <%=t.getCareerStart5()%> ~ <%=t.getCareerEnd5()%>
+<%						}%>			
+					</div>
 					<hr>
 					<div class="myInfo_4 textMiddle">
 					수업 소개
 					</div><br>
-					<div class="myInfoInner textMiddle" >dddd</div>
+					<div class="myInfoInner textMiddle">
+						수업명 : <%=t.getTrainerSubject()%><br><br>
+						<%=t.getTrainerContent()%><br>
+					</div>
 					<hr>
 					<div class="myInfo_5 textMiddle">
 					위치정보
 					</div><br>
-					<div class="myInfoInner textMiddle" >dddd</div>
+					
+				
+					
+					
+					
+					<div class="myInfoInner textMiddle" >
+					
+						<div id="map" style="width:500px;height:400px;">
+						
+							<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=eef1064eeb14762d1843dc67b3733660&libraries=services"></script>
+							
+							<!--  eef1064eeb14762d1843dc67b3733660   -->
+							
+							<!--지도를 띄우는 코드 작성-->
+							<script>
+							var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+							    mapOption = {
+							        center: new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+							        level: 3 // 지도의 확대 레벨
+							    };  
+							<!--지도를 띄우는 코드 작성끝-->
+							
+							
+							
+							// 지도를 생성합니다    
+							var map = new daum.maps.Map(mapContainer, mapOption); 
+
+							// 주소-좌표 변환 객체를 생성합니다
+							var geocoder = new daum.maps.services.Geocoder();
+
+							// 주소로 좌표를 검색합니다
+							geocoder.addressSearch('제주특별자치도 제주시 첨단로 242', function(result, status) {
+
+							    // 정상적으로 검색이 완료됐으면 
+							     if (status === daum.maps.services.Status.OK) {
+
+							        var coords = new daum.maps.LatLng(result[0].y, result[0].x);
+
+							        // 결과값으로 받은 위치를 마커로 표시합니다
+							        var marker = new daum.maps.Marker({
+							            map: map,
+							            position: coords
+							        });
+
+							        // 인포윈도우로 장소에 대한 설명을 표시합니다
+							        var infowindow = new daum.maps.InfoWindow({
+							            content: '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>'
+							        });
+							        infowindow.open(map, marker);
+
+							        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+							        map.setCenter(coords);
+							    } 
+							});    
+							
+						
+							
+							
+							
+							</script>
+						</div>
+					
+					</div>
 					<br>
 					</div>
 				</div>
@@ -143,6 +265,11 @@
 		</div>
     </div>
  
+  
+
+  
+  
+  
   
 
 </body>
