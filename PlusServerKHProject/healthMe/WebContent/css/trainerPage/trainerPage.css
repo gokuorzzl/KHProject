@@ -99,7 +99,9 @@ table {
     	margin: 0;
     	padding: 0;
     }
-
+	.textSize{
+		font-size:40px;
+	}
     .imgBoxSize{
     	position:relative;
     	width:200px;
@@ -107,7 +109,7 @@ table {
     	line-height:inherit;
     	vertical-align: middle;
     	margin:auto;
-    	margin-top: 6%;
+    	margin-top: 20%;
     }
     .imgUnderText{
    	 position:relative;
@@ -261,6 +263,10 @@ table {
     	height:12%;  
     	vertical-align: middle;
     	margin: auto;	
+    	font-family:'NotoSansCJKkrBold';  
+    }
+    .infoBoxFont{
+    	font-size: 17px;
     	font-family:'NotoSansCJKkrBold';  
     }
     .submitB{
