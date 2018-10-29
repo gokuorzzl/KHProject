@@ -14,12 +14,23 @@
     <!--키워드-->
     <meta name="keywords" content="www.healthme.com, 트레이너, 나만의, 맞춤" />
     <!--스타일-->
-    <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
-    <script type="text/javascript" src="../../js/loginPage/login.js"></script>
-    <link rel="stylesheet" href="../../css/loginPage/login.css" />
-
+     <link rel="stylesheet" href="../../css/loginPage/login.css" />
+     
+    <!--네이버 로그인  -->
+     <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+ 	 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+   
+    <!--구글 로그인 -->
+    <meta name="google-signin-client_id" content="188338652604-hfqn3ri234pvvb00utkh6esl5vu5n180.apps.googleusercontent.com">
+    
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+   
+    
     <!--title-->
     <title>헬th미: 로그인</title> <!--로그인 첫페이지-->
+    
+    
+
 
 </head>
 <body>
@@ -65,9 +76,9 @@
                          <label for="psw"></label><br>
                          <input type="password" placeholder="비밀번호 입력해주세요" id="memberPw" name="memberPw" required><br>
                           
-                         <button type="submit" class="login-button" value="로그인"><p id="login-letter">로그인</p></button><br>
-                         <label>
-                           <input type="checkbox" checked="checked" id="loginkeep" name="remember"><label for="keep">로그인 상태 유지</label>
+                         <button type="submit" class="login-button" value="로그인"><p id="login-letter">로그인</p></button>
+                         
+                           <!-- <input type="checkbox" checked="checked" id="loginkeep" name="remember"><label for="keep">로그인 상태 유지</label> -->
                            <br><br>
                            <div id="find-container">
                               <div id="idfind">
@@ -80,41 +91,72 @@
                              <hr>
                             
                             
-                            <a href="#" class="naver-btn">
-                              <div id="naverIdLogin"></div>
+                           <!--  <a href="#" class="naver-btn">
+                              <div id="naverIdLogin"></div> -->
                              <!-- <i class="login"></i> Login with NAVER -->
                              
-                             <script>
-                             var naverLogin = new naver.LoginWithNaverId(
-                            			{
-                            				clientId: "Mvl6A4PJd71edlyhqsJu",
-                            				callbackUrl: "http://localhost/page/loginPage/naverCallback.jsp",
-                            				isPopup: false, /* 팝업을 통한 연동처리 여부 */
-                            				loginButton: {color: "green", type: 3, height: 70} /* 로그인 버튼의 타입을 지정 */
-                            			}
-                            		);
-                            		
-                            		/* 설정정보를 초기화하고 연동을 준비 */
-                            		naverLogin.init();
-                    
-                             </script>
-                             
-                             
-                             
-                           </a>
+                     <!-- 네이버아이디로로그인 버튼 노출 영역 -->
+  <div id="naver_id_login"></div> <br>
+
+		
+  <script type="text/javascript">
+  	var naver_id_login = new naver_id_login("IG6PV5dvNKOxys9LQVdt", "http://127.0.0.1/page/loginPage/loginSuccess.jsp");
+  	var state = naver_id_login.getUniqState();
+  	naver_id_login.setButton("green", 3,50);
+  	naver_id_login.setDomain(".healthme.com");
+  	naver_id_login.setState(state);
+  	naver_id_login.setPopup();
+  	naver_id_login.init_naver_id_login();
+  </script>  
+           
+         
+ <script type="text/javascript">
+
+  naver_id_login.get_naver_userprofile("naverSignInCallback()");
+  // 네이버 사용자 프로필 조회 이후 프로필 정보를 처리할 callback function
+  function naverSignInCallback() {
+    alert(naver_id_login.getProfileData('email'));
+    alert(naver_id_login.getProfileData('nickname'));
+    alert(naver_id_login.getProfileData('age'));
+  }
+</script>
+ 
+                          <!--  </a> -->
                             <br>
-                           <a href="#" class="google-btn">
+                            
+                            <!-- 구굴 아이디 버튼  -->
+                            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                            
+      <script>
+      function onSignIn(googleUser) {
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        console.log('Full Name: ' + profile.getName());
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
+
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
+      };
+    </script>
+    
+
+                            
+                           <!-- <a href="#" class="google-btn">
                              <i class="login"></i> Login with Google+
-                           </a>
-                         </label><br><br> 
+                           </a> -->
+                         <br><br> 
                         </div>
                    </form>
                    
                         <div class="login-container2" style="background-color:#f1f1f1">
                            <div id="userR">
                            <span><a class="userR" href="/page/loginPage/privacyPolicy.jsp">회원가입</a></span>
-                           </div>
-                           
+                           </div>    
                         </div>
           
                 </div>

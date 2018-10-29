@@ -12,7 +12,7 @@
 <% String checkId = request.getParameter("checkId"); %>
 
 <!--  아이디 DB통해 건너 왔는지 확인-->
- <%=checkId %>
+<%--  <%=checkId %> --%>
 
 <% boolean result = new MemberService().checkId(checkId);
 
@@ -21,6 +21,8 @@
   <script>
       var memberId = '<%=checkId%>';
       var checkFlag = 0;
+      
+
 <%  //true :사용자 있음 false: 아이디 사용 가능
    if(result) {
 %>	 
@@ -32,6 +34,7 @@
 	   memberId=""; //확인 눌렀을 때 빈 화면 
    }
    
+
 <% } else {%>  
    //거짓일 때 동작 코드 (참일 때: 해당ID가 중복이 아닐 때)
    window.onload = function() {
@@ -41,6 +44,7 @@
    }
 
 <% } %>
+
     //확인 누를 때 값이 그대로 나온다.
    function backBtn() {
     	//나를 연 브라우저

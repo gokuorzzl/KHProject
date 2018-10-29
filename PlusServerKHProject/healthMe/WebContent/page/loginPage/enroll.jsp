@@ -85,7 +85,7 @@
      
                          <label for="memberAddr">주소</label><br>
                         <input type="text" id="sample6_postcode" placeholder="우편번호">
-                        <input type="button" id="sample6_fpostcode" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+                        <input type="button" class="sample6_fpostcode" id="sample6_fpostcode" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
                         <input type="text" id="memberAddr" name="memberAddr" placeholder="주소">
                         <input type="text" id="sample6_address2" placeholder="상세주소">
 

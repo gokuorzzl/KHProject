@@ -3,15 +3,12 @@
 @charset "UTF-8";
 
 
-/*새롭게 적용할 NotoSans-Bold*/
+/* 이거일경우 한글영어특수문자 다 적용된다.아래것보다 약간 얇다.*/
 @font-face{
-font-family:'NotoSans';
-src:url(../../fonts/NotoSans-Bold.eot);/*익스플로러*/
-src:url(../../fonts/NotoSans-Bold.woff) format('woff');  /*크롬, 파이어폭스*/
-src:local(※), url(../../fonts/NotoSans-Bold.woff) format('woff');
+font-family:'NotoSansCJKkrBold';
+src:url(../../fonts/NotoSansCJKkrBold.woff) format('woff');  /*크롬, 파이어폭스*/
+src:local(※), url(../../fonts/NotoSansCJKkrBold.woff) format('woff');
 }
-
-
 
 
 /*각종 인터넷 브라우저에서 코드 작동이 가능하도록 하는 css Reset*/
@@ -25,7 +22,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-	font-family: 'NotoSans';
+	font-family: 'NotoSansCJKkrBold';
 	
 }
 /* HTML5 display-role reset for older browsers */
