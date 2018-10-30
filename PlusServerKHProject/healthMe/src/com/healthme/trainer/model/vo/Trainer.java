@@ -117,11 +117,11 @@ public class Trainer {
 	public void setTrainerGrad(String trainerGrad) {
 		this.trainerGrad = trainerGrad;
 	}
-	public String getTraienrRegion() {
+	public String getTrainerRegion() {
 		return trainerRegion;
 	}
-	public void setTraienrRegion(String traienrRegion) {
-		this.trainerRegion = traienrRegion;
+	public void setTrainerRegion(String trainerRegion) {
+		this.trainerRegion = trainerRegion;
 	}
 	public String getTrainerSubject() {
 		return trainerSubject;

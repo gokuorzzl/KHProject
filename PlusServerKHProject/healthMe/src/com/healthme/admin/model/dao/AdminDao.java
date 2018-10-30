@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import com.healthme.admin.vo.Admin;
 import com.healthme.common.JDBCTemplate;
 import com.healthme.member.vo.Member;
+import com.healthme.trainer.model.vo.Trainer;
 
 public class AdminDao {
 
@@ -140,6 +141,43 @@ public class AdminDao {
 		
 		
 		return list;
+	}
+
+	public ArrayList<Trainer> adminMemberAllT(Connection conn) {
+		// TODO Auto-generated method stub
+		//여러명을 처리하기 위한 컬렉션을 사용 (ArrayList)
+		ArrayList<Trainer> list = new ArrayList<Trainer>();
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		String query = "select * from member where membertrainer='y'";
+		
+		try {
+			stmt = conn.createStatement();
+			rset = stmt.executeQuery(query);
+			
+			while(rset.next()) {
+				Trainer t = new Trainer();
+				t.setMemberId(rset.getString("memberId"));
+				t.setProfileFile(rset.getString("profileFile"));
+				t.setTrainerGradFile(rset.getString("trainerGradFile"));
+				t.setTrainerUniv(rset.getString("trainerUniv"));
+				t.setTrainerGrad(rset.getString("trainerGrad"));
+				t.set
+				
+				
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		
+		return null;
 	}
 
 

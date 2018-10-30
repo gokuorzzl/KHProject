@@ -157,7 +157,8 @@
 					</div>
 					<div class="col-md-3">
 						<div class="main-box mb-pink">
-							<a href="#"> <i class="fa fa-dollar fa-3x"></i>
+							  <a href="/adminAllListT.do"> 
+							<i class="fa fa-dollar fa-3x"></i>
 								<h5>트레이너수정</h5>
 							</a>
 						</div>

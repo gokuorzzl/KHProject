@@ -7,6 +7,7 @@ import com.healthme.admin.model.dao.AdminDao;
 import com.healthme.admin.vo.Admin;
 import com.healthme.common.JDBCTemplate;
 import com.healthme.member.vo.Member;
+import com.healthme.trainer.model.vo.Trainer;
 
 public class AdminService {
 
@@ -48,6 +49,19 @@ public class AdminService {
 		
 		return list;
 	}
+
+	public ArrayList<Trainer> adminAllListT() {
+		// TODO Auto-generated method stub
+		Connection conn = JDBCTemplate.getConnection();
+		ArrayList<Trainer> list = new AdminDao().adminMemberAllT(conn);
+		
+		JDBCTemplate.close(conn);
+		
+		
+		return list;
+	}
+
+	
 	
 
 	
