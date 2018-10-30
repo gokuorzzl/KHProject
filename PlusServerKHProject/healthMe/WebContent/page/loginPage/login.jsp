@@ -100,12 +100,12 @@
 
 		
   <script type="text/javascript">
-  	var naver_id_login = new naver_id_login("IG6PV5dvNKOxys9LQVdt", "http://127.0.0.1/page/loginPage/loginSuccess.jsp");
+  	var naver_id_login = new naver_id_login("IG6PV5dvNKOxys9LQVdt", "http://127.0.0.1/page/loginPage/login.jsp");
   	var state = naver_id_login.getUniqState();
   	naver_id_login.setButton("green", 3,50);
   	naver_id_login.setDomain(".healthme.com");
   	naver_id_login.setState(state);
-  	naver_id_login.setPopup();
+  /* 	naver_id_login.setPopup();  */
   	naver_id_login.init_naver_id_login();
   </script>  
            
