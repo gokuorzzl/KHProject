@@ -1,3 +1,4 @@
+<%@page import="com.healthme.trainer.model.vo.Trainer"%>
 <%@page import="com.healthme.member.vo.Member"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -6,7 +7,7 @@
 
 
 <%
-	ArrayList<Member> list = (ArrayList<Member>)request.getAttribute("memberAllList");
+	ArrayList<Trainer> list = (ArrayList<Trainer>)request.getAttribute("memberAllListT");
 %>
 
 
@@ -196,37 +197,53 @@
 										type="hidden" name="menushow" value="menu1">
 
 									<tr bgColor=E0E4E8>
-										<td colSpan=4><font color="#333333">&nbsp; 번호</font></td>
 										<td colSpan=4><font color="#333333">&nbsp; 아이디</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 비밀번호</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 이름</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 주민번호</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 주소</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 이메일</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 번호</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 트레이너여부</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 등급</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 탈퇴여부</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 등록날짜</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 탈퇴날짜</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; 프로필경로</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; 대학교졸업파일</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; 대학교</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; a재학,b졸업,c수료</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; 직장주소</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; 수업제목</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; 수업소개</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; 종목</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; 경력인증파일</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; 경력시작1</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; 경력종료1</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; 경력1</font></td>
+										
+										<td colSpan=4><font color="#333333">&nbsp; 경력시작2</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; 경력종료2</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; 경력2</font></td>
+										
+										<td colSpan=4><font color="#333333">&nbsp; 경력시작3</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; 경력종료3</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; 경력3</font></td>
+										
+										<td colSpan=4><font color="#333333">&nbsp; 경력시작4</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; 경력종료4</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; 경력4</font></td>
+										
+										<td colSpan=4><font color="#333333">&nbsp; 경력시작5</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; 경력종료5</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; 경력5</font></td>
+										
+										<td colSpan=4><font color="#333333">&nbsp; 경력인증파일</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; 자격증1</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; 자격증2</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; 자격증3</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; 자격증4</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; 자격증5</font></td>
+										
 										<td colSpan=4><font color="#333333">&nbsp; 수정</font></td>
 										<td colSpan=4><font color="#333333">&nbsp; 삭제</font></td>
 									</tr>
-									<%for(Member m:list){ %>
+									<%for(Trainer t:list){ %>
 									<tr>
-									<td bgColor=#ffffff colSpan=4><%=m.getPkMemberNumber()%></td>
-									<td bgColor=#ffffff colSpan=4><%=m.getMemberId()%></td>
-									<td bgColor=#ffffff colSpan=4><%=m.getMemberPw()%></td>
-									<td bgColor=#ffffff colSpan=4><%=m.getMemberName()%></td>
-									<td bgColor=#ffffff colSpan=4><%=m.getMemberSocialId()%></td>
-									<td bgColor=#ffffff colSpan=4><%=m.getMemberAddr()%></td>
-									<td bgColor=#ffffff colSpan=4><%=m.getMemberEmail()%></td>
-									<td bgColor=#ffffff colSpan=4><%=m.getMemberPhone()%></td>
-									<td bgColor=#ffffff colSpan=4><%=m.getMemberTrainer()%></td>
-									<td bgColor=#ffffff colSpan=4><%=m.getMemberClass() %></td>
-									<td bgColor=#ffffff colSpan=4><%=m.getMemberOut()%></td>
-									<td bgColor=#ffffff colSpan=4><%=m.getMemberRegistDate()%></td>
-									<td bgColor=#ffffff colSpan=4><%=m.getMemberOutDate()%></td>
+									<td bgColor=#ffffff colSpan=4><%=%></td>
+									
+									
+									
+									
 									<td bgColor=#ffffff colSpan=4><a href="#">수정</a></td>
 									<td bgColor=#ffffff colSpan=4><a href="#">삭제</a></td>
 									
