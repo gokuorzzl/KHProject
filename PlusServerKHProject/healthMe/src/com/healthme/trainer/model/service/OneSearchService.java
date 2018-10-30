@@ -14,11 +14,13 @@ public class OneSearchService {
 		Connection conn = JDBCTemplate.getConnection();
 		Trainer t = new OneSearchDao().oneSearch(conn, memberId);
 		Member m = new OneSearchDao().oneSearchName(conn, memberId);
+		int starScore = new OneSearchDao().starSearch(conn, t);
 		
 		SearchData sd = new SearchData();
 		
 		sd.setM(m);
 		sd.setT(t);
+		sd.setStarScore(starScore);
 		
 		JDBCTemplate.close(conn);
 		

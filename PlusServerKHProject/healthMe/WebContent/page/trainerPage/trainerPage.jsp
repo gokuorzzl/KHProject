@@ -25,6 +25,7 @@
 	SearchData sd = (SearchData)request.getAttribute("searchData");
 	Member m = sd.getM();
 	Trainer t = sd.getT();
+	int starScore = sd.getStarScore(); 
 %>
 
 <body>
@@ -40,8 +41,7 @@
         		<div class="resume">
         			<div class="resumeDivL border">      			
         				<div class="imgBoxSize">
-        					<img src="<%=t.getTraienrRegion()%>" class="imgSize">
-        					<%System.out.println(t.getProfileFile());%>
+        					<img src="../..<%=t.getProfileFile()%>" class="imgSize">
         				</div>
         				<div class="imgUnderText textMiddle">
         					<div class="textSize"><%=m.getMemberName()%></div>
@@ -56,18 +56,57 @@
         						별점
         					</div>       					
         					<div class="resumeTextButtom textMiddle">
-        						<div>
-        						<hr>
-        							<table border="1">
-        								<tr>
-        								<th>지역</th><th>횟수</th><th>인원</th><th>금액</th>
-        								</tr>
-        								<tr>
-        								<td>지역</td><td>횟수</td><td>인원</td><td>금액</td>
-        								</tr>
-        							</table>
-        						<hr>
-        						</div>
+        					<div class="starBoxFull textMiddle">
+								<%
+								if(starScore==0){%>
+									<div class="starBox">
+								<%		for(int i =0; i<5; i++) {%>
+										<img src="../../img/star/starNull.PNG" style="width:60px; height:60px"/>
+							<%			} %>
+									</div>
+	<%							}else if(starScore==1){%>
+								<div class="starBox">
+								<img src= "../../img/star/starFull.PNG" style="width:60px; height:60px"/>
+								<%	for(int i =0; i<4; i++) {%>
+									<img src="../../img/star/starNull.PNG" style="width:60px; height:60px"/>
+								<%	} %>
+								</div>	
+	<%							}else if(starScore==2){%>
+								<div class="starBox">
+								<%	for(int i =0; i<2; i++) {%>
+									<img src="../../img/star/starFull.PNG" style="width:60px; height:60px"/>
+								<%	} %>
+								<%	for(int i =0; i<3; i++) {%>
+									<img src="../../img/star/starNull.PNG" style="width:60px; height:60px"/>
+								<%	} %>
+								</div>	
+	<%							}else if(starScore==3){%>
+								<div class="starBox">
+								<%	for(int i =0; i<3; i++) {%>
+									<img src="../../img/star/starFull.PNG" style="width:60px; height:60px"/>
+								<%	} %>
+								<%	for(int i =0; i<2; i++) {%>
+									<img src="../../img/star/starNull.PNG" style="width:60px; height:60px"/>
+								<%	} %>
+								</div>		
+	<%							}else if(starScore==4){%>
+								<div class="starBox">
+								<%	for(int i =0; i<4; i++) {%>
+									<img src="../../img/star/starFull.PNG" style="width:60px; height:60px"/>
+								<%	} %>
+								<%	for(int i =0; i<1; i++) {%>
+									<img src="../../img/star/starNull.PNG" style="width:60px; height:60px"/>
+								<%	} %>
+								</div>	
+	<%							}else if(starScore==5){%>
+								<div class="starBox">
+								<%	for(int i =0; i<5; i++) {%>
+									<img src="../../img/star/starFull.PNG" style="width:60px; height:60px"/>
+								<%	} %>
+								</div>		
+	<%							}
+								%>
+								</div>
         					</div>
         				</div>
         			</div>
@@ -244,11 +283,14 @@
 					<div class="infoBox_4"></div>
 					<div class="infoBox_5 "></div>
 					<br>
-					<form action = "" method="post">
+					<form action = "/register.do" method="post">
 					<div class="infoBox_6">
 						<div class="submitB"> 
 						<input type="submit" class="submitBtn" value=" 수업 신청하기 ▶ ">
-					</div></div>
+						<input type="hidden" value="<%=t.getMemberId()%>" name="trainerId"/>
+						<input type="hidden" value="<%=t.getTrainerSubject()%>" name="trainerSubject"/>
+					</div>
+					</div>
 					</form>
 					<br>
 					<div class="infoBox_7"></div>

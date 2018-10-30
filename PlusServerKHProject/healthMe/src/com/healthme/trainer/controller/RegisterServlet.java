@@ -2,7 +2,6 @@ package com.healthme.trainer.controller;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,20 +10,19 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.healthme.member.vo.Member;
-import com.healthme.trainer.model.service.OneSearchService;
-import com.healthme.trainer.model.vo.SearchData;
+import com.healthme.trainer.model.service.RegisterService;
 
 /**
- * Servlet implementation class TrainerOneSearchServlet
+ * Servlet implementation class RegisterServlet
  */
-@WebServlet(name = "TrainerOneSearch", urlPatterns = { "/trainerOneSearch.do" })
-public class TrainerOneSearchServlet extends HttpServlet {
+@WebServlet(name = "Register", urlPatterns = { "/register.do" })
+public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public TrainerOneSearchServlet() {
+    public RegisterServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,19 +31,15 @@ public class TrainerOneSearchServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		request.setCharacterEncoding("utf-8");
 		
-		String memberId = request.getParameter("memberId");
-		SearchData sd = new OneSearchService().onsSearch(memberId);
-
+		String trainerId = request.getParameter("trainerId");
+		String trainerSubject = request.getParameter("trainerSubject");
 		
-		if(sd!=null) {
-			RequestDispatcher view = request.getRequestDispatcher("/page/trainerPage/trainerPage.jsp");
-			request.setAttribute("searchData", sd);
-			view.forward(request, response);
-		}else {
-			response.sendRedirect("/page/error.jsp");
+		HttpSession session = request.getSession(false);
+		String userId =((Member)session.getAttribute("member")).getMemberId();
+		if(session!=null) {
+			new RegisterService().insertRegister(trainerId, trainerSubject, userId);
 		}
 	}
 

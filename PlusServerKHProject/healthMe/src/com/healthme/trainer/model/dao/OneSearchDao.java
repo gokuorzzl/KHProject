@@ -110,4 +110,30 @@ public class OneSearchDao {
 		
 	}
 
+	public int starSearch(Connection conn, Trainer t) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		int starScore=0;
+		String query = "select round(avg(matchingScore)) AS result from matching where matchedMemberId =?";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, t.getMemberId());
+			
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				starScore = rset.getInt("result"); 
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		return starScore;
+		
+		
+		
+	}
+
 }

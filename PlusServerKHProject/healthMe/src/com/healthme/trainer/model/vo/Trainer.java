@@ -9,7 +9,7 @@ public class Trainer {
 	private String trainerGradFile;	//대학교 졸업 인증 파일
 	private String trainerUniv;	//대학교에 대한 것	
 	private String trainerGrad;	//a 재학, b 졸업, c 수료
-	private String traienrRegion;	//트레이너 직장주소
+	private String trainerRegion;	//트레이너 직장주소
 	private String trainerSubject;	//트레이너 수업제목
 	private String trainerContent;	//트레이너 수업 소개
 	private String trainerEvent;	//트레이너 종목
@@ -46,7 +46,7 @@ public class Trainer {
 	
 	
 	public Trainer(String memberId, String profileFile, String trainerGradFile, String trainerUniv, String trainerGrad,
-			String traienrRegion, String trainerSubject, String trainerContent, String trainerEvent,
+			String trainerRegion, String trainerSubject, String trainerContent, String trainerEvent,
 			String trainerCareerFile, Date careerStart1, Date careerEnd1, String careerName1, Date careerStart2,
 			Date careerEnd2, String careerName2, Date careerStart3, Date careerEnd3, String careerName3,
 			Date careerStart4, Date careerEnd4, String careerName4, Date careerStart5, Date careerEnd5,
@@ -58,7 +58,7 @@ public class Trainer {
 		this.trainerGradFile = trainerGradFile;
 		this.trainerUniv = trainerUniv;
 		this.trainerGrad = trainerGrad;
-		this.traienrRegion = traienrRegion;
+		this.trainerRegion = trainerRegion;
 		this.trainerSubject = trainerSubject;
 		this.trainerContent = trainerContent;
 		this.trainerEvent = trainerEvent;
@@ -118,10 +118,10 @@ public class Trainer {
 		this.trainerGrad = trainerGrad;
 	}
 	public String getTraienrRegion() {
-		return traienrRegion;
+		return trainerRegion;
 	}
 	public void setTraienrRegion(String traienrRegion) {
-		this.traienrRegion = traienrRegion;
+		this.trainerRegion = traienrRegion;
 	}
 	public String getTrainerSubject() {
 		return trainerSubject;
