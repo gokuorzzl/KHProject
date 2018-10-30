@@ -218,6 +218,53 @@ public class AdminDao {
 
 	}
 
+	public int adminAllSelectOneUpdate(Connection conn, int pkMemberNumber, String memberId, String memberPw,
+			String memberName, String memberSocialId, String memberAddr, String memberEmail, String memberPhone,
+			char memberTrainer, String memberClass, char memberOut) {
+		// TODO Auto-generated method stub
+		
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String memberTrainer1 = String.valueOf(memberTrainer);
+		String memberOut1 = String.valueOf(memberOut);
+		
+		
+		String query = "update member set pkMemberNumber=?, memberId=?, memberPw=?, memberName=?, memberSocialId=?, memberAddr=?, memberEmail=?, memberPhone=?, memberTrainer=?"
+				+ " where memberId=?";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setInt(1, pkMemberNumber);
+			pstmt.setString(2, memberId);
+			pstmt.setString(3, memberPw);
+			pstmt.setString(4, memberName);
+			pstmt.setString(5, memberSocialId);
+			pstmt.setString(6, memberAddr);
+			pstmt.setString(7, memberEmail);
+			pstmt.setString(8, memberPhone);
+			pstmt.setString(9, memberTrainer1);
+			pstmt.setString(10, memberClass);
+			pstmt.setString(11, memberOut1);
+			
+			result = pstmt.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		
+		
+		
+		
+		
+		return result;
+	}
+
 
 
 }

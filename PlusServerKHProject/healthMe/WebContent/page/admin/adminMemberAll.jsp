@@ -212,7 +212,7 @@
 										<td colSpan=4><font color="#333333">&nbsp; 수정</font></td>
 										<td colSpan=4><font color="#333333">&nbsp; 삭제</font></td>
 									</tr>
-									<form id=updateform method="post" action="/adminMemberselectUpdate.do">
+									
 									<%for(Member m:list){ %>
 									<tr>
 									
@@ -233,14 +233,38 @@
 									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberRegistDate_fd" value="<%=m.getMemberRegistDate()%>"/><span id="memberRegistDate"><%=m.getMemberRegistDate()%></span></td>
 									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberOutDate_fd" value="<%=m.getMemberOutDate()%>"/><span id="memberOutDate"><%=m.getMemberOutDate()%></span></td>
 									<td bgColor=#ffffff colSpan=4><button id="btn1" onclick="modifyActive();">수정</button></td>
-									<td bgColor=#ffffff colSpan=4><button id="btn2" onclick="delNotice();">삭제</button></td>
-									
-									
+									<td bgColor=#ffffff colSpan=4><button id="btn2" onclick="delMember();">삭제</button></td>
 									</tr>
+									
+										<form action="/adminMemberUpdateOne.do" method="post" id="updateForm">
+									
+									<input type="hidden" id="pkMemberNumber_form" value="<%=m.getPkMemberNumber()%>"/>
+									<input type="hidden" id="memberId_form" name="memberId"/>
+									<input type="hidden" id="memberPw_form" name="memberPw"/>
+									<input type="hidden" id="memberName_form" name="memberName"/>
+									<input type="hidden" id="memberSocialId_form" name="memberSocialId"/>
+									<input type="hidden" id="memberAddr_form" name="memberAddr"/>
+									<input type="hidden" id="memberEmail_form" name="memberEmail"/>
+									<input type="hidden" id="memberPhone_form" name="memberPhone"/>
+									<input type="hidden" id="memberTrainer_form" name="memberTrainer"/>
+									<input type="hidden" id="memberClass_form" name="memberClass"/>
+									<input type="hidden" id="memberOut_form" name="memberOut"/>
+									<input type="hidden" id="memberRegistDate_form" name="memberRegistDate"/>
+									<input type="hidden" id="memberOutDate_form" name="memberOutDate"/>
+									</form>
+									
+									
+									
+									
+									
+									
 									<%} %>
 
-								</form>
-
+								
+								
+									
+									
+									
 
 
 
@@ -341,7 +365,7 @@ function modifyActive(){
 	
 	
 	document.getElementById("btn2").innerHTML="취소";	
-	document.getElementById("btn2").onclick=function(){cancelNotice()};
+	document.getElementById("btn2").onclick=function(){cancelMember()};
 	
 	document.getElementById("btn1").onclick=function(){modifySubmit()};
 }
@@ -349,17 +373,158 @@ function modifyActive(){
 
 
 function modifySubmit(){
-	document.getElementById("subject_form").value = 
-		document.getElementById("subject_fd").value;
+	document.getElementById("pkMemberNumber_form").value = 
+		document.getElementById("pkMemberNumber_fd").value;
 	
-	document.getElementById("contents_form").value = 
-		document.getElementById("contents_fd").value;
+	document.getElementById("memberId_form").value = 
+		document.getElementById("memberId_fd").value;
+	
+	document.getElementById("memberPw_form").value = 
+		document.getElementById("memberPw_fd").value;
+	
+	document.getElementById("memberName_form").value = 
+		document.getElementById("memberName_fd").value;
+	
+	document.getElementById("memberSocialId_form").value = 
+		document.getElementById("memberSocialId_fd").value;
+	
+	document.getElementById("memberAddr_form").value = 
+		document.getElementById("memberAddr_fd").value;
+	
+	document.getElementById("memberEmail_form").value = 
+		document.getElementById("memberEmail_fd").value;
+	
+	document.getElementById("memberPhone_form").value = 
+		document.getElementById("memberPhone_fd").value;
+	
+	document.getElementById("memberTrainer_form").value = 
+		document.getElementById("memberTrainer_fd").value;
+	
+	
+	document.getElementById("memberClass_form").value = 
+		document.getElementById("memberClass_fd").value;
+	
+	
+	document.getElementById("memberOut_form").value = 
+		document.getElementById("memberOut_fd").value;
+	
+	document.getElementById("memberRegistDate_form").value = 
+		document.getElementById("memberRegistDate_fd").value;
+	
+	document.getElementById("memberOutDate_form").value = 
+		document.getElementById("memberOutDate_fd").value;
+	
+	
+	
+	
 	
 	document.getElementById("updateForm").submit();
 	
 	
 	
 }
+
+function delMember(){
+	
+	
+	
+	
+}
+
+
+function cancelMember(){
+	document.getElementById("pkMemberNumber").style.display="inline";
+	document.getElementById("pkMemberNumber_fd").type="hidden";
+	document.getElementById("pkMemberNumber_fd").value=
+		document.getElementById("pkMemberNumber").innerHTML;
+	
+	document.getElementById("memberId").style.display="inline";
+	document.getElementById("memberId_fd").type="hidden";
+	document.getElementById("memberId_fd").value=
+		document.getElementById("memberId").innerHTML;
+	
+	document.getElementById("memberPw").style.display="inline";
+	document.getElementById("memberPw_fd").type="hidden";
+	document.getElementById("memberPw_fd").value=
+		document.getElementById("memberPw").innerHTML;
+	
+	
+	document.getElementById("memberName").style.display="inline";
+	document.getElementById("memberName_fd").type="hidden";
+	document.getElementById("memberName_fd").value=
+		document.getElementById("memberName").innerHTML;
+	
+	
+	document.getElementById("memberSocialId").style.display="inline";
+	document.getElementById("memberSocialId_fd").type="hidden";
+	document.getElementById("memberSocialId_fd").value=
+		document.getElementById("memberSocialId").innerHTML;
+	
+	
+	document.getElementById("memberAddr").style.display="inline";
+	document.getElementById("memberAddr_fd").type="hidden";
+	document.getElementById("memberAddr_fd").value=
+		document.getElementById("memberAddr").innerHTML;
+	
+	
+	document.getElementById("memberEmail").style.display="inline";
+	document.getElementById("memberEmail_fd").type="hidden";
+	document.getElementById("memberEmail_fd").value=
+		document.getElementById("memberEmail").innerHTML;
+	
+	
+	document.getElementById("memberPhone").style.display="inline";
+	document.getElementById("memberPhone_fd").type="hidden";
+	document.getElementById("memberPhone_fd").value=
+		document.getElementById("memberPhone").innerHTML;
+	
+	document.getElementById("memberTrainer").style.display="inline";
+	document.getElementById("memberTrainer_fd").type="hidden";
+	document.getElementById("memberTrainer_fd").value=
+		document.getElementById("memberTrainer").innerHTML;
+	
+	
+	document.getElementById("memberClass").style.display="inline";
+	document.getElementById("memberClass_fd").type="hidden";
+	document.getElementById("memberClass_fd").value=
+		document.getElementById("memberClass").innerHTML;
+	
+	
+	document.getElementById("memberOut").style.display="inline";
+	document.getElementById("memberOut_fd").type="hidden";
+	document.getElementById("memberOut_fd").value=
+		document.getElementById("memberOut").innerHTML;
+	
+	
+	document.getElementById("memberRegistDate").style.display="inline";
+	document.getElementById("memberRegistDate_fd").type="hidden";
+	document.getElementById("memberRegistDate_fd").value=
+		document.getElementById("memberRegistDate").innerHTML;
+	
+	
+	document.getElementById("memberOutDate").style.display="inline";
+	document.getElementById("memberOutDate_fd").type="hidden";
+	document.getElementById("memberOutDate_fd").value=
+		document.getElementById("memberOutDate").innerHTML;
+	
+	
+	
+	
+	
+	
+	document.getElementById("btn2").innerHTML="삭제";	
+	document.getElementById("btn2").onclick=function(){delMember()};
+	
+	
+	document.getElementById("btn1").onclick=function(){modifyActive()};
+	
+	
+	
+}
+
+
+
+
 
 </script>
 

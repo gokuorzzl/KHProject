@@ -61,6 +61,27 @@ public class AdminService {
 		return list;
 	}
 
+	public int adminAllSelectOneUpdate(int pkMemberNumber, String memberId, String memberPw, String memberName,
+			String memberSocialId, String memberAddr, String memberEmail, String memberPhone, char memberTrainer,
+			String memberClass, char memberOut) {
+		// TODO Auto-generated method stub
+		
+		Connection conn = JDBCTemplate.getConnection();
+		
+		int result = new AdminDao().adminAllSelectOneUpdate(conn,pkMemberNumber,memberId,memberPw,memberName,memberSocialId,memberAddr,memberEmail,memberPhone,memberTrainer,memberClass,memberOut);
+		
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		
+		
+		
+		return result;
+	}
+
 	
 	
 
