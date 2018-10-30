@@ -232,7 +232,7 @@
 									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberOut_fd" value="<%=m.getMemberOut()%>"/><span id="memberOut"><%=m.getMemberOut()%></span></td>
 									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberRegistDate_fd" value="<%=m.getMemberRegistDate()%>"/><span id="memberRegistDate"><%=m.getMemberRegistDate()%></span></td>
 									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberOutDate_fd" value="<%=m.getMemberOutDate()%>"/><span id="memberOutDate"><%=m.getMemberOutDate()%></span></td>
-									<td bgColor=#ffffff colSpan=4><button value="1" id="btn1"  onclick="modifyActive();" >수정</button></td>
+									<td bgColor=#ffffff colSpan=4><button id="btn1" onclick="modifyActive();">수정</button></td>
 									<td bgColor=#ffffff colSpan=4><button id="btn2" onclick="delMember();">삭제</button></td>
 									</tr>
 									
@@ -294,8 +294,6 @@
 function modifyActive(){
 	document.getElementById("pkMemberNumber").style.display="none";
 	document.getElementById("pkMemberNumber_fd").type="text";
-	
-	
 	
 	document.getElementById("memberId").style.display="none";
 	document.getElementById("memberId_fd").type="text";

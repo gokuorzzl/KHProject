@@ -230,7 +230,7 @@ public class AdminDao {
 		String memberOut1 = String.valueOf(memberOut);
 		
 		
-		String query = "update member set pkMemberNumber=?, memberId=?, memberPw=?, memberName=?, memberSocialId=?, memberAddr=?, memberEmail=?, memberPhone=?, memberTrainer=?"
+		String query = "update member set pkMemberNumber=?, memberId=?, memberPw=?, memberName=?, memberSocialId=?, memberAddr=?, memberEmail=?, memberPhone=?, memberTrainer=?, memberClass=?"
 				+ " where memberId=?";
 		
 		try {
