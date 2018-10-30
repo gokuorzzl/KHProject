@@ -62,7 +62,7 @@
                                 <label>프로필사진</label><br>
                                 <div id="picture_cover">
                                     <div>
-                                        <input type="file" id="picture" name="picture" />
+                                        <input type="file" id="profileFile" name="profileFile" />
                                     </div>
                                     <span>
                                         프로필 사진을 업로드 해 주세요.<br>
@@ -96,90 +96,90 @@
                                 <label for="memberAddr">활동 지역</label><br>
                                 <input type="text" id="sample6_postcode" placeholder="우편번호">
                                 <input type="button" id="sample6_fpostcode" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-                                <input type="text" id="memberAddr" name="memberAddr" placeholder="주소">
+                                <input type="text" id="memberAddr" name="trainerRegion" placeholder="주소">
                                 <input type="text" id="sample6_address2" placeholder="상세주소">
                             </li>
                             <li style=i>
-                                <input type="radio" id="sport1" name="sport" value="10" /><label for="sport1">&lt;헬스&gt;</label>
-                                <input type="radio" id="sport2" name="sport" value="20" /><label for="sport2">&lt;요가&gt;</label>
-                                <input type="radio" id="sport3" name="sport" value="30" /><label for="sport3">&lt;구기종목&gt;</label>
-                                <input type="radio" id="sport4" name="sport" value="40" /><label for="sport4">&lt;무술&gt;</label>
-                                <input type="radio" id="sport5" name="sport" value="50" /><label for="sport5">&lt;라켓&gt;</label>
-                                <input type="radio" id="sport6" name="sport" value="60" /><label for="sport6">&lt;와타스포츠&gt;</label>
-                                <input type="radio" id="sport7" name="sport" value="70" /><label for="sport7">&lt;유산소&gt;</label>
+                                <input type="radio" id="sport1"  /><label for="sport1">&lt;헬스&gt;</label>
+                                <input type="radio" id="sport2"  /><label for="sport2">&lt;요가&gt;</label>
+                                <input type="radio" id="sport3"  /><label for="sport3">&lt;구기종목&gt;</label>
+                                <input type="radio" id="sport4" /><label for="sport4">&lt;무술&gt;</label>
+                                <input type="radio" id="sport5"  /><label for="sport5">&lt;라켓&gt;</label>
+                                <input type="radio" id="sport6"  /><label for="sport6">&lt;와타스포츠&gt;</label>
+                                <input type="radio" id="sport7"  /><label for="sport7">&lt;유산소&gt;</label>
                             </li>
                             <p id="categoryline">└ 해당 카테고리의 종목 :&nbsp;&nbsp;</p>
                             
                             <li id="sport1_sub" class="sport_tag" style="display:none">
                                 <label for="weight_training">웨이트트레이닝</label>
-                                <input type="checkbox" id="weight_training"/>
+                                <input type="checkbox" id="weight_training" name="trainerEvent" value="웨이트트레이닝"/>
                                 <label for="body_making">체형교정</label>
-                                <input type="checkbox" id="body_making"/>
+                                <input type="checkbox" id="body_making" name="trainerEvent" value="체형교정"/>
                                 <label for="spinning">스피닝</label>
-                                <input type="checkbox" id="spinning"/>
+                                <input type="checkbox" id="spinning" name="trainerEvent" value="스피닝"/>
                                 <label for="personal_training">개인헬스</label>
-                                <input type="checkbox" id="personal_training"/>
+                                <input type="checkbox" id="personal_training" name="trainerEvent" value="개인헬스"/>
                             </li>
                             
                             <li id="sport2_sub" class="sport_tag" style="display:none">
                                 <label for="normal_yoga">일반요가</label>
-                                <input type="checkbox" id="normal_yoga"/>
+                                <input type="checkbox" id="normal_yoga" name="trainerEvent" value="일반요가"/>
                                 <label for="flying_yoga">플라잉요가</label>
-                                <input type="checkbox" id="flying_yoga"/>
+                                <input type="checkbox" id="flying_yoga" name="trainerEvent" value="플라잉요가"/>
                                 <label for="pilates">필라테스</label>
-                                <input type="checkbox" id="pilates"/>
+                                <input type="checkbox" id="pilates" name="trainerEvent" value="필라테스"/>
                             </li>
                             
                             <li id="sport3_sub" class="sport_tag" style="display:none">
                                 <label for="soccer">축구</label>
-                                <input type="checkbox" id="soccer"/>
+                                <input type="checkbox" id="soccer" name="trainerEvent" value="축구"/>
                                 <label for="volleyball">배구</label>
-                                <input type="checkbox" id="volleyball"/>
+                                <input type="checkbox" id="volleyball" name="trainerEvent" value="배구"/>
                                 <label for="baseball">야구</label>
-                                <input type="checkbox" id="baseball"/>
+                                <input type="checkbox" id="baseball" name="trainerEvent" value="야구"/>
                                 <label for="basketball">농구</label>
-                                <input type="checkbox" id="basketball"/>
+                                <input type="checkbox" id="basketball" name="trainerEvent" value="농구"/>
                                 <label for="golf">골프</label>
-                                <input type="checkbox" id="golf"/>     
+                                <input type="checkbox" id="golf" name="trainerEvent" value="골프"/>     
                             </li>
                             
                             <li id="sport4_sub" class="sport_tag" style="display:none">
                                 <label for="Jiujitsu">주짓수</label>
-                                <input type="checkbox" id="Jiujitsu"/>
+                                <input type="checkbox" id="Jiujitsu" name="trainerEvent" value="주짓수"/>
                                 <label for="boxing">복싱</label>
-                                <input type="checkbox" id="boxing"/>
+                                <input type="checkbox" id="boxing" name="trainerEvent" value="복싱"/>
                                 <label for="mma">격투기</label>
-                                <input type="checkbox" id="mma"/>
+                                <input type="checkbox" id="mma" name="trainerEvent" value="격투기"/>
                                 <label for="judo">유도</label>
-                                <input type="checkbox" id="judo"/>
+                                <input type="checkbox" id="judo" name="trainerEvent" value="유도"/>
                                 <label for="kendo">검도</label>
-                                <input type="checkbox" id="kendo"/>
+                                <input type="checkbox" id="kendo" name="trainerEvent" value="검도"/>
                                 <label for="fencing">펜싱</label>
-                                <input type="checkbox" id="fencing"/>
+                                <input type="checkbox" id="fencing" name="trainerEvent" value="펜싱"/>
                             </li>
                             <li id="sport5_sub" class="sport_tag" style="display:none">
                                 <label for="tennis">테니스</label>
-                                <input type="checkbox" id="tennis"/>
+                                <input type="checkbox" id="tennis" name="trainerEvent" value="테니스"/>
                                 <label for="badminton">배드민턴</label>
-                                <input type="checkbox" id="badminton"/>
+                                <input type="checkbox" id="badminton" name="trainerEvent" value="배드민턴"/>
                                 <label for="squash">스쿼쉬</label>
-                                <input type="checkbox" id="squash"/>
+                                <input type="checkbox" id="squash" name="trainerEvent" value="스쿼쉬"/>
                             </li>
                             <li id="sport6_sub" class="sport_tag" style="display:none">
                                 <label for="swim">수영</label>
-                                <input type="checkbox" id="swim"/>
+                                <input type="checkbox" id="swim" name="trainerEvent" value="수영"/>
                                 <label for="rowing">조정</label>
-                                <input type="checkbox" id="rowing"/>
+                                <input type="checkbox" id="rowing" name="trainerEvent" value="조정"/>
                                 <label for="beachvolleyball">비치발리볼</label>
-                                <input type="checkbox" id="beachvolleyball"/>
+                                <input type="checkbox" id="beachvolleyball" name="trainerEvent" value="비치발리볼"/>
                                 <label for="diving">다이빙</label>
-                                <input type="checkbox" id="diving"/>
+                                <input type="checkbox" id="diving" name="trainerEvent" value="다이빙"/>
                             </li>
                             <li id="sport7_sub" class="sport_tag" style="display:none">
                                 <label for="marathon">마라톤&amp;산악마라톤</label>
-                                <input type="checkbox" id="marathon"/>
+                                <input type="checkbox" id="marathon" name="trainerEvent" value="마라톤&산악마라톤"/>
                                 <label for="climbing">등산&amp;암벽등반</label>
-                                <input type="checkbox" id="climbing"/>
+                                <input type="checkbox" id="climbing" name="trainerEvent" value="등산&암벽등반"/>
                             </li>
                         </ul>
                         
@@ -188,32 +188,28 @@
                         <ul>
                             <li>
                                 <label>신분/학력 인증</label>
-                                <p class="regintxt05"><br>소속된 대학이나 졸업한 대학을 인증해주세요. 없으시면 신분증인증을 해주시면 됩니다(필수)<br></p>
-                                <p class="regintxt07 clearbt"></p>
-                                <p class="regintxt02"><input id="univ" name="univ" type="radio" value="1" class="innone" checked onclick="checkLayer(1);" /><label for="univ_y" class="chnon">대학인증</label></p>
-                                <p class="regintxt021"><input id="univ" name="univ" type="radio" value="0" class="innone" onclick="checkLayer(2);" /><label for="univ_n" class="chnon">대학원인증</label></p>
-                                <p class="regintxt021"><input id="univ" name="univ" type="radio" value="0" class="innone" onclick="checkLayer(3);" /><label for="univ_n" class="chnon">신분증인증</label></p>
+                                <p><br>소속된 대학이나 졸업한 대학을 인증해주세요. 없으시면 신분증인증을 해주시면 됩니다(필수)<br></p>
+                                <p></p>
+                                <p><input type="radio" value="1" checked onclick="checkLayer(1);" /><label for="univ_y">대학인증</label></p>
+                                <p><input type="radio" value="0" onclick="checkLayer(2);" /><label for="univ_n">대학원인증</label></p>
+                                <p><input type="radio" value="0" onclick="checkLayer(3);" /><label for="univ_n">신분증인증</label></p>
                                 <br>
                                 <div id="SchoolMajor"><br>
-                                    <!--div id="SchoolMajor2" style="display:none;"-->
-                                    <input id="" name="SchoolMajor" type="text" placeholder="학교(대학) 예)태평양대학교" value="" class="input_txt03 clearbt" />
-                                    <input id="" name="SchoolMajorS" type="text" placeholder="학과 예)해저케이블학과" value="" class="input_txt03" />
-                                    <p class="regintxt07 clearbt"></p>
-                                    <p class="regintxt02"><input id="AcademicStatus" name="AcademicStatus" type="radio" value="0" class="innone" checked /><label for="univ_y" class="chnon">재학</label></p>
-                                    <p class="regintxt02"><input id="AcademicStatus" name="AcademicStatus" type="radio" value="1" class="innone" /><label for="univ_y" class="chnon">졸업</label></p>
-                                    <p class="regintxt02"><input id="AcademicStatus" name="AcademicStatus" type="radio" value="2" class="innone" /><label for="univ_y" class="chnon">수료</label></p>
+                                    <input type="text" name="trainerUniv" placeholder="학교(대학) 예)태평양대학교" />
+                                    <input type="text" name="trainerUniv" placeholder="학과 예)해저케이블학과"/>
+                                    <p><input name="trainerGrad" type="radio" value="0" checked /><label for="univ_y">재학</label></p>
+                                    <p><input name="trainerGrad" type="radio" value="1"/><label for="univ_y">졸업</label></p>
+                                    <p><input name="trainerGrad" type="radio" value="2"/><label for="univ_y">수료</label></p>
                                     <br>
-                                    <p class="regintxt04 clearbt"><b>학력 인증(<font color="red">필수</font>)</b> - 학생증, 재학증명서, 졸업증명서</p>
-                                    <p class="regintxt05 clearbt"><input type="file" name="School" /></p>
-                                    <p class="regintxt01 clearbt redtxt" id="IsSchoolVerified">파일을 업로드해주세요.</p>
-
+                                    <p><b>학력 인증(<font color="red">필수</font>)</b> - 학생증, 재학증명서, 졸업증명서</p>
+                                    <p><input type="file" name="School" /></p>
+                                    <p>파일을 업로드해주세요.</p>
                                 </div>
 
                                 <div id="Idcard" style="display:none;">
-                                    <p class="regintxt04 clearbt"><b>신분 인증(<font color="red">필수</font>)</b> - 주민등록증, 운전면허증</p>
-                                    <p class="regintxt05 clearbt"><input type="file" name="Idcard" /></p>
-                                    <p class="regintxt01 clearbt redtxt" id="IsSchoolVerified">파일을 업로드해주세요.</p>
-
+                                    <p><b>신분 인증(<font color="red">필수</font>)</b> - 주민등록증, 운전면허증</p>
+                                    <p><input type="file" name="trainerGradFile"/></p>
+                                    <p>파일을 업로드해주세요.</p>
                                 </div>
                             </li>
                         </ul>
@@ -226,33 +222,33 @@
 
                                 <!--input 추가됨-->
                                 <div id="cert">
-                                    <input style="float:left;" id="Cert0" name="Cert0" type="text" placeholder="예) GTQ 1급, 입상경력.." value="" class="input_txt01" />
-                                    <p><input type="file" name="file0" /></p>
+                                    <input style="float:left;" id="licenseName1" name="licenseName1" type="text" placeholder="예) GTQ 1급, 입상경력.." value="" class="input_txt01" />
+                                    <p><input type="file" name="trainerLicenseFile" /></p>
                                 </div>
                                 
                                 <div id="CertAdd"></div>
                                 <a onclick="addFile();" class="addbtn" style="cursor:pointer;">추가 +</a>
 
-                                <input type="hidden" id="fileCnt" name="fileCnt" value="0">
+                                <input type="hidden" id="fileCnt" name="fileCnt" value="1">
 
                                 <script>
                                     function addFile(){
-                      fileCnt = document.getElementById('fileCnt').value;   
-                      if(fileCnt==4){
-                          alert("그정도면 충분한것 같아요");
-                          return false;
-                      }else{
-                         fileCnt++; 
-                      }               
-                     html = '';
-                     html += '<input id="Cert'+fileCnt+'" name="Cert'+fileCnt+'" type="text" placeholder="예) GTQ 1급, 입상경력.." value="" class="input_txt01 clearbt"/> <br>';
-                     
-                     var div = document.createElement('div');
-                       div.innerHTML = html;
-                        document.getElementById('CertAdd').appendChild(div);                     
-                     document.getElementById('fileCnt').value = fileCnt;
-                  }
-               </script>
+				                      fileCnt = document.getElementById('fileCnt').value;   
+				                      if(fileCnt==5){
+				                          alert("그정도면 충분한것 같아요");
+				                          return false;
+				                      }else{
+				                         fileCnt++; 
+				                      }               
+				                     html = '';
+				                     html += '<input id="licenseName'+fileCnt+'" name="licenseName'+fileCnt+'" type="text" placeholder="예) GTQ 1급, 입상경력.." value="" class="input_txt01 clearbt"/> <br>';
+				                     
+				                     var div = document.createElement('div');
+				                       div.innerHTML = html;
+				                        document.getElementById('CertAdd').appendChild(div);                     
+				                     document.getElementById('fileCnt').value = fileCnt;
+				                  }
+				               </script>
                             </li>
                         </ul>
                         <!--자격증 부분 끝-->
@@ -260,55 +256,56 @@
                         
                         <ul>
                             <li>
-                                <div class="career-group">
-                                    <label>경력사항</label>
+ 								<div class="career-group">
+									<label>경력사항</label>
 
 
-                                    <form id="career_start" action="action.jsp">
-                                        <div>
-                                            <input id="career0" type="text" placeholder="ex)고라니GYM 근무" value="" />
-                                            <input type="date" id="userdate_start0" name="userdate0" value="2015-10-10" max="sysdate">
-                                            ~
-                                            <input type="date" id="userdate_finish" name="userdate" value="2015-10-10" min="1990-01-01">
-                                            <input type="submit" value="전송">
-                                        </div>
-                                        <div id="CertCareer"></div>
-                                        <a onclick="addcareer();" class="addbtn" style="cursor:pointer;">추가 +</a>
-                                        <input type="hidden" id="careerfileCnt" name="fileCnt" value="0">
-                                    </form>
+									<form id="career_start" action="action.jsp">
+										<div>
+											<input id="careerName1" name="careerName1" type="text" placeholder="ex)고라니GYM 근무" value=""/>
+											<input type="date" id="careerStart1" name="careerStart1" value="2015-10-10" max="sysdate" min="1990-01-01" max="2018-12-31"/> ~ 
+											<input type="date" id="careerEnd1" name="careerEnd1" value="2015-10-10" min="1990-01-01" max="2018-12-31"/>
+											<input type="submit" value="전송">
+										</div>
+										<div id="CertCareer"></div>
+										<a onclick="addcareer();" class="addbtn">추가 +</a>
+										<input type="hidden" id="careerfileCnt" name="careerfileCnt" value="1">
+									</form>
 
-                                    <script>
-                                        function addcareer(){
-                      fileCnt = document.getElementById('careerfileCnt').value;   
-                      if(fileCnt==4){
-                          alert("그만눌러라");
-                          return false;
-                      }else{
-                         fileCnt++; 
-                      }               
-                     html = '';
-                     html += '<input id="career'+fileCnt+'" name="career'+fileCnt+'" type="text" placeholder="ex)고라니GYM 근무" value=""/>';
-                     html += '<input type="date" id="userdate_start'+fileCnt+'" name="userdate'+fileCnt+'" value="2015-10-10"> ~ ';
-                     html += '<input type="date" id="userdate_finish'+fileCnt+'" name="userdate'+fileCnt'" value="2015-10-10">';
-                     html += '<input type="submit" value="전송">';
-                     
-                     var div = document.createElement('div');
-                       div.innerHTML = html;
-                        document.getElementById("CertCareer").appendChild(div);                     
-                     document.getElementById('fileCnt').value = fileCnt;
-                  }
-               </script>
+									<script>
+										function addcareer() {
+											careerfileCnt = document.getElementById('careerfileCnt').value;
+											if (careerfileCnt == 5) {
+												alert("그정도면 충분한것 같아요");
+												return false;
+											} else {
+												careerfileCnt++;
+											}
+											html = '';
+						                    html += '<input id="Cert'+careerfileCnt+'" name="careerName'+careerfileCnt+'" type="text" placeholder="ex)고라니GYM 근무" value="" />';
+						                    html += '<input type="date" id="careerStart'+careerfileCnt+'" name="careerStart'+careerfileCnt+'" value="2015-10-10" max="sysdate"> ~ ';
+						                    html += '<input type="date" id="careerEnd'+careerfileCnt+'" name="careerEnd'+careerfileCnt+'" value="2015-10-10" min="1990-01-01">';
+						                  	html += '<input type="submit" value="전송">';
+
+											var div = document.createElement('div');
+											div.innerHTML = html;
+											document.getElementById("CertCareer").appendChild(div);
+											document.getElementById('careerfileCnt').value = careerfileCnt;
+										}
+									</script>
 
 
-                                </div>
+								</div>
+
 
 
                             </li>
                             <li>
 
                                 <div class="form-group">
-                                    <label for="comment">자기소개 :</label>
-                                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                                    <label for="comment">수업 소개 :</label>
+                                    <textarea class="form-control" rows="5" name="trainerContent" id="trainerContent"></textarea>
+                                    <!--  name있어야 벨류값 전송 가능!!!!!!! -->
                                 </div>
                             </li>
                         </ul>
