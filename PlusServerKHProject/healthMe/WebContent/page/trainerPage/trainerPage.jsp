@@ -232,7 +232,7 @@
 							var geocoder = new daum.maps.services.Geocoder();
 
 							// 주소로 좌표를 검색합니다
-							geocoder.addressSearch("<%=t.getTraienrRegion()%>", function(result, status) {
+							geocoder.addressSearch("<%=t.getTrainerRegion()%>", function(result, status) {
 
 							    // 정상적으로 검색이 완료됐으면 
 							     if (status === daum.maps.services.Status.OK) {
@@ -264,7 +264,7 @@
 					<br>
 					<div class="infoBox_1"></div>
 					<div class="infoBoxFont">
-					위치&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=t.getTraienrRegion()%>
+						위치&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=t.getTrainerRegion()%>
 					</div>
 					<br>
 					<hr>

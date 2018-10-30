@@ -28,7 +28,7 @@ public class OneSearchDao {
 				t.setTrainerGradFile(rset.getString("trainergradfile"));
 				t.setTrainerUniv(rset.getString("traineruniv"));
 				t.setTrainerGrad(rset.getString("trainergrad"));
-				t.setTraienrRegion(rset.getString("trainerregion"));
+				t.setTrainerRegion(rset.getString("trainerregion"));
 				t.setTrainerSubject(rset.getString("trainersubject"));
 				t.setTrainerContent(rset.getString("trainercontent"));
 				t.setTrainerEvent(rset.getString("tarinerevent"));
