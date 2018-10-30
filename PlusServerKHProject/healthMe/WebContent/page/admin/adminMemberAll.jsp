@@ -1,6 +1,16 @@
+<%@page import="com.healthme.member.vo.Member"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="com.healthme.admin.vo.*"%>
+
+
+<%
+	ArrayList<Member> list = (ArrayList<Member>)request.getAttribute("memberAllList");
+%>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -175,65 +185,47 @@
 					<div class="col-md-8">
 
 						<div class="table-responsive">
-							<h3>관리자설정</h3>
+							<h3>회원설정</h3>
 							<table class="table table-striped table-bordered table-hover">
 								<!--       <table cellSpacing=0 borderColorDark=white width="760" bgColor=#c0c0c0 borderColorLight=#dddddd border=1 class="s1">-->
-								<form id=updateform method="post" action="/adminMemberAdminUpdate.do">
+								<form id=updateform method="post" action="/adminMemberAllUpdate.do">
 									<input type="hidden" name="theme"
 										value="basicinfo/basic_info2_qry"> <input
 										type="hidden" name="menushow" value="menu1">
 
 									<tr bgColor=E0E4E8>
-										<td colSpan=4><font color="#333333">&nbsp; 관리자정보 및
-												환경을 변경합니다.</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; 번호</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; 아이디</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; 비밀번호</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; 이름</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; 주민번호</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; 주소</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; 이메일</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; 번호</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; 트레이너여부</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; 등급</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; 탈퇴여부</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; 등록날짜</font></td>
+										<td colSpan=4><font color="#333333">&nbsp; 탈퇴날짜</font></td>
 									</tr>
+									<%for(Member m:list){ %>
 									<tr>
-										<td width=124 bgcolor=E6E9EA><p align="center">
-												<font color="#333333">관리자성명</font>
-											</p></td>
-										<td bgColor=#ffffff colSpan=3><input value="<%=admin.getAdminName()%>"
-											name="adminName" class="dd1"></td>
-									</tr>
-
-									<tr>
-										<td width=124 bgcolor=E6E9EA><p align="center">
-												<font color="#333333">이메일주소</font>
-											</p></td>
-										<td bgColor=#ffffff colSpan=3><input
-											value="<%=admin.getAdminEmail()%>" name="adminEmail" class="dd1"></td>
-									</tr>
-
-									<tr>
-										<td width=124 bgcolor=E6E9EA><p align="center">
-												<font color="#333333">관리자아이디</font>
-											</p></td>
-										<td bgColor=#ffffff colSpan=3><input value="<%=admin.getAdminId()%>"
-											name="adminId" class="dd1"></td>
-									</tr>
-
-									<tr>
-										<td width=124 bgcolor=E6E9EA><p align="center">
-												<font color="#333333">관리자패스워드</font>
-											</p></td>
-										<td bgColor=#ffffff colSpan=3><input type=password
-											size=15 value="<%=admin.getAdminPw()%>" name="adminPw" class="dd1"></td>
-									</tr>
-
-									<tr>
-										<td bgColor=#ffffff colSpan=4><font color="#333333">*관리자
-												패스워드는 관리자 화면으로 입장시 필요한 것이다.<br> *패스워드는 중요하므로 타인에게 노출되지
-												않도록 해주시길 바란다.
-										</font></td>
-									</tr>
-
-									<tr align="center">
-										<td colSpan=4 bgColor=#ffffff>
-										<input type="image" src="/img/complete.png" width="50" height="50">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										<input type="image" src="/img/cancel.png" width="50" height="50" onclick="return back();"/></td>
-									
+									<td bgColor=#ffffff colSpan=4><%=m.getPkMemberNumber()%></td>
+									<td bgColor=#ffffff colSpan=4><%=m.getMemberId()%></td>
+									<td bgColor=#ffffff colSpan=4><%=m.getMemberPw()%></td>
+									<td bgColor=#ffffff colSpan=4><%=m.getMemberName()%></td>
+									<td bgColor=#ffffff colSpan=4><%=m.getMemberSocialId()%></td>
+									<td bgColor=#ffffff colSpan=4><%=m.getMemberAddr()%></td>
+									<td bgColor=#ffffff colSpan=4><%=m.getMemberEmail()%></td>
+									<td bgColor=#ffffff colSpan=4><%=m.getMemberPhone()%></td>
+									<td bgColor=#ffffff colSpan=4><%=m.getMemberTrainer()%></td>
+									<td bgColor=#ffffff colSpan=4><%=m.getMemberClass() %></td>
+									<td bgColor=#ffffff colSpan=4><%=m.getMemberOut()%></td>
+									<td bgColor=#ffffff colSpan=4><%=m.getMemberRegistDate()%></td>
+									<td bgColor=#ffffff colSpan=4><%=m.getMemberOutDate()%></td>
 									
 									</tr>
-
+									<%} %>
 
 								</form>
 

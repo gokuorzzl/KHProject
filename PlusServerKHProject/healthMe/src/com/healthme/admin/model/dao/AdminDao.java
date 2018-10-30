@@ -96,6 +96,52 @@ public class AdminDao {
 		return result;
 	}
 
+	public ArrayList<Member> adminMemberAll(Connection conn) {
+		// TODO Auto-generated method stub
+		//여러명을 처리하기 위한 컬렉션을 사용 (ArrayList)
+		
+		ArrayList<Member> list = new ArrayList<Member>();
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		String query = "select * from member where membertrainer='n'";
+		
+		try {
+			stmt = conn.createStatement();
+			rset = stmt.executeQuery(query);
+			
+			while(rset.next()) {
+				Member m = new Member();
+				m.setPkMemberNumber(rset.getInt("pkMemberNumber"));
+				m.setMemberId(rset.getString("memberId"));
+				m.setMemberPw(rset.getString("memberPw"));
+				m.setMemberName(rset.getString("memberName"));
+				m.setMemberSocialId(rset.getString("memberSocialId"));
+				m.setMemberAddr(rset.getString("memberAddr"));
+				m.setMemberEmail(rset.getString("memberEmail"));
+				m.setMemberPhone(rset.getString("memberPhone"));
+				m.setMemberTrainer(rset.getString("memberTrainer").charAt(0));
+				m.setMemberClass(rset.getString("memberClass"));
+				m.setMemberOut(rset.getString("memberOut").charAt(0));
+				m.setMemberRegistDate(rset.getDate("memberRegistDate"));
+				m.setMemberOutDate(rset.getDate("memberOutDate"));
+				
+				list.add(m);
+				
+				
+			}
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(stmt);
+		}
+		
+		
+		return list;
+	}
+
 
 
 }

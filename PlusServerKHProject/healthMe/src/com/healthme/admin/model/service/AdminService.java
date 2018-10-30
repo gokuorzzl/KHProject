@@ -38,6 +38,16 @@ public class AdminService {
 		
 		return result;
 	}
+
+	public ArrayList<Member> adminAllList() {
+		// TODO Auto-generated method stub
+		Connection conn = JDBCTemplate.getConnection();
+		ArrayList<Member> list = new AdminDao().adminMemberAll(conn);
+		
+		JDBCTemplate.close(conn);
+		
+		return list;
+	}
 	
 
 	
