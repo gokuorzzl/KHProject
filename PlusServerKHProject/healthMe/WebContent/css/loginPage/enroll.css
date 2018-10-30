@@ -141,19 +141,30 @@ div{
          /*-------------추가 Desktop----------------------- */
          
      label {
-      font-family:NotoSans;
-      font-size:100%;
-      font-weight:bold;
+      font-family:NotoSansCJKkrBold;
+      font-size:90%;
+    
      }
      
      .conditionId {
        font-size:70%;
-       color:#147fe2;
+       color:#147fe2;     
+       float:left;
+       box-sizing:border-box;
+        margin-left:1%; 
+        margin-right:14%;
+        margin-top:2.5%;
      }
+     
      
      .conditionPw {
        font-size:70%;
        color:#147fe2;
+       float:left; 
+       box-sizing:border-box; 
+       margin-left:1%;
+       margin-right:7%; 
+       margin-top:0.8%;
      }
      
      
@@ -241,9 +252,10 @@ div{
     }
 
      .register-button {
+        font-family:NotoSansCJKkrBold;
         background-color:#FF9B55;
         color:white;
-        font-size:17px;
+        font-size:180%;
         padding:14px 20px;
         margin:8px 0;
         border:none;
@@ -253,7 +265,7 @@ div{
     
     
     .doubleCheck {
-     font-family:NotoSans;
+     font-family:NotoSansCJKkrBold;
      display:inline-block;
      cursor:pointer;
      padding-bottom:0%;
@@ -263,7 +275,8 @@ div{
      background-color:#FF9B55;
      border:none;
      font-size:90%;
-     
+     float:right;
+     margin-top:0.5%;
     }
        
     .doubleCheck:hover {
@@ -275,6 +288,7 @@ div{
     }
     
     .sample6_fpostcode {
+       font-family:NotoSansCJKkrBold;
        background-color:#FF9B55;
         color:white;
         font-size:80%;
@@ -287,6 +301,25 @@ div{
       background-color:#353130;
     }
 
+    #memberIdName {
+     float:left; 
+     box-sizing:border-box; 
+     margin-left:1%;  
+     margin-top:2%;
+
+    }
+    
+    #memberPwName {
+     float:left;
+    }
+    
+    #memberSocialIdName {
+     float:left;
+    }
+    
+    #memberPhoneName {
+      float:left;
+    }
 
 }
 
@@ -297,13 +330,13 @@ div{
     #wrapper{
         position: absolute;
         width:100%;
-        height:1000px;    
+        height:170%;    
     }
     
     /*top부분*/
     #top{
         width: 100%;
-        height: 10%;
+        height: 5%;
     }
     
     #mobileMenu{
@@ -331,28 +364,28 @@ div{
     /*middle부분*/
     #middle{
         width: 100%;
-        height: 80%;
+        height: 87%;
     }
     
     #searchBox{
         width: 100%;
-        height: 30%;
+        height: 15%;
     }
     
     #contents{
         width: 100%;
-        height: 70%;
+        height: 85%;
     }
     
     #realSearchBox{
-        width: 80%;
+        width: 70%;
         height: 90%;
         margin: auto;
         margin-top: 1%;
     }
     
     #realContents{
-        width: 80%;
+        width: 70%;
         height: 90%;
         margin: auto;
         margin-top: 2.5%;
@@ -361,7 +394,191 @@ div{
     /*bottom*/
     #bottom{
         width: 100%;
-        height: 10%;
+        height: 8%;
+    }
+    
+    
+         /*-------------추가 tablet----------------------- */
+         
+     label {
+      font-family:NotoSansCJKkrBold;
+      font-size:90%;
+    
+     }
+     
+     .conditionId {
+       font-size:70%;
+       color:#147fe2;     
+       float:left;
+       box-sizing:border-box;
+        margin-left:1%; 
+        margin-right:14%;
+        margin-top:2.5%;
+     }
+     
+     
+     .conditionPw {
+       font-size:70%;
+       color:#147fe2;
+       float:left; 
+       box-sizing:border-box; 
+       margin-left:1%;
+       margin-right:7%; 
+       margin-top:0.8%;
+     }
+     
+     
+    .logo-center {
+      display: block;
+      margin-left:auto;
+      margin-right:auto;
+      width:24%;
+    }
+    
+    .info-container {
+     
+      width: 500px;
+      height:100%;
+      margin:auto;
+      text-align: left;
+    }
+    
+    form {
+    width:100%;}
+ 
+    input[type=text] {
+       width:100%;
+       padding:10px 10px;
+       margin:8px 0;
+       box-sizing:border-box;
+       border: 2px solid #FF9B55;
+       border-radius:6px;
+     
+    }
+    
+    input[type=text]:focus {
+      background-color:#f9d3b3;
+    }
+    
+     input[type=password] {
+       width:100%;
+       padding:10px 10px;
+       margin:8px 0;
+       box-sizing:border-box;
+       border: 2px solid #FF9B55;
+       border-radius:6px;
+
+    }
+    
+     input[type=password]:focus {
+      background-color:#f9d3b3;
+    }
+    
+     input[type=email] {
+       width:100%;
+       padding:10px 10px;
+       margin:8px 0;
+       box-sizing:border-box;
+       border: 2px solid #FF9B55;
+       border-radius:6px;
+     
+    }
+    
+    input[type=email]:focus {
+      background-color:#f9d3b3;
+    }
+    
+  
+    #sample6_postcode {
+      width:40%;
+    }
+    
+    #sample6_fpostcode {
+      width:20%;
+      height:36px;
+    }
+    
+    #tel1 {
+      width:30.9%;
+      
+    }
+    
+    #tel2 {
+     width:30.9%;
+    }
+    
+    #tel3 {
+     width:30.8%;
+    }
+
+     .register-button {
+        font-family:NotoSansCJKkrBold;
+        background-color:#FF9B55;
+        color:white;
+        font-size:180%;
+        padding:14px 20px;
+        margin:8px 0;
+        border:none;
+        cursor:pointer;
+        width:100%;
+    }
+    
+    
+    .doubleCheck {
+     font-family:NotoSansCJKkrBold;
+     display:inline-block;
+     cursor:pointer;
+     padding-bottom:0%;
+     padding-left:2%;
+     padding-right:2%;
+     color:white;
+     background-color:#FF9B55;
+     border:none;
+     font-size:90%;
+     float:right;
+     margin-top:0.5%;
+    }
+       
+    .doubleCheck:hover {
+       background-color:#353130;
+    }
+       
+     .register-button:hover {
+       background-color:#353130;
+    }
+    
+    .sample6_fpostcode {
+       font-family:NotoSansCJKkrBold;
+       background-color:#FF9B55;
+        color:white;
+        font-size:80%;
+        border:none;
+        cursor:pointer;
+        width:20%;
+    }
+
+    .sample6_fpostcode:hover {
+      background-color:#353130;
+    }
+
+    #memberIdName {
+     float:left; 
+     box-sizing:border-box; 
+     margin-left:1%;  
+     margin-top:2%;
+
+    }
+    
+    #memberPwName {
+     float:left;
+    }
+    
+    #memberSocialIdName {
+     float:left;
+    }
+    
+    #memberPhoneName {
+      float:left;
     }
     
 }
@@ -373,23 +590,25 @@ div{
     #wrapper{
         position: absolute;
         width:100%;
-        height: 1200px;    
+        height: 170%;    
     }
     
     /*top부분*/
     #top{
         width: 100%;
-        height: 25%;
+        height: 5%;
     }
     
     #mobileMenu{
-        width: 100%;
-        height: 15%;
+        display:none;
+        /* width: 100%;
+        height: 15%; */
     }
     
     #logo{
-        width: 100%;
-        height: 65%;
+        width: 25%;
+        height: 100%%;
+        float:left;
     }
     
     #searchBar{
@@ -398,44 +617,230 @@ div{
     }
     
     #menu{
-        display: none;
+        width:50%;
+        height:100%;
+        float:left;
     }
     
     /*middle부분*/
     #middle{
         width: 100%;
-        height: 65%;
+        height: 87%;
     }
     
     #searchBox{
         width: 100%;
-        height: 30%;
+        height: 15%;
     }
     
     #contents{
         width: 100%;
-        height: 70%;
+        height: 85%;
     }
     
     #realSearchBox{
-        width: 90%;
+        width: 70%;
         height: 90%;
         margin: auto;
-        margin-top: 3%;
+        margin-top: 1%;
     }
     
     #realContents{
-        width: 90%;
-        height: 95%;
+        width: 70%;
+        height: 90%;
         margin: auto;
-        margin-top: 3%;
+        margin-top: 2.5%;
     }
     
     /*bottom*/
     #bottom{
         width: 100%;
-        height: 10%;
+        height: 8%;
     }
+    
+         /*-------------추가 mobile----------------------- */
+         
+     label {
+      font-family:NotoSansCJKkrBold;
+      font-size:90%;
+    
+     }
+     
+     .conditionId {
+       font-size:70%;
+       color:#147fe2;     
+       float:left;
+       box-sizing:border-box;
+        margin-left:1%; 
+        margin-right:14%;
+        margin-top:2.5%;
+     }
+     
+     
+     .conditionPw {
+       font-size:70%;
+       color:#147fe2;
+       float:left; 
+       box-sizing:border-box; 
+       margin-left:1%;
+       margin-right:7%; 
+       margin-top:0.8%;
+     }
+     
+    
+        .logo-center {
+      display: block;
+      margin-left:auto;
+      margin-right:auto;
+      width:100%;
+    }
+    
+    .info-container {
+     
+      width: 500px;
+      height:100%;
+      margin:auto;
+      text-align: left;
+    }
+    
+    form {
+    width:100%;}
+ 
+    input[type=text] {
+       width:100%;
+       padding:10px 10px;
+       margin:8px 0;
+       box-sizing:border-box;
+       border: 2px solid #FF9B55;
+       border-radius:6px;
+     
+    }
+    
+    input[type=text]:focus {
+      background-color:#f9d3b3;
+    }
+    
+     input[type=password] {
+       width:100%;
+       padding:10px 10px;
+       margin:8px 0;
+       box-sizing:border-box;
+       border: 2px solid #FF9B55;
+       border-radius:6px;
+
+    }
+    
+     input[type=password]:focus {
+      background-color:#f9d3b3;
+    }
+    
+     input[type=email] {
+       width:100%;
+       padding:10px 10px;
+       margin:8px 0;
+       box-sizing:border-box;
+       border: 2px solid #FF9B55;
+       border-radius:6px;
+     
+    }
+    
+    input[type=email]:focus {
+      background-color:#f9d3b3;
+    }
+    
+  
+    #sample6_postcode {
+      width:40%;
+    }
+    
+    #sample6_fpostcode {
+      width:20%;
+      height:36px;
+    }
+    
+    #tel1 {
+      width:30.9%;
+      
+    }
+    
+    #tel2 {
+     width:30.9%;
+    }
+    
+    #tel3 {
+     width:30.8%;
+    }
+
+     .register-button {
+        font-family:NotoSansCJKkrBold;
+        background-color:#FF9B55;
+        color:white;
+        font-size:180%;
+        padding:14px 20px;
+        margin:8px 0;
+        border:none;
+        cursor:pointer;
+        width:100%;
+    }
+    
+    
+    .doubleCheck {
+     font-family:NotoSansCJKkrBold;
+     display:inline-block;
+     cursor:pointer;
+     padding-bottom:0%;
+     padding-left:2%;
+     padding-right:2%;
+     color:white;
+     background-color:#FF9B55;
+     border:none;
+     font-size:90%;
+     float:right;
+     margin-top:0.5%;
+    }
+       
+    .doubleCheck:hover {
+       background-color:#353130;
+    }
+       
+     .register-button:hover {
+       background-color:#353130;
+    }
+    
+    .sample6_fpostcode {
+       font-family:NotoSansCJKkrBold;
+       background-color:#FF9B55;
+        color:white;
+        font-size:80%;
+        border:none;
+        cursor:pointer;
+        width:20%;
+    }
+
+    .sample6_fpostcode:hover {
+      background-color:#353130;
+    }
+
+    #memberIdName {
+     float:left; 
+     box-sizing:border-box; 
+     margin-left:1%;  
+     margin-top:2%;
+
+    }
+    
+    #memberPwName {
+     float:left;
+    }
+    
+    #memberSocialIdName {
+     float:left;
+    }
+    
+    #memberPhoneName {
+      float:left;
+    }
+    
 }
 
 

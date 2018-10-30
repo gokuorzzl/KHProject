@@ -315,32 +315,42 @@ table {
      a.trainerR:hover, a.trainerR:active {
       text-decoration: underline;
      }
+     
+     #social-container {
+      text-align: center;
+      text-decoration:none;
+    
+    }
+     /* ------------------추가*/
+     #naver_id_login {
+       margin:auto;
+     }
+     
+     #g-signin2 {
+       display:inline-block;
+       vertical-align:middle;
+     }
  
 }
 
 /*태블릿*/
 @media screen and (min-width:640px) and (max-width:1024px){
     
-    div {
-    
-    
-      background-color:red;
-    }
 
     /*div전체*/
     #wrapper{
         position: absolute;
         width:100%;
-        height:1000px;    
+        height:120%;  
     }
     
     /*top부분*/
     #top{
         width: 100%;
-        height: 10%;
+        height: 5%;
     }
     
-    #mobileMenu{
+ /*    #mobileMenu{
         display: none;
     }
     
@@ -354,39 +364,39 @@ table {
         width: 50%;
         height: 100%;
         float: left;
-    }
+    } */
     
-    #menu{
+   /*  #menu{
         width: 25%;
         height: 100%;
         float: left;
-    }
+    } */
     
     /*middle부분*/
     #middle{
         width: 100%;
-        height: 80%;
+        height: 82%;
     }
     
     #searchBox{
         width: 100%;
-        height: 30%;
+        height: 15%;
     }
     
     #contents{
         width: 100%;
-        height: 70%;
+        height: 85%;
     }
     
     #realSearchBox{
-        width: 80%;
+        width: 70%;
         height: 90%;
         margin: auto;
         margin-top: 1%;
     }
     
     #realContents{
-        width: 80%;
+        width: 70%;
         height: 90%;
         margin: auto;
         margin-top: 2.5%;
@@ -395,16 +405,186 @@ table {
     /*bottom*/
     #bottom{
         width: 100%;
-        height: 10%;
+        height: 8%;
     }
     
-    /*------------- Tablet----------------------- 추가  */
+    
+     /*-------------추가 Tablet-------------------- */
+
+  
     .logo-center {
       display: block;
-      margin-left:auto;
-      margin-right:auto;
-      width:50%;
+      margin-left: auto;
+      margin-right: auto;
+      width: 25%;
+
     }
+    
+    #login-letter {
+      font-size:25px;
+    }
+    
+    input[type=text] {
+       width:100%;
+       padding:10px 10px;
+       margin:8px 0;
+       box-sizing:border-box;
+       border: 2px solid #FF9B55;
+       border-radius:6px;
+     
+    }
+    
+    input[type=text]:focus {
+      background-color:#f9d3b3;
+    }
+    
+     input[type=password] {
+       width:100%;
+       padding:10px 10px;
+       margin:8px 0;
+       box-sizing:border-box;
+       border: 2px solid #FF9B55;
+       border-radius:6px;
+
+    }
+    
+     input[type=password]:focus {
+      background-color:#f9d3b3;
+    }
+    
+    .login-container1 {
+        max-width:50%;
+        margin:auto;
+    }
+    
+    .login-container2 {
+        max-width:50%;
+        margin:auto;
+        text-align: center;
+    }
+    
+    #find-container {
+      text-align: center;
+      text-decoration:none;
+    
+    }
+    
+    #idfind {
+      width:50%;
+      float:left;
+    }
+    
+    .idfindhover {
+      color:#3c3e3a;
+    }
+    
+    .pswfindhover {
+      color:#3c3e3a;
+    }
+    
+    a.idfindhover:hover, a.idfindhover:active {
+         
+         text-decoration: underline;
+    }
+    
+    a.pswfindhover:hover, a.pswfindhover:active {
+         text-decoration: underline;
+    }
+
+    
+    a:link {
+    text-decoration: none;
+	}
+
+    
+    .login-button {
+        background-color:#FF9B55;
+        color:white;
+        font-size:17px;
+        padding:14px 20px;
+        margin:8px 0;
+        border:none;
+        cursor:pointer;
+        width:100%;
+        height:60px;
+    }
+    
+    button:hover { 
+       background-color:#3c3e3a;
+    }
+    
+  
+
+    input[type=checkbox] + label{
+    display: inline-block;  
+    cursor: pointer;  
+    position: relative;  
+    padding-left: 1%;  
+    font-size: 13px;
+}
+
+    #login {
+     color:white;
+    }
+    
+     .naver-btn {
+        width:100%;
+        margin:8px 0;
+        border:none;
+        cursor:pointer;
+        display:inline-block;
+        font-size:17px;
+        line-height:50px;
+        text-decoration: none;
+        text-align: center;
+        background-color:#1EC800;
+        color:white;
+    } 
+    
+    .google-btn {
+        width:100%;
+        margin:8px 0;
+        border:none;
+        cursor:pointer;
+        display:inline-block;
+        font-size:17px;
+        line-height:50px;
+        text-decoration: none;
+        text-align: center;
+        background-color:#dd4b39;
+        color:white;
+    }
+    
+    a:hover {
+       opacity: 0.6;
+    }
+     
+    .userR {
+      color:#FF9B55;
+      font-size:170%;
+      font-weight:bold;
+      text-align :center;
+
+    }
+    
+   
+    a.userR:hover, a.userR:active {
+      text-decoration: underline;
+    }
+
+     a.trainerR:hover, a.trainerR:active {
+      text-decoration: underline;
+     }
+     
+       /* ------------------추가*/
+     #naver_id_login {
+       margin:auto;
+     }
+     
+     #g-signin2 {
+       display:inline-block;
+       vertical-align:middle;
+     }
     
     
 }
@@ -412,24 +592,20 @@ table {
 /*모바일*/
 @media screen and (max-width:640px){
     
-    div {
-      background-color:green;
-    }
-    
     /*div전체*/
     #wrapper{
         position: absolute;
         width:100%;
-        height: 1200px;    
+        height: 800px;    
     }
     
     /*top부분*/
     #top{
         width: 100%;
-        height: 25%;
+        height: 2%;
     }
     
-    #mobileMenu{
+  /*   #mobileMenu{
         width: 100%;
         height: 15%;
     }
@@ -441,8 +617,8 @@ table {
     
     #searchBar{
         width: 100%;
-        height: 20%;
-    }
+        height: 18%;
+    } */
     
     #menu{
         display: none;
@@ -451,12 +627,12 @@ table {
     /*middle부분*/
     #middle{
         width: 100%;
-        height: 65%;
+        height: 75%;
     }
     
     #searchBox{
         width: 100%;
-        height: 30%;
+        height: 15%;
     }
     
     #contents{
@@ -489,9 +665,174 @@ table {
       display: block;
       margin-left:auto;
       margin-right:auto;
-      width:100%;
+      width:50%;
     }
     
+    #login-letter {
+      font-size:25px;
+    }
+    
+    input[type=text] {
+       width:100%;
+       padding:10px 10px;
+       margin:8px 0;
+       box-sizing:border-box;
+       border: 2px solid #FF9B55;
+       border-radius:6px;
+     
+    }
+    
+    input[type=text]:focus {
+      background-color:#f9d3b3;
+    }
+    
+     input[type=password] {
+       width:100%;
+       padding:10px 10px;
+       margin:8px 0;
+       box-sizing:border-box;
+       border: 2px solid #FF9B55;
+       border-radius:6px;
+
+    }
+    
+     input[type=password]:focus {
+      background-color:#f9d3b3;
+    }
+    
+    .login-container1 {
+        max-width:70%;
+        margin:auto;
+    }
+    
+    .login-container2 {
+        max-width:70%;
+        margin:auto;
+        text-align: center;
+    }
+    
+    #find-container {
+      text-align: center;
+      text-decoration:none;
+    
+    }
+    
+    #idfind {
+      width:50%;
+      float:left;
+    }
+    
+    .idfindhover {
+      color:#3c3e3a;
+    }
+    
+    .pswfindhover {
+      color:#3c3e3a;
+    }
+    
+    a.idfindhover:hover, a.idfindhover:active {
+         
+         text-decoration: underline;
+    }
+    
+    a.pswfindhover:hover, a.pswfindhover:active {
+         text-decoration: underline;
+    }
+
+    
+    a:link {
+    text-decoration: none;
+	}
+
+    
+    .login-button {
+        background-color:#FF9B55;
+        color:white;
+        font-size:17px;
+        padding:14px 20px;
+        margin:8px 0;
+        border:none;
+        cursor:pointer;
+        width:100%;
+        height:60px;
+    }
+    
+    button:hover { 
+       background-color:#3c3e3a;
+    }
+    
+  
+
+    input[type=checkbox] + label{
+    display: inline-block;  
+    cursor: pointer;  
+    position: relative;  
+    padding-left: 1%;  
+    font-size: 13px;
+}
+
+    #login {
+     color:white;
+    }
+    
+     .naver-btn {
+        width:100%;
+        margin:8px 0;
+        border:none;
+        cursor:pointer;
+        display:inline-block;
+        font-size:17px;
+        line-height:50px;
+        text-decoration: none;
+        text-align: center;
+        background-color:#1EC800;
+        color:white;
+    } 
+    
+    .google-btn {
+        width:100%;
+        margin:8px 0;
+        border:none;
+        cursor:pointer;
+        display:inline-block;
+        font-size:17px;
+        line-height:50px;
+        text-decoration: none;
+        text-align: center;
+        background-color:#dd4b39;
+        color:white;
+    }
+    
+    a:hover {
+       opacity: 0.6;
+    }
+     
+    .userR {
+      color:#FF9B55;
+      font-size:170%;
+      font-weight:bold;
+      text-align :center;
+
+    }
+    
+   
+    a.userR:hover, a.userR:active {
+      text-decoration: underline;
+    }
+
+     a.trainerR:hover, a.trainerR:active {
+      text-decoration: underline;
+     }
+     
+       /* ------------------추가*/
+     #naver_id_login {
+       margin:auto;
+     }
+     
+     #g-signin2 {
+       display:inline-block;
+       vertical-align:middle;
+     }
     
 }
 

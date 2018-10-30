@@ -90,19 +90,22 @@
                            </div> 
                              <hr>
                             
+                            <div id=social-container>
+                             <div id="naver_id_login"></div> <br>
+                             <div class="g-signin2" id="g-signin2" data-onsuccess="onSignIn"></div>
+                            </div>
                             
                            <!--  <a href="#" class="naver-btn">
                               <div id="naverIdLogin"></div> -->
                              <!-- <i class="login"></i> Login with NAVER -->
                              
                      <!-- 네이버아이디로로그인 버튼 노출 영역 -->
-  <div id="naver_id_login"></div> <br>
 
 		
   <script type="text/javascript">
   	var naver_id_login = new naver_id_login("IG6PV5dvNKOxys9LQVdt", "http://127.0.0.1/page/loginPage/login.jsp");
   	var state = naver_id_login.getUniqState();
-  	naver_id_login.setButton("green", 3,50);
+  	naver_id_login.setButton("green", 3,45);
   	naver_id_login.setDomain(".healthme.com");
   	naver_id_login.setState(state);
   /* 	naver_id_login.setPopup();  */
@@ -125,7 +128,7 @@
                             <br>
                             
                             <!-- 구굴 아이디 버튼  -->
-                            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                            
                             
       <script>
       function onSignIn(googleUser) {
@@ -167,7 +170,7 @@
         <!--회사정보가 들어가는 아랫부분-->
         <!--bottom부분은 관리자페이지 제외한 모든 페이지 통일-->
         <div id="bottom">
-            김구이김주정조 정보
+           <jsp:include page="/page/footer/footer.jsp"/>
         </div>
     </div>
     

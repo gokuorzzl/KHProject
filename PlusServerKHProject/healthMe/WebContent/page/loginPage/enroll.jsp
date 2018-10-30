@@ -65,13 +65,13 @@
                  
                     <form name="join" action="/enroll.do" method="post"> 
                   
-                        <label for="memberId" style="float:left;">아이디</label><div class="conditionId" style="float:left; box-sizing:border-box; margin-left:1%; margin-right:14%; margin-top:1%; ">(4~12자이내 영문소문자, 숫자, 언더라인( _ ) 사용가능)</div>
+                        <label id="memberIdName">아이디</label><div class="conditionId">(4~12자이내 영문소문자, 숫자, 언더라인( _ ) 사용가능)</div>
                         <button class="doubleCheck" onclick="return idCheck();">ID 중복 확인</button><br>
                         <input type="hidden" id="checkFlag" value=0/>
                         
                         <input type="text" maxlength="12" id="memberId" name="memberId" required><br>
     
-                         <label for="memberPw" style="float:left;">비밀번호</label><div class="conditionPw" style="float:left; box-sizing:border-box; margin-left:1%; margin-right:7%; margin-top:0.8%; ">(4~12자이내 영문대소문자, 숫자, 특수문자 혼합 사용)</div>
+                         <label id="memberPwName">비밀번호</label><div class="conditionPw">(4~12자이내 영문대소문자, 숫자, 특수문자 혼합 사용)</div>
                          <input type="password" maxlength="12" id="memberPw" name="memberPw" required ><br>
                           
                          <label for="memberPw2">비밀번호 재확인</label><br>
@@ -80,7 +80,7 @@
                         <label for="memberName">이름</label><br>
                         <input type="text" id="memberName" name="memberName" required><br>
                          
-                        <label for="memberSocialId" style="float:left;">주민등록번호</label><div class="conditionPw" style="float:left; box-sizing:border-box; margin-left:1%; margin-right:7%; margin-top:0.8%; ">(ex. 123456-7891011 형식으로 입력)</div>
+                        <label id="memberSocialIdName">주민등록번호</label><div class="conditionPw">(ex. 123456-7891011 형식으로 입력)</div>
                         <input type="text" maxlength="14" id="memberSocialId" name="memberSocialId" required><br> 
      
                          <label for="memberAddr">주소</label><br>
@@ -89,7 +89,7 @@
                         <input type="text" id="memberAddr" name="memberAddr" placeholder="주소">
                         <input type="text" id="sample6_address2" placeholder="상세주소">
 
-                        <label for="memberPhone" style="float:left;">핸드폰 번호</label><div class="conditionPw" style="float:left; box-sizing:border-box; margin-left:1%; margin-right:7%; margin-top:0.8%; ">(ex. 010-1111-2222 형식으로 입력)</div>
+                        <label id="memberPhoneName">핸드폰 번호</label><div class="conditionPw">(ex. 010-1111-2222 형식으로 입력)</div>
                         <input type="text" maxlength="13" id="memberPhone" name="memberPhone" required><br>
                
                         <label for="memberEmail">이메일</label><br>
@@ -111,7 +111,9 @@
         <!--회사정보가 들어가는 아랫부분-->
         <!--bottom부분은 관리자페이지 제외한 모든 페이지 통일-->
         <div id="bottom">
-            김구이김주정조 정보
+            
+            <jsp:include page="/page/footer/footer.jsp"/>
+            
         </div>
     </div>
 
