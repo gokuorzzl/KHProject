@@ -89,13 +89,14 @@
 
 
 
-					<li><a href="adminMain.jsp"><i class="fa fa-desktop"></i>홈(설정)</a>
-					</li>
+					  <li>
+                        <a class="active-menu" href="/page/admin/adminMain.jsp"><i class="fa fa-desktop"></i>홈(설정)</a>
+                    </li>
 					<!-- 홈 하나 끝 -->
 
 
 					<!-- 일반설정 시작 -->
-					<li><a href="adminNormalSet.jsp"><i class="fa fa-desktop"></i>일반설정(설정)</a>
+					<li><a href="/page/admin/adminNormalSet.jsp"><i class="fa fa-desktop"></i>일반설정(설정)</a>
 
 					</li>
 
@@ -105,10 +106,10 @@
 					<!--  게시판 관리 시작 -->
 					<li><a class="active-menu" href="adminMemberSet.jsp"><i
 							class="fa fa-desktop"></i>회원설정</a></li>
-					<li><a href="adminBoardSet.jsp"><i class="fa fa-desktop"></i>게시판설정
+					<li><a href="/page/admin/adminBoardSet.jsp"><i class="fa fa-desktop"></i>게시판설정
 					</a></li>
 
-					<li><a href="adminVisitSet.jsp"><i class="fa fa-sign-in "></i>방문자
+					<li><a href="/page/admin/adminVisitSet.jsp"><i class="fa fa-sign-in "></i>방문자
 							및 광고</a></li>
 					<li><a href="#"><i class="fa fa-sign-in "></i>Chart &
 							Graph(#)</a></li>
@@ -149,7 +150,7 @@
 					</div>
 					<div class="col-md-3">
 						<div class="main-box mb-dull">
-							<a href="#"> <i class="fa fa-plug fa-3x"></i>
+							  <a href="/adminAllList.do"> <i class="fa fa-plug fa-3x"></i>
 								<h5>회원설정</h5>
 							</a>
 						</div>
