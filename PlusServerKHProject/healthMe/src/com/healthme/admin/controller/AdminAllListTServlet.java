@@ -18,6 +18,7 @@ import com.healthme.trainer.model.vo.Trainer;
  * Servlet implementation class AdminAllListTServlet
  */
 @WebServlet(name = "adminAllListT", urlPatterns = { "/adminAllListT.do" })
+
 public class AdminAllListTServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -37,7 +38,7 @@ public class AdminAllListTServlet extends HttpServlet {
 		// 1. 비즈니스 로직을 통해 전체 회원 리스트를 가져온다.
 		ArrayList<Trainer> list = new AdminService().adminAllListT();
 		
-		System.out.println(list);
+		System.out.println(list+"트레이너페이지");
 		// 2. 결과 리턴
 		
 		if(!list.isEmpty()) //list 목록이 있다면(비워져 있지 않다면 이라는 의미)

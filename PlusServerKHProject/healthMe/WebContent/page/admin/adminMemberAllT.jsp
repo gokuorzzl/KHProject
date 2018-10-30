@@ -154,14 +154,14 @@
 				<div class="row">
 					<div class="col-md-3">
 						<div class="main-box mb-red">
-							<a href="adminMemberAdmin.jsp"> <i class="fa fa-bolt fa-3x"></i>
+							<a href="/page/admin/adminMemberAdmin.jsp"> <i class="fa fa-bolt fa-3x"></i>
 								<h5>관리자설정</h5>
 							</a>
 						</div>
 					</div>
 					<div class="col-md-3">
 						<div class="main-box mb-dull">
-							<a href="#"> <i class="fa fa-plug fa-3x"></i>
+							<a href="/adminAllList.do"> <i class="fa fa-plug fa-3x"></i>
 								<h5>회원설정</h5>
 							</a>
 						</div>
@@ -191,7 +191,7 @@
 							<h3>회원설정</h3>
 							<table class="table table-striped table-bordered table-hover">
 								<!--       <table cellSpacing=0 borderColorDark=white width="760" bgColor=#c0c0c0 borderColorLight=#dddddd border=1 class="s1">-->
-								<form id=updateform method="post" action="/adminMemberAllUpdate.do">
+								
 									<input type="hidden" name="theme"
 										value="basicinfo/basic_info2_qry"> <input
 										type="hidden" name="menushow" value="menu1">
@@ -237,15 +237,50 @@
 										<td colSpan=4><font color="#333333">&nbsp; 수정</font></td>
 										<td colSpan=4><font color="#333333">&nbsp; 삭제</font></td>
 									</tr>
+									<form id=updateform method="post" action="/adminMember.do">
+									
 									<%for(Trainer t:list){ %>
-									<tr>
-									<td bgColor=#ffffff colSpan=4><%=%></td>
+									<tr>	
+										<td colSpan=4><font color="#333333">&nbsp; <%=t.getMemberId()%></font></td>
+										<td colSpan=4><font color="#333333">&nbsp; <%=t.getProfileFile()%></font></td>
+										<td colSpan=4><font color="#333333">&nbsp; <%=t.getTrainerGradFile()%></font></td>
+										<td colSpan=4><font color="#333333">&nbsp; <%=t.getTrainerUniv()%></font></td>
+										<td colSpan=4><font color="#333333">&nbsp; <%=t.getTrainerGrad()%></font></td>
+										<td colSpan=4><font color="#333333">&nbsp; <%=t.getTrainerRegion()%></font></td>
+										<td colSpan=4><font color="#333333">&nbsp; <%=t.getTrainerSubject()%></font></td>
+										<td colSpan=4><font color="#333333">&nbsp; <%=t.getTrainerContent()%></font></td>
+										<td colSpan=4><font color="#333333">&nbsp; <%=t.getTrainerEvent()%></font></td>
+										<td colSpan=4><font color="#333333">&nbsp; <%=t.getTrainerCareerFile()%></font></td>
+										
+										<td colSpan=4><font color="#333333">&nbsp; <%=t.getCareerStart1()%></font></td>
+										<td colSpan=4><font color="#333333">&nbsp; <%=t.getCareerEnd1()%></font></td>
+										<td colSpan=4><font color="#333333">&nbsp; <%=t.getCareerName1()%></font></td>
+										
+										<td colSpan=4><font color="#333333">&nbsp; <%=t.getCareerStart2()%></font></td>
+										<td colSpan=4><font color="#333333">&nbsp; <%=t.getCareerEnd2()%></font></td>
+										<td colSpan=4><font color="#333333">&nbsp; <%=t.getCareerName2()%></font></td>
+										
+										<td colSpan=4><font color="#333333">&nbsp; <%=t.getCareerStart3()%></font></td>
+										<td colSpan=4><font color="#333333">&nbsp; <%=t.getCareerEnd3()%></font></td>
+										<td colSpan=4><font color="#333333">&nbsp; <%=t.getCareerName3()%></font></td>
+										
+										<td colSpan=4><font color="#333333">&nbsp; <%=t.getCareerStart4()%></font></td>
+										<td colSpan=4><font color="#333333">&nbsp; <%=t.getCareerEnd4()%></font></td>
+										<td colSpan=4><font color="#333333">&nbsp; <%=t.getCareerName4()%></font></td>
+										
+										<td colSpan=4><font color="#333333">&nbsp; <%=t.getCareerStart5()%></font></td>
+										<td colSpan=4><font color="#333333">&nbsp; <%=t.getCareerEnd5()%></font></td>
+										<td colSpan=4><font color="#333333">&nbsp; <%=t.getCareerName5()%></font></td>
+										
+										<td colSpan=4><font color="#333333">&nbsp; <%=t.getTrainerLicenseFile()%></font></td>
+										<td colSpan=4><font color="#333333">&nbsp; <%=t.getLicenseName1()%></font></td>
+										<td colSpan=4><font color="#333333">&nbsp; <%=t.getLicenseName2()%></font></td>
+										<td colSpan=4><font color="#333333">&nbsp; <%=t.getLicenseName3()%></font></td>
+										<td colSpan=4><font color="#333333">&nbsp; <%=t.getLicenseName4()%></font></td>
+										<td colSpan=4><font color="#333333">&nbsp; <%=t.getLicenseName5()%></font></td>
 									
-									
-									
-									
-									<td bgColor=#ffffff colSpan=4><a href="#">수정</a></td>
-									<td bgColor=#ffffff colSpan=4><a href="#">삭제</a></td>
+									<td bgColor=#ffffff colSpan=4><button id="btn1" onclick="modifyActive();">수정</button></td>
+									<td bgColor=#ffffff colSpan=4><button id="btn2" onclick="delNotice();">삭제</button></td>
 									
 									
 									</tr>

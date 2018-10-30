@@ -54,7 +54,7 @@ public class AdminService {
 		// TODO Auto-generated method stub
 		Connection conn = JDBCTemplate.getConnection();
 		ArrayList<Trainer> list = new AdminDao().adminMemberAllT(conn);
-		
+		System.out.println("adminService"+list);
 		JDBCTemplate.close(conn);
 		
 		

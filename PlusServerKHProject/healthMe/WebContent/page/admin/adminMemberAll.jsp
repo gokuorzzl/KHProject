@@ -153,14 +153,14 @@
 				<div class="row">
 					<div class="col-md-3">
 						<div class="main-box mb-red">
-							<a href="adminMemberAdmin.jsp"> <i class="fa fa-bolt fa-3x"></i>
+							<a href="/page/admin/adminMemberAdmin.jsp"> <i class="fa fa-bolt fa-3x"></i>
 								<h5>관리자설정</h5>
 							</a>
 						</div>
 					</div>
 					<div class="col-md-3">
 						<div class="main-box mb-dull">
-							<a href="#"> <i class="fa fa-plug fa-3x"></i>
+							<a href="/adminAllList.do"> <i class="fa fa-plug fa-3x"></i>
 								<h5>회원설정</h5>
 							</a>
 						</div>
@@ -190,7 +190,7 @@
 							<h3>회원설정</h3>
 							<table class="table table-striped table-bordered table-hover">
 								<!--       <table cellSpacing=0 borderColorDark=white width="760" bgColor=#c0c0c0 borderColorLight=#dddddd border=1 class="s1">-->
-								<form id=updateform method="post" action="/adminMemberAllUpdate.do">
+								<!--  <form id=updateform method="post" action="/adminMemberAllUpdate.do"> -->
 									<input type="hidden" name="theme"
 										value="basicinfo/basic_info2_qry"> <input
 										type="hidden" name="menushow" value="menu1">
@@ -212,23 +212,28 @@
 										<td colSpan=4><font color="#333333">&nbsp; 수정</font></td>
 										<td colSpan=4><font color="#333333">&nbsp; 삭제</font></td>
 									</tr>
+									<form id=updateform method="post" action="/adminMemberselectUpdate.do">
 									<%for(Member m:list){ %>
 									<tr>
-									<td bgColor=#ffffff colSpan=4><%=m.getPkMemberNumber()%></td>
-									<td bgColor=#ffffff colSpan=4><%=m.getMemberId()%></td>
-									<td bgColor=#ffffff colSpan=4><%=m.getMemberPw()%></td>
-									<td bgColor=#ffffff colSpan=4><%=m.getMemberName()%></td>
-									<td bgColor=#ffffff colSpan=4><%=m.getMemberSocialId()%></td>
-									<td bgColor=#ffffff colSpan=4><%=m.getMemberAddr()%></td>
-									<td bgColor=#ffffff colSpan=4><%=m.getMemberEmail()%></td>
-									<td bgColor=#ffffff colSpan=4><%=m.getMemberPhone()%></td>
-									<td bgColor=#ffffff colSpan=4><%=m.getMemberTrainer()%></td>
-									<td bgColor=#ffffff colSpan=4><%=m.getMemberClass() %></td>
-									<td bgColor=#ffffff colSpan=4><%=m.getMemberOut()%></td>
-									<td bgColor=#ffffff colSpan=4><%=m.getMemberRegistDate()%></td>
-									<td bgColor=#ffffff colSpan=4><%=m.getMemberOutDate()%></td>
-									<td bgColor=#ffffff colSpan=4><a href="#">수정</a></td>
-									<td bgColor=#ffffff colSpan=4><a href="#">삭제</a></td>
+									
+									
+									
+									
+									<td bgColor=#ffffff colSpan=4><input type="hidden" id="pkMemberNumber_fd" value="<%=m.getPkMemberNumber()%>"/><span id="pkMemberNumber"><%=m.getPkMemberNumber()%></span></td>
+									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberId_fd" value="<%=m.getMemberId()%>"/><span id="memberId"><%=m.getMemberId()%></span></td>
+									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberPw_fd" value="<%=m.getMemberPw()%>"/><span id="memberPw"><%=m.getMemberPw()%></span></td>
+									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberName_fd" value="<%=m.getMemberName()%>"/><span id="memberName"><%=m.getMemberName()%></span></td>
+									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberSocialId_fd" value="<%=m.getMemberSocialId()%>"/><span id="memberSocialId"><%=m.getMemberSocialId()%></span></td>
+									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberAddr_fd" value="<%=m.getMemberAddr()%>"/><span id="memberAddr"><%=m.getMemberAddr()%></span></td>
+									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberEmail_fd" value="<%=m.getMemberEmail()%>"/><span id="memberEmail"><%=m.getMemberEmail()%></span></td>
+									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberPhone_fd" value="<%=m.getMemberPhone()%>"/><span id="memberPhone"><%=m.getMemberPhone()%></span></td>
+									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberTrainer_fd" value="<%=m.getMemberTrainer()%>"/><span id="memberTrainer"><%=m.getMemberTrainer()%></span></td>
+									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberClass_fd" value="<%=m.getMemberClass() %>"/><span id="memberClass"><%=m.getMemberClass() %></span></td>
+									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberOut_fd" value="<%=m.getMemberOut()%>"/><span id="memberOut"><%=m.getMemberOut()%></span></td>
+									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberRegistDate_fd" value="<%=m.getMemberRegistDate()%>"/><span id="memberRegistDate"><%=m.getMemberRegistDate()%></span></td>
+									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberOutDate_fd" value="<%=m.getMemberOutDate()%>"/><span id="memberOutDate"><%=m.getMemberOutDate()%></span></td>
+									<td bgColor=#ffffff colSpan=4><button id="btn1" onclick="modifyActive();">수정</button></td>
+									<td bgColor=#ffffff colSpan=4><button id="btn2" onclick="delNotice();">삭제</button></td>
 									
 									
 									</tr>
@@ -283,12 +288,83 @@
 
 
 	</div>
+	
 <script>
 	function back(){
 		history.go(-1);
 		return false;
 	}
 </script>
+
+<script>
+function modifyActive(){
+	document.getElementById("pkMemberNumber").style.display="none";
+	document.getElementById("pkMemberNumber_fd").type="text";
+	
+	document.getElementById("memberId").style.display="none";
+	document.getElementById("memberId_fd").type="text";
+	
+	document.getElementById("memberPw").style.display="none";
+	document.getElementById("memberPw_fd").type="text";
+	
+	document.getElementById("memberName").style.display="none";
+	document.getElementById("memberName_fd").type="text";
+	
+	document.getElementById("memberSocialId").style.display="none";
+	document.getElementById("memberSocialId_fd").type="text";
+	
+	document.getElementById("memberAddr").style.display="none";
+	document.getElementById("memberAddr_fd").type="text";
+	
+	document.getElementById("memberEmail").style.display="none";
+	document.getElementById("memberEmail_fd").type="text";
+	
+	document.getElementById("memberPhone").style.display="none";
+	document.getElementById("memberPhone_fd").type="text";
+	
+	document.getElementById("memberTrainer").style.display="none";
+	document.getElementById("memberTrainer_fd").type="text";
+	
+	document.getElementById("memberClass").style.display="none";
+	document.getElementById("memberClass_fd").type="text";
+	
+	document.getElementById("memberOut").style.display="none";
+	document.getElementById("memberOut_fd").type="text";
+	
+	document.getElementById("memberRegistDate").style.display="none";
+	document.getElementById("memberRegistDate_fd").type="text";
+	
+	document.getElementById("memberOutDate").style.display="none";
+	document.getElementById("memberOutDate_fd").type="text";
+	
+	/*수정할 사항!!!!*/
+	
+	
+	document.getElementById("btn2").innerHTML="취소";	
+	document.getElementById("btn2").onclick=function(){cancelNotice()};
+	
+	document.getElementById("btn1").onclick=function(){modifySubmit()};
+}
+
+
+
+function modifySubmit(){
+	document.getElementById("subject_form").value = 
+		document.getElementById("subject_fd").value;
+	
+	document.getElementById("contents_form").value = 
+		document.getElementById("contents_fd").value;
+	
+	document.getElementById("updateForm").submit();
+	
+	
+	
+}
+
+</script>
+
+
+
 
 
 	<jsp:include page="/page/footer/footer.jsp" />

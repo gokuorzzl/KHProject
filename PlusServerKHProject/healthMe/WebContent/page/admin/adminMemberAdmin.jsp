@@ -143,7 +143,7 @@
 				<div class="row">
 					<div class="col-md-3">
 						<div class="main-box mb-red">
-							<a href="adminMemberAdmin.jsp"> <i class="fa fa-bolt fa-3x"></i>
+							<a href="/page/admin/adminMemberAdmin.jsp"> <i class="fa fa-bolt fa-3x"></i>
 								<h5>관리자설정</h5>
 							</a>
 						</div>

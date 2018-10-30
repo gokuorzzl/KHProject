@@ -150,8 +150,8 @@ public class AdminDao {
 		Statement stmt = null;
 		ResultSet rset = null;
 		
-		String query = "select * from member where membertrainer='y'";
-		
+		String query = "select * from trainer";
+		System.out.println(query);
 		try {
 			stmt = conn.createStatement();
 			rset = stmt.executeQuery(query);
@@ -212,7 +212,7 @@ public class AdminDao {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(stmt);
 		}
-		
+		System.out.println(list+"AdminDao");
 		
 		return list;
 
