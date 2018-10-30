@@ -36,15 +36,18 @@
  			integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   			crossorigin="anonymous"></script>
   	<script type="text/javascript" src="../../js/searchTrainerPage/searchingArea.js"></script>
+  	<script type="text/javascript" src="../../js/searchTrainerPage/searchTrainer.js"></script>
   	<!-- fa 아이콘 링크  -->
   	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--title-->
     <title>헬th미:나만의 트레이너</title>
 </head>
 <body>
-   		<form action="/searchInput.do" method="get" >
-			<input type="hidden" name="searchInput" id="searchInput" value="<%=searchInput%>"/>
-   		</form>
+<form id="searchForm" action="/searchInput.do" method="get" >
+	<input type="hidden" name="searchInput" id="searchInput" value="<%=searchInput%>"/>
+	<!-- 이거 나중에까지 해결 안되면 지우자... -->
+	<input type="hidden" name="screenSize" id="screenSize" value="1024"/>
+</form>
 <!--전체 공간-->    
     <div id="wrapper">
         <div id="top">
@@ -55,62 +58,66 @@
         <div id="middle">
             <!--지역, 종목 등 선택할 수 있는 선택박스-->
             <div id="searchBox">
-                <div id="realSearchBox">
-                    <div id="searchName">
-                        <div id="areaSearchName">광역시/도</div>
-                        <div id="subAreaSearchName">시/군/구</div>
-                        <div id="subArea2SearchName">읍/면/동</div>
-                        <div id="fieldSearchName">종목</div>
-                    </div>
-                    <div id="selectMenu">
-                        <div id="area" name = "area" class="scrollStyle">
-                            <ul>
-                                <li>서울특별시</li>
-                                <li>부산광역시</li>
-                                <li>대구광역시</li>
-                                <li>인천광역시</li>
-                                <li>광주광역시</li>
-                                <li>대전광역시</li>
-                                <li>울산광역시</li>
-                                <li>세종특별자치시</li>
-                                <li>경기도</li>
-                                <li>강원도</li>
-                                <li>충청북도</li>
-                                <li>충청남도</li>
-                                <li>전라북도</li>
-                                <li>전라남도</li>
-                                <li>경상북도</li>
-                                <li>경상남도</li>
-                                <li>제주특별자치도</li>
-                            </ul>
-                            <!-- input에 정보를 담아서 가져옴 -> 자바 변수에 저장 -->
-                        </div>
-                        <div id="subArea" class="scrollStyle">
-  							<ul>
-  							<!-- id="area"에서 선택한 지역의 세부지역이 나오는 부분 -->
-  							</ul>
-                        </div>
-                        <div id="subArea2" class="scrollStyle">
-                            <ul>
-                            <!-- id="subArea2"에서 선택한 지역의 세부지역이 나오는 부분 -->
-                            </ul>
-                        </div>
-                        <div id="mobileFieldSearchName">종목</div>
-                        <div id="field" class="scrollStyle">
-                        	 <ul>
-                                <li>헬스</li>
-                                <li>요가</li>
-                                <li>구기종목</li>
-                                <li>무술</li>
-                                <li>라켓</li>
-                                <li>워터스포츠</li>
-                                <li>유산소운동</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div id="submitButton"><button type="submit"><i class="fa fa-search"></i></button></div>
-            </div>
+
+	                <div id="realSearchBox">
+	                    <div id="searchName">
+	                        <div id="areaSearchName">광역시/도</div>
+	                        <div id="subAreaSearchName">시/군/구</div>
+	                        <div id="subArea2SearchName">읍/면/동</div>
+	                        <div id="fieldSearchName">종목</div>
+	                    </div>
+	                    <div id="selectMenu">
+	                        <div id="area" name = "area" class="scrollStyle">
+	                            <ul>
+	                                <li>서울특별시</li>
+	                                <li>부산광역시</li>
+	                                <li>대구광역시</li>
+	                                <li>인천광역시</li>
+	                                <li>광주광역시</li>
+	                                <li>대전광역시</li>
+	                                <li>울산광역시</li>
+	                                <li>세종특별자치시</li>
+	                                <li>경기도</li>
+	                                <li>강원도</li>
+	                                <li>충청북도</li>
+	                                <li>충청남도</li>
+	                                <li>전라북도</li>
+	                                <li>전라남도</li>
+	                                <li>경상북도</li>
+	                                <li>경상남도</li>
+	                                <li>제주특별자치도</li>
+	                            </ul>
+	                        </div>
+	                        <div id="subArea" class="scrollStyle">
+	  							<ul>
+	  							<!-- id="area"에서 선택한 지역의 세부지역이 나오는 부분 -->
+	  							</ul>
+	                        </div>
+	                        <div id="subArea2" class="scrollStyle">
+	                            <ul>
+	                            <!-- id="subArea2"에서 선택한 지역의 세부지역이 나오는 부분 -->
+	                            </ul>
+	                        </div>
+	                        <div id="mobileFieldSearchName">종목</div>
+	                        <div id="field" class="scrollStyle">
+	                        	 <ul>
+	                                <li>헬스</li>
+	                                <li>요가</li>
+	                                <li>구기종목</li>
+	                                <li>무술</li>
+	                                <li>라켓</li>
+	                                <li>워터스포츠</li>
+	                                <li>유산소운동</li>
+	                            </ul>
+	                        </div>
+	                    </div>
+	                </div>
+	                <form action="/searchBox.do" method="get">
+	                	<input type="hidden" name="searchBox" id="searchBox" value="<%=searchInput%>"/>
+	               		<div id="submitButton"><button type="submit"><i class="fa fa-search"></i></button></div>
+	                </form>
+	            </div>
+
             <!--트레이너 별점 등 컨텐츠 나오는 부분-->
             <div id="contents">
            		<%if(searchResult==null){ %>
@@ -118,36 +125,50 @@
 						<img style="height:100%; width:100%;" src="../../img/searchTrainerMainImg.PNG">
 					</div>
 				<%} else { %>
-					<div id="searchResultTrainer" style="width:100%; height:95%">
-						<div style="width:80%; height:80%;">
-							<table border="1">
-								<tr>
-									<% for(int i=0 ; i<3 ; i++){ %>
-										<td>
-											프로필 경로 : <%=trainerList.get(i).getProfileFile() %><br>
-											이름 : <%=trainerList.get(i).getMemberName() %><br>
-											종목 : <%=trainerList.get(i).getTrainerEvent() %><br>
-											별점 : <%=trainerList.get(i).getMatchingScore() %><br>
-											<br><br><br>	
-										</td>
-									<% } //for문 종료%>
-								</tr>
-								<tr>
-									<% for(int i=3 ; i<6 ; i++){ %>
-										<td>
-											프로필 경로 : <%=trainerList.get(i).getProfileFile() %><br>
-											이름 : <%=trainerList.get(i).getMemberName() %><br>
-											종목 : <%=trainerList.get(i).getTrainerEvent() %><br>
-											별점 : <%=trainerList.get(i).getMatchingScore() %><br>
-											<br><br><br>	
-										</td>
-									<% } //for문 종료%>
-								</tr>
-							</table>
+					<div id="searchResultTrainer" style="width:100%; height:93%">
+						<div style="width:80%; height:93%; margin:auto; margin-top:15px;">
+							<% for(int i=0 ; i<=trainerList.size()/2-1 ; i++){ %>
+								<a href="">
+									<div style="width:<%=(100/(trainerList.size()/2))-(trainerList.size()/2)*0.5%>%; 
+										height:49.5%; float:left; box-sizing:border-box; 
+										border:1.5px solid #3c3e3a; border-radius:6px 6px 6px 6px;
+										margin-left:0.5%; margin-top:0.5%; text-align:right;">
+										<div style="width:100%; height:60%; box-sizing:border-box; overflow:hidden;">
+											<img src="<%=trainerList.get(i).getProfileFile() %>"
+												style="width:100%; height:auto; align:top; 
+												border-radius:6px 6px 0 0; margin-bottom:5px; order:0;"/>
+										</div>
+										<div style="width:100%; height:40%; box-sizing:border-box; margin-left:-5px;">
+											<div style="width:100%; height:30%; margin-top:1%; overflow:hidden;">[<%=trainerList.get(i).getMemberName() %>] 트레이너</div>
+											<div style="width:100%; height:30%; margin-top:1%; overflow:hidden;"><%=trainerList.get(i).getTrainerEvent() %></div>
+											<div style="width:100%; height:30%; margin-top:1%;" overflow:hidden;><%=trainerList.get(i).getMatchingScore() %></div>
+										</div>
+									</div>
+								</a>
+							<% } //for문 종료%>
+							<% for(int i=trainerList.size()/2 ; i<trainerList.size() ; i++){ %>
+								<a href="">
+									<div style="width:<%=(100/(trainerList.size()/2))-(trainerList.size()/2)*0.5%>%; 
+										height:49.5%; float:left; box-sizing:border-box; 
+										border:1.5px solid #3c3e3a; border-radius:6px 6px 6px 6px;
+										margin-left:0.5%; margin-top:0.5%; text-align:right;">
+										<div style="width:100%; height:60%; box-sizing:border-box; overflow:hidden;">
+											<img src="<%=trainerList.get(i).getProfileFile() %>"
+												style="width:100%; height:auto; align:top; 
+												border-radius:6px 6px 0 0; margin-bottom:5px; order:0;"/>
+										</div>
+										<div style="width:100%; height:40%; box-sizing:border-box; margin-left:-5px;">
+											<div style="width:100%; height:30%; margin-top:1%; overflow:hidden;">[<%=trainerList.get(i).getMemberName() %>] 트레이너</div>
+											<div style="width:100%; height:30%; margin-top:1%; overflow:hidden;"><%=trainerList.get(i).getTrainerEvent() %></div>
+											<div style="width:100%; height:30%; margin-top:1%; overflow:hidden;"><%=trainerList.get(i).getMatchingScore() %></div>
+										</div>
+									</div>
+								</a>
+							<% } //for문 종료%>
 						</div>
 					</div>
-					<div id="searchNavi" style="width:100%; height:5%">
-						<label><%=pageNavi %></label>
+					<div id="searchNavi" style="width:100%; height:7%; box-sizing:border-box; margin-top:0;">
+						<label><%=pageNavi %></label><br><br><br><br>
 					</div>
 				<%} //if종료%>
             </div>

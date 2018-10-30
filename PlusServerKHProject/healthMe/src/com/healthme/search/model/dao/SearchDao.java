@@ -132,7 +132,7 @@ public class SearchDao {
 			
 			//결과가 있으면 결과값의 평균이, 없으면 0이 리턴됨
 			if(rset.next()) {
-				matchingScore = rset.getInt("MEMBERNAME");
+				matchingScore = rset.getInt("SCOREAVG");
 			}
 			
 		} catch (SQLException e) {

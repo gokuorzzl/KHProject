@@ -14,7 +14,7 @@ import com.healthme.search.model.vo.SearchedTrainerResult;
 
 public class SearchService {
 
-	public SearchResult searchBar(ArrayList<String> searchList, int currentPage) {
+	public SearchResult searchBar(int screenSize, ArrayList<String> searchList, int currentPage) {
 		
 		//커넥션 생성
 		Connection conn = JDBCTemplate.getConnection();
@@ -47,7 +47,7 @@ public class SearchService {
 			}
 			
 			//페이징처리
-			SearchPaging sp = paging(searchList, currentPage, tmpTrainer);
+			SearchPaging sp = paging(screenSize, searchList, currentPage, tmpTrainer);
 			
 			//----------------- DB검색과 페이징 처리를 통해 얻은 결과로 return할 객체 생성 -----------------//
 			//1. SearchResult 결과 객체의 ArrayLsit
@@ -72,17 +72,16 @@ public class SearchService {
 		return searchResult;
 	}
 	
-	public SearchPaging paging(ArrayList<String> searchList, int currentPage, ArrayList<SearchedTrainer> tmpTrainer) {
+	public SearchPaging paging(int screenSize, ArrayList<String> searchList, int currentPage, ArrayList<SearchedTrainer> tmpTrainer) {
 		
 		//----------------- 페이징 처리 -----------------//
 		//1. 같은 페이지 내 객체 갯수 처리
 		int recordPerPage = 0; //한 페이지에서 표현할 갯수
 		//화면 크기에 따라 한 페이지에 표현할 갯수가 달라지므로 화면 크기를 구하는 객체를 이용
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		
-		if(screenSize.getWidth()>=1024) {//데스크톱 사이즈
+		if(screenSize>=1024) {//데스크톱 사이즈
 			recordPerPage = 6; 
-		}else if(screenSize.getWidth()>=640){//태블릿 사이즈
+		}else if(screenSize>=640){//태블릿 사이즈
 			recordPerPage = 4; 
 		}else {//모바일 사이즈
 			recordPerPage = 2; 
