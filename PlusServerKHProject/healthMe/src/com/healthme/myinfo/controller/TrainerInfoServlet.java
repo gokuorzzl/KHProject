@@ -34,10 +34,8 @@ public class TrainerInfoServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//1.인코딩
 		request.setCharacterEncoding("utf-8");
+		
 		//2.views에서 가져온 데이터 변수에 저장
-		
-		
-		
 		String memberID = request.getParameter("memberId");
 	    //String profileFile = request.getParameter("profileFile");
 	    //String trainerGradFile = request.getParameter("trainerGradFile");
@@ -46,6 +44,7 @@ public class TrainerInfoServlet extends HttpServlet {
 	    String trainerRegion = request.getParameter("trainerRegion");
 	    String trainerContent = request.getParameter("trainerContent");
 	    String trainerEvent = request.getParameter("trainerEvent");
+	    /*
 	    //String trainerCareerFile = request.getParameter("trainerCareerFile");
 	    Date careerStart1 = Date.valueOf(request.getParameter("careerStart1"));
 		Date careerEnd1 = Date.valueOf(request.getParameter("careerEnd1"));
@@ -68,22 +67,26 @@ public class TrainerInfoServlet extends HttpServlet {
 		String licenseName3 = request.getParameter("licenseName3");
 		String licenseName4 = request.getParameter("licenseName4");
 		String licenseName5 = request.getParameter("licenseName5");
-		
+		*/
 		TrainerInfo ti = new TrainerInfo();
 		//ti.set
+		ti.setMemberID(memberID);
+		ti.setTrainerUniv(trainerUniv);
+		ti.setTrainerContent(trainerContent);
+		ti.setTrainerEvent(trainerEvent);
 		
-		System.out.println(trainerContent);
 		//3.비즈니스 로직처리
-		int result =new TrainerInfoService().insertTrainerInfo(trainerContent);
+		int result =new TrainerInfoService().insertTrainerInfo(ti);
+
 		//4.결과
 		if(result>0) {
 			//데이터 양 많을때(보안강화, url에 서블릿 주소가 표시)
-			RequestDispatcher view = request.getRequestDispatcher("views/member/trainerInfoSuccess.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("/page/mypage/trainerInfoSuccess.jsp");
 			request.setAttribute("result", result);
 			view.forward(request, response);
 		}else {
 			//데이터 양 적을때(url에 경로가 그대로 표시됨)
-			response.sendRedirect("/views/member/trainerInfoFail.jsp");
+			response.sendRedirect("/page/mypage/trainerInfoFail.jsp");
 		}
 	}
 

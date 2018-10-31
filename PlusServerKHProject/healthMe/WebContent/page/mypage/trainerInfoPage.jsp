@@ -50,11 +50,11 @@
         </div>
 
         <!-- CONTAINER -->
-
+<!--  enctype="multipart/form-data" 파일 입출력용임 -->
         <div id="middle">
             <h3>- 기본정보 입력 -</h3>
             <div class="linecolor"></div>
-            <form method="get" id="frm-register-detail" enctype="multipart/form-data">
+            <form method="get" id="frm-register-detail" action="/trainerInfo.do">
                 <div id="contents">
                     <div id="realcontents">
                         <ul>

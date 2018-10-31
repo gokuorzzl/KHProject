@@ -6,14 +6,14 @@ import java.sql.SQLException;
 
 import com.healthme.common.JDBCTemplate;
 import com.healthme.myinfo.model.dao.TrainerInfoDao;
-
+import com.healthme.myinfo.model.vo.TrainerInfo;
 
 public class TrainerInfoService {
 	
-	public int insertTrainerInfo(String trainerContent) {
+	public int insertTrainerInfo(TrainerInfo ti) {
 
 		Connection conn = JDBCTemplate.getConnection();
-		int result = new TrainerInfoDao().insertTrainerInfo(trainerContent,conn);
+		int result = new TrainerInfoDao().insertTrainerInfo(ti,conn);
 		
 		
 		if(result>0) {
