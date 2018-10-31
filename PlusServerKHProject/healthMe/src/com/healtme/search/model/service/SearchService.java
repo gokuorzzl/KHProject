@@ -24,6 +24,7 @@ public class SearchService {
 		//-------------- DAO를 세 번 다녀옴 --------------//
 		//1. TRAINER테이블로부터 MEMBERID, PROFILEFILE, TRAINERREGION, TRAINEREVENT를 가져옴
 		//위의 네가지 정보를 저장하는 SearchedTrainer 객체를 저장할 ArrayList생성
+
 		ArrayList<SearchedTrainer> tmpTrainer = new SearchDao().searchBarTrainer(conn, searchList);
 
 		if(!tmpTrainer.isEmpty()) {

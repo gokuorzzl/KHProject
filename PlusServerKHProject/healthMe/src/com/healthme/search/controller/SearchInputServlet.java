@@ -40,8 +40,7 @@ public class SearchInputServlet extends HttpServlet {
 		//2. searchTrainerPage에서 보낸 데이터를 저장
 		String search = request.getParameter("searchInput");
 		int screenSize = Integer.parseInt(request.getParameter("screenSize"));
-		
-		System.out.println("searchInputServlet"+search);
+
 		//3. 검색어 처리
 		//replace 메소드를 이용해 실제 검색어를 제외한 특수문자 등을 모두 (공백)구분자로 변경
 		search = search.replace(",", " ");
@@ -79,7 +78,7 @@ public class SearchInputServlet extends HttpServlet {
 			//게시판에서 페이지를 이동할 때에는 이미 페이지값이 존재하므로 해당 페이지값을 저장
 			currentPage = Integer.parseInt(request.getParameter("currentPage"));
 		}
-
+		
 		//5. 검색어를 담은 ArrayList와 현재 페이지 정보를 담은 currentPage를 Service로 전송
 		SearchResult searchResult = new SearchService().searchBar(screenSize, searchList, currentPage);
 		

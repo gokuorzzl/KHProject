@@ -19,7 +19,7 @@ public class SearchDao {
 		ResultSet rset = null;
 		//결과 담을 리스트 생성
 		ArrayList<SearchedTrainer> tmpTrainer = new ArrayList<>();
-
+		
 		//전송할 쿼리문 -> TRAINER테이블로부터  아이디, 프로필사진경로, 트레이너 근무지역, 종목을 가져옴
 		String query = "SELECT MEMBERID, PROFILEFILE, TRAINERREGION, TRAINEREVENT FROM TRAINER WHERE "; 
 		//WHERE조건을 완성하기 위해 검색어 리스트 수만큼 for문을 실행

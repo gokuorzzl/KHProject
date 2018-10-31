@@ -45,7 +45,6 @@
 <body>
 <form id="searchForm" action="/searchInput.do" method="get">
 	<input type="hidden" name="searchInput" class="searchInput" value="<%=searchInput%>"/>
-	<!-- 이거 나중에까지 해결 안되면 지우자... -->
 	<input type="hidden" name="screenSize" class="screenSize"  />
 </form>
 <!--전체 공간-->    
@@ -128,12 +127,13 @@
 				<%} else { %>
 					<div id="searchResultTrainer" style="width:100%; height:93%">
 						<div style="width:80%; height:93%; margin:auto; margin-top:15px;">
-							<% for(int i=0 ; i<=trainerList.size()/2-1 ; i++){ %>
+														<% for(int i=0 ; i<=(trainerList.size()<=3?trainerList.size()-1:trainerList.size()/2-1) ; i++){%>	
 								<form class="trainerForm" action="/trainerOneSearch.do" method="post"
 										style="width:<%=(100/(trainerList.size()/2))-(trainerList.size()/2)*0.5%>%; 
-										height:49.5%; float:left; box-sizing:border-box; 
+										height:49.5%; float:left; box-sizing:border-box; cursor: pointer;
 										border:1.5px solid #3c3e3a; border-radius:6px 6px 6px 6px;
-										margin-left:0.5%; margin-top:0.5%; text-align:right; overflow:hidden;">
+										margin-left:0.5%; margin-top:0.5%; text-align:right; overflow:hidden;
+										<%if(trainerList.size()<=3){%>float:left;<%}%>">
 								<input type="hidden" name="memberId" value="<%=trainerList.get(i).getMemberId()%>"/>
 									<div style="whidth:100%; height:100%;">
 										<div style="width:100%; height:60%; box-sizing:border-box; overflow:hidden;">
@@ -149,10 +149,18 @@
 									</div>	
 								</form>
 							<% } //for문 종료%>
+
+
+
+
+
+
+
+
 							<% for(int i=trainerList.size()/2 ; i<trainerList.size() ; i++){ %>
 								<form class="trainerForm" action="/trainerOneSearch.do" method="post"
 									style="width:<%=(100/(trainerList.size()/2))-(trainerList.size()/2)*0.5%>%; 
-										height:49.5%; float:left; box-sizing:border-box; 
+										height:49.5%; float:left; box-sizing:border-box; cursor: pointer;
 										border:1.5px solid #3c3e3a; border-radius:6px 6px 6px 6px;
 										margin-left:0.5%; margin-top:0.5%; text-align:right; overflow:hidden;">
 								<input type="hidden" name="memberId" value="<%=trainerList.get(i).getMemberId()%>"/>
@@ -170,6 +178,8 @@
 									</div>
 								</form>
 							<% } //for문 종료%>
+
+			
 						</div>
 					</div>
 					<div id="searchNavi" style="width:100%; height:7%; box-sizing:border-box; margin-top:0;">
