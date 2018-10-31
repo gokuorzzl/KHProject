@@ -12,7 +12,7 @@
 	<div class="totalSize"><br>
 		<div class="imgLine">
 			<div><img src="../../img/%EB%A1%9C%EA%B3%A0.png" class="imgStyle" width="30%" height="18%"><br>
-				<div><a href="" class="tagStyle">공지사항> </a></div>
+				<div><a href="" class="tagStyle">공지사항 > </a></div>
 			</div> 
 		</div>
 <hr>

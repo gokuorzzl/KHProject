@@ -33,12 +33,11 @@
                 <li><a href="/page/searchTrainerPage/searchTrainerPage.jsp">트레이너 찾기</a></li>
                 <li><a href="">트레이너 등록</a></li>
                 <li><a href="/page/communityPage/boardPage.jsp">게시판</a></li>
-                <li><a href="/page/communityPage/Q&APage.jsp">Q & A</a></li>
+                <li><a href="/page/communityPage/QnAPage.jsp">Q & A</a></li>
 <%
 				session = request.getSession(false);
 				Member member = (Member)session.getAttribute("member");
-				if(member!=null && member.getMemberId().equals("admin")){
-				
+				if(member!=null && member.getMemberId().equals("admin")){				
 %>
 				<li><a href="/page/admin/adminlogin.jsp">관리자페이지</a></li>
 <%
@@ -59,7 +58,7 @@
                  	<form>
                  		<h2>heal th me</h2>
                  		 <a href="" class="loginForm">마이 페이지ㆍ</a>
-                 		 <a href="" class="loginForm">로그아웃</a>
+                 		 <a href="/logout.do" class="loginForm">로그아웃</a>
 					
                  	</form>
             </div>
@@ -71,8 +70,8 @@
                      <form action="/page/loginPage/login.jsp">
                      <h3 style="color:white">heal th me를 더 안전하고 편리하게 이용하세요.</h3>
                      <input type="submit" class="menu-local btn btn-primary btn-lg myinfo" value="heal th me 로그인"></form>
-                     <a href="" class="menu-local-font">아이디ㆍ비밀번호 찾기</a>
-                     <a href="/page/loginPage/userLogin.jsp" class="menu-local-font-join" >회원가입</a>
+                     <a href="/page/loginPage/searchId.jsp" class="menu-local-font">아이디 찾기</a><a href="/page/loginPage/searchPwd.jsp" class="menu-local-font">ㆍ비밀번호 찾기</a>
+                     <a href="/page/loginPage/enroll.jsp" class="menu-local-font-join" >회원가입</a>
                  </div>
   			<%	} %>
                </div>
