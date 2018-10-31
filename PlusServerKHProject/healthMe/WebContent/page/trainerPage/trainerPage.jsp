@@ -59,6 +59,7 @@
         					<div class="starBoxFull textMiddle">
 								<%
 								if(starScore==0){%>
+								<!-- style="width:60px; height:60px" -->
 									<div class="starBox">
 								<%		for(int i =0; i<5; i++) {%>
 										<img src="../../img/star/starNull.PNG" style="width:60px; height:60px"/>
