@@ -37,9 +37,19 @@ public class RegisterServlet extends HttpServlet {
 		String trainerSubject = request.getParameter("trainerSubject");
 		
 		HttpSession session = request.getSession(false);
+		try {
 		String userId =((Member)session.getAttribute("member")).getMemberId();
+		
 		if(session!=null) {
-			new RegisterService().insertRegister(trainerId, trainerSubject, userId);
+			int result = new RegisterService().insertRegister(trainerId, trainerSubject, userId);
+			if(result>0) {
+				response.sendRedirect("/page/mypage/");//마이페이지 부분으로 넘길 예정
+			}else {
+				response.sendRedirect("/page/error/error.jsp");
+			}
+		}
+		}catch(Exception e) {
+			response.sendRedirect("/page/error/error.jsp");
 		}
 	}
 

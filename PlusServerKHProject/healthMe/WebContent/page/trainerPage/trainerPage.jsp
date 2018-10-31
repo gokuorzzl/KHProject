@@ -36,10 +36,10 @@
         <jsp:include page="/page/header/header.jsp"/>
         </div>
         <br>
-        <div id="middle" class="border">
+        <div id="middle">
         	<div class="contents">
         		<div class="resume">
-        			<div class="resumeDivL border">      			
+        			<div class="resumeDivL borderLeft">      			
         				<div class="imgBoxSize">
         					<img src="../..<%=t.getProfileFile()%>" class="imgSize">
         				</div>
@@ -47,7 +47,7 @@
         					<div class="textSize"><%=m.getMemberName()%></div>
         				</div>
         			</div>
-        			<div class="resumeDivR border">
+        			<div class="resumeDivR borderRe">
         				<div class="resumeTextBox">
         					<div class="resumeTextTop textMiddle">
         						<div class="textSize"><%=t.getTrainerSubject()%></div>
@@ -114,7 +114,7 @@
         		</div>
         		<br><br>
         		<!--간단 이력 밑 부분-->
-				<div class="contents_3 border">
+				<div class="contents_3 borderColor">
 					<div class="content3Box">
 					<div class="myInfo_1 textMiddle"><br>
 					트레이너 정보
@@ -259,7 +259,7 @@
 				</div>
 			</div>
 
-			<div class="contents_2 border">
+			<div class="contents_2 borderColor">
 				<div class="infoBox">
 					<br>
 					<div class="infoBox_1"></div>
@@ -301,9 +301,13 @@
 						<div class="iconLeft">
 							<img src="../../img/heart.png" class="iconImg">
 						</div>
+						<form action="/wishList.do" method="post">
 						<div class="iconRight textMiddle">
 							<input type="submit" class="submitBtn submitB" value="찜하기">
+							<input type="hidden" value="<%=t.getMemberId()%>" name="trainerId"/>
+							<input type="hidden" value="<%=t.getTrainerSubject()%>" name="trainerSubject"/>
 						</div>
+						</form>
 					</div>
 				</div>
 			</div>

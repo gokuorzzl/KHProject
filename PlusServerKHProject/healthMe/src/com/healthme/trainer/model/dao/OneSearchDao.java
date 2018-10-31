@@ -114,7 +114,7 @@ public class OneSearchDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		int starScore=0;
-		String query = "select round(avg(matchingScore)) AS result from matching where matchedMemberId =?";
+		String query = "select round(avg(matchingScore)) AS result from matching where matchedMemberId =? and (matchingScore between 0 and 5)";
 		
 		try {
 			pstmt = conn.prepareStatement(query);
@@ -131,9 +131,7 @@ public class OneSearchDao {
 			JDBCTemplate.close(pstmt);
 		}
 		return starScore;
-		
-		
-		
+
 	}
 
 }

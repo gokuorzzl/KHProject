@@ -59,7 +59,22 @@ table {
     position: absolute;
 }
 
-
+.borderColor{
+	border:2px solid #FF9B55;
+	border-radius: 6px;
+}
+.borderRe{
+	border-bottom: 2px solid #FF9B55;
+	border-top:2px solid #FF9B55;
+	border-right:2px solid #FF9B55;
+	border-top-right-radius:6px;
+	border-bottom-right-radius: 6px;
+}
+.borderLeft{
+	border:2px solid #FF9B55;
+	border-bottom-left-radius: 6px;
+	border-top-left-radius: 6px;
+}
 
 /*----------------------------------------------*/
 /* 반응형 웹 부분 */
@@ -140,7 +155,6 @@ table {
     	text-align: center;
     	vertical-align: middle;
     	margin: auto;
-    	top:2%;
     }
     .resumeDivL{
     	position:relative;
@@ -209,6 +223,7 @@ table {
     	float:left;
     	margin: 0;
     	padding: 0;
+    	top:1%;
     }
     .infoBox{
     	position:inherit;
@@ -216,6 +231,7 @@ table {
     	height:47%;
     	vertical-align: middle;
     	margin: auto;
+    	top:1%;
     }
     .infoButtom{
     	position: relative;
@@ -337,15 +353,17 @@ table {
     
 	/*이력서 완벽하게 소개하는 부분*/
 	.contents_3{
-		width:100%;
+		width:95%;
 		position: relative;
-		
+		vertical-align: middle;
+    	margin: auto; 
 	}
 	.myInfo_1{
 		width:90%;
 		position:relative;
 		font-size: 30px;
 		font-family:'NotoSansCJKkrBold';
+		
 	}
 	.myInfo_2{
 		width:90%;
@@ -425,7 +443,6 @@ table {
     .contents_2{
     	position:static;
     	width:30%;
-    	height:98%;
     	float:left;
     	margin: 0;
     	padding: 0;
@@ -437,7 +454,7 @@ table {
     	text-align: center;
     	vertical-align: middle;
     	margin: auto;
-    	top:3%;
+    	top:1%;
     }
     /*bottom*/
     #bottom{
@@ -634,9 +651,10 @@ table {
     } 
 	/*이력서 완벽하게 소개하는 부분*/
 	.contents_3{
-		width:100%;
+		width:95%;
 		position: relative;
-		
+		vertical-align: middle;
+    	margin: auto; 
 	}
 	.myInfo_1{
 		width:90%;

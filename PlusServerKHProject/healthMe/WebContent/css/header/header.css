@@ -3,10 +3,9 @@
 @charset "UTF-8";
 
 @font-face{
-font-family:'NotoSans';
-src:url(../../fonts/NotoSansBold.eot);/*익스플로러*/
-src:url(../../fonts/NotoSansBold.woff) format('woff');  /*크롬, 파이어폭스*/
-src:local(※), url(../../fonts/NotoSansBold.woff) format('woff');
+font-family:'NotoSansCJKkrBold';
+src:url(../../fonts/NotoSansCJKkrBold.woff) format('woff');  /*크롬, 파이어폭스*/
+src:local(※), url(../../fonts/NotoSansCJKkrBold.woff) format('woff');
 }
 
 /*각종 인터넷 브라우저에서 코드 작동이 가능하도록 하는 css Reset*/
@@ -51,7 +50,7 @@ table {
 /* div전체 */
 
 html{
-    font-family: 'NotoSans';
+    font-family: 'NotoSansCJKkrBold';
 }
 
 div{

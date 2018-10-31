@@ -14,6 +14,8 @@ import com.healthme.member.vo.Member;
 import com.healthme.trainer.model.service.OneSearchService;
 import com.healthme.trainer.model.vo.SearchData;
 
+import sun.security.util.PropertyExpander.ExpandException;
+
 /**
  * Servlet implementation class TrainerOneSearchServlet
  */
@@ -39,13 +41,16 @@ public class TrainerOneSearchServlet extends HttpServlet {
 		String memberId = request.getParameter("memberId");
 		SearchData sd = new OneSearchService().onsSearch(memberId);
 
-		
+		try {
 		if(sd!=null) {
 			RequestDispatcher view = request.getRequestDispatcher("/page/trainerPage/trainerPage.jsp");
 			request.setAttribute("searchData", sd);
 			view.forward(request, response);
 		}else {
-			response.sendRedirect("/page/error.jsp");
+			response.sendRedirect("/page/error/error.jsp");
+		}
+		}catch(Exception e) {
+			response.sendRedirect("/page/error/error.jsp");
 		}
 	}
 
