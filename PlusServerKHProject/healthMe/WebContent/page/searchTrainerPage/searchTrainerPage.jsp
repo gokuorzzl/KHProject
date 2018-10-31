@@ -43,10 +43,10 @@
     <title>헬th미:나만의 트레이너</title>
 </head>
 <body>
-<form id="searchForm" action="/searchInput.do" method="get" >
-	<input type="hidden" name="searchInput" id="searchInput" value="<%=searchInput%>"/>
+<form id="searchForm" action="/searchInput.do" method="get">
+	<input type="hidden" name="searchInput" class="searchInput" value="<%=searchInput%>"/>
 	<!-- 이거 나중에까지 해결 안되면 지우자... -->
-	<input type="hidden" name="screenSize" id="screenSize" value="1024"/>
+	<input type="hidden" name="screenSize" class="screenSize"  />
 </form>
 <!--전체 공간-->    
     <div id="wrapper">
@@ -120,6 +120,7 @@
 
             <!--트레이너 별점 등 컨텐츠 나오는 부분-->
             <div id="contents">
+            	<%String memberId = null; %>
            		<%if(searchResult==null){ %>
             		<div id="ment">
 						<img style="height:100%; width:100%;" src="../../img/searchTrainerMainImg.PNG">
@@ -128,11 +129,13 @@
 					<div id="searchResultTrainer" style="width:100%; height:93%">
 						<div style="width:80%; height:93%; margin:auto; margin-top:15px;">
 							<% for(int i=0 ; i<=trainerList.size()/2-1 ; i++){ %>
-								<a href="">
-									<div style="width:<%=(100/(trainerList.size()/2))-(trainerList.size()/2)*0.5%>%; 
+								<form class="trainerForm" action="/trainerOneSearch.do" method="post"
+										style="width:<%=(100/(trainerList.size()/2))-(trainerList.size()/2)*0.5%>%; 
 										height:49.5%; float:left; box-sizing:border-box; 
 										border:1.5px solid #3c3e3a; border-radius:6px 6px 6px 6px;
-										margin-left:0.5%; margin-top:0.5%; text-align:right;">
+										margin-left:0.5%; margin-top:0.5%; text-align:right; overflow:hidden;">
+								<input type="hidden" name="memberId" value="<%=trainerList.get(i).getMemberId()%>"/>
+									<div style="whidth:100%; height:100%;">
 										<div style="width:100%; height:60%; box-sizing:border-box; overflow:hidden;">
 											<img src="<%=trainerList.get(i).getProfileFile() %>"
 												style="width:100%; height:auto; align:top; 
@@ -141,17 +144,19 @@
 										<div style="width:100%; height:40%; box-sizing:border-box; margin-left:-5px;">
 											<div style="width:100%; height:30%; margin-top:1%; overflow:hidden;">[<%=trainerList.get(i).getMemberName() %>] 트레이너</div>
 											<div style="width:100%; height:30%; margin-top:1%; overflow:hidden;"><%=trainerList.get(i).getTrainerEvent() %></div>
-											<div style="width:100%; height:30%; margin-top:1%;" overflow:hidden;><%=trainerList.get(i).getMatchingScore() %></div>
+											<div style="width:100%; height:30%; margin-top:1%; overflow:hidden;"><%=trainerList.get(i).getMatchingScore() %></div>
 										</div>
-									</div>
-								</a>
+									</div>	
+								</form>
 							<% } //for문 종료%>
 							<% for(int i=trainerList.size()/2 ; i<trainerList.size() ; i++){ %>
-								<a href="">
-									<div style="width:<%=(100/(trainerList.size()/2))-(trainerList.size()/2)*0.5%>%; 
+								<form class="trainerForm" action="/trainerOneSearch.do" method="post"
+									style="width:<%=(100/(trainerList.size()/2))-(trainerList.size()/2)*0.5%>%; 
 										height:49.5%; float:left; box-sizing:border-box; 
 										border:1.5px solid #3c3e3a; border-radius:6px 6px 6px 6px;
-										margin-left:0.5%; margin-top:0.5%; text-align:right;">
+										margin-left:0.5%; margin-top:0.5%; text-align:right; overflow:hidden;">
+								<input type="hidden" name="memberId" value="<%=trainerList.get(i).getMemberId()%>"/>
+									<div style="whidth:100%; height:100%;">
 										<div style="width:100%; height:60%; box-sizing:border-box; overflow:hidden;">
 											<img src="<%=trainerList.get(i).getProfileFile() %>"
 												style="width:100%; height:auto; align:top; 
@@ -163,7 +168,7 @@
 											<div style="width:100%; height:30%; margin-top:1%; overflow:hidden;"><%=trainerList.get(i).getMatchingScore() %></div>
 										</div>
 									</div>
-								</a>
+								</form>
 							<% } //for문 종료%>
 						</div>
 					</div>

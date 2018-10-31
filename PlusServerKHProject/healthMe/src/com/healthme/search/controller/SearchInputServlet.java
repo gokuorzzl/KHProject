@@ -39,8 +39,7 @@ public class SearchInputServlet extends HttpServlet {
 		
 		//2. searchTrainerPage에서 보낸 데이터를 저장
 		String search = request.getParameter("searchInput");
-		//int screenSize = Integer.parseInt(request.getParameter("screenSize"));
-		int screenSize=1024;
+		int screenSize = Integer.parseInt(request.getParameter("screenSize"));
 		
 		//3. 검색어 처리
 		//replace 메소드를 이용해 실제 검색어를 제외한 특수문자 등을 모두 (공백)구분자로 변경

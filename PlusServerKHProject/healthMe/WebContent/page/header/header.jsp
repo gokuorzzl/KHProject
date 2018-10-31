@@ -23,6 +23,7 @@
  			integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   			crossorigin="anonymous"></script>
   	<script type="text/javascript" src="../../js/header/sideMenu.js"></script>
+  	<script type="text/javascript" src="../../js/searchTrainerPage/searchTrainer.js"></script>
   	<!-- fa 아이콘 링크  -->
   	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--title-->
@@ -34,7 +35,8 @@
 	<!-- Menu -->
 	<div id="navigation">
 		<div><p>✕</p></div>
-		<div id="navigation-login"><a href = "../loginPage/login.jsp">로그인</a></div>
+		<div id="navigation-login"><a href = "../loginPage/login.jsp">로그인
+		</a></div>
 		<ul>
 			<li><a href="../../index.jsp">메인</a></li>
 	        <li><a href="searchTrainerPage.jsp">트레이너 찾기</a></li>
@@ -55,7 +57,8 @@
     <div id="searchBar">
    		<form action="/searchInput.do" method="get" >
    			<div>
-				<input type="text" name="searchInput" id="searchInput" placeholder="지역, 종목 검색" required="검색어를 입력해주세요."/>
+				<input type="text" name="searchInput" class="searchInput" placeholder="지역, 종목 검색" required="검색어를 입력해주세요."/>
+				<input type="hidden" name="screenSize" class="screenSize"  />
 				<button type="submit"><i class="fa fa-search"></i></button>
    			</div>
    		</form>

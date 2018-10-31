@@ -12,12 +12,14 @@ $(function(){
 	//메뉴 표시 누르면 메뉴 등장
 	$('#menuButton>div>p').click(function(){
 		$('#navigation').css('display', 'block');
+		$('#menu').css('display', 'none');
 	});
 	
 	//mobileMenu에서 누르면 왼쪽에서 떠야 함
 	$('#mobileMenu>div>p').click(function(){
 		$('#navigation').css('display', 'block');
-		$('#menu').css('display', 'none');
+		$('#loginMenu a').css('display', 'none');
+		$('#menuButton p').css('display', 'none');
 	});
 	
 	//x표시 누르면 메뉴 빠잉빠잉

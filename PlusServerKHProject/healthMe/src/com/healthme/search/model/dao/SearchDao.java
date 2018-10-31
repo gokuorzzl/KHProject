@@ -117,7 +117,8 @@ public class SearchDao {
 		int matchingScore = 0;
 		
 		//쿼리문
-		String query = "SELECT AVG(MATCHINGSCORE) AS SCOREAVG FROM MATCHING WHERE MATCHEDMEMBERID = ? ";
+		String query = "SELECT AVG(MATCHINGSCORE) AS SCOREAVG FROM MATCHING "
+						+ "WHERE MATCHEDMEMBERID = ? AND (MATCHINGSCORE BETWEEN 0 AND 5)";
 		
 		try {
 			
