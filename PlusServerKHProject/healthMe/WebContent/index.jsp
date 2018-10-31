@@ -94,8 +94,9 @@
                             </div> 
 							 <!-- 검색바 -->
 							 <div class="subscribe-form">
-							 <form action="/searchInput.do" method="get">
+							 <form action="/searchInput.do" method="get" autocomplete="off">
                             <input type="text" name="searchInput" class="form-control" placeholder="지역 / 종목 검색" required="">
+							<input type="hidden" name="screenSize" class="screenSize"/>
 							<button type="submit" class="form-control">
 							<i class="fa fa-search"></i>
 							</button>
@@ -107,11 +108,14 @@
           </div>
      </section>
      <!-- SCRIPTS -->
+      <script src="https://code.jquery.com/jquery-3.3.1.js"
+          integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+           crossorigin="anonymous"></script>
      <script src="js/jquery.js"></script>
      <script src="js/bootstrap.min.js"></script>
      <script src="js/vegas.min.js"></script>
      <script src="js/custom.js"></script>			
-
+	 <script type="text/javascript" src="js/searchTrainerPage/searchTrainer.js"></script>
 
 
 </body>

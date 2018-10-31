@@ -62,47 +62,47 @@
 								<!-- style="width:60px; height:60px" -->
 									<div class="starBox">
 								<%		for(int i =0; i<5; i++) {%>
-										<img src="../../img/star/starNull.PNG" style="width:60px; height:60px"/>
+										<img src="../../img/star/starNull.PNG" />
 							<%			} %>
 									</div>
 	<%							}else if(starScore==1){%>
 								<div class="starBox">
-								<img src= "../../img/star/starFull.PNG" style="width:60px; height:60px"/>
+								<img src= "../../img/star/starFull.PNG" />
 								<%	for(int i =0; i<4; i++) {%>
-									<img src="../../img/star/starNull.PNG" style="width:60px; height:60px"/>
+									<img src="../../img/star/starNull.PNG"/>
 								<%	} %>
 								</div>	
 	<%							}else if(starScore==2){%>
 								<div class="starBox">
 								<%	for(int i =0; i<2; i++) {%>
-									<img src="../../img/star/starFull.PNG" style="width:60px; height:60px"/>
+									<img src="../../img/star/starFull.PNG" />
 								<%	} %>
 								<%	for(int i =0; i<3; i++) {%>
-									<img src="../../img/star/starNull.PNG" style="width:60px; height:60px"/>
+									<img src="../../img/star/starNull.PNG"/>
 								<%	} %>
 								</div>	
 	<%							}else if(starScore==3){%>
 								<div class="starBox">
 								<%	for(int i =0; i<3; i++) {%>
-									<img src="../../img/star/starFull.PNG" style="width:60px; height:60px"/>
+									<img src="../../img/star/starFull.PNG"/>
 								<%	} %>
 								<%	for(int i =0; i<2; i++) {%>
-									<img src="../../img/star/starNull.PNG" style="width:60px; height:60px"/>
+									<img src="../../img/star/starNull.PNG" />
 								<%	} %>
 								</div>		
 	<%							}else if(starScore==4){%>
 								<div class="starBox">
 								<%	for(int i =0; i<4; i++) {%>
-									<img src="../../img/star/starFull.PNG" style="width:60px; height:60px"/>
+									<img src="../../img/star/starFull.PNG"/>
 								<%	} %>
 								<%	for(int i =0; i<1; i++) {%>
-									<img src="../../img/star/starNull.PNG" style="width:60px; height:60px"/>
+									<img src="../../img/star/starNull.PNG"/>
 								<%	} %>
 								</div>	
 	<%							}else if(starScore==5){%>
 								<div class="starBox">
 								<%	for(int i =0; i<5; i++) {%>
-									<img src="../../img/star/starFull.PNG" style="width:60px; height:60px"/>
+									<img src="../../img/star/starFull.PNG"/>
 								<%	} %>
 								</div>		
 	<%							}
@@ -212,11 +212,11 @@
 					
 					<div class="myInfoInner textMiddle" >
 					
-						<div id="map" style="width:500px;height:400px;">
+						<div id="map" class="mapStyle" >
 						
 							<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=eef1064eeb14762d1843dc67b3733660&libraries=services"></script>
 							
-							<!--  eef1064eeb14762d1843dc67b3733660   -->
+							
 							
 							<!--지도를 띄우는 코드 작성-->
 							<script>
@@ -313,7 +313,6 @@
 				</div>
 			</div>
         </div>
-                
         <!--회사정보가 들어가는 아랫부분-->
         <!--bottom부분은 관리자페이지 제외한 모든 페이지 통일-->
 		<div id="bottom">

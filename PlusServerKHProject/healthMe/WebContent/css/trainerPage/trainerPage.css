@@ -59,22 +59,6 @@ table {
     position: absolute;
 }
 
-.borderColor{
-	border:2px solid #FF9B55;
-	border-radius: 6px;
-}
-.borderRe{
-	border-bottom: 2px solid #FF9B55;
-	border-top:2px solid #FF9B55;
-	border-right:2px solid #FF9B55;
-	border-top-right-radius:6px;
-	border-bottom-right-radius: 6px;
-}
-.borderLeft{
-	border:2px solid #FF9B55;
-	border-bottom-left-radius: 6px;
-	border-top-left-radius: 6px;
-}
 
 /*----------------------------------------------*/
 /* 반응형 웹 부분 */
@@ -83,6 +67,24 @@ table {
 
 /*데스크톱*/
 @media screen and (min-width:1024px){
+    
+    /*border 값*/
+    .borderColor{
+	border:2px solid #FF9B55;
+	border-radius: 6px;
+	}
+	.borderRe{
+	border-bottom: 2px solid #FF9B55;
+	border-top:2px solid #FF9B55;
+	border-right:2px solid #FF9B55;
+	border-top-right-radius:6px;
+	border-bottom-right-radius: 6px;
+	}
+	.borderLeft{
+	border:2px solid #FF9B55;
+	border-bottom-left-radius: 6px;
+	border-top-left-radius: 6px;
+	}
     
     /*div전체*/
     #wrapper{
@@ -207,7 +209,10 @@ table {
     	margin: 0;	
     	float:left;
     }
-    
+    .starBox>img{
+    	width:60px;
+    	height:60px;
+    }
     .resumeTextButtom{
     	position:relative;
     	width:100%;
@@ -395,7 +400,13 @@ table {
 		font-size: 20px;
 		font-family:'NotoSansCJKkrBold';
 	}
-
+/*지도 부분*/
+	.mapStyle{
+		width:500px;
+		height:400px;
+		border: 2px solid #FF9B55;
+		border-radius: 6px;
+	}
 	
 }   
 
@@ -417,6 +428,23 @@ table {
 
 /*태블릿*/
 @media screen and (min-width:640px) and (max-width:1024px){
+    /*border 값*/
+    .borderColor{
+	border:2px solid #FF9B55;
+	border-radius: 6px;
+	}
+	.borderRe{
+	border-bottom: 2px solid #FF9B55;
+	border-top:2px solid #FF9B55;
+	border-right:2px solid #FF9B55;
+	border-top-right-radius:6px;
+	border-bottom-right-radius: 6px;
+	}
+	.borderLeft{
+	border:2px solid #FF9B55;
+	border-bottom-left-radius: 6px;
+	border-top-left-radius: 6px;
+	}
     
     /*div전체*/
     #wrapper{
@@ -510,6 +538,8 @@ table {
     	padding: 0;
     	margin: 0;
     	float:left;
+    	width:500px;
+    	height:53px;
     }
     .starBoxFull{
     	position: relative;
@@ -521,7 +551,10 @@ table {
     	top:80%;
     	bottom:0;
     }
-    
+    .starBox>img{
+    	width:50px;
+    	height:50px;
+    }
     .resumeTextBox{
     	position:relative;
     	width:90%;
@@ -709,7 +742,13 @@ table {
 		font-size: 20px;
 		font-family:'NotoSansCJKkrBold';
 	}  
-	
+	/*지도 부분*/
+	.mapStyle{
+		width:350px;
+		height:250px;
+		border: 2px solid #FF9B55;
+		border-radius: 6px;
+	}	
 	   
 }
 
@@ -730,12 +769,27 @@ table {
 
 /*모바일*/
 @media screen and (max-width:640px){
-    
+
+    /*border 값*/
+    .borderColor{
+	border:2px solid #FF9B55;
+	border-radius: 6px;
+	}
+	.borderRe{
+	border:2px solid #FF9B55;
+	border-radius: 6px;
+	}
+	.borderLeft{
+	border:2px solid #FF9B55;
+	border-radius: 6px;
+	}	
+	
     /*div전체*/
+
     #wrapper{
-        position: absolute;
+        position: relative;
         width:100%; 
-        height:2500px;  
+        height:2300px;  
     }
     
 
@@ -743,7 +797,7 @@ table {
     #middle{
     	position:relative;
         width: 100%;
-        height: 80%;
+        height: 70%;      
     }
  
     /*bottom*/
@@ -755,20 +809,25 @@ table {
     }
     
    	.contents{
-    	position: absolute;
+    	position: relative;
     	width:100%;
-    	height:50%;
+    	height:20%;
     	float:left;
     	margin: 0;
     	padding: 0;
+	
     }
     .contents_2{
     	position:relative;
-    	width:100%;
-    	height:50%;
+    	width:90%;
+    	height:30%;
     	float:left;
     	margin: 0;
     	padding: 0;
+      	top:40%;
+    	vertical-align: middle;
+    	margin: auto;  
+    	left: 5%;     	
     }
     .imgBoxSize{
     	position:relative;
@@ -867,6 +926,28 @@ table {
     	top:1%;
     	font-family:'NotoSansCJKkrBold';    	    	
     }
+    .starBox{
+    	position: relative;
+    	padding: 0;
+    	margin: 0;
+    	float:left;
+    	width:300px;
+    	height:33px;
+    }
+    .starBoxFull{
+    	position: relative;
+    	width:300px;
+    	height:34px;
+    	padding: 0;
+    	margin: 0;	
+    	float:left;
+    	top:10%;
+    	bottom:0;
+    }
+    .starBox>img{
+    	width:30px;
+    	height:30px;
+    }
     .resumeTextMiddle{
     	position:relative;
     	width:100%;
@@ -888,9 +969,10 @@ table {
     .infoBox{
     	position:relative;
     	width:100%;
-    	height:80%;
+    	height:70%;
     	vertical-align: middle;
-    	margin: auto;
+    	margin: auto;  	
+
     }
     .infoButtom{
     	position: relative;
@@ -998,32 +1080,34 @@ table {
     
 	/*이력서 완벽하게 소개하는 부분*/
 	.contents_3{
-		width:100%;
+		width:90%;
 		position: relative;
+    	vertical-align: middle;
+    	margin: auto; 		
 		
 	}
 	.myInfo_1{
 		width:90%;
 		position:relative;
-		font-size: 30px;
+		font-size: 25px;
 		font-family:'NotoSansCJKkrBold';
 	}
 	.myInfo_2{
 		width:90%;
 		position:relative;
-		font-size: 30px;
+		font-size: 25px;
 		font-family:'NotoSansCJKkrBold';
 	}
 	.myInfo_3{
 		width:90%;
 		position:relative;
-		font-size: 30px;
+		font-size: 25px;
 		font-family:'NotoSansCJKkrBold';
 	}
 	.myInfo_4{
 		width:90%;
 		position:relative;
-		font-size: 30px;
+		font-size: 25px;
 		font-family:'NotoSansCJKkrBold';
 	}
 	.myInfo_5{
@@ -1035,11 +1119,16 @@ table {
 	.myInfoInner{
 		width:90%;
 		position:static;
-		font-size: 20px;
+		font-size: 15px;
 		font-family:'NotoSansCJKkrBold';
 	}           
-	
-	
+	/*지도 부분*/
+	.mapStyle{
+		width:250px;
+		height:150px;
+		border: 2px solid #FF9B55;
+		border-radius: 6px;
+	}
 }
 
 

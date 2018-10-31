@@ -41,6 +41,7 @@ public class SearchInputServlet extends HttpServlet {
 		String search = request.getParameter("searchInput");
 		int screenSize = Integer.parseInt(request.getParameter("screenSize"));
 		
+		System.out.println("searchInputServlet"+search);
 		//3. 검색어 처리
 		//replace 메소드를 이용해 실제 검색어를 제외한 특수문자 등을 모두 (공백)구분자로 변경
 		search = search.replace(",", " ");
