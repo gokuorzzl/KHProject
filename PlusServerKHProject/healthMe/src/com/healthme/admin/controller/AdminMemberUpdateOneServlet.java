@@ -17,7 +17,7 @@ import com.healthme.admin.model.service.AdminService;
 
 /**
  * Servlet implementation class AdminMemberUpdateOneServlet
- * 후에 지울수도 있다
+ * 후에 지울수도 있다 이건 못쓸것 같다.
  */
 @WebServlet(name = "AdminMemberUpdateOne", urlPatterns = { "/adminMemberUpdateOne.do" })
 public class AdminMemberUpdateOneServlet extends HttpServlet {

@@ -272,12 +272,14 @@ public class AdminDao {
 		Member m = null;
 		
 		String query = "select * from member where memberId=?";
-		
+		System.out.println(memberId+"memberId는는는");
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, memberId);
 			
 			rset = pstmt.executeQuery();
+			
+			System.out.println(rset+"rset의값");
 			
 			if(rset.next()) {
 				m = new Member();
@@ -285,7 +287,7 @@ public class AdminDao {
 				m.setMemberId(rset.getString("memberId"));
 				m.setMemberPw(rset.getString("memberPw"));
 				m.setMemberName(rset.getString("memberName"));
-				m.setMemberSocialId(rset.getString("socialId"));
+				m.setMemberSocialId(rset.getString("memberSocialId"));
 				m.setMemberAddr(rset.getString("memberAddr"));
 				m.setMemberEmail(rset.getString("memberEmail"));
 				m.setMemberPhone(rset.getString("memberPhone"));
@@ -312,6 +314,45 @@ public class AdminDao {
 		
 		
 		return m;
+	}
+	
+	//관리자용 정보수정 누를경우 정보 폼 띄우고 수정되는 곳
+	public int adminMemberselUpdate(Connection conn, Member m) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query="update member set memberPw=?, memberName=?, memberSocialId=?, memberAddr=?, memberEmail=?, memberPhone=?, memberTrainer=?, memberClass=?,"
+				+ "memberOut=? where memberId=? ";
+		
+				
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			
+			String memberTrainer1 = String.valueOf(m.getMemberTrainer());
+			String memberOut1 = String.valueOf(m.getMemberOut());
+			
+			pstmt.setString(1, m.getMemberPw());
+			pstmt.setString(2, m.getMemberName());
+			pstmt.setString(3, m.getMemberSocialId());
+			pstmt.setString(4, m.getMemberAddr());
+			pstmt.setString(5, m.getMemberEmail());
+			pstmt.setString(6, m.getMemberPhone());
+			pstmt.setString(7, memberTrainer1);
+			pstmt.setString(8, m.getMemberClass());
+			pstmt.setString(9, memberOut1);
+			pstmt.setString(10, m.getMemberId());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+		JDBCTemplate.close(pstmt);
+		}
+		
+		return result;
 	}
 
 

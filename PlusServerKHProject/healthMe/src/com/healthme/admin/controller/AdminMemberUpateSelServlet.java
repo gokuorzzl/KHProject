@@ -14,6 +14,7 @@ import com.healthme.member.vo.Member;
 
 /**
  * Servlet implementation class AdminMemberUpateSelServlet
+ 	관리자페이지에서 수정을 하면 수정을 선택한 곳으로 화면이 이동한다.
  */
 @WebServlet(name = "AdminMemberUpateSel", urlPatterns = { "/adminMemberUpateSel.do" })
 public class AdminMemberUpateSelServlet extends HttpServlet {
@@ -35,7 +36,8 @@ public class AdminMemberUpateSelServlet extends HttpServlet {
 				request.setCharacterEncoding("utf-8");
 				
 				//2. view에서 전송한 데이터를 변수에  저장
-				String memberId = request.getParameter("memberId");
+				String memberId = request.getParameter("memberId");//완료
+				System.out.println(memberId);
 				System.out.println("서블릿가나요");
 				//3. 비즈니스 로직 처리
 				Member m = new AdminService().adminMemberUpdateSel(memberId);

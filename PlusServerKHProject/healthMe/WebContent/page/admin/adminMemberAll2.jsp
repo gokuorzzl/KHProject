@@ -216,9 +216,6 @@
 									<%for(Member m:list){ %>
 									<tr>
 									
-									
-									
-									
 									<td bgColor=#ffffff colSpan=4><input type="hidden" id="pkMemberNumber_fd" value="<%=m.getPkMemberNumber()%>"/><span id="pkMemberNumber"><%=m.getPkMemberNumber()%></span></td>
 									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberId_fd" value="<%=m.getMemberId()%>"/><span id="memberId"><%=m.getMemberId()%></span></td>
 									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberPw_fd" value="<%=m.getMemberPw()%>"/><span id="memberPw"><%=m.getMemberPw()%></span></td>
@@ -236,21 +233,7 @@
 									<td bgColor=#ffffff colSpan=4><button id="btn2" onclick="delMember();">삭제</button></td>
 									</tr>
 									
-										<form action="/adminMemberUpdateOne.do" method="post" id="updateForm">
-									
-									<input type="hidden" id="pkMemberNumber_form" value="<%=m.getPkMemberNumber()%>"/>
-									<input type="hidden" id="memberId_form" name="memberId"/>
-									<input type="hidden" id="memberPw_form" name="memberPw"/>
-									<input type="hidden" id="memberName_form" name="memberName"/>
-									<input type="hidden" id="memberSocialId_form" name="memberSocialId"/>
-									<input type="hidden" id="memberAddr_form" name="memberAddr"/>
-									<input type="hidden" id="memberEmail_form" name="memberEmail"/>
-									<input type="hidden" id="memberPhone_form" name="memberPhone"/>
-									<input type="hidden" id="memberTrainer_form" name="memberTrainer"/>
-									<input type="hidden" id="memberClass_form" name="memberClass"/>
-									<input type="hidden" id="memberOut_form" name="memberOut"/>
-	
-									</form>
+								
 									
 									
 									
@@ -259,7 +242,8 @@
 									
 									<%} %>
 
-								
+										
+									
 								
 									
 									

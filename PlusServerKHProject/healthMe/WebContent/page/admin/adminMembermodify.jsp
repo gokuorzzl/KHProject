@@ -72,39 +72,53 @@
                 <div id="realContents">
                   <div class="info-container">
                  
-                    <form name="join" action="/enroll.do" method="post"> 
+                    <form name="modify" action="/adminMemberUpdateSel.do" method="post"> 
                   
                         <label id="memberIdName">아이디</label><div class="conditionId">(4~12자이내 영문소문자, 숫자, 언더라인( _ ) 사용가능)</div>
-                        <button class="doubleCheck" onclick="return idCheck();">ID 중복 확인</button><br>
-                        <input type="hidden" id="checkFlag" value=0 placeholder=<%=m.getMemberId()%>/>
                         
-                        <input type="text" maxlength="12" id="memberId" name="memberId" required><br>
+                        
+                        
+                        <input type="text" maxlength="12" name="memberId" value="<%=m.getMemberId()%>" readonly="readonly"/><br>
     
                          <label id="memberPwName">비밀번호</label><div class="conditionPw">(4~12자이내 영문대소문자, 숫자, 특수문자 혼합 사용)</div>
-                         <input type="password" maxlength="12" id="memberPw" name="memberPw" required ><br>
-                          
-                         <label for="memberPw2">비밀번호 재확인</label><br>
-                         <input type="password" name="memberPw2" id="memberPw2" required><br>
+                         <input type="password" maxlength="12" name="memberPw" value="<%=m.getMemberPw()%>" ><br>
                         
                         <label for="memberName">이름</label><br>
-                        <input type="text" id="memberName" name="memberName" required><br>
+                        <input type="text" id="memberName" name="memberName" value="<%=m.getMemberName()%>"><br>
                          
                         <label id="memberSocialIdName">주민등록번호</label><div class="conditionPw">(ex. 123456-7891011 형식으로 입력)</div>
-                        <input type="text" maxlength="14" id="memberSocialId" name="memberSocialId" required><br> 
+                        <input type="text" maxlength="14" id="memberSocialId" name="memberSocialId" value="<%=m.getMemberSocialId()%>"><br> 
      
                          <label for="memberAddr">주소</label><br>
                         <input type="text" id="sample6_postcode" placeholder="우편번호">
                         <input type="button" class="sample6_fpostcode" id="sample6_fpostcode" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-                        <input type="text" id="memberAddr" name="memberAddr" placeholder="주소">
+                        <input type="text" id="memberAddr" name="memberAddr" placeholder="주소" value="<%=m.getMemberAddr()%>"/>
                         <input type="text" id="sample6_address2" placeholder="상세주소">
 
                         <label id="memberPhoneName">핸드폰 번호</label><div class="conditionPw">(ex. 010-1111-2222 형식으로 입력)</div>
-                        <input type="text" maxlength="13" id="memberPhone" name="memberPhone" required><br>
+                        <input type="text" maxlength="13" id="memberPhone" name="memberPhone" value="<%=m.getMemberPhone()%>"><br>
                
                         <label for="memberEmail">이메일</label><br>
-                         <input type="email" placeholder="이메일 주소에 '@'를 포함해주세요" id="memberEmail" name="memberEmail" required> 
+                         <input type="email" placeholder="이메일 주소에 '@'를 포함해주세요" id="memberEmail" name="memberEmail" value="<%=m.getMemberEmail()%>"/> 
                           
-                       <button type="submit" value="회원가입" onclick="return validate();" class="register-button">가입하기</button> 
+                        <label for="memberTrainer">트레이너여부</label><br>
+                        <input type="text" id="memberTrainer" name="memberTrainer" value="<%=m.getMemberTrainer()%>"/>
+                        
+                        <label for="memberClass">멤버등급</label><br>
+                        <input type="text" id="memberClass" name="memberClass" value="<%=m.getMemberClass()%>"/>
+                        
+                        <label for="memberOut">탈퇴여부</label><br>
+                        <input type="text" id="memberOut" name="memberOut" value="<%=m.getMemberOut()%>"/>
+                        
+                        <label for="memberRegistDate">가입일</label><br>
+                        <input type="text" id="memberRegistDate" name="memberRegistDate" value="<%=m.getMemberRegistDate()%>"/ readonly="readonly">
+                        
+                        <label for="memberOutDate">탈퇴일</label><br>
+                        <input type="text" id="memberOutDate" name="memberOutDate" value="<%=m.getMemberOutDate()%>"/ readonly="readonly">
+                        
+                        
+                          
+                       <button type="submit" value="회원수정" class="register-button">수정하기</button> 
                       
                       
                 

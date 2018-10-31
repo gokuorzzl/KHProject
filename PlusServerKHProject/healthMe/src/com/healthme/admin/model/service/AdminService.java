@@ -95,6 +95,22 @@ public class AdminService {
 		return m;
 	}
 
+	//관리자용 정보수정 누를경우 정보 폼 띄우고 수정되는 곳
+	public int adminMemberselUpdate(Member m) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = new AdminDao().adminMemberselUpdate(conn,m);
+		
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		
+		
+		return result;
+	}
+
 	
 	
 

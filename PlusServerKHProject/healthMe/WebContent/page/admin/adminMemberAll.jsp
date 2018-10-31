@@ -185,7 +185,7 @@
 				<hr style="border: 1px solid #000;" />
 				<div class="row">
 
-					<div class="col-md-8">
+					<!--  <div class="col-md-8">   지워버리기  -->
 
 						<div class="table-responsive">
 							<h3>회원설정</h3>
@@ -197,41 +197,37 @@
 										type="hidden" name="menushow" value="menu1">
 
 									<tr bgColor=E0E4E8>
-										<td colSpan=4><font color="#333333">&nbsp; 번호</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 아이디</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 비밀번호</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 이름</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 주민번호</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 주소</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 이메일</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 번호</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 트레이너여부</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 등급</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 탈퇴여부</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 등록날짜</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 탈퇴날짜</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 수정</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 삭제</font></td>
+										<td colSpan=4 align="center"><font color="#333333">번호</font></td>
+										<td colSpan=4 align="center"><font color="#333333">아이디</font></td>
+										<td colSpan=4 align="center"><font color="#333333">이름</font></td>
+										<td colSpan=4 align="center"><font color="#333333">주소</font></td>
+										<td colSpan=4 align="center"><font color="#333333">이메일</font></td>
+										<td colSpan=4 align="center"><font color="#333333">번호</font></td>
+										<td colSpan=4 align="center"><font color="#333333">트레이너여부</font></td>
+										<td colSpan=4 align="center"><font color="#333333">등급</font></td>
+										<td colSpan=4 align="center"><font color="#333333">탈퇴여부</font></td>
+										<td colSpan=4 align="center"><font color="#333333">등록날짜</font></td>
+										<td colSpan=4 align="center"><font color="#333333">탈퇴날짜</font></td>
+										<td colSpan=4 align="center"><font color="#333333">수정</font></td>
+										<td colSpan=4 align="center"><font color="#333333">삭제</font></td>
 									</tr>
 									
 									<%for(Member m:list){ %>
 									<tr>
 									
-									<td bgColor=#ffffff colSpan=4><input type="hidden" id="pkMemberNumber_fd" value="<%=m.getPkMemberNumber()%>"/><span id="pkMemberNumber"><%=m.getPkMemberNumber()%></span></td>
-									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberId_fd" value="<%=m.getMemberId()%>"/><span id="memberId"><%=m.getMemberId()%></span></td>
-									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberPw_fd" value="<%=m.getMemberPw()%>"/><span id="memberPw"><%=m.getMemberPw()%></span></td>
-									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberName_fd" value="<%=m.getMemberName()%>"/><span id="memberName"><%=m.getMemberName()%></span></td>
-									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberSocialId_fd" value="<%=m.getMemberSocialId()%>"/><span id="memberSocialId"><%=m.getMemberSocialId()%></span></td>
-									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberAddr_fd" value="<%=m.getMemberAddr()%>"/><span id="memberAddr"><%=m.getMemberAddr()%></span></td>
-									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberEmail_fd" value="<%=m.getMemberEmail()%>"/><span id="memberEmail"><%=m.getMemberEmail()%></span></td>
-									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberPhone_fd" value="<%=m.getMemberPhone()%>"/><span id="memberPhone"><%=m.getMemberPhone()%></span></td>
-									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberTrainer_fd" value="<%=m.getMemberTrainer()%>"/><span id="memberTrainer"><%=m.getMemberTrainer()%></span></td>
-									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberClass_fd" value="<%=m.getMemberClass() %>"/><span id="memberClass"><%=m.getMemberClass() %></span></td>
-									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberOut_fd" value="<%=m.getMemberOut()%>"/><span id="memberOut"><%=m.getMemberOut()%></span></td>
-									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberRegistDate_fd" value="<%=m.getMemberRegistDate()%>"/><span id="memberRegistDate"><%=m.getMemberRegistDate()%></span></td>
-									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberOutDate_fd" value="<%=m.getMemberOutDate()%>"/><span id="memberOutDate"><%=m.getMemberOutDate()%></span></td>
-									<td bgColor=#ffffff colSpan=4><a href="/adminMemberUpateSel.do?memberId=<%=m.getMemberId()%>">수정</a></td>
-									<td bgColor=#ffffff colSpan=4><button id="btn2" onclick="delMember();">삭제</button></td>
+									<td bgColor=#ffffff colSpan=4 align="center"><input type="hidden" id="pkMemberNumber_fd" value="<%=m.getPkMemberNumber()%>"/><span id="pkMemberNumber"><%=m.getPkMemberNumber()%></span></td>
+									<td bgColor=#ffffff colSpan=4 align="center"><input type="hidden" id="memberId_fd" value="<%=m.getMemberId()%>"/><span id="memberId"><%=m.getMemberId()%></span></td>
+									<td bgColor=#ffffff colSpan=4 align="center"><input type="hidden" id="memberName_fd" value="<%=m.getMemberName()%>"/><span id="memberName"><%=m.getMemberName()%></span></td>
+									<td bgColor=#ffffff colSpan=4 align="center"><input type="hidden" id="memberAddr_fd" value="<%=m.getMemberAddr()%>"/><span id="memberAddr"><%=m.getMemberAddr()%></span></td>
+									<td bgColor=#ffffff colSpan=4 align="center"><input type="hidden" id="memberEmail_fd" value="<%=m.getMemberEmail()%>"/><span id="memberEmail"><%=m.getMemberEmail()%></span></td>
+									<td bgColor=#ffffff colSpan=4 align="center"><input type="hidden" id="memberPhone_fd" value="<%=m.getMemberPhone()%>"/><span id="memberPhone"><%=m.getMemberPhone()%></span></td>
+									<td bgColor=#ffffff colSpan=4 align="center"><input type="hidden" id="memberTrainer_fd" value="<%=m.getMemberTrainer()%>"/><span id="memberTrainer"><%=m.getMemberTrainer()%></span></td>
+									<td bgColor=#ffffff colSpan=4 align="center"><input type="hidden" id="memberClass_fd" value="<%=m.getMemberClass() %>"/><span id="memberClass"><%=m.getMemberClass() %></span></td>
+									<td bgColor=#ffffff colSpan=4 align="center"><input type="hidden" id="memberOut_fd" value="<%=m.getMemberOut()%>"/><span id="memberOut"><%=m.getMemberOut()%></span></td>
+									<td bgColor=#ffffff colSpan=4 align="center"><input type="hidden" id="memberRegistDate_fd" value="<%=m.getMemberRegistDate()%>"/><span id="memberRegistDate"><%=m.getMemberRegistDate()%></span></td>
+									<td bgColor=#ffffff colSpan=4 align="center"><input type="hidden" id="memberOutDate_fd" value="<%=m.getMemberOutDate()%>"/><span id="memberOutDate"><%=m.getMemberOutDate()%></span></td>
+									<td bgColor=#ffffff colSpan=4 align="center"><a href="/adminMemberUpateSel.do?memberId=<%=m.getMemberId()%>">수정</a></td>
+									<td bgColor=#ffffff colSpan=4 align="center"><button id="btn2" onclick="delMember();">삭제</button></td>
 									</tr>
 									
 									
@@ -248,10 +244,10 @@
 
 							</table>
 
-						</div>
+						</div><!--  table-responsive-->
 
 
-					</div>
+				<!--	</div> col-md-8 -->
 			
 				</div>
 
