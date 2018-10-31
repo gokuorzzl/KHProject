@@ -97,6 +97,7 @@ public class AdminDao {
 		return result;
 	}
 
+	//회원목록 가져오는것
 	public ArrayList<Member> adminMemberAll(Connection conn) {
 		// TODO Auto-generated method stub
 		//여러명을 처리하기 위한 컬렉션을 사용 (ArrayList)
@@ -105,7 +106,7 @@ public class AdminDao {
 		Statement stmt = null;
 		ResultSet rset = null;
 		
-		String query = "select * from member where membertrainer='n'";
+		String query = "select * from member where membertrainer='n' order by memberout asc";
 		
 		try {
 			stmt = conn.createStatement();
@@ -142,7 +143,8 @@ public class AdminDao {
 		
 		return list;
 	}
-
+	
+	//트레이너 목록 가져오는것
 	public ArrayList<Trainer> adminMemberAllT(Connection conn) {
 		// TODO Auto-generated method stub
 		//여러명을 처리하기 위한 컬렉션을 사용 (ArrayList)
@@ -264,7 +266,7 @@ public class AdminDao {
 		
 		return result;
 	}
-
+	//관리자회원설정에서 수정누를경우 창뜨게해서 결과값 갖고오게 할 DB
 	public Member adminMemberUpdateSel(Connection conn, String memberId) {
 		// TODO Auto-generated method stub
 		PreparedStatement pstmt = null;

@@ -185,10 +185,10 @@
 				<hr style="border: 1px solid #000;" />
 				<div class="row">
 
-					<div class="col-md-8">
+					
 
 						<div class="table-responsive">
-							<h3>회원설정</h3>
+							<h3>트레이너설정(트레이너는 삭제시 바로 삭제되도록 해버릴것이다.)</h3>
 							<table class="table table-striped table-bordered table-hover">
 								<!--       <table cellSpacing=0 borderColorDark=white width="760" bgColor=#c0c0c0 borderColorLight=#dddddd border=1 class="s1">-->
 								
@@ -197,87 +197,42 @@
 										type="hidden" name="menushow" value="menu1">
 
 									<tr bgColor=E0E4E8>
-										<td colSpan=4><font color="#333333">&nbsp; 아이디</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 프로필경로</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 대학교졸업파일</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 대학교</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; a재학,b졸업,c수료</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 직장주소</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 수업제목</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 수업소개</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 종목</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 경력인증파일</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 경력시작1</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 경력종료1</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 경력1</font></td>
+										<td colSpan=4><font color="#333333">아이디</font></td>
+										<td colSpan=4><font color="#333333">프로필</font></td>
+										<td colSpan=4><font color="#333333">대학교</font></td>
+										<td colSpan=4><font color="#333333">a재학,b졸업,c수료</font></td>
+										<td colSpan=4><font color="#333333">직장주소</font></td>
+										<td colSpan=4><font color="#333333">수업제목</font></td>
+										<td colSpan=4><font color="#333333">수업소개</font></td>
+										<td colSpan=4><font color="#333333">종목</font></td>
+										<td colSpan=4><font color="#333333">자격증1</font></td>
+										<td colSpan=4><font color="#333333">자격증2</font></td>
+										<td colSpan=4><font color="#333333">자격증3</font></td>
+										<td colSpan=4><font color="#333333">자격증4</font></td>
+										<td colSpan=4><font color="#333333">자격증5</font></td>
 										
-										<td colSpan=4><font color="#333333">&nbsp; 경력시작2</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 경력종료2</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 경력2</font></td>
-										
-										<td colSpan=4><font color="#333333">&nbsp; 경력시작3</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 경력종료3</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 경력3</font></td>
-										
-										<td colSpan=4><font color="#333333">&nbsp; 경력시작4</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 경력종료4</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 경력4</font></td>
-										
-										<td colSpan=4><font color="#333333">&nbsp; 경력시작5</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 경력종료5</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 경력5</font></td>
-										
-										<td colSpan=4><font color="#333333">&nbsp; 경력인증파일</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 자격증1</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 자격증2</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 자격증3</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 자격증4</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 자격증5</font></td>
-										
-										<td colSpan=4><font color="#333333">&nbsp; 수정</font></td>
-										<td colSpan=4><font color="#333333">&nbsp; 삭제</font></td>
+										<td colSpan=4><font color="#333333">수정</font></td>
+										<td colSpan=4><font color="#333333">삭제</font></td>
 									</tr>
 									<form id=updateform method="post" action="/adminMember.do">
 									
 									<%for(Trainer t:list){ %>
 									<tr>	
-										<td colSpan=4><font color="#333333">&nbsp; <%=t.getMemberId()%></font></td>
-										<td colSpan=4><font color="#333333">&nbsp; <%=t.getProfileFile()%></font></td>
-										<td colSpan=4><font color="#333333">&nbsp; <%=t.getTrainerGradFile()%></font></td>
-										<td colSpan=4><font color="#333333">&nbsp; <%=t.getTrainerUniv()%></font></td>
-										<td colSpan=4><font color="#333333">&nbsp; <%=t.getTrainerGrad()%></font></td>
-										<td colSpan=4><font color="#333333">&nbsp; <%=t.getTrainerRegion()%></font></td>
-										<td colSpan=4><font color="#333333">&nbsp; <%=t.getTrainerSubject()%></font></td>
-										<td colSpan=4><font color="#333333">&nbsp; <%=t.getTrainerContent()%></font></td>
-										<td colSpan=4><font color="#333333">&nbsp; <%=t.getTrainerEvent()%></font></td>
-										<td colSpan=4><font color="#333333">&nbsp; <%=t.getTrainerCareerFile()%></font></td>
+										<td colSpan=4><font color="#333333"><%=t.getMemberId()%></font></td>
+										<td colSpan=4><font color="#333333"><img src="/img/trainerImage/<%=t.getMemberId()%>/<%=t.getMemberId()%>profileFile.png" width="150" height="150"></font></td>
 										
-										<td colSpan=4><font color="#333333">&nbsp; <%=t.getCareerStart1()%></font></td>
-										<td colSpan=4><font color="#333333">&nbsp; <%=t.getCareerEnd1()%></font></td>
-										<td colSpan=4><font color="#333333">&nbsp; <%=t.getCareerName1()%></font></td>
 										
-										<td colSpan=4><font color="#333333">&nbsp; <%=t.getCareerStart2()%></font></td>
-										<td colSpan=4><font color="#333333">&nbsp; <%=t.getCareerEnd2()%></font></td>
-										<td colSpan=4><font color="#333333">&nbsp; <%=t.getCareerName2()%></font></td>
-										
-										<td colSpan=4><font color="#333333">&nbsp; <%=t.getCareerStart3()%></font></td>
-										<td colSpan=4><font color="#333333">&nbsp; <%=t.getCareerEnd3()%></font></td>
-										<td colSpan=4><font color="#333333">&nbsp; <%=t.getCareerName3()%></font></td>
-										
-										<td colSpan=4><font color="#333333">&nbsp; <%=t.getCareerStart4()%></font></td>
-										<td colSpan=4><font color="#333333">&nbsp; <%=t.getCareerEnd4()%></font></td>
-										<td colSpan=4><font color="#333333">&nbsp; <%=t.getCareerName4()%></font></td>
-										
-										<td colSpan=4><font color="#333333">&nbsp; <%=t.getCareerStart5()%></font></td>
-										<td colSpan=4><font color="#333333">&nbsp; <%=t.getCareerEnd5()%></font></td>
-										<td colSpan=4><font color="#333333">&nbsp; <%=t.getCareerName5()%></font></td>
-										
-										<td colSpan=4><font color="#333333">&nbsp; <%=t.getTrainerLicenseFile()%></font></td>
-										<td colSpan=4><font color="#333333">&nbsp; <%=t.getLicenseName1()%></font></td>
-										<td colSpan=4><font color="#333333">&nbsp; <%=t.getLicenseName2()%></font></td>
-										<td colSpan=4><font color="#333333">&nbsp; <%=t.getLicenseName3()%></font></td>
-										<td colSpan=4><font color="#333333">&nbsp; <%=t.getLicenseName4()%></font></td>
-										<td colSpan=4><font color="#333333">&nbsp; <%=t.getLicenseName5()%></font></td>
+										<td colSpan=4><font color="#333333"><%=t.getTrainerUniv()%></font></td>
+										<td colSpan=4><font color="#333333"><%=t.getTrainerGrad()%></font></td>
+										<td colSpan=4><font color="#333333"><%=t.getTrainerRegion()%></font></td>
+										<td colSpan=4><font color="#333333"><%=t.getTrainerSubject()%></font></td>
+										<td colSpan=4><font color="#333333"><%=t.getTrainerContent()%></font></td>
+										<td colSpan=4><font color="#333333"><%=t.getTrainerEvent()%></font></td>
+										<td colSpan=4><font color="#333333"><%=t.getLicenseName1()%></font></td>
+										<td colSpan=4><font color="#333333"><%=t.getLicenseName2()%></font></td>
+										<td colSpan=4><font color="#333333"><%=t.getLicenseName3()%></font></td>
+										<td colSpan=4><font color="#333333"><%=t.getLicenseName4()%></font></td>
+										<td colSpan=4><font color="#333333"><%=t.getLicenseName5()%></font></td>
 									
 									<td bgColor=#ffffff colSpan=4><button id="btn1" onclick="modifyActive();">수정</button></td>
 									<td bgColor=#ffffff colSpan=4><button id="btn2" onclick="delNotice();">삭제</button></td>
@@ -297,37 +252,8 @@
 
 
 					</div>
-					<div class="col-md-4">
-						<div class="panel panel-info">
-							<div class="panel-heading">
-								<i class="fa fa-bell fa-fw"></i>새로운소식
-							</div>
-
-							<div class="panel-body">
-								<div class="list-group">
-
-									<a href="#" class="list-group-item"> <i
-										class="fa fa-twitter fa-fw"></i>총회원수 <span
-										class="pull-right text-muted small"><em>100명</em> </span>
-									</a> <a href="#" class="list-group-item"> <i
-										class="fa fa-envelope fa-fw"></i>트레이너회원 <span
-										class="pull-right text-muted small"><em>30개</em> </span>
-									</a> <a href="#" class="list-group-item"> <i
-										class="fa fa-tasks fa-fw"></i>광고수입 <span
-										class="pull-right text-muted small"><em>100만원</em> </span>
-									</a> <a href="#" class="list-group-item"> <i
-										class="fa fa-upload fa-fw"></i>새로운게시글 <span
-										class="pull-right text-muted small"><em>20개</em> </span>
-									</a>
-
-								</div>
-								<!-- /.list-group -->
-								<a href="#" class="btn btn-info btn-block">View All Alerts</a>
-							</div>
-
-						</div>
-					</div>
-				</div>
+				
+				
 
 			</div>
 			<!-- /. PAGE INNER  -->
