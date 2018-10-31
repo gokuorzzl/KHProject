@@ -354,6 +354,33 @@ public class AdminDao {
 		
 		return result;
 	}
+	//관리자페이지 회원설정에서 회원 삭제하는 것
+	public int adminMemberDel(Connection conn, String memberId) {
+		
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = "update member set memberout='y',memberoutdate=sysdate where memberId=?";
+		
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setString(1, memberId);
+			
+			result = pstmt.executeUpdate();
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+			
+		}
+		
+		
+		return result;
+	}
 
 
 

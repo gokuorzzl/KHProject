@@ -110,6 +110,23 @@ public class AdminService {
 		
 		return result;
 	}
+	
+	//관리자 회원설정에서 회원 삭제하는 것
+	public int adminMemberDel(String memberId) {
+		Connection conn = JDBCTemplate.getConnection();
+				
+			int result = new AdminDao().adminMemberDel(conn,memberId);
+			
+			if(result>0) {
+				JDBCTemplate.commit(conn);
+			}else {
+				JDBCTemplate.rollback(conn);
+			}
+			JDBCTemplate.close(conn);
+		
+		
+		return result;
+	}
 
 	
 	

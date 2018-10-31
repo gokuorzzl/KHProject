@@ -227,7 +227,7 @@
 									<td bgColor=#ffffff colSpan=4 align="center"><input type="hidden" id="memberRegistDate_fd" value="<%=m.getMemberRegistDate()%>"/><span id="memberRegistDate"><%=m.getMemberRegistDate()%></span></td>
 									<td bgColor=#ffffff colSpan=4 align="center"><input type="hidden" id="memberOutDate_fd" value="<%=m.getMemberOutDate()%>"/><span id="memberOutDate"><%=m.getMemberOutDate()%></span></td>
 									<td bgColor=#ffffff colSpan=4 align="center"><a href="/adminMemberUpateSel.do?memberId=<%=m.getMemberId()%>">수정</a></td>
-									<td bgColor=#ffffff colSpan=4 align="center"><button id="btn2" onclick="delMember();">삭제</button></td>
+									<td bgColor=#ffffff colSpan=4 align="center"><a href="/adminMemberDel.do?memberId=<%=m.getMemberId()%>">삭제</button></td>
 									</tr>
 									
 									
