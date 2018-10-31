@@ -263,12 +263,12 @@
 									<form id="career_start" action="action.jsp">
 										<div>
 											<input id="careerName1" name="careerName1" type="text" placeholder="ex)고라니GYM 근무" value=""/>
-											<input type="date" id="careerStart1" name="careerStart1" value="2015-10-10" max="sysdate" min="1990-01-01" max="2018-12-31"/> ~ 
+											<input type="date" id="careerStart1" name="careerStart1" value="2015-10-10" min="1990-01-01" max="2018-12-31"/> ~ 
 											<input type="date" id="careerEnd1" name="careerEnd1" value="2015-10-10" min="1990-01-01" max="2018-12-31"/>
 											<input type="submit" value="전송">
 										</div>
 										<div id="CertCareer"></div>
-										<a onclick="addcareer();" class="addbtn">추가 +</a>
+										<a onclick="addcareer();" class="addbtn" style="cursor:pointer;">추가 +</a>
 										<input type="hidden" id="careerfileCnt" name="careerfileCnt" value="1">
 									</form>
 
@@ -282,9 +282,9 @@
 												careerfileCnt++;
 											}
 											html = '';
-						                    html += '<input id="Cert'+careerfileCnt+'" name="careerName'+careerfileCnt+'" type="text" placeholder="ex)고라니GYM 근무" value="" />';
-						                    html += '<input type="date" id="careerStart'+careerfileCnt+'" name="careerStart'+careerfileCnt+'" value="2015-10-10" max="sysdate"> ~ ';
-						                    html += '<input type="date" id="careerEnd'+careerfileCnt+'" name="careerEnd'+careerfileCnt+'" value="2015-10-10" min="1990-01-01">';
+						                    html += '<input id="careerName'+careerfileCnt+'" name="careerName'+careerfileCnt+'" type="text" placeholder="ex)고라니GYM 근무" value="" />';
+						                    html += '<input type="date" id="careerStart'+careerfileCnt+'" name="careerStart'+careerfileCnt+'" value="2015-10-10" min="1990-01-01" max="2018-12-31"/> ~ ';
+						                    html += '<input type="date" id="careerEnd'+careerfileCnt+'" name="careerEnd'+careerfileCnt+'" value="2015-10-10" min="1990-01-01" max="2018-12-31"/>';
 						                  	html += '<input type="submit" value="전송">';
 
 											var div = document.createElement('div');

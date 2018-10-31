@@ -5,12 +5,10 @@
 
 /*새롭게 적용할 NotoSans-Bold*/
 @font-face{
-font-family:'NotoSans';
-src:url(../../fonts/NotoSansBold.eot);/*익스플로러*/
-src:url(../../fonts/NotoSansBold.woff) format('woff');  /*크롬, 파이어폭스*/
-src:local(※), url(../../fonts/NotoSansBold.woff) format('woff');
+font-family:'NotoSansCJKkrBold';
+src:url(../../fonts/NotoSansCJKkrBold.woff) format('woff');  /*크롬, 파이어폭스*/
+src:local(※), url(../../fonts/NotoSansCJKkrBold.woff) format('woff');
 }
-
 
 
 
@@ -25,8 +23,12 @@ time, mark, audio, video {
    font-size: 100%;
    font: inherit;
    vertical-align: baseline;
-   font-family: 'NotoSans';
+   font-family: 'NotoSansCJKkrBold';
 }
+html{
+    font-family: 'NotoSansCJKkrBold';
+}
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
    display: block;
