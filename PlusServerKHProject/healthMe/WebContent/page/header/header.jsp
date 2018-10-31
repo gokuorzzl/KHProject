@@ -55,7 +55,7 @@
        	<div><img src="../../img/%EB%A1%9C%EA%B3%A0.png"></div>
     </div>
     <div id="searchBar">
-   		<form action="/searchInput.do" method="get" >
+   		<form class="searchForm" action="/searchInput.do" method="get" >
    			<div>
 				<input type="text" name="searchInput" class="searchInput" placeholder="지역, 종목 검색" required="검색어를 입력해주세요."/>
 				<input type="hidden" name="screenSize" class="screenSize"  />

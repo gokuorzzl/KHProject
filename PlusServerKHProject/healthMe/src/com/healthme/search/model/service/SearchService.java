@@ -1,4 +1,4 @@
-package com.healtme.search.model.service;
+package com.healthme.search.model.service;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -65,7 +65,7 @@ public class SearchService {
 				trainerList.add(str);
 			}
 			//3. 객체에 결과 저장
-			searchResult = new SearchResult(trainerList, sp.getPagingNavi());
+			searchResult = new SearchResult(trainerList, sp.getRecordPerPage(), sp.getPagingNavi());
 		}
 
 		JDBCTemplate.close(conn);
@@ -162,7 +162,7 @@ public class SearchService {
 		}
 		sb.append("</center>");
 		
-		SearchPaging sp = new SearchPaging(sb.toString(), start, end);
+		SearchPaging sp = new SearchPaging(sb.toString(), recordPerPage, start, end);
 		
 		return sp;
 		

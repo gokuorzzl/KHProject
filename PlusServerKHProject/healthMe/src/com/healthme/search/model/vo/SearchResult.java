@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 public class SearchResult {
 
-	private ArrayList<SearchedTrainerResult> trainerList;     
+	private ArrayList<SearchedTrainerResult> trainerList;
+	private int recordPerPage;
 	private String pageNavi;
 	
 	public SearchResult() {
@@ -12,9 +13,10 @@ public class SearchResult {
 		// TODO Auto-generated constructor stub
 	}
 
-	public SearchResult(ArrayList<SearchedTrainerResult> trainerList, String pageNavi) {
+	public SearchResult(ArrayList<SearchedTrainerResult> trainerList, int recordPerPage, String pageNavi) {
 		super();
 		this.trainerList = trainerList;
+		this.recordPerPage = recordPerPage;
 		this.pageNavi = pageNavi;
 	}
 
@@ -26,6 +28,14 @@ public class SearchResult {
 		this.trainerList = trainerList;
 	}
 
+	public int getRecordPerPage() {
+		return recordPerPage;
+	}
+
+	public void setRecordPerPage(int recordPerPage) {
+		this.recordPerPage = recordPerPage;
+	}
+
 	public String getPageNavi() {
 		return pageNavi;
 	}
@@ -33,6 +43,8 @@ public class SearchResult {
 	public void setPageNavi(String pageNavi) {
 		this.pageNavi = pageNavi;
 	}
+	
+	
 	
 	
 	

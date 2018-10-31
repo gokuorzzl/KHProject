@@ -11,9 +11,12 @@
 	ArrayList<SearchedTrainerResult> trainerList = null;	
 	//페이지 처리 
 	String pageNavi = null;
+	//페이지 내 결과 수
+	int recordPerPage = 0;
 	if(searchResult!=null){//받아오는 데이터가 null이 아닐때만 데이터를 읽어야 서버 오류가 나지 않음
 		trainerList = searchResult.getTrainerList();
 		pageNavi = searchResult.getPageNavi();
+		recordPerPage = searchResult.getRecordPerPage();
 	}
 	//searchInput값
 	String searchInput = (String)request.getAttribute("searchInput");
@@ -43,9 +46,9 @@
     <title>헬th미:나만의 트레이너</title>
 </head>
 <body>
-<form id="searchForm" action="/searchInput.do" method="get">
+<form class="searchForm" action="/searchInput.do" method="get">
 	<input type="hidden" name="searchInput" class="searchInput" value="<%=searchInput%>"/>
-	<input type="hidden" name="screenSize" class="screenSize"  />
+	<input type="hidden" name="screenSize" class="screenSize" />
 </form>
 <!--전체 공간-->    
     <div id="wrapper">
@@ -57,7 +60,6 @@
         <div id="middle">
             <!--지역, 종목 등 선택할 수 있는 선택박스-->
             <div id="searchBox">
-
 	                <div id="realSearchBox">
 	                    <div id="searchName">
 	                        <div id="areaSearchName">광역시/도</div>
@@ -116,70 +118,69 @@
 	               		<div id="submitButton"><button type="submit"><i class="fa fa-search"></i></button></div>
 	                </form>
 	            </div>
-
             <!--트레이너 별점 등 컨텐츠 나오는 부분-->
             <div id="contents">
             	<%String memberId = null; %>
-           		<%if(searchResult==null){ %>
+           		<%if(searchResult==null){ //검색결과가 아닌 트레이너찾기 페이지를 띄워주는 경우 %>
             		<div id="ment">
 						<img style="height:100%; width:100%;" src="../../img/searchTrainerMainImg.PNG">
 					</div>
-				<%} else { %>
+				<%} else { //검색해서 가져온 결과를 띄워주는 경우%>
 					<div id="searchResultTrainer" style="width:100%; height:93%">
 						<div style="width:80%; height:93%; margin:auto; margin-top:15px;">
-														<% for(int i=0 ; i<=(trainerList.size()<=3?trainerList.size()-1:trainerList.size()/2-1) ; i++){%>	
-								<form class="trainerForm" action="/trainerOneSearch.do" method="post"
-										style="width:<%=(100/(trainerList.size()/2))-(trainerList.size()/2)*0.5%>%; 
-										height:49.5%; float:left; box-sizing:border-box; cursor: pointer;
-										border:1.5px solid #3c3e3a; border-radius:6px 6px 6px 6px;
-										margin-left:0.5%; margin-top:0.5%; text-align:right; overflow:hidden;
-										<%if(trainerList.size()<=3){%>float:left;<%}%>">
-								<input type="hidden" name="memberId" value="<%=trainerList.get(i).getMemberId()%>"/>
-									<div style="whidth:100%; height:100%;">
-										<div style="width:100%; height:60%; box-sizing:border-box; overflow:hidden;">
-											<img src="<%=trainerList.get(i).getProfileFile() %>"
-												style="width:100%; height:auto; align:top; 
-												border-radius:6px 6px 0 0; margin-bottom:5px; order:0;"/>
-										</div>
-										<div style="width:100%; height:40%; box-sizing:border-box; margin-left:-5px;">
-											<div style="width:100%; height:30%; margin-top:1%; overflow:hidden;">[<%=trainerList.get(i).getMemberName() %>] 트레이너</div>
-											<div style="width:100%; height:30%; margin-top:1%; overflow:hidden;"><%=trainerList.get(i).getTrainerEvent() %></div>
-											<div style="width:100%; height:30%; margin-top:1%; overflow:hidden;"><%=trainerList.get(i).getMatchingScore() %></div>
-										</div>
-									</div>	
-								</form>
+							<% for(int i=0 ; i<(trainerList.size()<(recordPerPage/2)?trainerList.size():(recordPerPage/2)) ; i++){%>	
+								<%if(trainerList.get(i)!=null) {%>
+									<form class="trainerForm" action="/trainerOneSearch.do" method="post"
+											style="width:30%; 
+											height:49.5%; float:left; box-sizing:border-box; cursor: pointer;
+											border:1.5px solid #3c3e3a; border-radius:6px 6px 6px 6px;
+											margin-left:0.5%; margin-top:0.5%; text-align:right; overflow:hidden;
+											<%if(trainerList.size()<=3){%>float:left;<%}%>">
+									<input type="hidden" name="memberId" value="<%=trainerList.get(i).getMemberId()%>"/>
+										<div style="whidth:100%; height:100%;">
+											<div style="width:100%; height:60%; box-sizing:border-box; overflow:hidden;">
+												<img src="<%=trainerList.get(i).getProfileFile() %>"
+													style="width:100%; height:auto; align:top; 
+													border-radius:6px 6px 0 0; margin-bottom:5px; order:0;"/>
+											</div>
+											<div style="width:100%; height:40%; box-sizing:border-box; margin-left:-5px;">
+												<div style="width:100%; height:30%; margin-top:1%; overflow:hidden;">[<%=trainerList.get(i).getMemberName() %>] 트레이너</div>
+												<div style="width:100%; height:30%; margin-top:1%; overflow:hidden;"><%=trainerList.get(i).getTrainerEvent() %></div>
+												<div style="width:100%; height:30%; margin-top:1%; overflow:hidden;"><%=trainerList.get(i).getMatchingScore() %></div>
+											</div>
+										</div>	
+									</form>
+								<%} else{ %>
+									<div style="width:30%; height:49.5%; float:left;"></div>
+								<%} %>
 							<% } //for문 종료%>
-
-
-
-
-
-
-
-
-							<% for(int i=trainerList.size()/2 ; i<trainerList.size() ; i++){ %>
-								<form class="trainerForm" action="/trainerOneSearch.do" method="post"
-									style="width:<%=(100/(trainerList.size()/2))-(trainerList.size()/2)*0.5%>%; 
-										height:49.5%; float:left; box-sizing:border-box; cursor: pointer;
-										border:1.5px solid #3c3e3a; border-radius:6px 6px 6px 6px;
-										margin-left:0.5%; margin-top:0.5%; text-align:right; overflow:hidden;">
-								<input type="hidden" name="memberId" value="<%=trainerList.get(i).getMemberId()%>"/>
-									<div style="whidth:100%; height:100%;">
-										<div style="width:100%; height:60%; box-sizing:border-box; overflow:hidden;">
-											<img src="<%=trainerList.get(i).getProfileFile() %>"
-												style="width:100%; height:auto; align:top; 
-												border-radius:6px 6px 0 0; margin-bottom:5px; order:0;"/>
-										</div>
-										<div style="width:100%; height:40%; box-sizing:border-box; margin-left:-5px;">
-											<div style="width:100%; height:30%; margin-top:1%; overflow:hidden;">[<%=trainerList.get(i).getMemberName() %>] 트레이너</div>
-											<div style="width:100%; height:30%; margin-top:1%; overflow:hidden;"><%=trainerList.get(i).getTrainerEvent() %></div>
-											<div style="width:100%; height:30%; margin-top:1%; overflow:hidden;"><%=trainerList.get(i).getMatchingScore() %></div>
-										</div>
-									</div>
-								</form>
-							<% } //for문 종료%>
-
-			
+							<%if(trainerList.size()>(recordPerPage/2)){ %>
+								<% for(int i=(recordPerPage/2) ; i<trainerList.size() ; i++){ %>
+									<%if(trainerList.get(i)!=null) {%>
+										<form class="trainerForm" action="/trainerOneSearch.do" method="post"
+											style="width:30%; 
+												height:49.5%; float:left; box-sizing:border-box; cursor: pointer;
+												border:1.5px solid #3c3e3a; border-radius:6px 6px 6px 6px;
+												margin-left:0.5%; margin-top:0.5%; text-align:right; overflow:hidden;">
+										<input type="hidden" name="memberId" value="<%=trainerList.get(i).getMemberId()%>"/>
+											<div style="whidth:100%; height:100%;">
+												<div style="width:100%; height:60%; box-sizing:border-box; overflow:hidden;">
+													<img src="<%=trainerList.get(i).getProfileFile() %>"
+														style="width:100%; height:auto; align:top; 
+														border-radius:6px 6px 0 0; margin-bottom:5px; order:0;"/>
+												</div>
+												<div style="width:100%; height:40%; box-sizing:border-box; margin-left:-5px;">
+													<div style="width:100%; height:30%; margin-top:1%; overflow:hidden;">[<%=trainerList.get(i).getMemberName() %>] 트레이너</div>
+													<div style="width:100%; height:30%; margin-top:1%; overflow:hidden;"><%=trainerList.get(i).getTrainerEvent() %></div>
+													<div style="width:100%; height:30%; margin-top:1%; overflow:hidden;"><%=trainerList.get(i).getMatchingScore() %></div>
+												</div>
+											</div>
+										</form>
+									<%} else{ %>
+										<div style="width:30%; height:49.5%; float:left;"></div>
+									<%} %>
+								<% } //for문 종료%>
+							<%} %>
 						</div>
 					</div>
 					<div id="searchNavi" style="width:100%; height:7%; box-sizing:border-box; margin-top:0;">
