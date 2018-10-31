@@ -82,6 +82,19 @@ public class AdminService {
 		return result;
 	}
 
+	public Member adminMemberUpdateSel(String memberId) {
+		// TODO Auto-generated method stub
+		Connection conn = JDBCTemplate.getConnection();
+		
+		Member m = new AdminDao().adminMemberUpdateSel(conn,memberId);
+		
+		JDBCTemplate.close(conn);
+		
+		
+		
+		return m;
+	}
+
 	
 	
 

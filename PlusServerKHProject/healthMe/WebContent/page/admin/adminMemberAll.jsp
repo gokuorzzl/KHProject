@@ -217,9 +217,6 @@
 									<%for(Member m:list){ %>
 									<tr>
 									
-									
-									
-								
 									<td bgColor=#ffffff colSpan=4><input type="hidden" id="pkMemberNumber_fd" value="<%=m.getPkMemberNumber()%>"/><span id="pkMemberNumber"><%=m.getPkMemberNumber()%></span></td>
 									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberId_fd" value="<%=m.getMemberId()%>"/><span id="memberId"><%=m.getMemberId()%></span></td>
 									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberPw_fd" value="<%=m.getMemberPw()%>"/><span id="memberPw"><%=m.getMemberPw()%></span></td>
@@ -233,16 +230,9 @@
 									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberOut_fd" value="<%=m.getMemberOut()%>"/><span id="memberOut"><%=m.getMemberOut()%></span></td>
 									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberRegistDate_fd" value="<%=m.getMemberRegistDate()%>"/><span id="memberRegistDate"><%=m.getMemberRegistDate()%></span></td>
 									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberOutDate_fd" value="<%=m.getMemberOutDate()%>"/><span id="memberOutDate"><%=m.getMemberOutDate()%></span></td>
-									<td bgColor=#ffffff colSpan=4><input type="submit" value="수정"/>수정</td>
+									<td bgColor=#ffffff colSpan=4><a href="/adminMemberUpateSel.do?memberId=<%=m.getMemberId()%>">수정</a></td>
 									<td bgColor=#ffffff colSpan=4><button id="btn2" onclick="delMember();">삭제</button></td>
 									</tr>
-									
-										
-										
-								
-									
-									
-									
 									
 									
 									<%} %>

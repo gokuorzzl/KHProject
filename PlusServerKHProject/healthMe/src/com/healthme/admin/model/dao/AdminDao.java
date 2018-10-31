@@ -265,6 +265,55 @@ public class AdminDao {
 		return result;
 	}
 
+	public Member adminMemberUpdateSel(Connection conn, String memberId) {
+		// TODO Auto-generated method stub
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		Member m = null;
+		
+		String query = "select * from member where memberId=?";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, memberId);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				m = new Member();
+				m.setPkMemberNumber(rset.getInt("pkMemberNumber"));
+				m.setMemberId(rset.getString("memberId"));
+				m.setMemberPw(rset.getString("memberPw"));
+				m.setMemberName(rset.getString("memberName"));
+				m.setMemberSocialId(rset.getString("socialId"));
+				m.setMemberAddr(rset.getString("memberAddr"));
+				m.setMemberEmail(rset.getString("memberEmail"));
+				m.setMemberPhone(rset.getString("memberPhone"));
+				m.setMemberTrainer(rset.getString("memberTrainer").charAt(0));
+				m.setMemberClass(rset.getString("memberClass"));
+				m.setMemberOut(rset.getString("memberOut").charAt(0));
+				m.setMemberRegistDate(rset.getDate("memberRegistDate"));
+				m.setMemberOutDate(rset.getDate("memberOutDate"));
+				
+			}
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+			
+		}
+		
+		
+		
+		
+		
+		return m;
+	}
+
 
 
 }
