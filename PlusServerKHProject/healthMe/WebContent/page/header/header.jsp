@@ -3,6 +3,7 @@
 <%@ 
 	page import="com.healthme.search.model.vo.*" 
 		import = "java.util.ArrayList"
+		import ="com.healthme.member.vo.*"
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -32,17 +33,27 @@
 
 </head>
 <body>
+<%
+	session = request.getSession(false);
+	Member member = (Member)session.getAttribute("member");
+	String memberId= member.getMemberId();
+%>
 	<!-- Menu -->
 	<div id="navigation">
 		<div><p>✕</p></div>
+		<% if(memberId==null) {%>		
 		<div id="navigation-login"><a href = "../loginPage/login.jsp">로그인
 		</a></div>
+		<% } else{ %>
+		<div id="navigation-login"><a href = "/logout.do">로그아웃
+		</a></div>		
+		<% } %>
 		<ul>
 			<li><a href="../../index.jsp">메인</a></li>
-	        <li><a href="searchTrainerPage.jsp">트레이너 찾기</a></li>
+	        <li><a href="../searchTrainerPage.jsp">트레이너 찾기</a></li>
 	        <li><a href="#">트레이너 등록</a></li>
 	        <li><a href="../communityPage/boardPage.jsp">게시판</a></li>
-	        <li><a href="../communityPage/Q&APage.jsp">Q & A</a></li>
+	        <li><a href="../communityPage/QnAPage.jsp">Q & A</a></li>
 		</ul>
 	</div>
 
@@ -64,9 +75,15 @@
    		</form>
     </div>
     <div id="menu">
+    <%	if(memberId==null) {%>
         <div id="loginMenu">
             <a href="../loginPage/login.jsp">로그인</a> 
         </div>
+    <%	}else{ %>
+    	<div id="loginMenu">
+            <a href="/logout.do">로그아웃</a> 
+        </div>
+    <%	} %>
         <div id="menuButton">
             <div><p>☰</p></div>
         </div>
