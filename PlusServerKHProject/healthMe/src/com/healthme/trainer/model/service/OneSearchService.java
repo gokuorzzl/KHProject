@@ -27,4 +27,12 @@ public class OneSearchService {
 		return sd;
 	}
 
+	public Trainer trainerSearch(String memberId) {
+		Connection conn = JDBCTemplate.getConnection();
+		Trainer t = new OneSearchDao().oneSearch(conn, memberId);
+		
+		JDBCTemplate.close(conn);
+		return t;
+	}
+
 }

@@ -54,12 +54,13 @@
 			<H1><%=member.getMemberName() %>님 환영합니다.</H1>
 			<div class="col-md-offset-1 col-md-4 col-sm-6"></div>
                  	<br><br>
-                 	<form>
                  		<h2>heal th me</h2>
-                 		 <a href="" class="loginForm">마이 페이지ㆍ</a>
+                 		<form action = "/searchTrainerId.do" method ="post">
+                 		<input type="hidden" name="memberId" value="<%=member.getMemberId()%>">
+                 		 <button type="submit" class="loginForm myInfoCss" >마이 페이지ㆍ</button>
                  		 <a href="/logout.do" class="loginForm">로그아웃</a>
-					
-                 	</form>
+                 		 </form>
+                 		 
             </div>
 			<%
 				} else{
