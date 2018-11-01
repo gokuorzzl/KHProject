@@ -220,7 +220,7 @@
 									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberId_fd" value="<%=m.getMemberId()%>"/><span id="memberId"><%=m.getMemberId()%></span></td>
 									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberPw_fd" value="<%=m.getMemberPw()%>"/><span id="memberPw"><%=m.getMemberPw()%></span></td>
 									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberName_fd" value="<%=m.getMemberName()%>"/><span id="memberName"><%=m.getMemberName()%></span></td>
-									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberSocialId_fd" value="<%=m.getMemberSocialId()%>"/><span id="memberSocialId"><%=m.getMemberSocialId()%></span></td>
+								
 									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberAddr_fd" value="<%=m.getMemberAddr()%>"/><span id="memberAddr"><%=m.getMemberAddr()%></span></td>
 									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberEmail_fd" value="<%=m.getMemberEmail()%>"/><span id="memberEmail"><%=m.getMemberEmail()%></span></td>
 									<td bgColor=#ffffff colSpan=4><input type="hidden" id="memberPhone_fd" value="<%=m.getMemberPhone()%>"/><span id="memberPhone"><%=m.getMemberPhone()%></span></td>

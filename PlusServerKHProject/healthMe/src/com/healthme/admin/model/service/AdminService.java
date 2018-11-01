@@ -127,6 +127,17 @@ public class AdminService {
 		
 		return result;
 	}
+	//트레이너관리에서 수정버튼 클릭시 정보갖고올 메소드
+	public Trainer adminTrainerTUpdateSel(String memberId) {
+		
+		Connection conn = JDBCTemplate.getConnection();
+		
+		Trainer t = new AdminDao().adminTrainerTUpdateSel(conn,memberId);
+		
+		
+		
+		return t;
+	}
 
 	
 	

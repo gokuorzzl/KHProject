@@ -388,6 +388,81 @@ public class AdminDao {
 		return result;
 	}
 
+	//트레이너 수정 할경우 정보갖고오는 메소드
+	public Trainer adminTrainerTUpdateSel(Connection conn, String memberId) {
+		// TODO Auto-generated method stub
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		Trainer t = null;
+		
+		String query = "select * from trainer where memberId=?";
+		
+	
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, memberId);
+			
+			rset = pstmt.executeQuery();
+			System.out.println("AdminDao까지왔어");
+			if(rset.next()) {
+				t = new Trainer();
+				t.setMemberId(rset.getString("memberId"));
+				t.setProfileFile(rset.getString("profileFile"));
+				t.setTrainerGradFile(rset.getString("trainerGradFile"));
+				t.setTrainerUniv(rset.getString("trainerUniv"));
+				t.setTrainerGrad(rset.getString("trainerGrad"));
+				t.setTrainerRegion(rset.getString("trainerRegion"));
+				t.setTrainerSubject(rset.getString("trainerSubject"));
+				t.setTrainerContent(rset.getString("trainerContent"));
+				t.setTrainerEvent(rset.getString("trainerEvent"));
+				t.setTrainerCareerFile(rset.getString("trainerCareerFile"));
+				
+				t.setCareerStart1(rset.getDate("careerStart1"));
+				t.setCareerEnd1(rset.getDate("careerEnd1"));
+				t.setCareerName1(rset.getString("careerName1"));
+				
+				t.setCareerStart2(rset.getDate("careerStart2"));
+				t.setCareerEnd2(rset.getDate("careerEnd2"));
+				t.setCareerName2(rset.getString("careerName2"));
+				
+				t.setCareerStart3(rset.getDate("careerStart3"));
+				t.setCareerEnd3(rset.getDate("careerEnd3"));
+				t.setCareerName3(rset.getString("careerName3"));
+				
+				t.setCareerStart4(rset.getDate("careerStart4"));
+				t.setCareerEnd4(rset.getDate("careerEnd4"));
+				t.setCareerName4(rset.getString("careerName4"));
+				
+				t.setCareerStart5(rset.getDate("careerStart5"));
+				t.setCareerEnd5(rset.getDate("careerEnd5"));
+				t.setCareerName5(rset.getString("careerName5"));
+				
+				t.setTrainerLicenseFile(rset.getString("trainerLicenseFile"));
+				
+				t.setLicenseName1(rset.getString("licenseName1"));
+				t.setLicenseName1(rset.getString("licenseName2"));
+				t.setLicenseName1(rset.getString("licenseName3"));
+				t.setLicenseName1(rset.getString("licenseName4"));
+				t.setLicenseName1(rset.getString("licenseName5"));
+				
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		
+		
+		
+		
+		
+		return t;
+	}
+
 
 
 }
