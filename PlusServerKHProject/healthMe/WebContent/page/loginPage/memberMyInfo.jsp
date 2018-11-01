@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.healthme.member.vo.*"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -24,7 +25,7 @@
     crossorigin="anonymous"></script>
      <link rel="stylesheet" href="../../css/loginPage/enroll.css"/>
     <!--title-->
-    <title>헬th미: 회원가입</title>
+    <title>헬th미: 회원정보</title>
 
 </head>
 <body>
@@ -80,8 +81,8 @@
                         <label for="memberName">이름</label><br>
                         <input type="text" id="memberName" name="memberName" required><br>
                          
-                        <label id="memberSocialIdName">주민등록번호</label><br>
-                        <input type="text" maxlength="6" id="memberSocialId1" name="memberSocialId1" required> - <input type="password" maxlength="7" id="memberSocialId2" name="memberSocialId2" required><br> 
+                        <label id="memberSocialIdName">주민등록번호</label><div class="conditionPw">(ex. 123456-7891011 형식으로 입력)</div>
+                        <input type="text" maxlength="14" id="memberSocialId" name="memberSocialId" required><br> 
      
                          <label for="memberAddr">주소</label><br>
                         <input type="text" id="sample6_postcode" placeholder="우편번호">

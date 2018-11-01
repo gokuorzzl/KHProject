@@ -114,7 +114,7 @@ table {
     
     #searchBox{
         width: 100%;
-        height: 15%;/*  */
+        height: 23%;/*  */
     }
     
     #contents{
@@ -596,13 +596,13 @@ table {
     #wrapper{
         position: absolute;
         width:100%;
-        height: 800px;    
+        height: 600px;    
     }
     
     /*top부분*/
     #top{
         width: 100%;
-        height: 2%;
+        height: 4%;
     }
     
   /*   #mobileMenu{
