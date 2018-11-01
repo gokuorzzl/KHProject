@@ -86,9 +86,10 @@
                         <label for="memberName">이름</label><br>
                         <input type="text" id="memberName" name="memberName" value="<%=m.getMemberName()%>"><br>
                          
-                        <label id="memberSocialIdName">주민등록번호</label><div class="conditionPw">(ex. 123456-7891011 형식으로 입력)</div>
-                        <input type="text" maxlength="14" id="memberSocialId" name="memberSocialId" value="<%=m.getMemberSocialId()%>"><br> 
-     
+                       <label id="memberSocialIdName">주민등록번호</label><br>
+                        <input type="text" maxlength="6" id="memberSocialId1" name="memberSocialId1" value="<%=m.getMemberSocialId1()%>"> - <input type="password" maxlength="7" id="memberSocialId2" name="memberSocialId2" value="<%=m.getMemberSocialId2()%>"><br> 
+     					
+     					
                          <label for="memberAddr">주소</label><br>
                         <input type="text" id="sample6_postcode" placeholder="우편번호">
                         <input type="button" class="sample6_fpostcode" id="sample6_fpostcode" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>

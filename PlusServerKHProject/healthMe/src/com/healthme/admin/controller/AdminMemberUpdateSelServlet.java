@@ -41,7 +41,8 @@ public class AdminMemberUpdateSelServlet extends HttpServlet {
 				String memberId = request.getParameter("memberId");
 				String memberPw = request.getParameter("memberPw");
 				String memberName = request.getParameter("memberName");
-				String memberSocialId = request.getParameter("memberSocialId");
+				int memberSocialId1 = Integer.parseInt(request.getParameter("memberSocialId1"));
+				int memberSocialId2 = Integer.parseInt(request.getParameter("memberSocialId2"));
 				String memberAddr = request.getParameter("memberAddr");
 				String memberEmail = request.getParameter("memberEmail");
 				String memberPhone = request.getParameter("memberPhone");
@@ -53,7 +54,8 @@ public class AdminMemberUpdateSelServlet extends HttpServlet {
 				m.setMemberId(memberId);
 				m.setMemberPw(memberPw);
 				m.setMemberName(memberName);
-				m.setMemberSocialId(memberSocialId);
+				m.setMemberSocialId1(memberSocialId1);
+				m.setMemberSocialId2(memberSocialId2);
 				m.setMemberAddr(memberAddr);
 				m.setMemberEmail(memberEmail);
 				m.setMemberPhone(memberPhone);

@@ -204,44 +204,28 @@
 										<td colSpan=4><font color="#333333">직장주소</font></td>
 										<td colSpan=4><font color="#333333">수업제목</font></td>
 										<td colSpan=4><font color="#333333">수업소개</font></td>
-										<td colSpan=4><font color="#333333">종목</font></td>
-										<td colSpan=4><font color="#333333">자격증1</font></td>
-										<td colSpan=4><font color="#333333">자격증2</font></td>
-										<td colSpan=4><font color="#333333">자격증3</font></td>
-										<td colSpan=4><font color="#333333">자격증4</font></td>
-										<td colSpan=4><font color="#333333">자격증5</font></td>
-										
+										<td colSpan=4><font color="#333333">종목</font></td>	
 										<td colSpan=4><font color="#333333">수정</font></td>
 										<td colSpan=4><font color="#333333">삭제</font></td>
 									</tr>
-									<form id=updateform method="post" action="/adminMember.do">
+									
 									
 									<%for(Trainer t:list){ %>
 									<tr>	
 										<td colSpan=4><font color="#333333"><%=t.getMemberId()%></font></td>
 										<td colSpan=4><font color="#333333"><img src="/img/trainerImage/<%=t.getMemberId()%>/<%=t.getMemberId()%>profileFile.png" width="150" height="150"></font></td>
-										
-										
 										<td colSpan=4><font color="#333333"><%=t.getTrainerUniv()%></font></td>
 										<td colSpan=4><font color="#333333"><%=t.getTrainerGrad()%></font></td>
 										<td colSpan=4><font color="#333333"><%=t.getTrainerRegion()%></font></td>
 										<td colSpan=4><font color="#333333"><%=t.getTrainerSubject()%></font></td>
 										<td colSpan=4><font color="#333333"><%=t.getTrainerContent()%></font></td>
 										<td colSpan=4><font color="#333333"><%=t.getTrainerEvent()%></font></td>
-										<td colSpan=4><font color="#333333"><%=t.getLicenseName1()%></font></td>
-										<td colSpan=4><font color="#333333"><%=t.getLicenseName2()%></font></td>
-										<td colSpan=4><font color="#333333"><%=t.getLicenseName3()%></font></td>
-										<td colSpan=4><font color="#333333"><%=t.getLicenseName4()%></font></td>
-										<td colSpan=4><font color="#333333"><%=t.getLicenseName5()%></font></td>
-									
-									<td bgColor=#ffffff colSpan=4><button id="btn1" onclick="modifyActive();">수정</button></td>
+									<td bgColor=#ffffff colSpan=4><a href="/adminMemberTUpateSel.do?memberId=<%=t.getMemberId()%>">수정</a></td>
 									<td bgColor=#ffffff colSpan=4><button id="btn2" onclick="delNotice();">삭제</button></td>
 									
 									
 									</tr>
 									<%} %>
-
-								</form>
 
 
 

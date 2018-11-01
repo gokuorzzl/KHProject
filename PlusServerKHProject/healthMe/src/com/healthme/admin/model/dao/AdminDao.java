@@ -118,7 +118,8 @@ public class AdminDao {
 				m.setMemberId(rset.getString("memberId"));
 				m.setMemberPw(rset.getString("memberPw"));
 				m.setMemberName(rset.getString("memberName"));
-				m.setMemberSocialId(rset.getString("memberSocialId"));
+				m.setMemberSocialId1(rset.getInt("memberSocialId1"));
+				m.setMemberSocialId2(rset.getInt("memberSocialId2"));
 				m.setMemberAddr(rset.getString("memberAddr"));
 				m.setMemberEmail(rset.getString("memberEmail"));
 				m.setMemberPhone(rset.getString("memberPhone"));
@@ -289,7 +290,8 @@ public class AdminDao {
 				m.setMemberId(rset.getString("memberId"));
 				m.setMemberPw(rset.getString("memberPw"));
 				m.setMemberName(rset.getString("memberName"));
-				m.setMemberSocialId(rset.getString("memberSocialId"));
+				m.setMemberSocialId1(rset.getInt("memberSocialId1"));
+				m.setMemberSocialId2(rset.getInt("memberSocialId2"));
 				m.setMemberAddr(rset.getString("memberAddr"));
 				m.setMemberEmail(rset.getString("memberEmail"));
 				m.setMemberPhone(rset.getString("memberPhone"));
@@ -323,7 +325,7 @@ public class AdminDao {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		
-		String query="update member set memberPw=?, memberName=?, memberSocialId=?, memberAddr=?, memberEmail=?, memberPhone=?, memberTrainer=?, memberClass=?,"
+		String query="update member set memberPw=?, memberName=?, memberSocialId1=?, memberSocialId2=?, memberAddr=?, memberEmail=?, memberPhone=?, memberTrainer=?, memberClass=?,"
 				+ "memberOut=? where memberId=? ";
 		
 				
@@ -336,14 +338,16 @@ public class AdminDao {
 			
 			pstmt.setString(1, m.getMemberPw());
 			pstmt.setString(2, m.getMemberName());
-			pstmt.setString(3, m.getMemberSocialId());
-			pstmt.setString(4, m.getMemberAddr());
-			pstmt.setString(5, m.getMemberEmail());
-			pstmt.setString(6, m.getMemberPhone());
-			pstmt.setString(7, memberTrainer1);
-			pstmt.setString(8, m.getMemberClass());
-			pstmt.setString(9, memberOut1);
-			pstmt.setString(10, m.getMemberId());
+			pstmt.setInt(3, m.getMemberSocialId1());
+			pstmt.setInt(4, m.getMemberSocialId2());
+			pstmt.setString(5, m.getMemberAddr());
+			pstmt.setString(6, m.getMemberEmail());
+			pstmt.setString(7, m.getMemberPhone());
+			pstmt.setString(8, memberTrainer1);
+			pstmt.setString(9, m.getMemberClass());
+			pstmt.setString(10, memberOut1);
+			pstmt.setString(11, m.getMemberId());
+			
 			
 			result = pstmt.executeUpdate();
 			
