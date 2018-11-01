@@ -108,7 +108,7 @@ div{
     
     #searchBox{
         width: 100%;
-        height: 13%;
+        height: 15%;
     }
     #contents{
         width: 100%;
@@ -232,9 +232,10 @@ div{
     }
     
     #memberSocialId2 {
-      width:49.3%;
+      width:49%;
     }
     
+
   
     #sample6_postcode {
       width:40%;
@@ -245,7 +246,19 @@ div{
       height:36px;
     }
     
- 
+    #tel1 {
+      width:30.9%;
+      
+    }
+    
+    #tel2 {
+     width:30.9%;
+    }
+    
+    #tel3 {
+     width:30.8%;
+    }
+
      .register-button {
         font-family:NotoSansCJKkrBold;
         background-color:#FF9B55;
@@ -308,6 +321,9 @@ div{
      float:left;
     }
     
+    #memberSocialIdName {
+     float:left;
+    }
     
     #memberPhoneName {
       float:left;
@@ -361,7 +377,7 @@ div{
     
     #searchBox{
         width: 100%;
-        height: 13%;
+        height: 15%;
     }
     
     #contents{
@@ -391,7 +407,6 @@ div{
     
     
          /*-------------추가 tablet----------------------- */
-         
          
      label {
       font-family:NotoSansCJKkrBold;
@@ -481,14 +496,6 @@ div{
       background-color:#f9d3b3;
     }
     
-     #memberSocialId1 {
-      width:48%;
-    }
-    
-    #memberSocialId2 {
-      width:49.3%;
-    }
-    
   
     #sample6_postcode {
       width:40%;
@@ -499,7 +506,19 @@ div{
       height:36px;
     }
     
- 
+    #tel1 {
+      width:30.9%;
+      
+    }
+    
+    #tel2 {
+     width:30.9%;
+    }
+    
+    #tel3 {
+     width:30.8%;
+    }
+
      .register-button {
         font-family:NotoSansCJKkrBold;
         background-color:#FF9B55;
@@ -562,11 +581,13 @@ div{
      float:left;
     }
     
+    #memberSocialIdName {
+     float:left;
+    }
     
     #memberPhoneName {
       float:left;
     }
-    
     
 }
 
@@ -674,12 +695,12 @@ div{
        margin-top:0.8%;
      }
      
-     
-    .logo-center {
+    
+        .logo-center {
       display: block;
       margin-left:auto;
       margin-right:auto;
-      width:24%;
+      width:100%;
     }
     
     .info-container {
@@ -735,14 +756,6 @@ div{
       background-color:#f9d3b3;
     }
     
-     #memberSocialId1 {
-      width:48%;
-    }
-    
-    #memberSocialId2 {
-      width:49.3%;
-    }
-    
   
     #sample6_postcode {
       width:40%;
@@ -753,7 +766,19 @@ div{
       height:36px;
     }
     
- 
+    #tel1 {
+      width:30.9%;
+      
+    }
+    
+    #tel2 {
+     width:30.9%;
+    }
+    
+    #tel3 {
+     width:30.8%;
+    }
+
      .register-button {
         font-family:NotoSansCJKkrBold;
         background-color:#FF9B55;
@@ -816,6 +841,9 @@ div{
      float:left;
     }
     
+    #memberSocialIdName {
+     float:left;
+    }
     
     #memberPhoneName {
       float:left;

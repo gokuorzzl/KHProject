@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="../../css/loginPage/searchPwd.css" />
 
     <!--title-->
-    <title>헬th미: 아이디 찾기</title> <!--로그인 첫페이지-->
+    <title>헬th미: 비밀번호 찾기</title> <!--로그인 첫페이지-->
 
 </head>
 <body>
@@ -61,10 +61,13 @@
                           <br><label for="memberId">아이디 </label>
                           <input type="text" name="memberId" placeholder="아이디를 입력해주세요" id="memberId" required><br><br>
 
-                         <label for="memberSocialId" style="float:left;">주민등록번호</label><div class="conditionSocialId" style="float:left; box-sizing:border-box; margin-left:1%; margin-right:7%; margin-top:0.8%; ">(ex. 123456-7891011 형식으로 입력)</div>
-                         <input type="text" name="memberSocialId" maxlength="14" placeholder="주민등록번호 입력해주세요" id="memberSocialId" required><br><br>
+                        <label id="memberSocialIdName">주민등록번호</label><br>
+                        <input type="text" maxlength="6" id="memberSocialId1" name="memberSocialId1" required> - 
+                        <input type="password" maxlength="7" id="memberSocialId2" name="memberSocialId2" required><br><br>
                           
-                         <label for="memberPhone" style="float:left;">핸드폰 번호</label><div class="conditionPhone" style="float:left; box-sizing:border-box; margin-left:1%; margin-right:7%; margin-top:0.8%; ">(ex. 010-1111-2222 형식으로 입력)</div>
+                         <label id="memberPhoneName">핸드폰 번호</label><div class="conditionPhone">(ex. 010-1111-2222 형식으로 입력)</div>
+                         
+                         
                          <input type="text" name="memberPhone" maxlength="13" placeholder="핸드폰 번호 입력해주세요" id="memberSocialId" required><br>
                           
                          <button type="submit" class="login-button"><p id="login-letter">비밀번호 찾기</p></button>
