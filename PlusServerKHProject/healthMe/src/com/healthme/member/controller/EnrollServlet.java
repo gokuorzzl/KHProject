@@ -36,7 +36,8 @@ public class EnrollServlet extends HttpServlet {
 		m.setMemberId(request.getParameter("memberId"));
 		m.setMemberPw(request.getParameter("memberPw"));
 		m.setMemberName(request.getParameter("memberName"));
-		m.setMemberSocialId(request.getParameter("memberSocialId"));
+		m.setMemberSocialId1(Integer.parseInt(request.getParameter("memberSocialId1")));
+		m.setMemberSocialId2(Integer.parseInt(request.getParameter("memberSocialId2")));
 		m.setMemberAddr(request.getParameter("memberAddr"));
 		m.setMemberEmail(request.getParameter("memberEmail"));
 		m.setMemberPhone(request.getParameter("memberPhone"));

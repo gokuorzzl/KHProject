@@ -34,7 +34,8 @@ public class MemberDao {
 				member.setMemberId(rset.getString("memberId"));
 				member.setMemberPw(rset.getString("memberPw"));
 				member.setMemberName(rset.getString("memberName"));
-				member.setMemberSocialId(rset.getString("socialId"));
+				member.setMemberSocialId1(rset.getInt("memberSocialId1"));
+				member.setMemberSocialId2(rset.getInt("memberSocialId2"));
 				member.setMemberAddr(rset.getString("memberAddr"));
 				member.setMemberEmail(rset.getString("memberEmail"));
 				member.setMemberPhone(rset.getString("memberPhone"));
@@ -75,7 +76,8 @@ public class MemberDao {
 			pstmt.setString(1, m.getMemberId());
 			pstmt.setString(2, m.getMemberPw());
 			pstmt.setString(3, m.getMemberName());
-			pstmt.setString(4, m.getMemberSocialId());
+			pstmt.setInt(4, m.getMemberSocialId1());
+			pstmt.setInt(5, m.getMemberSocialId2());
 			pstmt.setString(5, m.getMemberAddr());
 			pstmt.setString(6, m.getMemberEmail());
 			pstmt.setString(7, m.getMemberPhone());
