@@ -89,7 +89,9 @@ src:local(※), url(../../fonts/NotoSansCJKkrBold.woff) format('woff');
     transition: 0.5s;
 	text-indent: inherit;
   }
-  a:hover, a:active, a:focus {
+  
+
+  a:hover, a:active, a:focus, botton:hover{
     color: #d2b48c;
     outline: none;
   }
@@ -160,7 +162,17 @@ src:local(※), url(../../fonts/NotoSansCJKkrBold.woff) format('woff');
     color: #d2b48c;
     font-size: 20px;
   }
-
+  
+ 	.myInfoCss{
+  	background-color: transparent;
+  	font: white;
+  	border:none;
+	  }
+	  
+	botton:hover{
+    color: #d2b48c;
+    outline: none;
+ 	 }
 
 
   /*---------------------------------------
