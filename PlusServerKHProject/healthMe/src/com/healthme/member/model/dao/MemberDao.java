@@ -132,12 +132,12 @@ public class MemberDao {
 		
 	}
 
-	public String searchId(String fmemberName, String fmemberSocialId, String fmemberPhone, Connection conn) {
+	public String searchId(String fmemberName, int fmemberSocialId1, int fmemberSocialId2, String fmemberPhone, Connection conn) {
 
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String query = "select memberId from member where membername=? and membersocialId=? and memberphone=?";
+		String query = "select memberId from member where membername=? and membersocialId1=? and membersocialId2=? and memberphone=?";
 		
 		String memberId =null;
 		
@@ -145,8 +145,9 @@ public class MemberDao {
 			pstmt = conn.prepareStatement(query);
 			
 			pstmt.setString(1, fmemberName);
-			pstmt.setString(2, fmemberSocialId);
-			pstmt.setString(3, fmemberPhone);
+			pstmt.setInt(2, fmemberSocialId1);
+			pstmt.setInt(3, fmemberSocialId2);
+			pstmt.setString(4, fmemberPhone);
 			
 			rset = pstmt.executeQuery();
 			
@@ -167,12 +168,12 @@ public class MemberDao {
 		return memberId;
 	}
 
-	public String searchPw(String fmemberId, String fmemberSocialId, String fmemberPhone, Connection conn) {
+	public String searchPw(String fmemberId, int fmemberSocialId1, int fmemberSocialId2, String fmemberPhone, Connection conn) {
 		
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String query = "select memberPw from member where memberId=? and membersocialId=? and memberphone=?";
+		String query = "select memberPw from member where memberId=? and membersocialId1=? and membersocialId2=? and memberphone=?";
 		
 		String memberPw =null;
 		
@@ -180,8 +181,9 @@ public class MemberDao {
 			pstmt = conn.prepareStatement(query);
 			
 			pstmt.setString(1, fmemberId);
-			pstmt.setString(2, fmemberSocialId);
-			pstmt.setString(3, fmemberPhone);
+			pstmt.setInt(2, fmemberSocialId1);
+			pstmt.setInt(3, fmemberSocialId2);
+			pstmt.setString(4, fmemberPhone);
 			
 			rset = pstmt.executeQuery();
 			
@@ -198,6 +200,34 @@ public class MemberDao {
 		}
 		
 		return memberPw;
+	}
+
+	public int updateMember(Connection conn, Member m) {
+		
+		PreparedStatement pstmt = null;
+		
+		int result = 0;
+		
+		String query= "update member set memberPw=?, memberAddr=?, memberEmail=?, memberPhone=? "
+				+ "where memberId=? ";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setString(1, m.getMemberPw());
+			pstmt.setString(2, m.getMemberAddr());
+			pstmt.setString(3, m.getMemberEmail());
+			pstmt.setString(4, m.getMemberPhone());
+			pstmt.setString(5, m.getMemberId());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return result;
 	}
 	
 	

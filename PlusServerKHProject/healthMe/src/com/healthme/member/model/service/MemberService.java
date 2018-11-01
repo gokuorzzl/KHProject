@@ -50,11 +50,11 @@ public class MemberService {
   }
 
 
-  public String searchId (String fmemberName, String fmemberSocialId, String fmemberPhone) {
+  public String searchId (String fmemberName, int fmemberSocialId1, int fmemberSocialId2, String fmemberPhone) {
   
 		  Connection conn = JDBCTemplate.getConnection();
 		  
-		  String memberId = new MemberDao().searchId(fmemberName, fmemberSocialId, fmemberPhone, conn);
+		  String memberId = new MemberDao().searchId(fmemberName, fmemberSocialId1, fmemberSocialId2, fmemberPhone, conn);
 		  
 		  JDBCTemplate.close(conn);
 		
@@ -62,15 +62,31 @@ public class MemberService {
    }
 
 
-public String searchPw(String fmemberId, String fmemberSocialId, String fmemberPhone) {
+public String searchPw(String fmemberId, int fmemberSocialId1, int fmemberSocialId2, String fmemberPhone) {
 	  
 	  Connection conn = JDBCTemplate.getConnection();
 	  
-	  String memberPw = new MemberDao().searchPw(fmemberId, fmemberSocialId, fmemberPhone, conn);
+	  String memberPw = new MemberDao().searchPw(fmemberId, fmemberSocialId1, fmemberSocialId2, fmemberPhone, conn);
 	  
 	  JDBCTemplate.close(conn);
 	
      return memberPw;
+}
+
+
+     public int updateMember(Member m) {
+    	 Connection conn = JDBCTemplate.getConnection();
+    	 int result = new MemberDao().updateMember(conn,m);
+    	 
+    	 if(result>0) {
+    		 JDBCTemplate.commit(conn);
+    	 } else {
+    		 JDBCTemplate.rollback(conn);
+    	 }
+    	 
+    	 JDBCTemplate.close(conn);
+    	 
+    	 return result;
 }
   
   

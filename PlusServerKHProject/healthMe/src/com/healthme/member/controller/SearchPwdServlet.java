@@ -34,10 +34,11 @@ public class SearchPwdServlet extends HttpServlet {
 	request.setCharacterEncoding("utf-8");
 		
 		String fmemberId = request.getParameter("memberId");
-		String fmemberSocialId = request.getParameter("memberSocialId");
+		int fmemberSocialId1 = Integer.parseInt(request.getParameter("memberSocialId1"));
+		int fmemberSocialId2 = Integer.parseInt(request.getParameter("memberSocialId2"));
 		String fmemberPhone = request.getParameter("memberPhone");	
 		
-		String memberPw = new MemberService().searchPw(fmemberId,fmemberSocialId,fmemberPhone);
+		String memberPw = new MemberService().searchPw(fmemberId,fmemberSocialId1, fmemberSocialId2,fmemberPhone);
 		
 		if (memberPw !=null ) {
 			

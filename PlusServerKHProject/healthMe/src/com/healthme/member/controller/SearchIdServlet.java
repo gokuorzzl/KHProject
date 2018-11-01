@@ -35,10 +35,12 @@ public class SearchIdServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		
 		String fmemberName = request.getParameter("memberName");
-		String fmemberSocialId = request.getParameter("memberSocialId");
+		int fmemberSocialId1 = Integer.parseInt(request.getParameter("memberSocialId1"));
+		int fmemberSocialId2 = Integer.parseInt(request.getParameter("memberSocialId2"));
 		String fmemberPhone = request.getParameter("memberPhone");	
 		
-		String memberId = new MemberService().searchId(fmemberName,fmemberSocialId,fmemberPhone);
+		System.out.println(fmemberSocialId1);
+		String memberId = new MemberService().searchId(fmemberName,fmemberSocialId1,fmemberSocialId2,fmemberPhone);
 		
 		if (memberId !=null ) {
 			
