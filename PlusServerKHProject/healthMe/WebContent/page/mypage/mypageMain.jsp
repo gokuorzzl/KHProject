@@ -1,23 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ 
+<%-- <%@ 
 	page import="com.healthme.search.model.vo.*" 
 		import = "java.util.ArrayList"
 %>
 <%
 	//컨트롤러에서 온 값
-	SearchResult searchResult = (SearchResult)request.getAttribute("searchResult");
+	SearchResult resultPage = (SearchResult)request.getAttribute("searchResult");
 	//검색결과인 트레이너 객체
-	ArrayList<SearchedTrainerResult> trainerList = null;	
+	ArrayList<SearchedTrainerResult> trainerList = resultPage.getTrainerList();
 	//페이지 처리 
-	String pageNavi = null;
-	if(searchResult!=null){//받아오는 데이터가 null이 아닐때만 데이터를 읽어야 서버 오류가 나지 않음
-		trainerList = searchResult.getTrainerList();
-		pageNavi = searchResult.getPageNavi();
-	}
-	//searchInput값
-	String searchInput = (String)request.getAttribute("searchInput");
-%>
+	String pageNavi = resultPage.getPageNavi();
+%> --%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -43,16 +38,21 @@
     <title>헬th미:나만의 트레이너</title>
 </head>
 <body>
-<form id="searchForm" action="/searchInput.do" method="get" >
-	<input type="hidden" name="searchInput" id="searchInput" value="<%=searchInput%>"/>
-	<!-- 이거 나중에까지 해결 안되면 지우자... -->
-	<input type="hidden" name="screenSize" id="screenSize" value="1024"/>
-</form>
-<!--전체 공간-->    
+<!--전체 공간-->
+		<%-- <% for(SearchedTrainerResult n : trainerList){ %>
+									아이디 : <%=n.getMemberId() %><br>
+									이름 : <%=n.getMemberName() %><br>
+									프로필 경로 : <%=n.getProfileFile() %><br>
+									종목 : <%=n.getTrainerEvent() %><br>
+									별점 : <br>
+									<br><br><br>
+		<% } %> --%>
+    
     <div id="wrapper">
         <div id="top">
       		<jsp:include page="/page/header/header.jsp"/>  	
         </div>
+        
         <!--컨텐츠가 들어가는 중간부분-->
         <!--페이지별로 달라지는 부분-->
         <div id="middle">
@@ -62,7 +62,9 @@
 	                <div id="sec01">
 	                    <div class="box">
 	                        <img id="img01" src="../images/jaehun.jpg" alt="userImg">
-	                        <p id="p1" name="memberName">김명상님</p>
+	                        <p id="p1">
+                        	</p>
+                        	
 	                        <p id="p2" name="">씨언어가씨블씨블</p>
 	                        <p id="p3">정보수정</p>
 	                        <p id="p4">로그아웃</p>
@@ -99,7 +101,7 @@
 	            <div id="area02">
 	            </div>
             </div>
-
+						
             
     	</div>
         <!--회사정보가 들어가는 아랫부분-->
@@ -108,7 +110,7 @@
 			<jsp:include page="/page/footer/footer.jsp"/>
 		</div>
     </div>
-   
+    
 
 </body>
 </html>
