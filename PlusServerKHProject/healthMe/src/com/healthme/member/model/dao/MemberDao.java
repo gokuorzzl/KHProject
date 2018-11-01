@@ -68,7 +68,7 @@ public class MemberDao {
 
 		int result = 0;
 		
-		String query= "insert into member values(MEMBER_SEQ.NEXTVAL,?,?,?,?,?,?,?,?,?,?,SYSDATE,sysdate)";
+		String query= "insert into member values(MEMBER_SEQ.NEXTVAL,?,?,?,?,?,?,?,?,?,?,?,SYSDATE,sysdate)";
 		
 		try {
 			pstmt = conn.prepareStatement(query);
@@ -78,12 +78,12 @@ public class MemberDao {
 			pstmt.setString(3, m.getMemberName());
 			pstmt.setInt(4, m.getMemberSocialId1());
 			pstmt.setInt(5, m.getMemberSocialId2());
-			pstmt.setString(5, m.getMemberAddr());
-			pstmt.setString(6, m.getMemberEmail());
-			pstmt.setString(7, m.getMemberPhone());
-			pstmt.setString(8, String.valueOf(m.getMemberTrainer()));
-			pstmt.setString(9, m.getMemberClass());
-			pstmt.setString(10, String.valueOf(m.getMemberOut()));
+			pstmt.setString(6, m.getMemberAddr());
+			pstmt.setString(7, m.getMemberEmail());
+			pstmt.setString(8, m.getMemberPhone());
+			pstmt.setString(9, String.valueOf(m.getMemberTrainer()));
+			pstmt.setString(10, m.getMemberClass());
+			pstmt.setString(11, String.valueOf(m.getMemberOut()));
 			
 			result = pstmt.executeUpdate();	
 		

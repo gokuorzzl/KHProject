@@ -1,20 +1,12 @@
 /*----------------------------------------------*/
 /*인코딩 문자셋*/
 @charset "UTF-8";
-/* 
-@font-face{
-font-family:'서울남산체';
-src:url(../../fonts/SeoulNamsan.eot);익스플로러
-src:url(../../fonts/SeoulNamsan.woff) format('woff');  크롬, 파이어폭스
-src:local(※), url(../../fonts/SeoulNamsan.woff) format('woff');
-} */
 
-/*새롭게 적용할 NotoSans-Bold*/
+
 @font-face{
-font-family:'NotoSans';
-src:url(../../fonts/NotoSans-Bold.eot);/*익스플로러*/
-src:url(../../fonts/NotoSans-Bold.woff) format('woff');  /*크롬, 파이어폭스*/
-src:local(※), url(../../fonts/NotoSans-Bold.woff) format('woff');
+font-family:'NotoSansCJKkrBold';
+src:url(../../fonts/NotoSansCJKkrBold.woff) format('woff');  /*크롬, 파이어폭스*/
+src:local(※), url(../../fonts/NotoSansCJKkrBold.woff) format('woff');
 }
 
 /*각종 인터넷 브라우저에서 코드 작동이 가능하도록 하는 css Reset*/
@@ -28,7 +20,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-	font-family: 'NotoSans';
+	font-family: 'NotoSansCJKkrBold';
 	
 }
 /* HTML5 display-role reset for older browsers */
@@ -154,11 +146,10 @@ table {
     /*-------------추가 Desktop-------------------- */
     
     label {
-      font-family:NotoSans;
+      font-family:NotoSansCJKkrBold;
       font-size:100%;
-      font-weight:bold;
+    
      }
-     
      .conditionSocialId {
        font-size:70%;
        color:#147fe2;
@@ -221,6 +212,35 @@ table {
        background-color:#3c3e3a;
     }
     
+       #memberIdName {
+     float:left; 
+     box-sizing:border-box; 
+     margin-left:1%;  
+     margin-top:2%;
+
+    }
+    
+    #memberSocialId1 {
+      width:48%;
+    }
+    
+    #memberSocialId2 {
+      width:48%;
+    }
+    
+    input[type=password] {
+       width:100%;
+       padding:10px 10px;
+       margin:8px 0;
+       box-sizing:border-box;
+       border: 2px solid #FF9B55;
+       border-radius:6px;
+
+    }
+    
+     input[type=password]:focus {
+      background-color:#f9d3b3;
+    }
 
  
 }
