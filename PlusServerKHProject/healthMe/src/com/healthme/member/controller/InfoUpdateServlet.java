@@ -6,21 +6,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.healthme.member.model.service.MemberService;
 import com.healthme.member.vo.Member;
 
 /**
- * Servlet implementation class EnrollServlet
+ * Servlet implementation class InfoUpdateServlet
  */
-@WebServlet(name = "Enroll", urlPatterns = { "/enroll.do" })
-public class EnrollServlet extends HttpServlet {
+@WebServlet(name = "InfoUpdate", urlPatterns = { "/infoUpdate.do" })
+public class InfoUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EnrollServlet() {
+    public InfoUpdateServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,31 +30,35 @@ public class EnrollServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		request.setCharacterEncoding("utf-8");
 		
-		Member m = new Member();
-		m.setMemberId(request.getParameter("memberId"));
-		m.setMemberPw(request.getParameter("memberPw"));
-		m.setMemberName(request.getParameter("memberName"));
-		m.setMemberSocialId1(Integer.parseInt(request.getParameter("memberSocialId1")));
-		m.setMemberSocialId2(Integer.parseInt(request.getParameter("memberSocialId2")));
-		m.setMemberAddr(request.getParameter("memberAddr"));
-		m.setMemberEmail(request.getParameter("memberEmail"));
-		m.setMemberPhone(request.getParameter("memberPhone"));
-		m.setMemberTrainer('n');
-		m.setMemberClass(request.getParameter("memberClass"));
-		m.setMemberOut('n');
+		HttpSession session = request.getSession(false);
 		
-			
-		int result = new MemberService().insertMember(m);
-		System.out.println("enrollServlet"+result);
-		if (result>0) {
-			response.sendRedirect("/page/loginPage/updateSuccess.jsp");
+		String memberId = ((Member)session.getAttribute("member")).getMemberId();
+		String memberPw = request.getParameter("memberPw");
+		String memberAddr = request.getParameter("memberAddr");
+		String memberEmail = request.getParameter("memberEmail");
+		String memberPhone = request.getParameter("memberPhone");
+		
+		Member m = new Member();
+		m.setMemberId("memberId");
+		m.setMemberPw("memberPw");
+		m.setMemberAddr("memberAddr");
+		m.setMemberEmail("memberEmail");
+		m.setMemberPhone("memberPhone");
+		
+		int result = new MemberService().updateMember(m);
+		
+		Member member = new MemberService().selectOneMember(memberId, memberPw);
+		
+		session.setAttribute("member", member);
+		
+		if(result>0) {
+			response.sendRedirect("/page/loginPage/enrollSuccess.jsp");
 		} else {
 			response.sendRedirect("/page/loginPage/error.jsp");
 		}
-
 	}
 
 	/**
