@@ -170,7 +170,7 @@
         <!--회사정보가 들어가는 아랫부분-->
         <!--bottom부분은 관리자페이지 제외한 모든 페이지 통일-->
         <div id="bottom">
-           <jsp:include page="/page/footer/footer.jsp"/>
+
         </div>
     </div>
     

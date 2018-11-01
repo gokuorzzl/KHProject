@@ -22,7 +22,7 @@ public class MemberService {
   public int insertMember(Member m) {
 	   Connection conn = JDBCTemplate.getConnection();
 	   int result = new MemberDao().insertMember(conn,m);
-	   
+	   System.out.println("memberService"+result);
 	   if(result>0) {
 		   JDBCTemplate.commit(conn);
 	   } else {

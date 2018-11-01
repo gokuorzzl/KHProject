@@ -16,7 +16,7 @@ public class MemberDao {
 		ResultSet rset = null;
 		
 		String query = "select * from member where memberId=? "
-				+ "and memberPw=? ";
+				+ "and memberPw=?";
 		
 		Member member = null;
 		
@@ -30,13 +30,20 @@ public class MemberDao {
 			
 			if(rset.next()) {
 				member = new Member();
+				member.setPkMemberNumber(rset.getInt("pkMemberNumber"));
 				member.setMemberId(rset.getString("memberId"));
 				member.setMemberPw(rset.getString("memberPw"));
 				member.setMemberName(rset.getString("memberName"));
 				member.setMemberSocialId(rset.getString("socialId"));
 				member.setMemberAddr(rset.getString("memberAddr"));
-				member.setMemberPhone(rset.getString("memberPhone"));
 				member.setMemberEmail(rset.getString("memberEmail"));
+				member.setMemberPhone(rset.getString("memberPhone"));
+				member.setMemberTrainer(rset.getString("memberTrainer").charAt(0));
+				member.setMemberClass(rset.getString("memberClass"));
+				member.setMemberOut(rset.getString("memberOut").charAt(0));
+				member.setMemberRegistDate(rset.getDate("memberRegistDate"));
+				member.setMemberOutDate(rset.getDate("memberOutDate"));
+				
 				
 			}
 			
@@ -60,9 +67,8 @@ public class MemberDao {
 
 		int result = 0;
 		
-		String query= "insert into member values(?,?,?,?,?,?,?)";
+		String query= "insert into member values(MEMBER_SEQ.NEXTVAL,?,?,?,?,?,?,?,?,?,?,SYSDATE,sysdate)";
 		
-		System.out.println(query);
 		try {
 			pstmt = conn.prepareStatement(query);
 			
@@ -71,11 +77,14 @@ public class MemberDao {
 			pstmt.setString(3, m.getMemberName());
 			pstmt.setString(4, m.getMemberSocialId());
 			pstmt.setString(5, m.getMemberAddr());
-			pstmt.setString(6, m.getMemberPhone());
-			pstmt.setString(7, m.getMemberEmail());
+			pstmt.setString(6, m.getMemberEmail());
+			pstmt.setString(7, m.getMemberPhone());
+			pstmt.setString(8, String.valueOf(m.getMemberTrainer()));
+			pstmt.setString(9, m.getMemberClass());
+			pstmt.setString(10, String.valueOf(m.getMemberOut()));
 			
-			
-			result = pstmt.executeUpdate();		
+			result = pstmt.executeUpdate();	
+		
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -177,9 +186,7 @@ public class MemberDao {
 			while(rset.next()) {
 				memberPw = rset.getString("memberPw");
 			}
-			
-			
-			
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
