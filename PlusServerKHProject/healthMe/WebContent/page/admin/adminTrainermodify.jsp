@@ -6,13 +6,6 @@
 <html>
 
 <head>
-
-	<%
-		Trainer t = (Trainer)request.getAttribute("adminTrainermodify");
-	
-	%>
-
-
     <!--인코딩 문자셋-->
     <meta charset="UTF-8">
     <!--반응형 웹을 만들기 위한 meta태그의 viewport-->
@@ -34,8 +27,11 @@
     
     <title>헬th미:나만의 트레이너</title>
 </head>
+<%
+		Trainer t = (Trainer)request.getAttribute("adminTrainermodify");
+	
+	%>
 
-<body>
 
 <%--값 수정사항
 
@@ -55,7 +51,10 @@ trainerUniv가 값이 합쳐져서 들어가는건지
 
 
 
-    <!--전체 공간-->
+<body>
+
+
+   <!--전체 공간-->
     <div id="wrapper">
         <!--로고, 메뉴가 들어가는 윗부분-->
         <!--top부분은 관리자페이지 제외한 모든 페이지 통일-->
@@ -77,9 +76,9 @@ trainerUniv가 값이 합쳐져서 들어가는건지
         <!-- CONTAINER -->
 <!--  enctype="multipart/form-data" 파일 입출력용임 -->
         <div id="middle">
-            <h3>- 기본정보 입력 -</h3>
+            <h3>- 정보수정(<%=t.getMemberId()%>) -</h3>
             <div class="linecolor"></div>
-            <form method="post" id="frm-register-detail" action="/adminMemberUpdateSel.do">
+            <form method="post" id="frm-register-detail" action="/adminTrainerTUpdateSel.do">
                 <div id="contents">
                     <div id="realcontents">
                         <ul>
@@ -117,119 +116,52 @@ trainerUniv가 값이 합쳐져서 들어가는건지
                                 <input type="button" id="sample6_fpostcode" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
                                 <input type="text" id="trainerRegion" name="trainerRegion" value="<%=t.getTrainerRegion()%>">
                                 <input type="text" id="sample6_address2" placeholder="상세주소">
-                            </li>
+                            </li><br>
                             <li style=i>
-                                <input type="radio" id="sport1"  /><label for="sport1">&lt;헬스&gt;</label>
-                                <input type="radio" id="sport2"  /><label for="sport2">&lt;요가&gt;</label>
-                                <input type="radio" id="sport3"  /><label for="sport3">&lt;구기종목&gt;</label>
-                                <input type="radio" id="sport4" /><label for="sport4">&lt;무술&gt;</label>
-                                <input type="radio" id="sport5"  /><label for="sport5">&lt;라켓&gt;</label>
-                                <input type="radio" id="sport6"  /><label for="sport6">&lt;와타스포츠&gt;</label>
-                                <input type="radio" id="sport7"  /><label for="sport7">&lt;유산소&gt;</label>
-                            </li>
-                            <p id="categoryline">└ 해당 카테고리의 종목 :&nbsp;&nbsp;</p>
-                            
-                            <li id="sport1_sub" class="sport_tag" style="display:none">
-                                <label for="weight_training">웨이트트레이닝</label>
-                                <input type="checkbox" id="weight_training" name="trainerEvent" value="웨이트트레이닝"/>
-                                <label for="body_making">체형교정</label>
-                                <input type="checkbox" id="body_making" name="trainerEvent" value="체형교정"/>
-                                <label for="spinning">스피닝</label>
-                                <input type="checkbox" id="spinning" name="trainerEvent" value="스피닝"/>
-                                <label for="personal_training">개인헬스</label>
-                                <input type="checkbox" id="personal_training" name="trainerEvent" value="개인헬스"/>
+                            <label for="trainerEvent">트레이너종목</label><br>
+                              <input type="text" id="trainerEvent" name="trainerEvent" value="<%=t.getTrainerEvent()%>">
                             </li>
                             
-                            <li id="sport2_sub" class="sport_tag" style="display:none">
-                                <label for="normal_yoga">일반요가</label>
-                                <input type="checkbox" id="normal_yoga" name="trainerEvent" value="일반요가"/>
-                                <label for="flying_yoga">플라잉요가</label>
-                                <input type="checkbox" id="flying_yoga" name="trainerEvent" value="플라잉요가"/>
-                                <label for="pilates">필라테스</label>
-                                <input type="checkbox" id="pilates" name="trainerEvent" value="필라테스"/>
+                            <li style=i>
+                            <label for="trainerCareerFile">경력 인증 파일</label><br>
+                              <input type="text" id="trainerCareerFile" name="trainerCareerFile" value="<%=t.getTrainerCareerFile()%>">
                             </li>
                             
-                            <li id="sport3_sub" class="sport_tag" style="display:none">
-                                <label for="soccer">축구</label>
-                                <input type="checkbox" id="soccer" name="trainerEvent" value="축구"/>
-                                <label for="volleyball">배구</label>
-                                <input type="checkbox" id="volleyball" name="trainerEvent" value="배구"/>
-                                <label for="baseball">야구</label>
-                                <input type="checkbox" id="baseball" name="trainerEvent" value="야구"/>
-                                <label for="basketball">농구</label>
-                                <input type="checkbox" id="basketball" name="trainerEvent" value="농구"/>
-                                <label for="golf">골프</label>
-                                <input type="checkbox" id="golf" name="trainerEvent" value="골프"/>     
-                            </li>
                             
-                            <li id="sport4_sub" class="sport_tag" style="display:none">
-                                <label for="Jiujitsu">주짓수</label>
-                                <input type="checkbox" id="Jiujitsu" name="trainerEvent" value="주짓수"/>
-                                <label for="boxing">복싱</label>
-                                <input type="checkbox" id="boxing" name="trainerEvent" value="복싱"/>
-                                <label for="mma">격투기</label>
-                                <input type="checkbox" id="mma" name="trainerEvent" value="격투기"/>
-                                <label for="judo">유도</label>
-                                <input type="checkbox" id="judo" name="trainerEvent" value="유도"/>
-                                <label for="kendo">검도</label>
-                                <input type="checkbox" id="kendo" name="trainerEvent" value="검도"/>
-                                <label for="fencing">펜싱</label>
-                                <input type="checkbox" id="fencing" name="trainerEvent" value="펜싱"/>
-                            </li>
-                            <li id="sport5_sub" class="sport_tag" style="display:none">
-                                <label for="tennis">테니스</label>
-                                <input type="checkbox" id="tennis" name="trainerEvent" value="테니스"/>
-                                <label for="badminton">배드민턴</label>
-                                <input type="checkbox" id="badminton" name="trainerEvent" value="배드민턴"/>
-                                <label for="squash">스쿼쉬</label>
-                                <input type="checkbox" id="squash" name="trainerEvent" value="스쿼쉬"/>
-                            </li>
-                            <li id="sport6_sub" class="sport_tag" style="display:none">
-                                <label for="swim">수영</label>
-                                <input type="checkbox" id="swim" name="trainerEvent" value="수영"/>
-                                <label for="rowing">조정</label>
-                                <input type="checkbox" id="rowing" name="trainerEvent" value="조정"/>
-                                <label for="beachvolleyball">비치발리볼</label>
-                                <input type="checkbox" id="beachvolleyball" name="trainerEvent" value="비치발리볼"/>
-                                <label for="diving">다이빙</label>
-                                <input type="checkbox" id="diving" name="trainerEvent" value="다이빙"/>
-                            </li>
-                            <li id="sport7_sub" class="sport_tag" style="display:none">
-                                <label for="marathon">마라톤&amp;산악마라톤</label>
-                                <input type="checkbox" id="marathon" name="trainerEvent" value="마라톤&산악마라톤"/>
-                                <label for="climbing">등산&amp;암벽등반</label>
-                                <input type="checkbox" id="climbing" name="trainerEvent" value="등산&암벽등반"/>
-                            </li>
+                            
+                         
                         </ul>
                         
                         <div class="linecolor"></div>
                         
                         <ul>
                             <li>
-                                <label>신분/학력 인증</label>
-                                <p><br>소속된 대학이나 졸업한 대학을 인증해주세요. 없으시면 신분증인증을 해주시면 됩니다(필수)<br></p>
-                                <p></p>
-                                <p><input type="radio" value="1" checked onclick="checkLayer(1);" /><label for="univ_y">대학인증</label></p>
-                                <p><input type="radio" value="0" onclick="checkLayer(2);" /><label for="univ_n">대학원인증</label></p>
-                                <p><input type="radio" value="0" onclick="checkLayer(3);" /><label for="univ_n">신분증인증</label></p>
-                                <br>
-                                <div id="SchoolMajor"><br>
-                                    <input type="text" name="trainerUniv" placeholder="학교(대학) 예)태평양대학교" />
-                                    <input type="text" name="trainerUniv" placeholder="학과 예)해저케이블학과"/>
-                                    <p><input name="trainerGrad" type="radio" value="0" checked /><label for="univ_y">재학</label></p>
-                                    <p><input name="trainerGrad" type="radio" value="1"/><label for="univ_y">졸업</label></p>
-                                    <p><input name="trainerGrad" type="radio" value="2"/><label for="univ_y">수료</label></p>
+                                <label>신분/학력 인증</label><br>
+                                <div id="SchoolMajor">
+                                <input type="text" name="trainerUniv" value="<%=t.getTrainerUniv()%>"/>
+                               </li>
+                               <li>
+                                <label>대학교 재학/졸업/수료 상태</label>
+                               <%if(t.getTrainerGrad().equals('a')){%>
+                               <p><input name="trainerGrad" type="radio" value="<%=t.getTrainerGrad()%>" checked /><label for="univ_y">재학</label></p>
+                               
+                               <%}else if(t.getTrainerGrad().equals('b')){%>
+                                    <p><input name="trainerGrad" type="radio" value="<%=t.getTrainerGrad()%>"  checked/><label for="univ_y">졸업</label></p>
+                                    
+                               <%}else{%>
+                               		<p><input name="trainerGrad" type="radio" value="<%=t.getTrainerGrad()%>" checked/><label for="univ_y">수료</label></p>
+                               <%}%>
+                                   <%--null들어가면 에러나므로 데이터 넣을때 a,b,c중 값으로 넣기 --%>
+                                   
+                                   </li>
                                     <br>
                                     <p><b>학력 인증(<font color="red">필수</font>)</b> - 학생증, 재학증명서, 졸업증명서</p>
-                                    <p><input type="file" name="School" /></p>
-                                    <p>파일을 업로드해주세요.</p>
+                                    <p><input type="file" name="trainerGradFile" value="<%=t.getTrainerGradFile()%>"/></p>
+                                   <%--경로 이미지경로 재설정하기폴더만들어질 경우--%>
+                                    <img src="/img/trainerImage/<%=t.getMemberId()%>/<%=t.getMemberId()%>profileFile.png" width="150" height="150">
                                 </div>
 
-                                <div id="Idcard" style="display:none;">
-                                    <p><b>신분 인증(<font color="red">필수</font>)</b> - 주민등록증, 운전면허증</p>
-                                    <p><input type="file" name="trainerGradFile"/></p>
-                                    <p>파일을 업로드해주세요.</p>
-                                </div>
+                               
                             </li>
                         </ul>
 
@@ -238,36 +170,26 @@ trainerUniv가 값이 합쳐져서 들어가는건지
                         <ul>
                             <li>
                                 <label>자격증(최대 5개) (선택)</label>
-
+								
                                 <!--input 추가됨-->
                                 <div id="cert">
-                                    <input style="float:left;" id="licenseName1" name="licenseName1" type="text" placeholder="예) GTQ 1급, 입상경력.." value="" class="input_txt01" />
-                                    <p><input type="file" name="trainerLicenseFile" /></p>
+                                <%--이미지경로추가시키기 --%>
+                                    <input type="file" id="LicenseName1" name="LicenseName1" value="<%=t.getLicenseName1()%>"/><br>
+                                    <img src="#" width="150" height="150">
+                                    <input type="file" id="LicenseName2" name="LicenseName2" value="<%=t.getLicenseName2()%>"/><br>
+                                     <img src="#" width="150" height="150">
+                                    <input type="file" id="LicenseName3" name="LicenseName3" value="<%=t.getLicenseName3()%>"/><br>
+                                    <img src="#" width="150" height="150">
+                                    <input type="file" id="LicenseName4" name="LicenseName4" value="<%=t.getLicenseName4()%>"/><br>
+                                    <img src="#" width="150" height="150">
+                                    <input type="file" id="LicenseName5" name="LicenseName5" value="<%=t.getLicenseName5()%>"/><br>
+                                    <img src="#" width="150" height="150">
+                                   
                                 </div>
                                 
-                                <div id="CertAdd"></div>
-                                <a onclick="addFile();" class="addbtn" style="cursor:pointer;">추가 +</a>
+                               
 
-                                <input type="hidden" id="fileCnt" name="fileCnt" value="1">
-
-                                <script>
-                                    function addFile(){
-				                      fileCnt = document.getElementById('fileCnt').value;   
-				                      if(fileCnt==5){
-				                          alert("그정도면 충분한것 같아요");
-				                          return false;
-				                      }else{
-				                         fileCnt++; 
-				                      }               
-				                     html = '';
-				                     html += '<input id="licenseName'+fileCnt+'" name="licenseName'+fileCnt+'" type="text" placeholder="예) GTQ 1급, 입상경력.." value="" class="input_txt01 clearbt"/> <br>';
-				                     
-				                     var div = document.createElement('div');
-				                       div.innerHTML = html;
-				                        document.getElementById('CertAdd').appendChild(div);                     
-				                     document.getElementById('fileCnt').value = fileCnt;
-				                  }
-				               </script>
+                              
                             </li>
                         </ul>
                         <!--자격증 부분 끝-->
@@ -278,58 +200,63 @@ trainerUniv가 값이 합쳐져서 들어가는건지
  								<div class="career-group">
 									<label>경력사항</label>
 
-
-									<form id="career_start" action="action.jsp">
+									
+								
 										<div>
-											<input id="careerName1" name="careerName1" type="text" placeholder="ex)고라니GYM 근무" value=""/>
-											<input type="date" id="careerStart1" name="careerStart1" value="2015-10-10" min="1990-01-01" max="2018-12-31"/> ~ 
-											<input type="date" id="careerEnd1" name="careerEnd1" value="2015-10-10" min="1990-01-01" max="2018-12-31"/>
-											<input type="submit" value="전송">
+											<input id="careerName1" name="careerName1" type="text" placeholder="<%=t.getCareerName1()%>" value="<%=t.getCareerName1()%>"/>
+											<input type="date" id="careerStart1" name="careerStart1" value="<%=t.getCareerStart1()%>" min="1990-01-01" max="2018-12-31"/> ~ 
+											<input type="date" id="careerEnd1" name="careerEnd1" value="<%=t.getCareerEnd1()%>" min="1990-01-01" max="2018-12-31"/>
+											<br><br>
+											<input id="careerName1" name="careerName2" type="text" placeholder="<%=t.getCareerName2()%>" value="<%=t.getCareerName2()%>"/>
+											<input type="date" id="careerStart2" name="careerStart2" value="<%=t.getCareerStart2()%>" min="1990-01-01" max="2018-12-31"/> ~ 
+											<input type="date" id="careerEnd2" name="careerEnd2" value="<%=t.getCareerEnd2()%>" min="1990-01-01" max="2018-12-31"/>
+											<br><br>
+											<input id="careerName1" name="careerName3" type="text" placeholder="<%=t.getCareerName3()%>" value="<%=t.getCareerName3()%>"/>
+											<input type="date" id="careerStart3" name="careerStart3" value="<%=t.getCareerStart3()%>" min="1990-01-01" max="2018-12-31"/> ~ 
+											<input type="date" id="careerEnd3" name="careerEnd3" value="<%=t.getCareerEnd3()%>" min="1990-01-01" max="2018-12-31"/>
+											<br><br>
+											<input id="careerName1" name="careerName4" type="text" placeholder="<%=t.getCareerName4()%>" value="<%=t.getCareerName4()%>"/>
+											<input type="date" id="careerStart4" name="careerStart4" value="<%=t.getCareerStart4()%>" min="1990-01-01" max="2018-12-31"/> ~ 
+											<input type="date" id="careerEnd4" name="careerEnd4" value="<%=t.getCareerEnd4()%>" min="1990-01-01" max="2018-12-31"/>
+											<br><br>
+											<input id="careerName1" name="careerName5" type="text" placeholder="<%=t.getCareerName4()%>" value="<%=t.getCareerName4()%>"/>
+											<input type="date" id="careerStart5" name="careerStart5" value="<%=t.getCareerStart4()%>" min="1990-01-01" max="2018-12-31"/> ~ 
+											<input type="date" id="careerEnd5" name="careerEnd5" value="<%=t.getCareerEnd4()%>" min="1990-01-01" max="2018-12-31"/>
+											<br><br>
 										</div>
-										<div id="CertCareer"></div>
-										<a onclick="addcareer();" class="addbtn" style="cursor:pointer;">추가 +</a>
-										<input type="hidden" id="careerfileCnt" name="careerfileCnt" value="1">
-									</form>
-
-									<script>
-										function addcareer() {
-											careerfileCnt = document.getElementById('careerfileCnt').value;
-											if (careerfileCnt == 5) {
-												alert("그정도면 충분한것 같아요");
-												return false;
-											} else {
-												careerfileCnt++;
-											}
-											html = '';
-						                    html += '<input id="careerName'+careerfileCnt+'" name="careerName'+careerfileCnt+'" type="text" placeholder="ex)고라니GYM 근무" value="" />';
-						                    html += '<input type="date" id="careerStart'+careerfileCnt+'" name="careerStart'+careerfileCnt+'" value="2015-10-10" min="1990-01-01" max="2018-12-31"/> ~ ';
-						                    html += '<input type="date" id="careerEnd'+careerfileCnt+'" name="careerEnd'+careerfileCnt+'" value="2015-10-10" min="1990-01-01" max="2018-12-31"/>';
-						                  	html += '<input type="submit" value="전송">';
-
-											var div = document.createElement('div');
-											div.innerHTML = html;
-											document.getElementById("CertCareer").appendChild(div);
-											document.getElementById('careerfileCnt').value = careerfileCnt;
-										}
-									</script>
+										
+								
+									
+								
 
 
 								</div>
-
+ 
 
 
                             </li>
+                          
+                          <li>
+                          	 <label for="comment">수업 제목</label>
+                                    <textarea class="form-control" rows="1" name="trainerSubject" id="trainerSubject" value="<%=t.getTrainerSubject()%>" placeholder="<%=t.getTrainerSubject()%>"></textarea>
+                          </li>
+                          
+                          
                             <li>
 
                                 <div class="form-group">
+                                	
+                                
+                                
+                                
                                     <label for="comment">수업 소개 :</label>
-                                    <textarea class="form-control" rows="5" name="trainerContent" id="trainerContent"></textarea>
-                                    <!--  name있어야 벨류값 전송 가능!!!!!!! -->
+                                    <textarea class="form-control" rows="5" name="trainerContent" id="trainerContent" value="<%=t.getTrainerContent()%>" placeholder="<%=t.getTrainerContent()%>"></textarea>
+                                   
                                 </div>
                             </li>
                         </ul>
                         <center>
-                        <button type="submit" id="final_submit"  class="btn btn-warning"> 제출하기 </button>
+                        <button type="submit" value="회원수정" id=""  class="btn btn-warning">수정하기 </button>
                         </center>
                     </div>
                 </div>
