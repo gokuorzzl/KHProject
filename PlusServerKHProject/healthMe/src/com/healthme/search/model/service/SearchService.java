@@ -1,12 +1,12 @@
 package com.healthme.search.model.service;
 
-import java.awt.Dimension;
-import java.awt.Toolkit;
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 import com.healthme.common.JDBCTemplate;
 import com.healthme.search.model.dao.SearchDao;
+import com.healthme.search.model.vo.Keyword;
 import com.healthme.search.model.vo.SearchPaging;
 import com.healthme.search.model.vo.SearchResult;
 import com.healthme.search.model.vo.SearchedTrainer;
@@ -14,18 +14,21 @@ import com.healthme.search.model.vo.SearchedTrainerResult;
 
 public class SearchService {
 
-	public SearchResult searchBar(int screenSize, ArrayList<String> searchList, int currentPage) {
+	public SearchResult searchBar(int screenSize, String search, int currentPage) {
 		
 		//커넥션 생성
 		Connection conn = JDBCTemplate.getConnection();
 		//리턴할 결과
 		SearchResult searchResult = null;
 		
+		//-------------- 검색어 처리 --------------//
+		Keyword keyword = keywordProcess(search);
+		
 		//-------------- DAO를 세 번 다녀옴 --------------//
 		//1. TRAINER테이블로부터 MEMBERID, PROFILEFILE, TRAINERREGION, TRAINEREVENT를 가져옴
 		//위의 네가지 정보를 저장하는 SearchedTrainer 객체를 저장할 ArrayList생성
 
-		ArrayList<SearchedTrainer> tmpTrainer = new SearchDao().searchBarTrainer(conn, searchList);
+		ArrayList<SearchedTrainer> tmpTrainer = new SearchDao().searchBarTrainer(conn, keyword.getRegion(), keyword.getField());
 
 		if(!tmpTrainer.isEmpty()) {
 			
@@ -48,7 +51,7 @@ public class SearchService {
 			}
 			
 			//페이징처리
-			SearchPaging sp = paging(screenSize, searchList, currentPage, tmpTrainer);
+			SearchPaging sp = paging(screenSize, keyword, currentPage, tmpTrainer);
 			
 			//----------------- DB검색과 페이징 처리를 통해 얻은 결과로 return할 객체 생성 -----------------//
 			//1. SearchResult 결과 객체의 ArrayLsit
@@ -73,7 +76,7 @@ public class SearchService {
 		return searchResult;
 	}
 	
-	public SearchPaging paging(int screenSize, ArrayList<String> searchList, int currentPage, ArrayList<SearchedTrainer> tmpTrainer) {
+	public SearchPaging paging(int screenSize, Keyword keyword, int currentPage, ArrayList<SearchedTrainer> tmpTrainer) {
 		
 		//----------------- 페이징 처리 -----------------//
 		//1. 같은 페이지 내 객체 갯수 처리
@@ -126,9 +129,14 @@ public class SearchService {
 		}
 		
 		//페이지 URL에 이용할 String 생성
-		String urlSearch = searchList.get(0);
-		for(int i=1; i<searchList.size() ; i++) {
-			urlSearch += "+" + searchList.get(i);
+		String urlSearch = keyword.getRegion().get(0);
+		if(keyword.getRegion().size()>1) {
+			for(int i=1; i<=keyword.getRegion().size() ; i++) {
+				urlSearch += "+" + keyword.getRegion().get(i);
+			}
+			for(int i=0; i<keyword.getField().size() ; i++) {
+				urlSearch += "+" + keyword.getField().get(i);
+			}
 		}
 		
 		//'◀ 페이지 번호 ▶'를 표시하기 위해 StringBuilder를 이용 
@@ -165,6 +173,105 @@ public class SearchService {
 		SearchPaging sp = new SearchPaging(sb.toString(), recordPerPage, start, end);
 		
 		return sp;
+		
+	}
+	
+	public Keyword keywordProcess(String search) {
+		
+		Connection conn = JDBCTemplate.getConnection(); //DAO에 전송할 Connection생성
+		Keyword kw = new Keyword(); //키워드 저장해 리턴할 객체 생성
+		ArrayList<String> region = new ArrayList<>(); //지역을 저장할 ArrayList
+		ArrayList<String> field = new ArrayList<>(); //종목 키워드 저장할 ArrayList
+		
+		//1. 가져온 문자에서 특수문자를 제외하고 토큰단위로 잘라서 ArrayList에 저장
+		
+		//replace 메소드를 이용해 실제 검색어를 제외한 특수문자 등을 모두 (공백)구분자로 변경
+		search = search.replace(",", " ");
+		search = search.replace("/", " ");
+		search = search.replace("\"", " ");
+		search = search.replace("\'", " ");
+		search = search.replace("[", " ");
+		search = search.replace("]", " ");
+		search = search.replace("+", " ");
+		search = search.replace("?", " ");
+		search = search.replace("null", " ");
+
+		//공백 등 기타 구분자로 넘어온 검색어를 StringTokenizer를 이용해 ArrayList<String>에 저장
+		StringTokenizer st = new StringTokenizer(search);
+		ArrayList<String> searchList = new ArrayList<>();
+		while(st.hasMoreTokens()) {
+			searchList.add(st.nextToken());
+		}
+		
+		//2. searchList에 있는 단어 수만큼 검색어 처리를 진행
+		//지역검색에 활용하기 위한 boolean변수
+		boolean regionCheck = false; //기본은 false -> 지역명이 맞으면 true가 반환되도록 함
+		
+		for(int i=0 ; i<searchList.size() ; i++) {
+			
+			//지역에 따른 검색어 처리
+			//해당 검색어가 지역에 관한 검색어인지 DAO를 통해 확인
+			regionCheck = new  SearchDao().checkRegion(conn, searchList.get(i));
+			if(regionCheck==true) {//이 검색어는 지역과 관련된 검색어라는 의미임
+				region.add(searchList.get(i));
+			}else {//지역 검색어가 아니면 종목에 관한 검색어라는 의미임
+			System.out.println(regionCheck);		
+				//종목에 따른 검색어 처리
+				//대분류를 검색하면 하위분류가 검색어에 포함되서 검색될 수 있도록 설정
+				if(searchList.get(i).contains("헬스")) {
+					field.add("헬스");
+					field.add("웨이트");
+					field.add("스피닝");
+				}
+				if(searchList.get(i).contains("요가")) {
+					field.add("요가");
+					field.add("플라잉");
+					field.add("필라테스");
+				}
+				if(searchList.get(i).contains("구기")) {
+					field.add("축구");
+					field.add("배구");
+					field.add("야구");
+					field.add("농구");
+					field.add("골프");
+					field.add("볼링");
+				}
+				if(searchList.get(i).contains("무술")) {
+					field.add("주짓수");
+					field.add("복싱");
+					field.add("격투기");
+					field.add("유도");
+					field.add("검도");
+					field.add("펜싱");
+				}
+				if(searchList.get(i).contains("라켓")) {
+					field.add("테니스");
+					field.add("배드민턴");
+					field.add("스쿼시");
+				}
+				if(searchList.get(i).contains("아쿠아")) {
+					field.add("수영");
+					field.add("조정");
+					field.add("비치");
+					field.add("다이빙");
+					field.add("서핑");
+				}
+				if(searchList.get(i).contains("유산소")) {
+					field.add("마라톤");
+					field.add("산악마라톤");
+					field.add("등산");
+					field.add("암벽등반");
+				}
+				
+			}//큰 if문 종료
+			
+		}//for문 종료
+		
+		kw.setRegion(region);
+		kw.setField(field);
+
+		
+		return kw;
 		
 	}
 	

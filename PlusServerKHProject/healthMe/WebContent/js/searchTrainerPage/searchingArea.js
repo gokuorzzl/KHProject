@@ -11,6 +11,8 @@ $(function(){
 	var area3=new Array();
 	var field=new Array();
 	
+	console.log("Bello!");
+	
 	$('#field li').click(function(){//종목 선택에 관한 함수
 
 		if(field==""){//종목을 최초로 선택하는 경우(field 배열이 비어있는 경우)
@@ -27,6 +29,7 @@ $(function(){
 			$(this).css('background-color', '#FF9B55'); //처음 선택한 값은 아니지만 새로운 값을 선택한 경우
 			field.push($(this).html());	//배열에 해당 값 추가
 		}
+		
 	});
 	
 	$.cliclkSubArea = function(){$('#subArea2 li').click(function(){//읍/면/동 선택 -> 메소드로 만들어서 중복코드 줄이기
@@ -1353,5 +1356,12 @@ $(function(){
 		}//제주도 if문의 끝
 		
 	});//제주도 선택함수의 끝
+	
+	//input에 value를 추가해주기 위한 메소드
+	$('#realSearchBox li').click(function(){
+		var string = area1 + ", " + area2 + ", " + area3 + ", " + field;
+		$('.searchBox').val(string);
+		console.log($('.searchBox').val());
+	});
 	
 });

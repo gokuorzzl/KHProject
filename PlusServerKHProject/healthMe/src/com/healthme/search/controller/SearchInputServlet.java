@@ -39,39 +39,12 @@ public class SearchInputServlet extends HttpServlet {
 		
 		//2. searchTrainerPage에서 보낸 데이터를 저장
 		String search = request.getParameter("searchInput");
-		int screenSize = Integer.parseInt(request.getParameter("screenSize"));
 
-		//int screenSize=1024;
+		//int screenSize = Integer.parseInt(request.getParameter("screenSize"));
+
+		int screenSize=1024;
 		
-		//3. 검색어 처리
-		//replace 메소드를 이용해 실제 검색어를 제외한 특수문자 등을 모두 (공백)구분자로 변경
-		search = search.replace(",", " ");
-		search = search.replace("/", " ");
-		search = search.replace("\"", " ");
-		search = search.replace("\'", " ");
-		search = search.replace("[", " ");
-		search = search.replace("]", " ");
-		search = search.replace("+", " ");
-		search = search.replace("특별시", " ");
-		search = search.replace("광역시", " ");
-		search = search.replace("시", " ");
-		search = search.replace("군", " ");
-		search = search.replace("구", " ");
-		search = search.replace("읍", " ");
-		search = search.replace("면", " ");
-		search = search.replace("동", " ");
-		for(int i=0 ; i<10 ; i++) {//제n동일 때 n이 10을 넘는 경우는 없으므로 for문을 이용해 처리
-			search = search.replace("제"+i, " ");
-		}
-		
-		//공백 등 기타 구분자로 넘어온 검색어를 StringTokenizer를 이용해 ArrayList<String>에 저장
-		StringTokenizer st = new StringTokenizer(search);
-		ArrayList<String> searchList = new ArrayList<>();
-		while(st.hasMoreTokens()) {
-			searchList.add(st.nextToken());
-		}
-		
-		//4. searchTrainerPage 내 페이징 처리를 위해 페이지 번호를 받아옴
+		//3. searchTrainerPage 내 페이징 처리를 위해 페이지 번호를 받아옴
 		int currentPage; //현재페이지
 		if(request.getParameter("currentPage")==null) {
 			//페이지 정보를 요청했을 때 null인 경우 첫 페이지이므로  1페이지로 설정
@@ -82,7 +55,7 @@ public class SearchInputServlet extends HttpServlet {
 		}
 		
 		//5. 검색어를 담은 ArrayList와 현재 페이지 정보를 담은 currentPage를 Service로 전송
-		SearchResult searchResult = new SearchService().searchBar(screenSize, searchList, currentPage);
+		SearchResult searchResult = new SearchService().searchBar(screenSize, search, currentPage);
 		
 		//6. 결과 처리
 		if(searchResult != null) {

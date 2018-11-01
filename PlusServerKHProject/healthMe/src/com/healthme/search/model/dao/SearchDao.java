@@ -7,12 +7,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.healthme.common.JDBCTemplate;
-import com.healthme.member.vo.Member;
+import com.healthme.search.model.vo.Keyword;
 import com.healthme.search.model.vo.SearchedTrainer;
 
 public class SearchDao {
 
-	public ArrayList<SearchedTrainer> searchBarTrainer(Connection conn, ArrayList<String> searchList) {
+	public ArrayList<SearchedTrainer> searchBarTrainer(Connection conn, ArrayList<String> region, ArrayList<String> field) {
 		
 		//쿼리문 전송에 이용할 객체 생성
 		PreparedStatement pstmt = null;
@@ -22,28 +22,46 @@ public class SearchDao {
 		
 		//전송할 쿼리문 -> TRAINER테이블로부터  아이디, 프로필사진경로, 트레이너 근무지역, 종목을 가져옴
 		String query = "SELECT MEMBERID, PROFILEFILE, TRAINERREGION, TRAINEREVENT FROM TRAINER WHERE "; 
-		//WHERE조건을 완성하기 위해 검색어 리스트 수만큼 for문을 실행
-		for(int i=0 ; i<searchList.size() ; i++) {
-			if(i==searchList.size()-1) {
-				query += "TRAINERREGION LIKE ? OR TRAINEREVENT LIKE ? ";
-			} else {
-				query += "TRAINERREGION LIKE ? OR TRAINEREVENT LIKE ? OR ";
+		//WHERE조건을 완성하기 위해 검색어 리스트에 맞추어 처리
+		//지역검색어는 AND로 연결
+		if(!region.isEmpty()) {
+			for(int i=0 ; i<region.size() ; i++) {
+				if(i==0) {query += "(";} //시작일 때 "("를 넣어줌
+				if(i==region.size()-1) {//마지막엔 연결연산자 없이 ")"를 닫아줌
+					query += "TRAINERREGION LIKE ? )"; 
+				}else {
+					query += "TRAINERREGION LIKE ? AND ";
+				}
 			}
-			
 		}
-		
+		//지역검색과 종목검색은 AND로 연결하지만 종목검색 내에서는 OR로 연결
+		if(!field.isEmpty()) {
+			for(int i=0 ; i<field.size() ; i++) {
+				if(i==0) {query += " AND (";} //시작일 때 "AND ("를 넣어줌
+				if(i==field.size()-1) {//마지막엔 연결연산자 없이 ")"를 닫아줌
+					query += "TRAINEREVENT LIKE ? )"; 
+				}else {
+					query += "TRAINEREVENT LIKE ? OR ";
+				}
+			}
+		}
+
 		try {
 			
 			//커넥션을 이용해 PreparedStatement생성
 			pstmt = conn.prepareStatement(query);
-			
-			//?에 들어갈 요소 지정
 			int index=1;
-			for(int i=0 ; i<searchList.size() ; i++) {				
-				pstmt.setString(index, '%' + searchList.get(i) + '%');
-				index++;
-				pstmt.setString(index, '%' + searchList.get(i) + '%');
-				index++;
+			//?에 들어갈 요소 지정
+			if(!region.isEmpty()) {
+				for(int i=0 ; i<region.size() ; i++) {
+					pstmt.setString(index, '%' + region.get(i) + '%');
+					index++;
+				}
+			}
+			if(!field.isEmpty()) {
+				for(int i=0 ; i<field.size() ; i++) {
+					pstmt.setString(index, '%' + field.get(i) + '%');
+				}
 			}
 			
 			//쿼리문 전송 및 결과 받기
@@ -146,6 +164,49 @@ public class SearchDao {
 		
 		return matchingScore;
 		
+	}
+
+	public boolean checkRegion(Connection conn, String search) {
+		
+		//쿼리문 전송에 이용할 객체 생성
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		//결과 저장할 넘버
+		int resultNum = 0;
+		//결과 저장할 Boolean
+		boolean checkRegion = false;
+		
+		//쿼리문
+		String query = "SELECT COUNT(*) AS RESULTNUM FROM REGION WHERE (AREA1 LIKE ? OR AREA2 LIKE ? OR AREA3 LIKE ?)";
+		
+		try {
+			
+			//커넥션을 이용해 PreparedStatement객체 생성
+			pstmt = conn.prepareStatement(query);
+			
+			//?에 들어갈 요소 지정
+			pstmt.setString(1, search);
+			pstmt.setString(2, search);
+			pstmt.setString(3, search);
+			
+			//쿼리문 전송 및 결과 받기
+			rset = pstmt.executeQuery();
+			
+			//결과가 있으면 지역에 관한 검색어이므로 Region인지 체크하는 값을 true로 변경해줌
+			if(rset.next()) {
+				resultNum = rset.getInt("RESULTNUM");
+			}
+			System.out.println(resultNum);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		System.out.println(checkRegion);
+		return checkRegion;
 	}
 
 	
