@@ -13,20 +13,19 @@ $(function(){
 //		
 //	});
 	
-	$('.searchForm').click(function(){
-		window.open('../../page/searchTrainerPage/trainerBeforeAd.jsp', 'adPopup', 'width=1000, height=600, scrollbars=0, toolbar=0, menubar=no');
-		$('.adVideo').play();
+	$('.searchFormDiv').click(function(){
+		setTimeout( "$('.trainerForm').submit()", 15500 );
 	});
-
-//	$('.searchForm').click(function(){
-//		$('.trainerForm').submit();
-//	});
 	
-//	$('.adVideo').on('ended', 'video', function(){
-//		window.close('../../page/searchTrainerPage/trainerBeforeAd.jsp');
-//		$('.trainerForm').submit();
-//	});
+	$('.trainerForm').click(function(){
+		window.open('../../page/searchTrainerPage/trainerBeforeAd.jsp', 'adPopup', 'width=1000, height=600, scrollbars=0, toolbar=0, menubar=no');
+		$('.adVideo').play().close();
+		window.close();
+	});
 	
+//	$('.adVideo').on('ended', function(){
+//		$(this).close();
+//	});
 
 
 });

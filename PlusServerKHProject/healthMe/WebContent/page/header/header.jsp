@@ -51,8 +51,8 @@
 		<% } %>
 		<ul>
 			<li><a href="../../index.jsp">메인</a></li>
-	        <li><a href="../searchTrainerPage.jsp">트레이너 찾기</a></li>
-	        <li><a href="#">트레이너 등록</a></li>
+	        <li><a href="../searchTrainerPage/searchTrainerPage.jsp">트레이너 찾기</a></li>
+	        <li><a href="../mypage/trainerInfoPage.jsp">트레이너 등록</a></li>
 	        <li><a href="../communityPage/boardPage.jsp">게시판</a></li>
 	        <li><a href="../communityPage/QnAPage.jsp">Q & A</a></li>
 		</ul>

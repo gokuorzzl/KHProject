@@ -67,11 +67,11 @@
                         	<%	} %>
                         	<% if(member!=null){ %>                        	
 	                        <p id="p1"><%=member.getMemberId()%>님</p>
-	                        <% }%>
 	                        <p id="p3">
 	                        	<a href="../loginPage/memberMyInfo.jsp">회원정보수정</a>
 	                        </p>
 	                        <p id="p4">로그아웃</p>
+	                        <% }%>
 	                    </div>
 	                </div>
 	                <div id="sec02">
