@@ -39,7 +39,7 @@ request.setCharacterEncoding("utf-8");
 		try {
 		String userId =((Member)session.getAttribute("member")).getMemberId();
 		
-		if(session!=null) {
+		if(userId!=null) {
 			int result = new RegisterService().insertWishList(trainerId, trainerSubject, userId);
 			if(result>0) {
 				response.sendRedirect("/page/mypage/");//마이페이지 부분으로 넘길 예정

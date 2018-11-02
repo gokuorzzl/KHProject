@@ -39,8 +39,8 @@ public class RegisterServlet extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		try {
 		String userId =((Member)session.getAttribute("member")).getMemberId();
-		
-		if(session!=null) {
+		System.out.println("servlet : "+userId);
+		if(userId!=null) {
 			int result = new RegisterService().insertRegister(trainerId, trainerSubject, userId);
 			if(result>0) {
 				response.sendRedirect("/page/mypage/");//마이페이지 부분으로 넘길 예정
