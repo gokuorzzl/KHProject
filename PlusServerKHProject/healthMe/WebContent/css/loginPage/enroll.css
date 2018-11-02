@@ -340,6 +340,11 @@ div{
         cursor:pointer;
         width:100%;
     }
+    
+      .deleteMember:hover {
+       background-color:#353130;
+    }
+    
 
 }
 
