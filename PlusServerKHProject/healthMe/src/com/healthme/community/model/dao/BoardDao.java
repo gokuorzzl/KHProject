@@ -62,7 +62,7 @@ public class BoardDao {
 		//끝 게시물 계산
 		int end = currentPage * recordCountPerPage;		
 		
-		String query = "select * from (select QUESTIONBOARD.*,"
+		String query = "select * from (select questionBoard.*,"
 				+ "row_number() over(order by QBOARDNUM desc) AS "
 				+ "num from QUESTIONBOARD) where num between ? and ?";
 		
@@ -78,7 +78,7 @@ public class BoardDao {
 			while(rset.next()) {
 				Board b = new Board();
 				b.setNum(rset.getInt("qboardnum"));
-				b.setUserId(rset.getString("qboarduserid"));
+				b.setUserId(rset.getString("memberid"));
 				b.setTitle(rset.getString("qboardtitle"));
 				b.setContent(rset.getString("qboardcontent"));
 				b.setAvailable(rset.getInt("qboardavailable"));
@@ -204,7 +204,7 @@ public class BoardDao {
 			while(rset.next()) {
 				Board b = new Board();
 				b.setNum(rset.getInt("freenum"));
-				b.setUserId(rset.getString("freeuserid"));
+				b.setUserId(rset.getString("memberid"));
 				b.setTitle(rset.getString("freetitle"));
 				b.setContent(rset.getString("freecontent"));
 				b.setAvailable(rset.getInt("freeavailable"));
@@ -342,7 +342,7 @@ public class BoardDao {
 			while(rset.next()) {
 				Board b = new Board();
 				b.setNum(rset.getInt("qboardnum"));
-				b.setUserId(rset.getString("qboarduserid"));
+				b.setUserId(rset.getString("memberid"));
 				b.setTitle(rset.getString("qboardtitle"));
 				b.setContent(rset.getString("qboardcontent"));
 				b.setAvailable(rset.getInt("qboardavailable"));
@@ -493,7 +493,7 @@ public class BoardDao {
 			while(rset.next()) {
 				Board b = new Board();
 				b.setNum(rset.getInt("freenum"));
-				b.setUserId(rset.getString("freeuserid"));
+				b.setUserId(rset.getString("memberid"));
 				b.setTitle(rset.getString("freetitle"));
 				b.setContent(rset.getString("freecontent"));
 				b.setAvailable(rset.getInt("freeavailable"));
@@ -619,7 +619,7 @@ public class BoardDao {
 			if(rset.next()) {
 				b = new Board();
 				b.setNum(rset.getInt("qboardnum"));
-				b.setUserId(rset.getString("qboarduserid"));
+				b.setUserId(rset.getString("memberid"));
 				b.setTitle(rset.getString("qboardtitle"));
 				b.setContent(rset.getString("qboardcontent"));
 				b.setAvailable(rset.getInt("qboardavailable"));
@@ -652,7 +652,7 @@ public class BoardDao {
 			if(rset.next()) {
 				b = new Board();
 				b.setNum(rset.getInt("freenum"));
-				b.setUserId(rset.getString("freeuserid"));
+				b.setUserId(rset.getString("memberid"));
 				b.setTitle(rset.getString("freetitle"));
 				b.setContent(rset.getString("freecontent"));
 				b.setAvailable(rset.getInt("freeavailable"));
