@@ -22,7 +22,7 @@ public class MemberService {
   public int insertMember(Member m) {
 	   Connection conn = JDBCTemplate.getConnection();
 	   int result = new MemberDao().insertMember(conn,m);
-	   System.out.println("memberService"+result);
+	 
 	   if(result>0) {
 		   JDBCTemplate.commit(conn);
 	   } else {
@@ -88,6 +88,21 @@ public String searchPw(String fmemberId, int fmemberSocialId1, int fmemberSocial
     	 
     	 return result;
 }
+
+
+	public int deleteMember(String memberId) {
+		   Connection conn = JDBCTemplate.getConnection();
+	 	   int result = new MemberDao().deleteMember(conn,memberId);
+	 	   
+	 	   if(result>0) {
+	 		   JDBCTemplate.commit(conn);
+	 	   } else {
+	 		   JDBCTemplate.rollback(conn);
+	 	   }
+	 	   JDBCTemplate.close(conn);
+	 	   
+	 	   return result;
+	}
   
   
   

@@ -9,9 +9,8 @@
 <body>
 
 <script>
-   alert("회원가입 성공하셨습니다.");
-   location.href="/index.jsp";
+	alert("헬th미 회원 가입 성공하셨습니다.");
+	location.href="/index.jsp";
 </script>
-
 </body>
 </html>

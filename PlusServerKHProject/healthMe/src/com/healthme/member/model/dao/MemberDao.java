@@ -1,6 +1,7 @@
 package com.healthme.member.model.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,7 +17,7 @@ public class MemberDao {
 		ResultSet rset = null;
 		
 		String query = "select * from member where memberId=? "
-				+ "and memberPw=?";
+				+ "and memberPw=? and memberOut='n'";
 		
 		Member member = null;
 		
@@ -229,11 +230,38 @@ public class MemberDao {
 		
 		return result;
 	}
+
+	public int deleteMember(Connection conn, String memberId) {
+		   PreparedStatement pstmt = null;
+	       int result = 0;
+	       
+	       String query = "update member set memberOut=?, memberOutDate=? where memberId=?";
+	     /*  "delete from member where user_id=?"*/ 
+	       //탈퇴하면 바로 탈퇴하지 않고 active로 돌린다.
+	       
+	       try {
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setString(1, "Y");
+			pstmt.setDate(2, Date.valueOf("sysdate")) ;
+			pstmt.setString(3, memberId);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(pstmt);
+		}
+
+	       return result;
+		}
+	}
 	
 	
 	
-	
-	
+
 	
 	
 	

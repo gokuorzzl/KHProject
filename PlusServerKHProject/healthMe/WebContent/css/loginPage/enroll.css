@@ -328,6 +328,18 @@ div{
     #memberPhoneName {
       float:left;
     }
+    
+    .deleteMember {
+      font-family:NotoSansCJKkrBold;
+        background-color:#FF9B55;
+        color:white;
+        font-size:180%;
+        padding:14px 20px;
+        margin:8px 0;
+        border:none;
+        cursor:pointer;
+        width:100%;
+    }
 
 }
 

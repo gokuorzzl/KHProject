@@ -101,11 +101,14 @@
                          <input type="email" placeholder="이메일 주소에 '@'를 포함해주세요" id="memberEmail" name="memberEmail" value="<%=m.getMemberEmail() %>" required> 
                           
                        <button type="submit" value="수정하기" onclick="return validate();" class="register-button">수정하기</button> 
-                      
-                      
-                
+                         
+                        <hr>
+                        <a href="/mdelete.do" class="deleteMember">탈퇴하기</a>
+                        
                    </form>
+
                 </div>
+                    
                     
                     
                     

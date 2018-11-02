@@ -6,21 +6,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.healthme.member.model.service.MemberService;
 import com.healthme.member.vo.Member;
 
 /**
- * Servlet implementation class EnrollServlet
+ * Servlet implementation class mdeleteServlet
  */
-@WebServlet(name = "Enroll", urlPatterns = { "/enroll.do" })
-public class EnrollServlet extends HttpServlet {
+@WebServlet(name = "mdelete", urlPatterns = { "/mdelete.do" })
+public class mdeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EnrollServlet() {
+    public mdeleteServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,30 +31,23 @@ public class EnrollServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setCharacterEncoding("utf-8");
+		HttpSession session = request.getSession(false);
+		String memberId = ((Member)session.getAttribute("member")).getMemberId();
 		
-		Member m = new Member();
-		m.setMemberId(request.getParameter("memberId"));
-		m.setMemberPw(request.getParameter("memberPw"));
-		m.setMemberName(request.getParameter("memberName"));
-		m.setMemberSocialId1(Integer.parseInt(request.getParameter("memberSocialId1")));
-		m.setMemberSocialId2(Integer.parseInt(request.getParameter("memberSocialId2")));
-		m.setMemberAddr(request.getParameter("memberAddr"));
-		m.setMemberEmail(request.getParameter("memberEmail"));
-		m.setMemberPhone(request.getParameter("memberPhone"));
-		m.setMemberTrainer('n');
-		m.setMemberClass("Bronze");
-		m.setMemberOut('n');
+		int result = new MemberService().deleteMember(memberId);
 		
-			
-		int result = new MemberService().insertMember(m);
-	
-		if (result>0) {
-			response.sendRedirect("/page/loginPage/enrollSuccess.jsp");
+		if(result>0) {
+			session.invalidate();
+			response.sendRedirect("/page/loginPage/deleteSuccess.jsp");
 		} else {
 			response.sendRedirect("/page/loginPage/error.jsp");
 		}
-
+		
+		
+		
+		
+		
+		
 	}
 
 	/**
