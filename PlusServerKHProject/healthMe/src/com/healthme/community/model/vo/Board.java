@@ -8,6 +8,7 @@ public class Board {
 	private String title; //제목
 	private String content; //게시글 내용
 	private int available; //삭제하지 않으면 1, 삭제한거면 0
+	private Date deleteDate; //게시글 삭제날짜
 	private Date insertDate; //게시글 등록날짜
 	private int hits;//조회수
 	private String notice;//y이면 게시글 위로 n이면 기본값
@@ -20,7 +21,9 @@ public class Board {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Board(int num, String userId, String title, String content, int available, Date insertDate,
+
+
+	public Board(int num, String userId, String title, String content, int available, Date deleteDate, Date insertDate,
 			int hits, String notice, int pwd) {
 		super();
 		this.num = num;
@@ -28,11 +31,14 @@ public class Board {
 		this.title = title;
 		this.content = content;
 		this.available = available;
+		this.deleteDate = deleteDate;
 		this.insertDate = insertDate;
 		this.hits = hits;
 		this.notice = notice;
 		this.pwd = pwd;
 	}
+	
+	
 	public int getNum() {
 		return num;
 	}
@@ -63,6 +69,12 @@ public class Board {
 	public void setAvailable(int available) {
 		this.available = available;
 	}
+	public Date getDeleteDate() {
+		return deleteDate;
+	}
+	public void setDeleteDate(Date deleteDate) {
+		this.deleteDate = deleteDate;
+	}
 	public Date getInsertDate() {
 		return insertDate;
 	}
@@ -87,6 +99,9 @@ public class Board {
 	public void setPwd(int pwd) {
 		this.pwd = pwd;
 	}
+	
+	
+	
 	
 	
 	
