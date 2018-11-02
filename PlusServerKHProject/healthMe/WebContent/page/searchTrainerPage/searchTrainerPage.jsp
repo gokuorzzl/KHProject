@@ -3,6 +3,7 @@
 <%@ 
 	page import="com.healthme.search.model.vo.*" 
 		import = "java.util.ArrayList"
+		import ="com.healthme.member.vo.*"
 %>
 <%
 	//컨트롤러에서 온 값
@@ -21,6 +22,12 @@
 	//searchInput값
 	String searchInput = (String)request.getAttribute("searchInput");
 	String searchBox = (String)request.getAttribute("searchBox");
+	
+	//세션을 받기 위한 코드
+	session = request.getSession(false);
+	Member member = null;
+	member = (Member)session.getAttribute("member");
+
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -129,14 +136,22 @@
 				<%} else { //검색해서 가져온 결과를 띄워주는 경우%>
 					<div id="searchResultTrainer" style="width:100%; height:93%">
 						<div style="width:80%; height:93%; margin:auto; margin-top:15px;">
-							<% for(int i=0 ; i<(trainerList.size()<(recordPerPage/2)?trainerList.size():(recordPerPage/2)) ; i++){%>	
-									<form class="trainerForm" action="/trainerOneSearch.do" method="post"
+							<% for(int i=0 ; i<(trainerList.size()<(recordPerPage/2)?trainerList.size():(recordPerPage/2)) ; i++){%>
+									<%if(member==null){%>
+										<a href="../searchTrainerPage/loginFail.jsp" 
 											style="width:30%; 
 											height:49.5%; float:left; box-sizing:border-box; cursor: pointer;
 											border:1.5px solid #3c3e3a; border-radius:6px 6px 6px 6px;
-											margin-left:0.5%; margin-top:0.5%; text-align:right; overflow:hidden;">
+											margin-left:0.5%; margin-top:0.5%; text-align:right; overflow:hidden;">	 
+									<%} else { %>
+										<form class="trainerForm" action="/trainerOneSearch.do" method="post"
+											style="width:30%; 
+											height:49.5%; float:left; box-sizing:border-box; cursor: pointer;
+											border:1.5px solid #3c3e3a; border-radius:6px 6px 6px 6px;
+											margin-left:0.5%; margin-top:0.5%; text-align:right; overflow:hidden;">	
+									<%} %>	
 									<input type="hidden" name="memberId" value="<%=trainerList.get(i).getMemberId()%>"/>
-										<div class = "searchDiv" style="whidth:100%; height:100%;">
+										<div class="searchFormDiv" style="whidth:100%; height:100%;">
 											<div style="width:100%; height:60%; box-sizing:border-box; overflow:hidden;">
 												<img src="<%=trainerList.get(i).getProfileFile() %>"
 													style="width:100%; height:auto; align:top; 
@@ -147,18 +162,30 @@
 												<div style="width:100%; height:30%; margin-top:1%; overflow:hidden;"><%=trainerList.get(i).getTrainerEvent() %></div>
 												<div style="width:100%; height:30%; margin-top:1%; overflow:hidden;"><%=trainerList.get(i).getMatchingScore() %></div>
 											</div>
-										</div>	
-									</form>
+										</div>
+									<%if(member==null) {%>
+										</a>
+									<%} else { %>
+										</form>
+									<%} %>		
 							<% } //for문 종료%>
 							<%if(trainerList.size()>(recordPerPage/2)){ %>
 								<% for(int i=(recordPerPage/2) ; i<trainerList.size() ; i++){ %>
+									<%if(member==null){%>
+										<a href="../searchTrainerPage/loginFail.jsp" 
+											style="width:30%; 
+											height:49.5%; float:left; box-sizing:border-box; cursor: pointer;
+											border:1.5px solid #3c3e3a; border-radius:6px 6px 6px 6px;
+											margin-left:0.5%; margin-top:0.5%; text-align:right; overflow:hidden;">	 
+									<%} else { %>
 										<form class="trainerForm" action="/trainerOneSearch.do" method="post"
 											style="width:30%; 
-												height:49.5%; float:left; box-sizing:border-box; cursor: pointer;
-												border:1.5px solid #3c3e3a; border-radius:6px 6px 6px 6px;
-												margin-left:0.5%; margin-top:0.5%; text-align:right; overflow:hidden;">
+											height:49.5%; float:left; box-sizing:border-box; cursor: pointer;
+											border:1.5px solid #3c3e3a; border-radius:6px 6px 6px 6px;
+											margin-left:0.5%; margin-top:0.5%; text-align:right; overflow:hidden;">	
+									<%} %>	
 										<input type="hidden" name="memberId" value="<%=trainerList.get(i).getMemberId()%>"/>
-											<div class = "searchDiv" style="whidth:100%; height:100%;">
+											<div class="searchFormDiv" style="whidth:100%; height:100%;">
 												<div style="width:100%; height:60%; box-sizing:border-box; overflow:hidden;">
 													<img src="<%=trainerList.get(i).getProfileFile() %>"
 														style="width:100%; height:auto; align:top; 
@@ -170,7 +197,11 @@
 													<div style="width:100%; height:30%; margin-top:1%; overflow:hidden;"><%=trainerList.get(i).getMatchingScore() %></div>
 												</div>
 											</div>
+									<%if(member==null) {%>
+										</a>
+									<%} else { %>
 										</form>
+									<%} %>
 								<% } //for문 종료%>
 							<%} %>
 						</div>
