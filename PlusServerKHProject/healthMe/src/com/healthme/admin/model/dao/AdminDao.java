@@ -559,19 +559,22 @@ public class AdminDao {
 			stmt = conn.createStatement();
 			rset = stmt.executeQuery(query);
 			
+			
 			while(rset.next()) {
 				Board b = new Board();
-				b.setUserId(rset.getString("userId"));
-				b.setTitle(rset.getString("title"));
-				b.setContent(rset.getString("content"));
-				b.setAvailable(rset.getInt("available"));
+				b.setNum(rset.getInt("freeNum"));
+				b.setUserId(rset.getString("memberId"));
+				b.setTitle(rset.getString("freeTitle"));
+				b.setContent(rset.getString("freeContent"));
+				b.setAvailable(rset.getInt("freeAvailable"));
+				//b.set
 				b.setInsertDate(rset.getDate("insertDate"));
 				b.setHits(rset.getInt("hits"));
 				b.setNotice(rset.getString("notice"));
 				b.setPwd(rset.getInt("pwd"));
 				
 				list.add(b);
-				
+				System.out.println("bbbbb읙값값값"+list);
 			}
 			
 		} catch (SQLException e) {

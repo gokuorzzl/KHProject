@@ -94,7 +94,7 @@ public class AdminTrainerTUpdateSel extends HttpServlet {
 		
 		//3. 비즈니스 로직 리턴
 		int result = new AdminService().adminTrainerselUpdate(t);
-		
+		System.out.println("result의값값값"+result);
 		
 		//결과 리턴
 		if(result>0) {
