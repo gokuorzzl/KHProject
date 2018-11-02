@@ -7,10 +7,10 @@ import com.healthme.trainer.model.dao.RegisterDao;
 
 public class RegisterService {
 
-	public int insertRegister(String trainerId, String trainerSubject, String userId) {
+	public int insertRegister(String trainerId, String userId) {
 		Connection conn = JDBCTemplate.getConnection();
 		
-		int result = new RegisterDao().insertRegister(conn, trainerId, trainerSubject, userId);
+		int result = new RegisterDao().insertRegister(conn, trainerId, userId);
 		
 		if(result>0) {
 			JDBCTemplate.commit(conn);
@@ -22,10 +22,10 @@ public class RegisterService {
 		return result;
 	}
 
-	public int insertWishList(String trainerId, String trainerSubject, String userId) {
+	public int insertWishList(String trainerId, String userId) {
 		Connection conn = JDBCTemplate.getConnection();
 		
-		int result = new RegisterDao().insertWishList(conn, trainerId, trainerSubject, userId);
+		int result = new RegisterDao().insertWishList(conn, trainerId, userId);
 		
 		if(result>0) {
 			JDBCTemplate.commit(conn);

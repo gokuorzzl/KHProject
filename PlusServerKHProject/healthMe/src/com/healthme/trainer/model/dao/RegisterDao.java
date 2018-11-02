@@ -8,10 +8,10 @@ import com.healthme.common.JDBCTemplate;
 
 public class RegisterDao {
 
-	public int insertRegister(Connection conn, String trainerId, String trainerSubject, String userId) {
+	public int insertRegister(Connection conn, String trainerId, String userId) {
 		PreparedStatement pstmt = null;
 		int result = 0;
-		String query ="insert into matching values(?,?,?,?)";
+		String query ="insert into matching (matchingMemberID, wishTrainerCheck, matchedMemberId, matchingScore) values(?,?,?,?)";
 		
 		try {
 			pstmt = conn.prepareStatement(query);
@@ -30,10 +30,10 @@ public class RegisterDao {
 		return result;
 	}
 
-	public int insertWishList(Connection conn, String trainerId, String trainerSubject, String userId) {
+	public int insertWishList(Connection conn, String trainerId, String userId) {
 		PreparedStatement pstmt = null;
 		int result = 0;
-		String query ="insert into matching values(?,?,?,?)";
+		String query ="insert into matching (matchingMemberID, wishTrainerCheck, matchedMemberId, matchingScore) values(?,?,?,?)";
 		
 		try {
 			pstmt = conn.prepareStatement(query);

@@ -34,16 +34,15 @@ public class RegisterServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		
 		String trainerId = request.getParameter("trainerId");
-		String trainerSubject = request.getParameter("trainerSubject");
-		
+
 		HttpSession session = request.getSession(false);
 		try {
 		String userId =((Member)session.getAttribute("member")).getMemberId();
 		System.out.println("servlet : "+userId);
 		if(userId!=null) {
-			int result = new RegisterService().insertRegister(trainerId, trainerSubject, userId);
+			int result = new RegisterService().insertRegister(trainerId, userId);
 			if(result>0) {
-				response.sendRedirect("/page/mypage/");//마이페이지 부분으로 넘길 예정
+				response.sendRedirect("/page/mypage/mypageMain.jsp");//마이페이지 부분으로 넘길 예정
 			}else {
 				response.sendRedirect("/page/error/error.jsp");
 			}
