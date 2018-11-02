@@ -14,7 +14,14 @@ $(function(){
 //	});
 	
 	$('.trainerForm').click(function(){
-		$(this).submit();
+
+		//팝업창 오픈
+		window.open('../../page/searchTrainerPage/trainerBeforeAd.jsp', 'adPopup', 'width=1000, height=600, scrollbars=0, toolbar=0, menubar=no');
+		return false;
+	});
+	
+	$('.adVideo').on("ended", function(){
+		$('.trainerForm').submit();
 	});
 	
 });
