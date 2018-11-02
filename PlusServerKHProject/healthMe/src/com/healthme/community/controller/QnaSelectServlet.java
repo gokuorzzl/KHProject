@@ -33,9 +33,15 @@ public class QnaSelectServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		
-		String qnaNum = request.getParameter("qnaNum");
+		int qnaNum = Integer.parseInt(request.getParameter("qnaNum"));
+		int qnaHits;
+		if(request.getParameter("qnaHits")==null) {
+			qnaHits=0;
+		}else {
+			qnaHits =Integer.parseInt(request.getParameter("qnaHits"));
+		}
 		
-		Board b = new BoardService().qnaSelectOneList(qnaNum);
+		Board b = new BoardService().qnaSelectOneList(qnaNum,qnaHits);
 		if(b!=null) {
 			RequestDispatcher view = request.getRequestDispatcher("page/communityPage/readingPage.jsp");
 			request.setAttribute("selectBoard", b);

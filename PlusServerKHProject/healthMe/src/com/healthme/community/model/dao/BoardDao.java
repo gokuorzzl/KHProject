@@ -285,7 +285,7 @@ public class BoardDao {
 		StringBuilder sb = new StringBuilder();
 		
 		if(needPrev==true){
-			sb.append("<a href='/boardPage.do?currentPage="+(startNavi-1)+"'> < </a>");
+			sb.append("<a href='/freePage.do?currentPage="+(startNavi-1)+"'> < </a>");
 		}
 		
 		for(int i=startNavi; i<=endNavi;i++){
@@ -293,12 +293,12 @@ public class BoardDao {
 				sb.append("<B style='font-size:20px'>"+i+"</B> &nbsp;");
 			}
 			else{
-				sb.append("<a href='/boardPage.do?currentPage="+i+"'>"+i+"</a> ");
+				sb.append("<a href='/freePage.do?currentPage="+i+"'>"+i+"</a> ");
 			}
 		}
 		
 		if(needNext) {
-			sb.append("<a href='/boardPage.do?currentPage="+(endNavi+1)+"'> > </a>");
+			sb.append("<a href='/freePage.do?currentPage="+(endNavi+1)+"'> > </a>");
 		}
 		
 		return sb.toString();		
@@ -433,7 +433,7 @@ public class BoardDao {
 		StringBuilder sb = new StringBuilder();
 		
 		if(needPrev==true){
-			sb.append("<a href='/qnaPage.do?currentPage="+(startNavi-1)+"&searchSelect="+searchSelect+
+			sb.append("<a href='/qnaSearch.do?currentPage="+(startNavi-1)+"&searchSelect="+searchSelect+
 					"&searchText="+searchText+"'> < </a>");
 		}
 		
@@ -442,13 +442,13 @@ public class BoardDao {
 				sb.append("<B style='font-size:20px'>"+i+"</B> &nbsp;");
 			}
 			else{
-				sb.append("<a href='/qnaPage.do?currentPage="+i+"&searchSelect="+searchSelect+
+				sb.append("<a href='/qnaSearch.do?currentPage="+i+"&searchSelect="+searchSelect+
 						"&searchText="+searchText+"'>"+i+"</a> ");
 			}
 		}
 		
 		if(needNext) {
-			sb.append("<a href='/qnaPage.do?currentPage="+(endNavi+1)+"&searchSelect="+searchSelect+
+			sb.append("<a href='/qnaSearch.do?currentPage="+(endNavi+1)+"&searchSelect="+searchSelect+
 					"&searchText="+searchText+"'> > </a>");
 		}
 		
@@ -583,7 +583,7 @@ public class BoardDao {
 		StringBuilder sb = new StringBuilder();
 		
 		if(needPrev==true){
-			sb.append("<a href='/boardPage.do?currentPage="+(startNavi-1)+"&searchSelect="+searchSelect+
+			sb.append("<a href='/freeSearch.do?currentPage="+(startNavi-1)+"&searchSelect="+searchSelect+
 					"&searchText="+searchText+"'> < </a>");
 		}
 		
@@ -592,20 +592,20 @@ public class BoardDao {
 				sb.append("<B style='font-size:20px'>"+i+"</B> &nbsp;");
 			}
 			else{
-				sb.append("<a href='/boardPage.do?currentPage="+i+"&searchSelect="+searchSelect+
+				sb.append("<a href='/freeSearch.do?currentPage="+i+"&searchSelect="+searchSelect+
 						"&searchText="+searchText+"'>"+i+"</a> ");
 			}
 		}
 		
 		if(needNext) {
-			sb.append("<a href='/boardPage.do?currentPage="+(endNavi+1)+"&searchSelect="+searchSelect+
+			sb.append("<a href='/freeSearch.do?currentPage="+(endNavi+1)+"&searchSelect="+searchSelect+
 					"&searchText="+searchText+"'> > </a>");
 		}
 		
 		return sb.toString();	
 	}
 
-	public Board qnaSelectOneList(String qnaNum, Connection conn) {
+	public Board qnaSelectOneList(int qnaNum, Connection conn) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		String query = "select * from QUESTIONBOARD where qboardnum=?";
@@ -613,7 +613,7 @@ public class BoardDao {
 		
 		try {
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, qnaNum);
+			pstmt.setInt(1, qnaNum);
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
@@ -669,5 +669,24 @@ public class BoardDao {
 			JDBCTemplate.close(pstmt);
 		}
 		return b;
+	}
+
+	public int qnaHits(int qnaNum, int qnaHits, Connection conn) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String query = "update QUESTIONBOARD set qboardhits=? where qboardnum=?";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, qnaHits+1);
+			pstmt.setInt(2, qnaNum);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
 	}
 }

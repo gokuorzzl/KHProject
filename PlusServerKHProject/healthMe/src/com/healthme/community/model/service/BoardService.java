@@ -104,7 +104,6 @@ public class BoardService {
 		// Service에서 DAO를 호출 (2번의 DAO를 호출)
 		// 1. 현재 페이지의 게시물 리스트 요청
 		// 2. 현재 페이지를 중심으로 만들어지는 navi 리스트 요청
-		
 		ArrayList<Board> list =new BoardDao().qnaSearchGetCurrentPage(conn,currentPage,recordCountPerPage,searchText,searchSelect);
 		String pageNavi = new BoardDao().qnaSearchGetPageNavi(conn,currentPage,recordCountPerPage,naviCountPerPage,searchText,searchSelect);
 		BoardPageData bpd = null;
@@ -149,9 +148,16 @@ public class BoardService {
 		return bpd;
 	}
 
-	public Board qnaSelectOneList(String qnaNum) {
+	public Board qnaSelectOneList(int qnaNum, int qnaHits) {
 		Connection conn = JDBCTemplate.getConnection();
 		Board b = new BoardDao().qnaSelectOneList(qnaNum,conn);
+		int result = new BoardDao().qnaHits(qnaNum,qnaHits,conn);
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
 		return b;
 	}
 
