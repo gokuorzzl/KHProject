@@ -61,10 +61,11 @@
 	                <div id="sec01">
 	                    <div class="box">	                    	
                         	<div id="img01">
+                        	<%  if(t!=null){%>
                         		<img id="img01" src="<%=t.getProfileFile()%>" alt="userImg">
                         	</div>
-                        	<% if(member.getMemberId()!=null){ %>
-                        	
+                        	<%	} %>
+                        	<% if(member!=null){ %>                        	
 	                        <p id="p1"><%=member.getMemberId()%>님</p>
 	                        <% }%>
 	                        <p id="p3">

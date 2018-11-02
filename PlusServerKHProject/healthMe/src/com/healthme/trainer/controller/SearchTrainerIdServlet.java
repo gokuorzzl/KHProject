@@ -36,10 +36,16 @@ public class SearchTrainerIdServlet extends HttpServlet {
 		String memberId = request.getParameter("memberId");
 		Trainer t = new OneSearchService().trainerSearch(memberId);
 		
+		try {
 		if(t!=null) {
 			RequestDispatcher view = request.getRequestDispatcher("/page/mypage/mypageMain.jsp");
 			request.setAttribute("trainer", t);
 			view.forward(request, response);
+		}else if(t==null){
+			response.sendRedirect("/page/mypage/mypageMain.jsp");
+		}
+		}catch(Exception e) {
+			response.sendRedirect("/page/error/error.jsp");
 		}
 	}
 
