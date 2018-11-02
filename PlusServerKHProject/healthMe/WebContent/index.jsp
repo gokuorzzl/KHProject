@@ -19,6 +19,10 @@
      <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+<%
+				session = request.getSession(false);
+				Member member = (Member)session.getAttribute("member");
+				%>
 <!--메뉴 부분-->
     <div class="menu-bg"></div>
     <div class="menu-burger">☰</div>
@@ -31,11 +35,10 @@
                 <li><a href="/index.jsp">메인</a></li>
                 <li><a href="/page/searchTrainerPage/searchTrainerPage.jsp">트레이너 찾기</a></li>
                 <li><a href="">트레이너 등록</a></li>
-                <li><a href="/page/communityPage/boardPage.jsp">게시판</a></li>
-                <li><a href="/page/communityPage/QnAPage.jsp">Q & A</a></li>
+                <li><a href="">게시판</a></li>
+                <li><a href="/qnaPage.do">Q & A</a></li>
+
 <%
-				session = request.getSession(false);
-				Member member = (Member)session.getAttribute("member");
 				if(member!=null && member.getMemberId().equals("admin")){				
 %>
 				<li><a href="/page/admin/adminlogin.jsp">관리자페이지</a></li>
@@ -48,7 +51,6 @@
            <div class="col-md-4 col-sm-6">
              <div class="container">
 	        <%
-
 				if(member!=null){
 			 %>
 			<H1><%=member.getMemberName() %>님 환영합니다.</H1>

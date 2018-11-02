@@ -35,13 +35,14 @@
 <body>
 <%
 	session = request.getSession(false);
-	Member member = (Member)session.getAttribute("member");
-	String memberId= member.getMemberId();
+	Member member = null;
+	member = (Member)session.getAttribute("member");
+
 %>
 	<!-- Menu -->
 	<div id="navigation">
 		<div><p>✕</p></div>
-		<% if(memberId==null) {%>		
+		<% if(member==null) {%>		
 		<div id="navigation-login"><a href = "../loginPage/login.jsp">로그인
 		</a></div>
 		<% } else{ %>
@@ -75,7 +76,7 @@
    		</form>
     </div>
     <div id="menu">
-    <%	if(memberId==null) {%>
+    <%	if(member==null) {%>
         <div id="loginMenu">
             <a href="../loginPage/login.jsp">로그인</a> 
         </div>
