@@ -33,7 +33,7 @@ public class FreeSelectServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		
-		String freeNum = request.getParameter("freeNum");
+		int freeNum = Integer.parseInt(request.getParameter("freeNum"));
 		
 		Board b = new BoardService().freeSelectOneList(freeNum);
 		if(b!=null) {

@@ -638,7 +638,7 @@ public class BoardDao {
 		return b;
 	}
 
-	public Board freeSelectOneList(String freeNum, Connection conn) {
+	public Board freeSelectOneList(int freeNum, Connection conn) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		String query = "select * from FREEBOARD where freenum=?";
@@ -646,7 +646,7 @@ public class BoardDao {
 		
 		try {
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, freeNum);
+			pstmt.setInt(1, freeNum);
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
@@ -671,15 +671,32 @@ public class BoardDao {
 		return b;
 	}
 
-	public int qnaHits(int qnaNum, int qnaHits, Connection conn) {
+	public int qnaHits(int qnaNum, Connection conn) {
 		PreparedStatement pstmt = null;
 		int result = 0;
-		String query = "update QUESTIONBOARD set qboardhits=? where qboardnum=?";
+		String query = "update QUESTIONBOARD set qboardhits=qboardhits+1 where qboardnum=?";
 		
 		try {
 			pstmt = conn.prepareStatement(query);
-			pstmt.setInt(1, qnaHits+1);
-			pstmt.setInt(2, qnaNum);
+			pstmt.setInt(1, qnaNum);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
+	}
+
+	public int freeHits(int freeNum, Connection conn) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String query = "update FREEBOARD set freehits=freehits+1 where freenum=?";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, freeNum);
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

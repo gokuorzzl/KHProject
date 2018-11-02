@@ -34,14 +34,8 @@ public class QnaSelectServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		
 		int qnaNum = Integer.parseInt(request.getParameter("qnaNum"));
-		int qnaHits;
-		if(request.getParameter("qnaHits")==null) {
-			qnaHits=0;
-		}else {
-			qnaHits =Integer.parseInt(request.getParameter("qnaHits"));
-		}
 		
-		Board b = new BoardService().qnaSelectOneList(qnaNum,qnaHits);
+		Board b = new BoardService().qnaSelectOneList(qnaNum);
 		if(b!=null) {
 			RequestDispatcher view = request.getRequestDispatcher("page/communityPage/readingPage.jsp");
 			request.setAttribute("selectBoard", b);

@@ -148,10 +148,10 @@ public class BoardService {
 		return bpd;
 	}
 
-	public Board qnaSelectOneList(int qnaNum, int qnaHits) {
+	public Board qnaSelectOneList(int qnaNum) {
 		Connection conn = JDBCTemplate.getConnection();
 		Board b = new BoardDao().qnaSelectOneList(qnaNum,conn);
-		int result = new BoardDao().qnaHits(qnaNum,qnaHits,conn);
+		int result = new BoardDao().qnaHits(qnaNum,conn);
 		if(result>0) {
 			JDBCTemplate.commit(conn);
 		}else {
@@ -161,9 +161,15 @@ public class BoardService {
 		return b;
 	}
 
-	public Board freeSelectOneList(String freeNum) {
+	public Board freeSelectOneList(int freeNum) {
 		Connection conn = JDBCTemplate.getConnection();
 		Board b = new BoardDao().freeSelectOneList(freeNum,conn);
+		int result = new BoardDao().freeHits(freeNum,conn);
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
 		JDBCTemplate.close(conn);
 		return b;
 	}
