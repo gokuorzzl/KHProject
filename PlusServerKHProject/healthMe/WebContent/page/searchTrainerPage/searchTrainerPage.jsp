@@ -20,6 +20,7 @@
 	}
 	//searchInput값
 	String searchInput = (String)request.getAttribute("searchInput");
+	String searchBox = (String)request.getAttribute("searchBox");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -114,7 +115,7 @@
 	                    </div>
 	                </div>
 	                <form id="searchBoxForm" action="/searchBox.do" method="get">
-	                	<input type="hidden" name="searchBox" class="searchBox" value="<%=searchInput%>"/>
+	                	<input type="hidden" name="searchBox" class="searchBox" value="<%=searchBox%>"/>
 	               		<div id="submitButton"><button type="submit"><i class="fa fa-search"></i></button></div>
 	                </form>
 	            </div>

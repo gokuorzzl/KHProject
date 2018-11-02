@@ -51,7 +51,7 @@ public class SearchService {
 			}
 			
 			//페이징처리
-			SearchPaging sp = paging(screenSize, keyword, currentPage, tmpTrainer);
+			SearchPaging sp = paging(screenSize, search, currentPage, tmpTrainer);
 			
 			//----------------- DB검색과 페이징 처리를 통해 얻은 결과로 return할 객체 생성 -----------------//
 			//1. SearchResult 결과 객체의 ArrayLsit
@@ -76,7 +76,7 @@ public class SearchService {
 		return searchResult;
 	}
 	
-	public SearchPaging paging(int screenSize, Keyword keyword, int currentPage, ArrayList<SearchedTrainer> tmpTrainer) {
+	public SearchPaging paging(int screenSize, String search, int currentPage, ArrayList<SearchedTrainer> tmpTrainer) {
 		
 		//----------------- 페이징 처리 -----------------//
 		//1. 같은 페이지 내 객체 갯수 처리
@@ -128,17 +128,6 @@ public class SearchService {
 			endNavi = naviTotalNum;
 		}
 		
-		//페이지 URL에 이용할 String 생성
-		String urlSearch = keyword.getRegion().get(0);
-		if(keyword.getRegion().size()>1) {
-			for(int i=1; i<=keyword.getRegion().size() ; i++) {
-				urlSearch += "+" + keyword.getRegion().get(i);
-			}
-			for(int i=0; i<keyword.getField().size() ; i++) {
-				urlSearch += "+" + keyword.getField().get(i);
-			}
-		}
-		
 		//'◀ 페이지 번호 ▶'를 표시하기 위해 StringBuilder를 이용 
 		StringBuilder sb = new StringBuilder();
 		sb.append("<center>");
@@ -146,26 +135,26 @@ public class SearchService {
 		if(startNavi!=1) {//시작 페이지가 1페이지라면 ◀표시가 나오지 않도록 함
 			 sb.append("<a href = '/searchInput.do?" + 
 					 	"currentPage=" + (startNavi-1) + "&" +
-					 	"searchInput=" + urlSearch +
+					 	"searchInput=" + search +
 					 	"'> ◀ </a>&nbsp&nbsp&nbsp");
 		}
 		for(int i = startNavi ; i <= endNavi ; i++) {//페이지 번호 표시
 			if(i == currentPage) {//현재 페이지가 사용자의 위치페이지와 같다면 배경색 표시
 				sb.append("<a href = '/searchInput.do?" + 
 							"currentPage=" + i + "&" +
-							"searchInput=" + urlSearch +
+							"searchInput=" + search +
 							"'><i style='background:#FF9B55'>" + i + "</i></a>&nbsp&nbsp&nbsp");
 			}else {//사용자의 현재 위치 페이지가 아닌경우 일반 표시
 				sb.append("<a href = '/searchInput.do?" + 
 							"currentPage=" + i + "&" +
-							"searchInput=" + urlSearch +
+							"searchInput=" + search +
 							"'>" + i + "</a>&nbsp&nbsp&nbsp");
 			}
 		}
 		if(endNavi != naviTotalNum) {
 			sb.append("<a href='/searchInput.do?" + 
 						"currentPage=" + (endNavi+1) + "&" +
-					 	"searchInput=" + urlSearch +
+					 	"searchInput=" + search +
 						"'> ▶ </a>&nbsp&nbsp&nbsp");
 		}
 		sb.append("</center>");
@@ -193,6 +182,22 @@ public class SearchService {
 		search = search.replace("[", " ");
 		search = search.replace("]", " ");
 		search = search.replace("+", " ");
+		search = search.replace("@", " ");
+		search = search.replace("#", " ");
+		search = search.replace("!", " ");
+		search = search.replace("~", " ");
+		search = search.replace("$", " ");
+		search = search.replace("%", " ");
+		search = search.replace("^", " ");
+		search = search.replace("&", " ");
+		search = search.replace("*", " ");
+		search = search.replace("(", " ");
+		search = search.replace(")", " ");
+		search = search.replace("-", " ");
+		search = search.replace("=", " ");
+		search = search.replace("|", " ");
+		search = search.replace("<", " ");
+		search = search.replace(">", " ");
 		search = search.replace("?", " ");
 		search = search.replace("null", " ");
 
@@ -207,15 +212,16 @@ public class SearchService {
 		//지역검색에 활용하기 위한 boolean변수
 		boolean regionCheck = false; //기본은 false -> 지역명이 맞으면 true가 반환되도록 함
 		
+		//검색어 수만큼 각 검색어를 처리하기 위한 과정
 		for(int i=0 ; i<searchList.size() ; i++) {
 			
 			//지역에 따른 검색어 처리
 			//해당 검색어가 지역에 관한 검색어인지 DAO를 통해 확인
 			regionCheck = new  SearchDao().checkRegion(conn, searchList.get(i));
+
 			if(regionCheck==true) {//이 검색어는 지역과 관련된 검색어라는 의미임
 				region.add(searchList.get(i));
-			}else {//지역 검색어가 아니면 종목에 관한 검색어라는 의미임
-			System.out.println(regionCheck);		
+			}else {//지역 검색어가 아니면 종목에 관한 검색어라는 의미임		
 				//종목에 따른 검색어 처리
 				//대분류를 검색하면 하위분류가 검색어에 포함되서 검색될 수 있도록 설정
 				if(searchList.get(i).contains("헬스")) {
@@ -269,7 +275,6 @@ public class SearchService {
 		
 		kw.setRegion(region);
 		kw.setField(field);
-
 		
 		return kw;
 		

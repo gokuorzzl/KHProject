@@ -39,9 +39,7 @@ public class SearchInputServlet extends HttpServlet {
 		
 		//2. searchTrainerPage에서 보낸 데이터를 저장
 		String search = request.getParameter("searchInput");
-
 		//int screenSize = Integer.parseInt(request.getParameter("screenSize"));
-
 		int screenSize=1024;
 		
 		//3. searchTrainerPage 내 페이징 처리를 위해 페이지 번호를 받아옴

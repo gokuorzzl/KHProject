@@ -11,8 +11,6 @@ $(function(){
 	var area3=new Array();
 	var field=new Array();
 	
-	console.log("Bello!");
-	
 	$('#field li').click(function(){//종목 선택에 관한 함수
 
 		if(field==""){//종목을 최초로 선택하는 경우(field 배열이 비어있는 경우)
@@ -1361,7 +1359,6 @@ $(function(){
 	$('#realSearchBox li').click(function(){
 		var string = area1 + ", " + area2 + ", " + area3 + ", " + field;
 		$('.searchBox').val(string);
-		console.log($('.searchBox').val());
 	});
 	
 });

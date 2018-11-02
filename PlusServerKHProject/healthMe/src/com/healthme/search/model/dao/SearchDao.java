@@ -37,7 +37,11 @@ public class SearchDao {
 		//지역검색과 종목검색은 AND로 연결하지만 종목검색 내에서는 OR로 연결
 		if(!field.isEmpty()) {
 			for(int i=0 ; i<field.size() ; i++) {
-				if(i==0) {query += " AND (";} //시작일 때 "AND ("를 넣어줌
+				if(region.isEmpty() && i==0) {//지역 검색어 없이 시작이라면 AND를 붙이지 않고 "("를 열어줌
+					query += " ("; 
+				}else if(i==0){//지역검색어가 있다면 AND로 "("를 열어줌
+					query += " AND (";
+				}
 				if(i==field.size()-1) {//마지막엔 연결연산자 없이 ")"를 닫아줌
 					query += "TRAINEREVENT LIKE ? )"; 
 				}else {
@@ -45,7 +49,7 @@ public class SearchDao {
 				}
 			}
 		}
-
+		
 		try {
 			
 			//커넥션을 이용해 PreparedStatement생성
@@ -61,6 +65,7 @@ public class SearchDao {
 			if(!field.isEmpty()) {
 				for(int i=0 ; i<field.size() ; i++) {
 					pstmt.setString(index, '%' + field.get(i) + '%');
+					index++;
 				}
 			}
 			
@@ -171,7 +176,7 @@ public class SearchDao {
 		//쿼리문 전송에 이용할 객체 생성
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		//결과 저장할 넘버
+		//결과를 저장할 int 변수
 		int resultNum = 0;
 		//결과 저장할 Boolean
 		boolean checkRegion = false;
@@ -185,9 +190,9 @@ public class SearchDao {
 			pstmt = conn.prepareStatement(query);
 			
 			//?에 들어갈 요소 지정
-			pstmt.setString(1, search);
-			pstmt.setString(2, search);
-			pstmt.setString(3, search);
+			pstmt.setString(1, '%' + search + '%');
+			pstmt.setString(2, '%' + search + '%');
+			pstmt.setString(3, '%' + search + '%');
 			
 			//쿼리문 전송 및 결과 받기
 			rset = pstmt.executeQuery();
@@ -196,7 +201,10 @@ public class SearchDao {
 			if(rset.next()) {
 				resultNum = rset.getInt("RESULTNUM");
 			}
-			System.out.println(resultNum);
+			
+			if(resultNum>0) {
+				checkRegion = true;
+			}
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -205,7 +213,7 @@ public class SearchDao {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
 		}
-		System.out.println(checkRegion);
+
 		return checkRegion;
 	}
 
