@@ -72,7 +72,7 @@ public class SearchService {
 		}
 
 		JDBCTemplate.close(conn);
-		
+
 		return searchResult;
 	}
 	
@@ -200,6 +200,15 @@ public class SearchService {
 		search = search.replace(">", " ");
 		search = search.replace("?", " ");
 		search = search.replace("null", " ");
+		search = search.replace("특별시", " ");
+		search = search.replace("광역시", " ");
+		search = search.replace("도", " ");
+		search = search.replace("시", " ");
+		search = search.replace("군", " ");
+		search = search.replace("구", " ");
+		search = search.replace("읍", " ");
+		search = search.replace("면", " ");
+		search = search.replace("동", " ");
 
 		//공백 등 기타 구분자로 넘어온 검색어를 StringTokenizer를 이용해 ArrayList<String>에 저장
 		StringTokenizer st = new StringTokenizer(search);

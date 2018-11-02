@@ -13,17 +13,22 @@ $(function(){
 //		
 //	});
 	
-	$('.trainerForm').click(function(){
-
-		//팝업창 오픈
+	$('.searchForm').click(function(){
 		window.open('../../page/searchTrainerPage/trainerBeforeAd.jsp', 'adPopup', 'width=1000, height=600, scrollbars=0, toolbar=0, menubar=no');
-		return false;
+		$('.adVideo').play();
 	});
+
+//	$('.searchForm').click(function(){
+//		$('.trainerForm').submit();
+//	});
 	
-	$('.adVideo').on("ended", function(){
-		$('.trainerForm').submit();
-	});
+//	$('.adVideo').on('ended', 'video', function(){
+//		window.close('../../page/searchTrainerPage/trainerBeforeAd.jsp');
+//		$('.trainerForm').submit();
+//	});
 	
+
+
 });
 
 

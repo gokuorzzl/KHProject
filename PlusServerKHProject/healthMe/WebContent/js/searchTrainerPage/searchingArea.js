@@ -1357,8 +1357,13 @@ $(function(){
 	
 	//input에 value를 추가해주기 위한 메소드
 	$('#realSearchBox li').click(function(){
+		console.log(area1);
+		console.log(area2);
+		console.log(area3);
+		console.log(field);
 		var string = area1 + ", " + area2 + ", " + area3 + ", " + field;
 		$('.searchBox').val(string);
+		console.log($('.searchBox').val());
 	});
 	
 });

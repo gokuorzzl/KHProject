@@ -49,7 +49,7 @@ public class SearchDao {
 				}
 			}
 		}
-		
+
 		try {
 			
 			//커넥션을 이용해 PreparedStatement생성

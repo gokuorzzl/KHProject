@@ -136,7 +136,7 @@
 											border:1.5px solid #3c3e3a; border-radius:6px 6px 6px 6px;
 											margin-left:0.5%; margin-top:0.5%; text-align:right; overflow:hidden;">
 									<input type="hidden" name="memberId" value="<%=trainerList.get(i).getMemberId()%>"/>
-										<div style="whidth:100%; height:100%;">
+										<div class = "searchDiv" style="whidth:100%; height:100%;">
 											<div style="width:100%; height:60%; box-sizing:border-box; overflow:hidden;">
 												<img src="<%=trainerList.get(i).getProfileFile() %>"
 													style="width:100%; height:auto; align:top; 
@@ -158,7 +158,7 @@
 												border:1.5px solid #3c3e3a; border-radius:6px 6px 6px 6px;
 												margin-left:0.5%; margin-top:0.5%; text-align:right; overflow:hidden;">
 										<input type="hidden" name="memberId" value="<%=trainerList.get(i).getMemberId()%>"/>
-											<div style="whidth:100%; height:100%;">
+											<div class = "searchDiv" style="whidth:100%; height:100%;">
 												<div style="width:100%; height:60%; box-sizing:border-box; overflow:hidden;">
 													<img src="<%=trainerList.get(i).getProfileFile() %>"
 														style="width:100%; height:auto; align:top; 
