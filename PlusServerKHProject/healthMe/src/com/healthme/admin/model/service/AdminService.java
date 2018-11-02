@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import com.healthme.admin.model.dao.AdminDao;
 import com.healthme.admin.vo.Admin;
 import com.healthme.common.JDBCTemplate;
+import com.healthme.community.model.vo.Board;
 import com.healthme.member.vo.Member;
 import com.healthme.trainer.model.vo.Trainer;
 
@@ -176,6 +177,18 @@ public class AdminService {
 		JDBCTemplate.close(conn);
 		
 		return result;
+	}
+
+	//게시판 목록 출력하는것
+	public ArrayList<Board> adminAllBoard() {
+		// TODO Auto-generated method stub
+		Connection conn = JDBCTemplate.getConnection();
+		ArrayList<Board> list = new AdminDao().adminAllBoard(conn);
+		
+		JDBCTemplate.close(conn);
+		
+		
+		return list;
 	}
 
 	

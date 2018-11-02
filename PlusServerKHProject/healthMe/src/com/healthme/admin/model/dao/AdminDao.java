@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import com.healthme.admin.vo.Admin;
 import com.healthme.common.JDBCTemplate;
+import com.healthme.community.model.vo.Board;
 import com.healthme.member.vo.Member;
 import com.healthme.trainer.model.vo.Trainer;
 
@@ -544,6 +545,47 @@ public class AdminDao {
 		
 		
 		return result;
+	}
+
+	public ArrayList<Board> adminAllBoard(Connection conn) {
+		// TODO Auto-generated method stub
+		ArrayList<Board> list = new ArrayList<Board>();
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		String query = "select * from freeBoard where freeavailable=1";
+		System.out.println(query+"쿼리값 출력 되었어");
+		try {
+			stmt = conn.createStatement();
+			rset = stmt.executeQuery(query);
+			
+			while(rset.next()) {
+				Board b = new Board();
+				b.setUserId(rset.getString("userId"));
+				b.setTitle(rset.getString("title"));
+				b.setContent(rset.getString("content"));
+				b.setAvailable(rset.getInt("available"));
+				b.setInsertDate(rset.getDate("insertDate"));
+				b.setHits(rset.getInt("hits"));
+				b.setNotice(rset.getString("notice"));
+				b.setPwd(rset.getInt("pwd"));
+				
+				list.add(b);
+				
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(stmt);
+		}
+		
+		
+		
+		
+		return list;
 	}
 
 
