@@ -235,16 +235,14 @@ public class MemberDao {
 		   PreparedStatement pstmt = null;
 	       int result = 0;
 	       
-	       String query = "update member set memberOut=?, memberOutDate=? where memberId=?";
-	     /*  "delete from member where user_id=?"*/ 
-	       //탈퇴하면 바로 탈퇴하지 않고 active로 돌린다.
+	       String query = "update member set memberOut=?, memberOutDate=sysdate where memberId=?";
+	    
 	       
 	       try {
 			pstmt = conn.prepareStatement(query);
 			
 			pstmt.setString(1, "Y");
-			pstmt.setDate(2, Date.valueOf("sysdate")) ;
-			pstmt.setString(3, memberId);
+			pstmt.setString(2, memberId);
 			
 			result = pstmt.executeUpdate();
 			
@@ -266,4 +264,4 @@ public class MemberDao {
 	
 	
 	
-}
+

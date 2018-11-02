@@ -29,7 +29,32 @@
 
 </head>
 
-<%
+
+<!-- 화면 안에 비밀번호 체크 박스 -->
+<script>
+     
+     function delCheck() {
+    	 var passCheck = document.getElementById("delCheck");
+    	 confirm("정말로 헬th미 회원 탈퇴하시겠습니까? ")
+    	 return false;
+    	 
+     }
+
+</script>
+
+
+
+
+
+
+
+
+
+
+<% 
+    session = request.getSession(false);
+    
+    if(session.getAttribute("member")!=null) {
     Member m = (Member)request.getAttribute("member");
 %>
 
@@ -103,14 +128,13 @@
                        <button type="submit" value="수정하기" onclick="return validate();" class="register-button">수정하기</button> 
                          
                         <hr>
-                        <a href="/mdelete.do" class="deleteMember">탈퇴하기</a>
+                        <a href="/mdelete.do" class="deleteMember" onclick="return delCheck();">회원 탈퇴하기</a>
                         
                    </form>
 
                 </div>
                     
-                    
-                    
+ <% } %>   
                     
                 </div>
             </div>
@@ -122,6 +146,8 @@
             
         </div>
     </div>
+
+
 
 </body>
 </html>
