@@ -1,5 +1,5 @@
-<%@page import="com.healthme.community.model.vo.Board"%>
 <%@page import="java.util.ArrayList"%>
+<%@page import="com.healthme.trainer.model.vo.Matching"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
    <%@ page import="com.healthme.admin.vo.*" %>
@@ -8,10 +8,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
+
 <%
 
-	ArrayList<Board> list = (ArrayList<Board>)request.getAttribute("boardAllList");
-
+	ArrayList<Matching> list = (ArrayList<Matching>)request.getAttribute("matchingAllList");
 %>
 
 
@@ -80,7 +80,7 @@
                    
 
 
-                   <li>
+                     <li>
                         <a class="active-menu" href="/page/admin/adminMain.jsp"><i class="fa fa-desktop"></i>홈(설정)</a>
                     </li>
                     <!-- 홈 하나 끝 -->
@@ -97,15 +97,15 @@
                     
                     <!--  게시판 관리 시작 -->
                      <li>
-                        <a href="/page/admin/adminMemberSet.jsp"><i class="fa fa-desktop"></i>회원설정</a>
+                        <a class="active-menu" href="/page/admin/adminMemberSet.jsp"><i class="fa fa-desktop"></i>회원설정</a>
                     </li>
                     <li>
-                        <a class="active-menu" href="adminBoardSet.jsp"><i class="fa fa-desktop"></i>게시판설정 </a>
+                        <a href="/page/admin/adminBoardSet.jsp"><i class="fa fa-desktop"></i>게시판설정 </a>
                         
                     </li>
                 
                     <li>
-                      <a href="/page/admin/adminVisitSet.jsp"><i class="fa fa-sign-in "></i>방문자 및 광고</a>
+                       <a href="/page/admin/adminVisitSet.jsp"><i class="fa fa-sign-in "></i>방문자 및 광고</a>
                     </li>
                      <li>
                         <a href="#"><i class="fa fa-sign-in "></i>Chart & Graph(#)</a>
@@ -128,56 +128,50 @@
         <div id="page-inner">
             <div class="row" style="margin-bottom:20px">
                 <div class="col-md-12">
-                    <h1 class="page-head-line"><i class="fa fa-desktop" style="padding-right:10px"></i>관리자 게시판설정</h1>
+                    <h1 class="page-head-line"><i class="fa fa-desktop" style="padding-right:10px"></i>관리자 회원설정</h1>
                 </div>
             </div>
          <div class="row">
                 <div class="col-md-3">
                     <div class="main-box mb-red">
-                        <a href="/adminBoardSetBoard.do">
+                        <a href="/page/admin/adminMemberAdmin.jsp">
                             <i class="fa fa-bolt fa-3x"></i>
-                            <h5>게시판 설정</h5>
+                            <h5>관리자설정</h5>
                         </a>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="main-box mb-dull">
-                        <a href="#">
+                        <a href="/adminAllList.do">
                             <i class="fa fa-plug fa-3x"></i>
-                            <h5>Q&A설정</h5>
+                            <h5>회원설정</h5>
                         </a>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="main-box mb-pink">
-                        <a href="#">
+                        <a href="/adminAllListT.do">
                             <i class="fa fa-dollar fa-3x"></i>
-                            <h5>공지사항 설정</h5>
+                            <h5>트레이너수정</h5>
                         </a>
                     </div>
                 </div>
              <div class="col-md-3">
                     <div class="main-box mb-pink">
-                        <a href="#">
+                        <a href="/adminMatchingAll.do">
                             <i class="fa fa-dollar fa-3x"></i>
-                            <h5>게시판옵션</h5>
+                            <h5>매칭설정</h5>
                         </a>
                     </div>
                 </div>
             </div>
+            
              <hr style="border:1px solid #000;"/>
                 <div class="row">
-					<%--content --%>
-					
-					
-					
-					
-					
-					
-					
-					
-					
-						<div class="table-responsive">
+
+					<%--테이블 들어갈 공간 --%>
+
+							<div class="table-responsive">
 							<h3>회원설정</h3>
 							<table class="table table-striped table-bordered table-hover">
 								<!--       <table cellSpacing=0 borderColorDark=white width="760" bgColor=#c0c0c0 borderColorLight=#dddddd border=1 class="s1">-->
@@ -187,55 +181,30 @@
 										type="hidden" name="menushow" value="menu1">
 
 									<tr bgColor=E0E4E8>
-										<td colSpan=4 align="center"><font color="#333333">게시글번호</font></td>
-										<td colSpan=4 align="center"><font color="#333333">회원명</font></td>
-										<td colSpan=4 align="center"><font color="#333333">제목</font></td>
-										<td colSpan=4 align="center"><font color="#333333">내용</font></td>
-										<td colSpan=4 align="center"><font color="#333333">삭제1,노삭제0</font></td>
-										<td colSpan=4 align="center"><font color="#333333">삭제날짜</font></td>
-										<td colSpan=4 align="center"><font color="#333333">등록날짜</font></td>
-										<td colSpan=4 align="center"><font color="#333333">조회수</font></td>
-										<td colSpan=4 align="center"><font color="#333333">공지y,공지n</font></td>
-										<td colSpan=4 align="center"><font color="#333333">게시글비밀번호</font></td>
-										<td colSpan=4 align="center"><font color="#333333">수정(준비중)</font></td>
-										<td colSpan=4 align="center"><font color="#333333">삭제</font></td>
+										<td colSpan=4 align="center"><font color="#333333">매칭회원</font></td>
+										<td colSpan=4 align="center"><font color="#333333">여부체크</font></td>
+										<td colSpan=4 align="center"><font color="#333333">담당트레이너</font></td>
+										<td colSpan=4 align="center"><font color="#333333">매칭점수</font></td>
+									
 									</tr>
 									
-									<%for(Board b:list){
-										%>
-									<tr>
-									
-									<td colSpan=4><font color="#333333"><%=b.getNum()%></font></td>
-										<td colSpan=4><font color="#333333"><%=b.getUserId()%></font></td>
-										<td colSpan=4><font color="#333333"><%=b.getTitle()%></font></td>
-										<td colSpan=4><font color="#333333"><%=b.getContent()%></font></td>
-										<td colSpan=4><font color="#333333"><%=b.getAvailable()%></font></td>
-										<td colSpan=4><font color="#333333"><%=b.getDeleteDate()%></font></td>
-										<td colSpan=4><font color="#333333"><%=b.getInsertDate()%></font></td>
-										<td colSpan=4><font color="#333333"><%=b.getHits()%></font></td>
-										<td colSpan=4><font color="#333333"><%=b.getNotice()%></font></td>
-										<td colSpan=4><font color="#333333"><%=b.getPwd()%></font></td>
-									<td bgColor=#ffffff colSpan=4><a href="/adminBoardUpdateSel.do?UserId=<%=b.getUserId()%>">수정</a></td>
-									<td bgColor=#ffffff colSpan=4><a href="/adminBoardDell.do?UserId=<%=b.getUserId()%>">삭제</a></td>
+									<%for(Matching g:list){ %>
+									<tr>	
+										<td colSpan=4><font color="#333333"><%=g.getMatchingMemberId()%></font></td>
+										<td colSpan=4><font color="#333333"><%=g.getWishTrainerCheck()%></font></td>
+										<td colSpan=4><font color="#333333"><%=g.getMatchedMemberId()%></font></td>
+										<td colSpan=4><font color="#333333"><%=g.getMatchingScore()%></font></td>
+								
 									</tr>
+									
+									
 									<%} %>
 
 							
-
 							</table>
-					
-					
-					
-					
-					
-					
 
 
-
-
-
-
-                   <%--content끝부분 --%>
+                    <%--테이블 끝날 공간 --%>
                     </div>
                 </div>
               
@@ -245,14 +214,7 @@
         
     
         </div>
-    <!--  
-         <script src="assets/js/jquery-1.10.2.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-         <script src="assets/js/jquery.metisMenu.js"></script>
-         <script src="assets/js/custom.js"></script>
 
-
--->
 
 <jsp:include page="/page/footer/footer.jsp"/>
 

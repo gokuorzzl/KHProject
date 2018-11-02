@@ -149,7 +149,7 @@
                 </div>
              <div class="col-md-3">
                     <div class="main-box mb-pink">
-                        <a href="#">
+                        <a href="/adminMatchingAll.do">
                             <i class="fa fa-dollar fa-3x"></i>
                             <h5>매칭설정</h5>
                         </a>

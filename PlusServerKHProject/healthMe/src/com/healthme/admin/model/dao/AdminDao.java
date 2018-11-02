@@ -11,6 +11,7 @@ import com.healthme.admin.vo.Admin;
 import com.healthme.common.JDBCTemplate;
 import com.healthme.community.model.vo.Board;
 import com.healthme.member.vo.Member;
+import com.healthme.trainer.model.vo.Matching;
 import com.healthme.trainer.model.vo.Trainer;
 
 public class AdminDao {
@@ -567,11 +568,11 @@ public class AdminDao {
 				b.setTitle(rset.getString("freeTitle"));
 				b.setContent(rset.getString("freeContent"));
 				b.setAvailable(rset.getInt("freeAvailable"));
-				//b.set
-				b.setInsertDate(rset.getDate("insertDate"));
-				b.setHits(rset.getInt("hits"));
-				b.setNotice(rset.getString("notice"));
-				b.setPwd(rset.getInt("pwd"));
+				b.setDeleteDate(rset.getDate("freeDeleteDate"));
+				b.setInsertDate(rset.getDate("freeInsertDate"));
+				b.setHits(rset.getInt("freeHits"));
+				b.setNotice(rset.getString("freeNotice"));
+				b.setPwd(rset.getInt("freePwd"));
 				
 				list.add(b);
 				System.out.println("bbbbb읙값값값"+list);
@@ -585,6 +586,71 @@ public class AdminDao {
 			JDBCTemplate.close(stmt);
 		}
 		
+		
+		
+		
+		return list;
+	}
+	
+	
+	//게시판 삭제 기능
+	public int adminBoardDell(Connection conn, String userId) {
+		// TODO Auto-generated method stub
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = "update freeBoard set available=0 where memberId=?";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setString(1, userId);
+			
+			result=pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		
+		
+		return result;
+	}
+	//매칭 리스트 출력하는 것
+	public ArrayList<Matching> adminMatchingAll(Connection conn) {
+		// TODO Auto-generated method stub
+		ArrayList<Matching> list = new ArrayList<Matching>();
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		String query = "select * from matching order by matchingmemberid asc";
+		
+		try {
+			stmt = conn.createStatement();
+			rset = stmt.executeQuery(query);
+			
+			while(rset.next()) {
+				Matching g = new Matching();
+				g.setMatchingMemberId(rset.getString("matchingMemberId"));
+				g.setWishTrainerCheck(rset.getString("wishTrainerCheck"));
+				g.setMatchedMemberId(rset.getString("matchedMemberId"));
+				g.setMatchingScore(rset.getString("matchingScore"));
+				
+				list.add(g);
+			}
+			
+			
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(stmt);
+		}
 		
 		
 		

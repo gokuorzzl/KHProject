@@ -8,6 +8,7 @@ import com.healthme.admin.vo.Admin;
 import com.healthme.common.JDBCTemplate;
 import com.healthme.community.model.vo.Board;
 import com.healthme.member.vo.Member;
+import com.healthme.trainer.model.vo.Matching;
 import com.healthme.trainer.model.vo.Trainer;
 
 public class AdminService {
@@ -190,6 +191,34 @@ public class AdminService {
 		
 		return list;
 	}
+	//게시판 글 삭제하기
+	public int adminBoardDell(String userId) {
+		Connection conn = JDBCTemplate.getConnection();
+		
+		int result = new AdminDao().adminBoardDell(conn,userId);
+		
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		
+		
+		return result;
+	}
+	//매칭 된 회원 목록들 가져오기
+	public ArrayList<Matching> adminMatchingAll() {
+		Connection conn = JDBCTemplate.getConnection();
+		ArrayList<Matching> list = new AdminDao().adminMatchingAll(conn);
+		JDBCTemplate.close(conn);
+		
+		
+		return list;
+	}
+
+	
+	
 
 	
 	
