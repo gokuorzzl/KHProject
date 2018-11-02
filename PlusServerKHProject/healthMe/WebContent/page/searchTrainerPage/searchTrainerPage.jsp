@@ -138,7 +138,7 @@
 						<div style="width:80%; height:93%; margin:auto; margin-top:15px;">
 							<% for(int i=0 ; i<(trainerList.size()<(recordPerPage/2)?trainerList.size():(recordPerPage/2)) ; i++){%>
 									<%if(member==null){%>
-										<a href="../searchTrainerPage/loginFail.jsp" 
+										<a href="../page/error/loginFail.jsp" 
 											style="width:30%; 
 											height:49.5%; float:left; box-sizing:border-box; cursor: pointer;
 											border:1.5px solid #3c3e3a; border-radius:6px 6px 6px 6px;
