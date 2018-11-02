@@ -9,16 +9,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 
-<% 
-
-     Member m = (Member)request.getAttribute("member"); 
-
-
-   /*   session = request.getSession(false);
-    
-    if(session.getAttribute("member")!=null) {
-    Member m = (Member)request.getAttribute("member");  */
-%>
 
 <!--인코딩 문자셋-->
     <meta charset="UTF-8">
@@ -65,6 +55,12 @@
 <body>
 
 
+<% 
+	session = request.getSession(false);
+    Member member = (Member)session.getAttribute("member"); 
+	String memberId = member.getMemberId();
+  
+%>
  <!--전체 공간-->    
     <div id="wrapper">
         
@@ -101,44 +97,44 @@
                     <form action="/infoUpdate.do" method="post"> 
                   
                         <label id="memberIdName">아이디</label>
-                        <input type="text" maxlength="12" id="memberId" name="memberId" readonly value="<%=m.getMemberId() %>"><br>
+                        <input type="text" maxlength="12" id="memberId" name="memberId" value="<%=member.getMemberId() %>" readonly="readonly"><br>
     
                          <label id="memberPwName">비밀번호</label><div class="conditionPw">(4~12자이내 영문대소문자, 숫자, 특수문자 혼합 사용)</div>
-                         <input type="password" maxlength="12" id="memberPw" name="memberPw" value="<%=m.getMemberPw() %>" required ><br>
+                         <input type="password" maxlength="12" id="memberPw" name="memberPw" value="<%=member.getMemberPw() %>"><br>
                           
                          <label for="memberPw2">비밀번호 재확인</label><br>
-                         <input type="password" name="memberPw2" id="memberPw2" value="<%=m.getMemberPw()%>" required><br>
+                         <input type="password" name="memberPw2" id="memberPw2" value="<%=member.getMemberPw()%>"><br>
                         
                         <label for="memberName">이름</label><br>
-                        <input type="text" id="memberName" name="memberName" readonly value="<%=m.getMemberName() %>" ><br>
+                        <input type="text" id="memberName" name="memberName" readonly value="<%=member.getMemberName() %>" ><br>
                          
                         <label id="memberSocialIdName">주민등록번호</label><br>
-                        <input type="text" id="memberSocialId1" name="memberSocialId1" readonly value="<%=m.getMemberSocialId1() %>"> - 
-                        <input type="password" id="memberSocialId2" name="memberSocialId2" readonly value="<%=m.getMemberSocialId2() %>"><br> 
+                        <input type="text" id="memberSocialId1" name="memberSocialId1" value="<%=member.getMemberSocialId1() %>" readonly="readonly"> - 
+                        <input type="password" id="memberSocialId2" name="memberSocialId2" value="<%=member.getMemberSocialId2() %>" readonly="readonly"><br> 
      
      
                          <label for="memberAddr">주소</label><br>
                         <input type="text" id="sample6_postcode" placeholder="우편번호">
                         <input type="button" class="sample6_fpostcode" id="sample6_fpostcode" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-                        <input type="text" id="memberAddr" name="memberAddr" placeholder="주소" value="<%=m.getMemberAddr() %>" required>
+                        <input type="text" id="memberAddr" name="memberAddr" placeholder="주소" value="<%=member.getMemberAddr() %>">
                         <input type="text" id="sample6_address2" placeholder="상세주소">
 
                         <label id="memberPhoneName">핸드폰 번호</label><div class="conditionPw">(ex. 010-1111-2222 형식으로 입력)</div>
-                        <input type="text" maxlength="13" id="memberPhone" name="memberPhone" value="<%=m.getMemberPhone() %>" required ><br>
+                        <input type="text" maxlength="13" id="memberPhone" name="memberPhone" value="<%=member.getMemberPhone() %>"><br>
                
                         <label for="memberEmail">이메일</label><br>
-                         <input type="email" placeholder="이메일 주소에 '@'를 포함해주세요" id="memberEmail" name="memberEmail" value="<%=m.getMemberEmail() %>" required> 
+                        <input type="email" placeholder="이메일 주소에 '@'를 포함해주세요" id="memberEmail" name="memberEmail" value="<%=member.getMemberEmail() %>"> 
                           
                        <button type="submit" value="수정하기" onclick="return validate();" class="register-button">수정하기</button> 
                          
-                        <hr>
-                        <button type="submit" class="deleteMember" onclick="return delCheck();">회원 탈퇴하기</button>
+                        <br><br><br><br>
+                       <center><a href="/mdelete.do" class="deleteMember" onclick="return delCheck();">회원 탈퇴하기</a></center> 
                         
                    </form>
 
                 </div>
                     
-<%--  <% } %>  --%>  
+
                     
                 </div>
             </div>

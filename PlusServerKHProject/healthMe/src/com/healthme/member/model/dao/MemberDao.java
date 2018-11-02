@@ -209,12 +209,19 @@ public class MemberDao {
 		
 		int result = 0;
 		
-		String query= "update member set memberPw=?, memberAddr=?, memberEmail=?, memberPhone=? "
-				+ "where memberId=? ";
+		String query= "update member set memberPw=?, memberAddr=?, memberEmail=?, memberPhone=?"
+				+ " where memberId=? ";
+		System.out.println(query+"쿼릭ㄹ과과과");
 		
 		try {
 			pstmt = conn.prepareStatement(query);
-			
+			System.out.println("DAO의값값값");
+			System.out.println(m.getMemberPw());
+			System.out.println(m.getMemberAddr());
+			System.out.println(m.getMemberEmail());
+			System.out.println(m.getMemberPhone());
+			System.out.println(m.getMemberId());
+			System.out.println("DAO의값값값");
 			pstmt.setString(1, m.getMemberPw());
 			pstmt.setString(2, m.getMemberAddr());
 			pstmt.setString(3, m.getMemberEmail());
@@ -222,10 +229,12 @@ public class MemberDao {
 			pstmt.setString(5, m.getMemberId());
 			
 			result = pstmt.executeUpdate();
-			
+			System.out.println("result의 DAO의 결과값은?!?!?!?!?!?"+result);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
 		}
 		
 		return result;

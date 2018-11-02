@@ -330,8 +330,8 @@ div{
     }
     
     .deleteMember {
-      font-family:NotoSansCJKkrBold;
-        background-color:#FF9B55;
+        font-family:NotoSansCJKkrBold;
+        background-color:#353130;
         color:white;
         font-size:180%;
         padding:14px 20px;
@@ -339,10 +339,12 @@ div{
         border:none;
         cursor:pointer;
         width:100%;
+        text-decoration:none;
+        border-radius:50%;
     }
     
       .deleteMember:hover {
-       background-color:#353130;
+       background-color:#FF9B55;
     }
     
 

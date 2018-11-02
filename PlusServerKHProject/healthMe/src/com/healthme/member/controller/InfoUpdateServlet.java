@@ -33,6 +33,7 @@ public class InfoUpdateServlet extends HttpServlet {
 
 		request.setCharacterEncoding("utf-8");
 		
+		
 		HttpSession session = request.getSession(false);
 		
 		String memberId = ((Member)session.getAttribute("member")).getMemberId();
@@ -41,21 +42,23 @@ public class InfoUpdateServlet extends HttpServlet {
 		String memberEmail = request.getParameter("memberEmail");
 		String memberPhone = request.getParameter("memberPhone");
 		
+	
 		Member m = new Member();
-		m.setMemberId("memberId");
-		m.setMemberPw("memberPw");
-		m.setMemberAddr("memberAddr");
-		m.setMemberEmail("memberEmail");
-		m.setMemberPhone("memberPhone");
+		m.setMemberId(memberId);
+		m.setMemberPw(memberPw);
+		m.setMemberAddr(memberAddr);
+		m.setMemberEmail(memberEmail);
+		m.setMemberPhone(memberPhone);
 		
 		int result = new MemberService().updateMember(m);
 		
+
 		Member member = new MemberService().selectOneMember(memberId, memberPw);
-		
+
 		session.setAttribute("member", member);
 		
 		if(result>0) {
-			response.sendRedirect("/page/loginPage/enrollSuccess.jsp");
+			response.sendRedirect("/page/loginPage/updateSuccess.jsp");
 		} else {
 			response.sendRedirect("/page/loginPage/error.jsp");
 		}
