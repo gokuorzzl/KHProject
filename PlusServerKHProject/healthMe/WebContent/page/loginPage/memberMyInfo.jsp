@@ -8,6 +8,18 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
+
+<% 
+
+     Member m = (Member)request.getAttribute("member"); 
+
+
+   /*   session = request.getSession(false);
+    
+    if(session.getAttribute("member")!=null) {
+    Member m = (Member)request.getAttribute("member");  */
+%>
+
 <!--인코딩 문자셋-->
     <meta charset="UTF-8">
     <!--반응형 웹을 만들기 위한 meta태그의 viewport-->
@@ -30,6 +42,7 @@
 </head>
 
 
+
 <!-- 화면 안에 비밀번호 체크 박스 -->
 <script>
      
@@ -48,20 +61,6 @@
 </script>
 
 
-
-
-
-
-
-
-
-
-<% 
-    session = request.getSession(false);
-    
-    if(session.getAttribute("member")!=null) {
-    Member m = (Member)request.getAttribute("member");
-%>
 
 <body>
 
@@ -133,13 +132,13 @@
                        <button type="submit" value="수정하기" onclick="return validate();" class="register-button">수정하기</button> 
                          
                         <hr>
-                        <button type="submit" class="deleteMember" onclick="return delCheck();">회원 탈퇴하기</a>
+                        <button type="submit" class="deleteMember" onclick="return delCheck();">회원 탈퇴하기</button>
                         
                    </form>
 
                 </div>
                     
- <% } %>   
+<%--  <% } %>  --%>  
                     
                 </div>
             </div>

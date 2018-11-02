@@ -81,7 +81,8 @@
                         <input type="text" id="memberName" name="memberName" required><br>
                          
                         <label id="memberSocialIdName">주민등록번호</label><br>
-                        <input type="text" maxlength="6" id="memberSocialId1" name="memberSocialId1" required> - <input type="password" maxlength="7" id="memberSocialId2" name="memberSocialId2" required><br> 
+                        <input type="text" maxlength="6" id="memberSocialId1" name="memberSocialId1" required> - 
+                        <input type="password" maxlength="7" id="memberSocialId2" name="memberSocialId2" required><br> 
      
                          <label for="memberAddr">주소</label><br>
                         <input type="text" id="sample6_postcode" placeholder="우편번호">

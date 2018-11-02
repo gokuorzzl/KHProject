@@ -15,7 +15,6 @@
 	   var idReg = /^[a-z0-9_]{4,12}$/;
 	   var pwReg =  /^(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]|.*[0-9]).{8,24}$/;
 	   var nameReg =  /^[가-힝]{2,4}$/;
-	   var socialReg = /^(?:[0-9]{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[1,2][0-9]|3[0,1]))-[1-4][0-9]{6}$/;
 	   var phoneReg = /^\d{2,3}-\d{3,4}-\d{4}$/;
 	   var emailReg = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
  	   
@@ -26,6 +25,12 @@
  	   var memberAddr = document.getElementById("memberAddr");
  	   var memberPhone = document.getElementById("memberPhone");
  	   var memberEmail = document.getElementById("memberEmail");
+ 	   
+ 	   var memberSocialId1 = document.getElementById("memberSocialId1");
+ 	   var memberSocialId2 =  document.getElementById("memberSocialId2");
+ 	   
+ 	   var arrSocialId1 = new Array();
+ 	   var arrSocialId2 = new Array();
  	   
  	   if(!check(idReg,memberId, "아이디 형식에 맞게 입력해주세요.")) {
  		   return false;
@@ -46,9 +51,36 @@
  		   return false;
  	   }
  	   
- 	   if(!check(socialReg,memberSocialId, "주민등록번호 형식에 맞게 입력해주세요.")) {
- 		   return false;
- 	   }
+ 	   //주민등록번호 인증
+ 	   for(var i=0; i<memberSocialId1.value.length;i++) {
+ 		  arrSocialId1[i] = memberSocialId1.value.charAt(i);
+ 	   }  //주민번호 앞자리를 배열에 순서대로 담는다
+ 	   
+ 	  for(var i=0; i<memberSocialId2.value.length;i++) {
+ 		  arrSocialId2[i] = memberSocialId2.value.charAt(i);
+ 	   } //주민번호 뒷자리를 배열에 순서대로 담는다
+ 	  
+ 	  var tempSum=0;
+ 	  
+ 	  for(var i=0; i<memberSocialId1.value.length;i++) {
+ 		  tempSum += arrSocialId1[i] * (2+i);
+ 	  } //주민번호 검사 방법을 적용하여 앞 번호를 모두 계산하며 더함
+ 	  
+ 	  for(var i=0; i<memberSocialId2.value.length-1;i++) {
+ 		  if(i>=2) {
+ 			  tempSum += arrSocialId2[i] * i;
+ 		  } else {
+ 			  tempSum += arrSocialId2[i] * (8+i);
+ 		  } 
+ 	  }
+ 	  
+ 	  if((11-(tempSum%11))%10!=arrSocialId2[6]) {
+ 		  alert("올바른 주민번호가 아닙니다.");
+ 		  memberSocialId1.value= "";
+ 		  memberSocialId2.value= "";
+ 		  memberSocialId1.focus();
+ 		  return false;	   
+ 	  } 
  	   
  	   if(memberAddr.value=="") {
  		   alert("주소를 입력해주세요");
@@ -95,8 +127,8 @@
 	   return false;
    }
    
-   function check(socialReg,what,message) {
-	   if(socialReg.test(what.value)) {
+   function check(re,what,message) {
+	   if(re.test(what.value)) {
 		   return true;
 	   }
 	   alert(message);
