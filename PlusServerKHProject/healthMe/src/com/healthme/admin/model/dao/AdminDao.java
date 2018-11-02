@@ -463,6 +463,60 @@ public class AdminDao {
 		return t;
 	}
 
+	public int adminTrainerselUpdate(Connection conn, Trainer t) {
+		// TODO Auto-generated method stub
+		
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query="update trainer set profileFile=?, trainerGradFile=?, trainerUniv=?, trainerGrad=?, trainerRegion=?, trainerSubject=?, trainerContent=?,"
+				+ "trainerEvent=?, trainerCareerFile=?, careerName=?, careerName2=?, careerName3=?, careerName4=?, careerName5=?, trainerLicenseFile=?, licenseName1=?,"
+				+ "licenseName2=?, licenseName3=?, licenseName=4?, licenseName5=? where memberId=? ";
+		
+				
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			
+			//String memberTrainer1 = String.valueOf(m.getMemberTrainer());
+			//String memberOut1 = String.valueOf(m.getMemberOut());
+		
+			pstmt.setString(1, t.getProfileFile());
+			pstmt.setString(2, t.getTrainerGradFile());
+			pstmt.setString(3, t.getTrainerUniv());
+			pstmt.setString(4, t.getTrainerGrad());
+			pstmt.setString(5, t.getTrainerRegion());
+			pstmt.setString(6, t.getTrainerSubject());
+			pstmt.setString(7, t.getTrainerContent());
+			pstmt.setString(8, t.getTrainerEvent());
+			pstmt.setString(9, t.getTrainerCareerFile());
+			pstmt.setString(10, t.getCareerName1());
+			pstmt.setString(11, t.getCareerName2());
+			pstmt.setString(12, t.getCareerName3());
+			pstmt.setString(13, t.getCareerName4());
+			pstmt.setString(14, t.getCareerName5());
+			pstmt.setString(15, t.getTrainerLicenseFile());
+			pstmt.setString(16, t.getLicenseName1());
+			pstmt.setString(17, t.getLicenseName2());
+			pstmt.setString(18, t.getLicenseName3());
+			pstmt.setString(19, t.getLicenseName4());
+			pstmt.setString(20, t.getLicenseName5());
+			pstmt.setString(21, t.getMemberId());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+		JDBCTemplate.close(pstmt);
+		}
+		
+		return result;
+		
+		
+	}
+
 
 
 }

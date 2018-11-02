@@ -138,6 +138,27 @@ public class AdminService {
 		
 		return t;
 	}
+	//트레이너 정보 수정후 결과값 받는것
+	public int adminTrainerselUpdate(Trainer t) {
+		// TODO Auto-generated method stub
+		
+		
+		Connection conn = JDBCTemplate.getConnection();
+		int result = new AdminDao().adminTrainerselUpdate(conn,t);
+		
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		
+		
+		return result;
+		
+		
+		
+	}
 
 	
 	

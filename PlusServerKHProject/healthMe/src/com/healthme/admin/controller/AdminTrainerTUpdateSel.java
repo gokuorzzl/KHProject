@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.healthme.admin.model.service.AdminService;
+import com.healthme.trainer.model.vo.Trainer;
+
 /**
  * Servlet implementation class AdminTrainerTUpdateSel
  * 회원수정 폼으로 이동후 수정을 하고 수정하기를 누를경우 수정완료시 All로 이동(트레이너수정후 이동하는 중간이다.)
@@ -64,11 +67,41 @@ public class AdminTrainerTUpdateSel extends HttpServlet {
 		String licenseName4= request.getParameter("licenseName4");
 		String licenseName5= request.getParameter("licenseName5");
 		
+		Trainer t = new Trainer();
+		t.setMemberId(memberId);
+		t.setProfileFile(profileFile);
+		t.setTrainerGradFile(trainerGradFile);
+		t.setTrainerUniv(trainerUniv);
+		t.setTrainerGrad(trainerGrad);
+		t.setTrainerRegion(trainerRegion);
+		t.setTrainerSubject(trainerSubject);
+		t.setTrainerContent(trainerContent);
+		t.setTrainerEvent(trainerEvent);
+		t.setTrainerCareerFile(trainerCareerFile);
+		t.setCareerName1(careerName1);
+		t.setCareerName2(careerName2);
+		t.setCareerName3(careerName3);
+		t.setCareerName4(careerName4);
+		t.setCareerName5(careerName5);
+		
+		t.setTrainerLicenseFile(trainerLicenseFile);
+		t.setLicenseName1(licenseName1);
+		t.setLicenseName2(licenseName2);
+		t.setLicenseName3(licenseName3);
+		t.setLicenseName4(licenseName4);
+		t.setLicenseName5(licenseName5);
+		
 		
 		//3. 비즈니스 로직 리턴
+		int result = new AdminService().adminTrainerselUpdate(t);
 		
 		
-		
+		//결과 리턴
+		if(result>0) {
+			response.sendRedirect("/adminAllListT.do");
+		}else {
+			response.sendRedirect("/page/admin/error.jsp");
+		}
 		
 	}
 
