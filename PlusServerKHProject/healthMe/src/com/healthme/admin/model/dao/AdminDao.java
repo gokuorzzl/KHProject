@@ -470,7 +470,7 @@ public class AdminDao {
 		int result = 0;
 		
 		String query="update trainer set profileFile=?, trainerGradFile=?, trainerUniv=?, trainerGrad=?, trainerRegion=?, trainerSubject=?, trainerContent=?,"
-				+ "trainerEvent=?, trainerCareerFile=?, careerName=?, careerName2=?, careerName3=?, careerName4=?, careerName5=?, trainerLicenseFile=?, licenseName1=?,"
+				+ "trainerEvent=?, trainerCareerFile=?, careerName1=?, careerName2=?, careerName3=?, careerName4=?, careerName5=?, trainerLicenseFile=?, licenseName1=?,"
 				+ "licenseName2=?, licenseName3=?, licenseName=4?, licenseName5=? where memberId=? ";
 		
 				
@@ -481,6 +481,8 @@ public class AdminDao {
 			//String memberTrainer1 = String.valueOf(m.getMemberTrainer());
 			//String memberOut1 = String.valueOf(m.getMemberOut());
 		
+			
+			
 			pstmt.setString(1, t.getProfileFile());
 			pstmt.setString(2, t.getTrainerGradFile());
 			pstmt.setString(3, t.getTrainerUniv());
@@ -505,6 +507,8 @@ public class AdminDao {
 			
 			result = pstmt.executeUpdate();
 			
+			System.out.println(query+"쿼리의값이야야야야야양야야야야");
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -515,6 +519,31 @@ public class AdminDao {
 		return result;
 		
 		
+	}
+
+	public int adminTrainerDel(Connection conn, String memberId) {
+		// TODO Auto-generated method stub
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = "delete from trainer where memberid=?";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setString(1, memberId);
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		
+		
+		
+		return result;
 	}
 
 

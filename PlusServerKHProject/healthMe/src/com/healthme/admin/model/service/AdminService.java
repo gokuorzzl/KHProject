@@ -159,6 +159,24 @@ public class AdminService {
 		
 		
 	}
+	//트레이너삭제
+	public int adminTrainerDel(String memberId) {
+		// TODO Auto-generated method stub
+		
+		Connection conn = JDBCTemplate.getConnection();
+		
+		int result = new AdminDao().adminTrainerDel(conn,memberId);
+		
+		//결과 리턴
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		
+		return result;
+	}
 
 	
 	

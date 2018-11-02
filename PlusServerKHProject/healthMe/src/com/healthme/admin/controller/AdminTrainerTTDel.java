@@ -10,43 +10,36 @@ import javax.servlet.http.HttpServletResponse;
 import com.healthme.admin.model.service.AdminService;
 
 /**
- * Servlet implementation class AdminMemberDelServlet
+ * Servlet implementation class AdminTrainerTTDel
  */
-@WebServlet(name = "AdminMemberDel", urlPatterns = { "/adminMemberDel.do" })
-public class AdminMemberDelServlet extends HttpServlet {
+@WebServlet("/adminTrainerTTDel.do")
+public class AdminTrainerTTDel extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminMemberDelServlet() {
+    public AdminTrainerTTDel() {
         super();
         // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 이부분은 관리자페이지에서 삭제를 누르면 삭제되는 곳입니다.
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+		
 		String memberId = request.getParameter("memberId");
 		
-		//비즈니스 로직처리
-		int result = new AdminService().adminMemberDel(memberId);
-		
+		//비즈니스 로직 처리
+		int result = new AdminService().adminTrainerDel(memberId);
 		
 		//결과 리턴
 		if(result>0) {
-			response.sendRedirect("/adminAllList.do");
-		
+			response.sendRedirect("/adminAllListT.do");
 		}else {
 			response.sendRedirect("/page/admin/error.jsp");
 		}
-		
-		
-		
-		
 	}
 
 	/**

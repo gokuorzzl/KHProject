@@ -221,7 +221,7 @@
 										<td colSpan=4><font color="#333333"><%=t.getTrainerContent()%></font></td>
 										<td colSpan=4><font color="#333333"><%=t.getTrainerEvent()%></font></td>
 									<td bgColor=#ffffff colSpan=4><a href="/adminMemberTUpateSel.do?memberId=<%=t.getMemberId()%>">수정</a></td>
-									<td bgColor=#ffffff colSpan=4><button id="btn2" onclick="delNotice();">삭제</button></td>
+									<td bgColor=#ffffff colSpan=4><a href="/adminTrainerTTDel.do?memberId=<%=t.getMemberId()%>">삭제</a></td>
 									
 									
 									</tr>
