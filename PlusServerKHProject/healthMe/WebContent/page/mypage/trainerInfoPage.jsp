@@ -62,7 +62,9 @@
                                 <label>프로필사진</label><br>
                                 <div id="picture_cover">
                                     <div>
-                                        <input type="file" id="profileFile" name="profileFile" />
+	                                    <form action="/trainerInfo.do" method="post" enctype="multipart/form-data">
+	                                        <input type="file" id="profileFile" name="profileFile" />
+                                        </form>
                                     </div>
                                     <span>
                                         프로필 사진을 업로드 해 주세요.<br>
@@ -82,15 +84,6 @@
                         
                         <div class="linecolor"></div>
                         
-                        <ul>
-                            <li>
-                                <label><br>휴대폰 번호<br></label>
-                                <input id="Phone" name="Phone" type="text" placeholder="010-1234-5678" value="" class="input_txt02" />
-                            </li>
-                        </ul>
-                        
-                        <div class="linecolor"></div>
-                        
                         <ul id="total_sport_tag">
                             <li>
                                 <label for="memberAddr">활동 지역</label><br>
@@ -100,13 +93,13 @@
                                 <input type="text" id="sample6_address2" placeholder="상세주소">
                             </li>
                             <li style=i>
-                                <input type="radio" id="sport1"  /><label for="sport1">&lt;헬스&gt;</label>
-                                <input type="radio" id="sport2"  /><label for="sport2">&lt;요가&gt;</label>
-                                <input type="radio" id="sport3"  /><label for="sport3">&lt;구기종목&gt;</label>
-                                <input type="radio" id="sport4" /><label for="sport4">&lt;무술&gt;</label>
-                                <input type="radio" id="sport5"  /><label for="sport5">&lt;라켓&gt;</label>
-                                <input type="radio" id="sport6"  /><label for="sport6">&lt;와타스포츠&gt;</label>
-                                <input type="radio" id="sport7"  /><label for="sport7">&lt;유산소&gt;</label>
+                                <input type="radio" id="sport1" name="sport"/><label for="sport1">&lt;헬스&gt;</label>
+                                <input type="radio" id="sport2" name="sport" /><label for="sport2">&lt;요가&gt;</label>
+                                <input type="radio" id="sport3" name="sport" /><label for="sport3">&lt;구기종목&gt;</label>
+                                <input type="radio" id="sport4" name="sport" /><label for="sport4">&lt;무술&gt;</label>
+                                <input type="radio" id="sport5" name="sport" /><label for="sport5">&lt;라켓&gt;</label>
+                                <input type="radio" id="sport6" name="sport" /><label for="sport6">&lt;와타스포츠&gt;</label>
+                                <input type="radio" id="sport7" name="sport" /><label for="sport7">&lt;유산소&gt;</label>
                             </li>
                             <p id="categoryline">└ 해당 카테고리의 종목 :&nbsp;&nbsp;</p>
                             
@@ -202,15 +195,12 @@
                                     <p><input name="trainerGrad" type="radio" value="2"/><label for="univ_y">수료</label></p>
                                     <br>
                                     <p><b>학력 인증(<font color="red">필수</font>)</b> - 학생증, 재학증명서, 졸업증명서</p>
-                                    <p><input type="file" name="School" /></p>
+                                    	<form action="/trainerInfo.do" method="post" enctype="multipart/form-data">
+	                                   		<p><input type="file" name="trainerGradFile" /></p>
+                                   		</form>
                                     <p>파일을 업로드해주세요.</p>
                                 </div>
 
-                                <div id="Idcard" style="display:none;">
-                                    <p><b>신분 인증(<font color="red">필수</font>)</b> - 주민등록증, 운전면허증</p>
-                                    <p><input type="file" name="trainerGradFile"/></p>
-                                    <p>파일을 업로드해주세요.</p>
-                                </div>
                             </li>
                         </ul>
 
@@ -223,7 +213,9 @@
                                 <!--input 추가됨-->
                                 <div id="cert">
                                     <input style="float:left;" id="licenseName1" name="licenseName1" type="text" placeholder="예) GTQ 1급, 입상경력.." value="" class="input_txt01" />
-                                    <p><input type="file" name="trainerLicenseFile" /></p>
+									<form action="/trainerInfo.do" method="post" enctype="multipart/form-data">
+	                                    <p><input type="file" name="trainerLicenseFile" /></p>
+	                                </form>
                                 </div>
                                 
                                 <div id="CertAdd"></div>
@@ -262,10 +254,13 @@
 
 									<form id="career_start" action="action.jsp">
 										<div>
+
 											<input id="careerName1" name="careerName1" type="text" placeholder="ex)고라니GYM 근무" value=""/>
 											<input type="date" id="careerStart1" name="careerStart1" value="2015-10-10" min="1990-01-01" max="2018-12-31"/> ~ 
 											<input type="date" id="careerEnd1" name="careerEnd1" value="2015-10-10" min="1990-01-01" max="2018-12-31"/>
-											<input type="submit" value="전송">
+											<input type="submit" value="전송"><br>
+
+
 										</div>
 										<div id="CertCareer"></div>
 										<a onclick="addcareer();" class="addbtn" style="cursor:pointer;">추가 +</a>

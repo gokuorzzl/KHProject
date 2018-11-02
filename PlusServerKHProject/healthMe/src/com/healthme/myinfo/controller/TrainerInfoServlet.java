@@ -1,17 +1,21 @@
 package com.healthme.myinfo.controller;
 
+import java.io.File;
 import java.io.IOException;
-import java.sql.Date;
-
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import com.healthme.myinfo.model.service.TrainerInfoService;
+import com.healthme.myinfo.model.vo.FileData;
 import com.healthme.myinfo.model.vo.TrainerInfo;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 /**
  * Servlet implementation class TrainerInfoServlet
@@ -35,17 +39,51 @@ public class TrainerInfoServlet extends HttpServlet {
 		//1.인코딩
 		request.setCharacterEncoding("utf-8");
 		
+		//▷▶파일 입출력 구현을 위한 몇 가지 정보 기입◀◁
+		//참고https://blog.naver.com/PostView.nhn?blogId=holykhd&logNo=30186579618&proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F
+		//▶사용자 계정명(일단 계정을 사용하지 않으니 주석처리)
+		//HttpSession session = request.getSession(false);
+		//try~catch, userId변수선언 and so on..
+		
+		//▶최대 업로드 파일 사이즈 지정( cos 라이브러리는 10mb가 한계이다)
+		int fileSizeLimit = 5 * 1024 * 1024;
+		//1 KByte*1024 == 1024Kbyte -> 1MByte
+		
+		//▶업로드 될 경로(인덱스의 /를 인식하게 해주려고 쓰는 문단이라 그냥 생각없이 일단 쓰고본다.
+		String uploadPath = getServletContext().getRealPath("/")+"uploadFile";//+"\\"+userId;
+		System.out.println("파일경로 : "+uploadPath);
+		
+		//▶인코딩 타입(파일 인코딩 타입) 지정
+		String encType="UTF-8";
+		//미리 변수에 담아놓고 한 번에 주겠다는 소리임(나중에 객체 만들 때 하나씩 써서 객체를 만들어~~)
+		
+		//▶위 정보를 바탕으로 파일 업로드에 사용하는 MultipartRequest 객체를 생성함(요친구를 이용해서 파일 업로드를 진행하는데 이 때 사용하는 라이브러리가 cos임)
+		//라이브러리 안에 cos 추가해 줬음
+		MultipartRequest multi	=	new MultipartRequest(//파일 처리를 위한 전용 객체임
+										request,
+										uploadPath,
+										fileSizeLimit,
+										encType,
+										new DefaultFileRenamePolicy()
+									);
+		//마지막에 만든 DefaultFileRenamePolicy 객체를 만들어서 넣어주면 파일이름의 중복처리를 자동으로 해준다.
+		//ex_ a.bmp가 중복으로 2번 업로드를 하게 되면 파일의 이름이 자동으로 a1.bmp, a2.bmp로 변경된다.
+		//업로드된 파일의 정보를 바탕으로 DB에 기록할 수 있도록 생성 ㄱㄱ
+		
 		//2.views에서 가져온 데이터 변수에 저장
-		String memberID = request.getParameter("memberId");
-	    //String profileFile = request.getParameter("profileFile");
-	    //String trainerGradFile = request.getParameter("trainerGradFile");
-	    String trainerUniv = request.getParameter("trainerUniv");
-	    char trainerGrad = request.getParameter("trainerGrad").charAt(0);
-	    String trainerRegion = request.getParameter("trainerRegion");
-	    String trainerContent = request.getParameter("trainerContent");
-	    String trainerEvent = request.getParameter("trainerEvent");
+		//view에서 변수받아올때 request가 아니고 멀티쓸거임
+		String memberID = multi.getParameter("memberId");
+	    String trainerUniv = multi.getParameter("trainerUniv");
+	    char trainerGrad = multi.getParameter("trainerGrad").charAt(0);
+	    String trainerRegion = multi.getParameter("trainerRegion");
+	    String trainerContent = multi.getParameter("trainerContent");
+	    String trainerEvent = multi.getParameter("trainerEvent");
+	    String profileFile = multi.getParameter("profileFile");
+	    String trainerGradFile = multi.getParameter("trainerGradFile");
+	    String trainerCareerFile = multi.getParameter("trainerCareerFile");
+	    String trainerLicenseFile = multi.getParameter("trainerLicenseFile");
+	    
 	    /*
-	    //String trainerCareerFile = request.getParameter("trainerCareerFile");
 	    Date careerStart1 = Date.valueOf(request.getParameter("careerStart1"));
 		Date careerEnd1 = Date.valueOf(request.getParameter("careerEnd1"));
 		String careerName1 = request.getParameter("careerName1");
@@ -61,20 +99,25 @@ public class TrainerInfoServlet extends HttpServlet {
 		Date careerStart5 = Date.valueOf(request.getParameter("careerStart5"));
 		Date careerEnd5 = Date.valueOf(request.getParameter("careerEnd5"));
 		String careerName5 = request.getParameter("careerEnd5");
-		//String trainerLicenseFile = request.getParameter("trainerLicenseFile");
 		String licenseName1 = request.getParameter("licenseName1");
 		String licenseName2 = request.getParameter("licenseName2");
 		String licenseName3 = request.getParameter("licenseName3");
 		String licenseName4 = request.getParameter("licenseName4");
 		String licenseName5 = request.getParameter("licenseName5");
 		*/
+	    
 		TrainerInfo ti = new TrainerInfo();
-		//ti.set
 		ti.setMemberID(memberID);
 		ti.setTrainerUniv(trainerUniv);
+		ti.setTrainerGrad(trainerGrad);
+		ti.setTrainerRegion(trainerRegion);
 		ti.setTrainerContent(trainerContent);
 		ti.setTrainerEvent(trainerEvent);
-		
+		ti.setProfileFile(profileFile);
+		ti.setTrainerGradFile(trainerGradFile);
+		ti.setTrainerCareerFile(trainerCareerFile);
+		ti.setTrainerLicenseFile(trainerLicenseFile);
+
 		//3.비즈니스 로직처리
 		int result =new TrainerInfoService().insertTrainerInfo(ti);
 
@@ -98,3 +141,38 @@ public class TrainerInfoServlet extends HttpServlet {
 		doGet(request, response);
 	}
 }
+
+/*
+
+//▶업로드 파일의 실제 DB에 저장되는 총 경로(filePath) - 업로드되는 경로+파일이름
+String fullFilePath1 = uploadPath+"\\"+profileFile;
+String fullFilePath2 = uploadPath+"\\"+trainerGradFile;
+System.out.println("총 경로 : " + fullFilePath1);
+System.out.println("총 경로 : " + fullFilePath2);
+
+//▶파일의 크기(length)
+File file1 = new File(fullFilePath1);	
+long fileSize1 = file1.length();
+File file2 = new File(fullFilePath2);	
+long fileSize2 = file2.length();
+//▶파일 업로드 시간
+SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
+Timestamp uploadTime = null;
+uploadTime = Timestamp.valueOf(formatter.format(Calendar.getInstance().getTimeInMillis()));
+
+System.out.println("업로드된 시간 : "+uploadTime);
+//객체에 값저장
+FileData fd = new FileData();
+fd.setFileName(profileFile);		//파일이름
+fd.setFilePath(fullFilePath1);	//파일총경로(디렉토리+파일명)
+fd.setFileSize(fileSize1);		//파일 사이즈
+//fd.setFileUser(userId);			//업로드 유저
+fd.setUploadTime(uploadTime);	//업로드된 시간
+
+fd.setFileName(trainerGradFile);		//파일이름
+fd.setFilePath(fullFilePath2);	//파일총경로(디렉토리+파일명)
+fd.setFileSize(fileSize2);		//파일 사이즈
+//fd.setFileUser(userId);			//업로드 유저
+fd.setUploadTime(uploadTime);	//업로드된 시간
+
+*/

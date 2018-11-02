@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 import com.healthme.common.JDBCTemplate;
 import com.healthme.myinfo.model.dao.TrainerInfoDao;
+import com.healthme.myinfo.model.vo.FileData;
 import com.healthme.myinfo.model.vo.TrainerInfo;
 
 public class TrainerInfoService {
@@ -13,7 +14,7 @@ public class TrainerInfoService {
 	public int insertTrainerInfo(TrainerInfo ti) {
 
 		Connection conn = JDBCTemplate.getConnection();
-		int result = new TrainerInfoDao().insertTrainerInfo(ti,conn);
+		int result = new TrainerInfoDao().insertTrainerInfo(ti, conn);
 		
 		
 		if(result>0) {
@@ -26,4 +27,5 @@ public class TrainerInfoService {
 		
 		return result;
 	}
+	
 }
