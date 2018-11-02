@@ -41,7 +41,7 @@ public class BoardService {
 		
 		// 2개값을 저장하는 변수 생성 (게시물의 개수, navi의 개수)	
 		int recordCountPerPage = 10; //게시물의 개수
-		int naviCountPerPage = 5; //navi의 개수
+		int naviCountPerPage = 10; //navi의 개수
 		
 		
 		// Service에서 DAO를 호출 (2번의 DAO를 호출)
@@ -70,7 +70,7 @@ public class BoardService {
 		
 		// 2개값을 저장하는 변수 생성 (게시물의 개수, navi의 개수)	
 		int recordCountPerPage = 10; //게시물의 개수
-		int naviCountPerPage = 5; //navi의 개수
+		int naviCountPerPage = 10; //navi의 개수
 		
 		
 		// Service에서 DAO를 호출 (2번의 DAO를 호출)
@@ -98,7 +98,7 @@ public class BoardService {
 		
 		// 2개값을 저장하는 변수 생성 (게시물의 개수, navi의 개수)	
 		int recordCountPerPage = 10; //게시물의 개수
-		int naviCountPerPage = 5; //navi의 개수
+		int naviCountPerPage = 10; //navi의 개수
 		
 		
 		// Service에서 DAO를 호출 (2번의 DAO를 호출)
@@ -126,7 +126,7 @@ public class BoardService {
 		
 		// 2개값을 저장하는 변수 생성 (게시물의 개수, navi의 개수)	
 		int recordCountPerPage = 10; //게시물의 개수
-		int naviCountPerPage = 5; //navi의 개수
+		int naviCountPerPage = 10; //navi의 개수
 		
 		
 		// Service에서 DAO를 호출 (2번의 DAO를 호출)
@@ -152,6 +152,12 @@ public class BoardService {
 	public Board qnaSelectOneList(String qnaNum) {
 		Connection conn = JDBCTemplate.getConnection();
 		Board b = new BoardDao().qnaSelectOneList(qnaNum,conn);
+		return b;
+	}
+
+	public Board freeSelectOneList(String freeNum) {
+		Connection conn = JDBCTemplate.getConnection();
+		Board b = new BoardDao().freeSelectOneList(freeNum,conn);
 		JDBCTemplate.close(conn);
 		return b;
 	}

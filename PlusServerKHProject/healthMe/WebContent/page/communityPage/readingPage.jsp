@@ -71,7 +71,7 @@
                     </div>
                     <div id="writeCommentFrame">
                         <div id="writeCommentTextView">
-                            <textarea id="writeCommentText"></textarea>
+                            <textarea id="writeCommentText" style="resize:none;"></textarea>
                         </div>
                         <div id="writeCommentBtnView">
                             <button id="writeCommentBtn" onclick="commentBtn();">댓글</button>

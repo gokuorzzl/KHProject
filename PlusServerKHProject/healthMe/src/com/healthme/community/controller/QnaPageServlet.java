@@ -48,7 +48,7 @@ public class QnaPageServlet extends HttpServlet {
 			
 			view.forward(request, response);
 		}else {
-			response.sendRedirect("/page/communityPage/error.jsp");
+			response.sendRedirect("/page/communityPage/qError.jsp");
 		}
 	}
 

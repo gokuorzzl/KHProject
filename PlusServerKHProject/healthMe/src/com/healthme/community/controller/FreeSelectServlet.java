@@ -10,21 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.healthme.community.model.service.BoardService;
-import com.healthme.community.model.vo.BoardPageData;
-
-import sun.management.counter.Variability;
+import com.healthme.community.model.vo.Board;
 
 /**
- * Servlet implementation class QnaSearchServlet
+ * Servlet implementation class FreeSelectServlet
  */
-@WebServlet(name = "QnaSearch", urlPatterns = { "/qnaSearch.do" })
-public class QnaSearchServlet extends HttpServlet {
+@WebServlet(name = "FreeSelect", urlPatterns = { "/freeSelect.do" })
+public class FreeSelectServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public QnaSearchServlet() {
+    public FreeSelectServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,27 +33,15 @@ public class QnaSearchServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		
-		String searchText = request.getParameter("searchText");
-		int searchSelect = Integer.valueOf(request.getParameter("searchSelect"));
+		String freeNum = request.getParameter("freeNum");
 		
-		int currentPage;
-		
-		if(request.getParameter("currentPage")==null) {
-			currentPage=1;
-		}else {
-			currentPage = Integer.parseInt(request.getParameter("currentPage"));
-		}
-		
-		BoardPageData bpd = new BoardService().qnaSearchList(currentPage, searchText,searchSelect);
-		
-		if(bpd!=null) {
-			RequestDispatcher view = request.getRequestDispatcher("page/communityPage/QnAPage.jsp");
-			request.setAttribute("boardPageData", bpd);
-			request.setAttribute("keyword", searchText);
-			
+		Board b = new BoardService().freeSelectOneList(freeNum);
+		if(b!=null) {
+			RequestDispatcher view = request.getRequestDispatcher("page/communityPage/readingPage.jsp");
+			request.setAttribute("selectBoard", b);
 			view.forward(request, response);
 		}else {
-			response.sendRedirect("/page/communityPage/QnAPage.jsp");
+			response.sendRedirect("/page/communityPage/error.jsp");
 		}
 	}
 

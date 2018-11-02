@@ -49,10 +49,11 @@ public class FreeSearchServlet extends HttpServlet {
 		if(bpd!=null) {
 			RequestDispatcher view = request.getRequestDispatcher("page/communityPage/boardPage.jsp");
 			request.setAttribute("boardPageData", bpd);
+			request.setAttribute("keyword", searchText);
 			
 			view.forward(request, response);
 		}else {
-			response.sendRedirect("/page/communityPage/error.jsp");
+			response.sendRedirect("/page/communityPage/boardPage.jsp");
 		}
 	}
 

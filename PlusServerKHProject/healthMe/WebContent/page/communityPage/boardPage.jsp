@@ -4,8 +4,14 @@
 		import = "java.util.ArrayList"%>
 <%
 	BoardPageData bpd = (BoardPageData)request.getAttribute("boardPageData");
-	ArrayList<Board> list = bpd.getList();
-	String pageNavi = bpd.getPageNavi();
+	String keyword = (String)request.getAttribute("keyword");
+	ArrayList<Board> list = null;
+	String pageNavi = null;
+	
+	if(bpd!=null){
+		list = bpd.getList();//현재 페이지의 글 목록
+		pageNavi = bpd.getPageNavi();//현재 navi Bar
+	}
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -77,16 +83,22 @@
                                 </tr>
                             </thead>
                             <tbody>
-                              	<%for(Board b : list){ %>
+                              	<%if(bpd!=null){
+                            	for(Board b : list){ %>
 								<tr>
-									<td><a href="#"><%=b.getTitle() %></a></td>
+									<td><a href="/freeSelect.do?freeNum=<%=b.getNum()%>"><%=b.getTitle() %></a></td>
 									<td><%=b.getUserId() %></td>
 									<td><%=b.getInsertDate() %></td>
 									<td><%=b.getHits() %></td>
 								</tr>
-								<%} %>
+								<%}%>
                             </tbody>
                         </table>
+                            	<%}else{%>
+                            	</tbody>
+                        </table>
+                        	검색한 결과가 없습니다.
+                         <% }%>
                     </div>
                     
                     <div id="noticeBoardSearchFrame">
@@ -100,7 +112,11 @@
                             </select>
                         </div>
                         <div id="search">
-                            <input type="text" id="searchText" name="searchText">
+                           <%if(keyword!=null){ %>
+                            	<input type="text" id="searchText" name="searchText" value="<%=keyword%>"/>
+	                        <%}else { %>
+	                        	<input type="text" id="searchText" name="searchText"/>
+	                        <%}%>
                         </div>
                         <div id="searchSubmit">
                             <button type="submit" onclick="return searchBtn();">검색</button>
@@ -109,7 +125,11 @@
                         </form>
                     </div>
                     <div id="writeFrame">
-                        <div id="writeBtnEmptySpace" ><a href="#">1</a></div>
+                    <%if(pageNavi!=null){ %>
+                        <div id="writeBtnEmptySpace" ><label><%=pageNavi %></label></div>
+                    <%}else{ %>
+                   		 <div id="writeBtnEmptySpace" ><label>0</label></div>
+                    <%} %>
                         <div id="writeBtnFrame">
                             <button id="write" onclick="writeBtn();">글쓰기</button>
                         </div>

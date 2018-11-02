@@ -8,7 +8,9 @@ public class Comment {
     private int commentNumber; //댓글번호
     private Date commentInsertDate; //등록날짜
     private String commentContent; //댓글 내용
-	
+	private int commentAvailable;
+	private Date commentDeleteDate;
+    
     public Comment() {
 		super();
 		// TODO Auto-generated constructor stub

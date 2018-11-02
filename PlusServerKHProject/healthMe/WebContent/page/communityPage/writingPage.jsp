@@ -65,7 +65,7 @@
                         </div>
                         <div id="writeContentsframe">
                             <div id="realWriteContentsframe">
-                                <pre><span>내     용 :</span> <textarea id="contentsText" name="contentsText"></textarea>
+                                <pre><span>내     용 :</span> <textarea id="contentsText" name="contentsText" style="resize:none;"></textarea>
                                 </pre>
                             </div>
                         </div>
@@ -110,10 +110,9 @@
 		   	 }
     	}
 
-    	출처: http://l2j.co.kr/1167 [L2J with DuraBoys]
         function check(){
-            var TitleText = document.getElementById("TitleText").value;
-            var ContentsText = document.getElementById("ContentsText").value;
+            var TitleText = document.getElementById("titleText").value;
+            var ContentsText = document.getElementById("contentsText").value;
             if(TitleText==""){
                 alert("제목을 작성해주세요!");
                 return false;

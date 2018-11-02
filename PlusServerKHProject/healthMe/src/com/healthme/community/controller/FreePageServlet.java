@@ -50,7 +50,7 @@ public class FreePageServlet extends HttpServlet {
 			
 			view.forward(request, response);
 		}else {
-			response.sendRedirect("/page/communityPage/error.jsp");
+			response.sendRedirect("/page/communityPage/fError.jsp");
 		}
 	}
 

@@ -15,13 +15,14 @@ public class BoardDao {
 	public int noticeWriting(String titleText, String contentsText, String passwordText, Connection conn) {
 		PreparedStatement pstmt =null;
 		int result = 0;
-		String query = "insert into freeboard values(freeBoard_No.nextval,'userId',?,?,1,null,sysdate,0,default,?)";
+		String query = "insert into freeboard values(FBOARD_SEQ.nextval,'userId',?,?,1,null,sysdate,0,default,?)";
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, titleText);
 			pstmt.setString(2, contentsText);
 			pstmt.setString(3, passwordText);
 			result = pstmt.executeUpdate();
+			System.out.println(result);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -34,7 +35,7 @@ public class BoardDao {
 	public int QnAWriting(String titleText, String contentsText, String passwordText, Connection conn) {
 		PreparedStatement pstmt =null;
 		int result = 0;
-		String query = "insert into questionBoard values(questionBoard_NO.nextval,'userId',?,?,1,null,sysdate,0,default,?)";
+		String query = "insert into questionBoard values(QBOARD_SEQ.nextval,'userId',?,?,1,null,sysdate,0,default,?)";
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, titleText);
@@ -626,6 +627,39 @@ public class BoardDao {
 				b.setHits(rset.getInt("qboardhits"));
 				b.setNotice(rset.getString("qboardnotice"));
 				b.setPwd(rset.getInt("qboardpwd"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		return b;
+	}
+
+	public Board freeSelectOneList(String freeNum, Connection conn) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String query = "select * from FREEBOARD where freenum=?";
+		Board b = null;
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, freeNum);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				b = new Board();
+				b.setNum(rset.getInt("freenum"));
+				b.setUserId(rset.getString("freeuserid"));
+				b.setTitle(rset.getString("freetitle"));
+				b.setContent(rset.getString("freecontent"));
+				b.setAvailable(rset.getInt("freeavailable"));
+				b.setInsertDate(rset.getDate("freeinsertDate"));
+				b.setHits(rset.getInt("freehits"));
+				b.setNotice(rset.getString("freenotice"));
+				b.setPwd(rset.getInt("freepwd"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

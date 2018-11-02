@@ -39,20 +39,16 @@ public class WritingPageServlet extends HttpServlet {
 		if(boardDivision==0) {
 			int result = new BoardService().noticeWriting(titleText,contentsText,passwordText);
 			if(result>0) {
-				RequestDispatcher view = request.getRequestDispatcher("page/communityPage/writingResult.jsp?result=1");
-				view.forward(request, response);
+				response.sendRedirect("/page/communityPage/fWritingResult.jsp?result=1");
 			}else {
-				RequestDispatcher view = request.getRequestDispatcher("page/communityPage/writingResult.jsp?result=0");
-				view.forward(request, response);
+				response.sendRedirect("/page/communityPage/fWritingResult.jsp?result=0");
 			}
 		}else {
 			int result = new BoardService().QnAWriting(titleText,contentsText,passwordText);
 			if(result>0) {
-				RequestDispatcher view = request.getRequestDispatcher("page/communityPage/writingResult.jsp?result=1");
-				view.forward(request, response);
+				response.sendRedirect("/page/communityPage/qWritingResult.jsp?result=1");
 			}else {
-				RequestDispatcher view = request.getRequestDispatcher("page/communityPage/writingResult.jsp?result=0");
-				view.forward(request, response);
+				response.sendRedirect("/page/communityPage/qWritingResult.jsp?result=0");
 			}
 		}
 		
