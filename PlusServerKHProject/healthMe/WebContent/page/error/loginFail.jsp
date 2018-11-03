@@ -9,7 +9,7 @@
 <body>
 	<script>
 		alert("로그인 후에 이용 가능한 서비스입니다.");
-		location.href = "index.jsp";
+		location.href = "/index.jsp";
 	</script>
 </body>
 </html>

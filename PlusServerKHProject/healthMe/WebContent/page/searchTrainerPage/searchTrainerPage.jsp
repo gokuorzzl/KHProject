@@ -142,7 +142,7 @@
 											style="width:30%; 
 											height:49.5%; float:left; box-sizing:border-box; cursor: pointer;
 											border:1.5px solid #3c3e3a; border-radius:6px 6px 6px 6px;
-											margin-left:0.5%; margin-top:0.5%; text-align:right; overflow:hidden;">	 
+											margin-left:0.5%; margin-top:0.5%; text-align:right; overflow:hidden;"> 
 									<%} else { %>
 										<form class="trainerForm" action="/trainerOneSearch.do" method="post"
 											style="width:30%; 
@@ -160,7 +160,14 @@
 											<div style="width:100%; height:40%; box-sizing:border-box; margin-left:-5px;">
 												<div style="width:100%; height:30%; margin-top:1%; overflow:hidden;">[<%=trainerList.get(i).getMemberName() %>] 트레이너</div>
 												<div style="width:100%; height:30%; margin-top:1%; overflow:hidden;"><%=trainerList.get(i).getTrainerEvent() %></div>
-												<div style="width:100%; height:30%; margin-top:1%; overflow:hidden;"><%=trainerList.get(i).getMatchingScore() %></div>
+												<div style="width:100%; height:30%; margin-top:1%; overflow:hidden;">
+													<%for(int j=0 ; j<Math.round(trainerList.get(i).getMatchingScore()) ; j++){ %>
+														<img src="../../img/star/starFull.PNG" style="width:15%; height:100%;"/>
+													<%} %>
+													<%for(int j=0 ; j<5-Math.round(trainerList.get(i).getMatchingScore()) ; j++){ %>
+														<img src="../../img/star/starNull.PNG" style="width:15%; height:100%;"/>
+													<%} %>
+												</div>
 											</div>
 										</div>
 									<%if(member==null) {%>
@@ -172,7 +179,7 @@
 							<%if(trainerList.size()>(recordPerPage/2)){ %>
 								<% for(int i=(recordPerPage/2) ; i<trainerList.size() ; i++){ %>
 									<%if(member==null){%>
-										<a href="../searchTrainerPage/loginFail.jsp" 
+										<a href="../page/error/loginFail.jsp" 
 											style="width:30%; 
 											height:49.5%; float:left; box-sizing:border-box; cursor: pointer;
 											border:1.5px solid #3c3e3a; border-radius:6px 6px 6px 6px;
@@ -194,7 +201,14 @@
 												<div style="width:100%; height:40%; box-sizing:border-box; margin-left:-5px;">
 													<div style="width:100%; height:30%; margin-top:1%; overflow:hidden;">[<%=trainerList.get(i).getMemberName() %>] 트레이너</div>
 													<div style="width:100%; height:30%; margin-top:1%; overflow:hidden;"><%=trainerList.get(i).getTrainerEvent() %></div>
-													<div style="width:100%; height:30%; margin-top:1%; overflow:hidden;"><%=trainerList.get(i).getMatchingScore() %></div>
+													<div style="width:100%; height:30%; margin-top:1%; overflow:hidden;">
+													<%for(int j=0 ; j<Math.round(trainerList.get(i).getMatchingScore()) ; j++){ %>
+														<img src="../../img/star/starFull.PNG" style="width:15%; height:100%;"/>
+													<%} %>
+													<%for(int j=0 ; j<5-Math.round(trainerList.get(i).getMatchingScore()) ; j++){ %>
+														<img src="../../img/star/starNull.PNG" style="width:15%; height:100%;"/>
+													<%} %>
+													</div>
 												</div>
 											</div>
 									<%if(member==null) {%>
