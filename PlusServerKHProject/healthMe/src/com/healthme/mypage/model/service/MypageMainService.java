@@ -36,13 +36,11 @@ public class MypageMainService {
 				my.setTrainerName(trainerList.get(i).toString());
 				mylist.add(my);
 			}
-
-			
-
 			// 매칭관계값이 'b' = 신청서를 보낸상태
 			// 매칭관계값이 'c' = 신청완료 상태
 		}
 		
+		System.out.println("service : "+mylist);
 
 		return mylist;
  		

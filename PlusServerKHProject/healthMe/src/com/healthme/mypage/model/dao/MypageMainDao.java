@@ -36,10 +36,11 @@ public class MypageMainDao {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
 		}
+		System.out.println("Dao_ IsTrainer = "+result);
 		return result;
 	}
 
-	public ArrayList<Matching> searchMatching(Connection conn, String memberId) {
+/*	public ArrayList<Matching> searchMatching(Connection conn, String memberId) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		String query = "select * from matching where memberid= ?";
@@ -60,8 +61,6 @@ public class MypageMainDao {
 				m.setMatchingScore(rset.getInt("matchingscore"));
 				list.add(m);
 			}
-			
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -69,30 +68,7 @@ public class MypageMainDao {
 			JDBCTemplate.close(pstmt);
 		}
 		return list;
-	}
-
-	public void searchABCSubject(Connection conn, String memberId, Trainer trainer) {
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		String query1 = "select trainersubject from trainer where memberid = ?";
-		String query2 = "select wishtrainercheck from matching where matchingmemberid = ? and matchedmemberid = ?";
-		Mypage mp = new Mypage();
-		Matching mc = new Matching();
-		
-		try {
-			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, memberId);
-			pstmt.setString(2, query2);
-			rset = pstmt.executeQuery();
-			while(rset.next()) {
-				
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-	}
+	}*/
 
 	// 매칭관계 a,b,c 탐색함수
 	public String searchABC(Connection conn, String memberId, String trainer) {
@@ -116,6 +92,7 @@ public class MypageMainDao {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
 		}
+		System.out.println("Dao- Search 매칭관계abc탐색함수 :"+result);
 		return result;
 	}
 
@@ -138,6 +115,7 @@ public class MypageMainDao {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
 		}
+		System.out.println("dao- 강의제목 : "+result);
 		return result;
 	}
 

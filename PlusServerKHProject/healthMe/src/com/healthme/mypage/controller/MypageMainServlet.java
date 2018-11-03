@@ -37,14 +37,16 @@ public class MypageMainServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		ArrayList<Trainer> trainerList = (ArrayList<Trainer>)request.getAttribute("trainerList");
+		System.out.println("trainerList : "+trainerList.get(0).getMemberId());
 		HttpSession session = request.getSession(false);
 		String memberId = ((Member)session.getAttribute("member")).getMemberId();
 		
 		ArrayList<Mypage> mylist = new MypageMainService().searchMemberTrainer(memberId, trainerList);
 		
+		System.out.println("servlets : "+mylist);
 		RequestDispatcher view = request.getRequestDispatcher("page/mypage/mypageMain.jsp");
 		request.setAttribute("mylist", mylist);
-		view.forward(request, response);	// 
+		view.forward(request, response);
 		
 	}
 

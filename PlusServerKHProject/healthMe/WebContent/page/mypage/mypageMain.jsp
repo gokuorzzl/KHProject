@@ -6,6 +6,7 @@
 %>
 <%@ page import="com.healthme.member.vo.*" 
 		import="com.healthme.trainer.model.vo.*"
+		import="com.healthme.mypage.model.vo.*"
 %>
 
 
@@ -51,6 +52,7 @@
 	            				session = request.getSession(false);
 	            				Member member = (Member)session.getAttribute("member");
 	            				Trainer t = (Trainer)request.getAttribute("trainer");
+	            				ArrayList<Mypage> mylist = (ArrayList<Mypage>)request.getAttribute("mylist");
                         	%>
         <!--컨텐츠가 들어가는 중간부분-->
         <!--페이지별로 달라지는 부분-->
@@ -104,6 +106,7 @@
 	                            <a href="">
 	                                <img id="img04" src="../../img/icon_my_menu03.png">
 	                                <p id="sec02_p3">관심 트레이너</p>
+	                                <p>제목 : <%=mylist.get(0).getSubject() %></p>
 	                                <p>0건</p>
 	                            </a>
 	                        </div>
@@ -111,7 +114,7 @@
 	                </div>
 	                <div id="sec03">
 		                <div class="box">
-		                	<div class="box1"><p>등록 전화번호 	: <%=member.getMemberPhone() %> </p1></div>
+		                	<div class="box1"><p>등록 전화번호 : <%=member.getMemberPhone() %> </p1></div>
 		                	<div class="box2"><p>등록 이메일 	: <%=member.getMemberEmail() %> </p></div>
 		                	<div class="box3"><p>회원 등급 	:  <%=member.getMemberClass() %> </p></div>
 		                </div>
