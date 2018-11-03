@@ -45,10 +45,10 @@ public class TrainerInfoServlet extends HttpServlet {
 		//▷▶파일 입출력 구현을 위한 몇 가지 정보 기입◀◁
 		//참고https://blog.naver.com/PostView.nhn?blogId=holykhd&logNo=30186579618&proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F
 		//▶사용자 계정명(일단 계정을 사용하지 않으니 주석처리)
-		HttpSession session = request.getSession(false);
-		System.out.println("세션의값은????"+session);
+//		HttpSession session = request.getSession(false);
+//		System.out.println("세션의값은????"+session);
 		try {
-			String userId = ((Member)session.getAttribute("member")).getMemberId();
+//			String userId = ((Member)session.getAttribute("member")).getMemberId();
 		
 		//▶최대 업로드 파일 사이즈 지정( cos 라이브러리는 10mb가 한계이다)
 		int fileSizeLimit = 5 * 1024 * 1024;
@@ -79,13 +79,16 @@ public class TrainerInfoServlet extends HttpServlet {
 		
 		//2.views에서 가져온 데이터 변수에 저장
 		//view에서 변수받아올때 request가 아니고 멀티쓸거임
-		String userID = multi.getParameter("memberId");
-		System.out.println("멤버의아이디디디디"+userId);
-		    String trainerUniv1 = multi.getParameter("trainerUniv1");
-		    String trainerUniv2 = multi.getParameter("trainerUniv2");
+//		System.out.println("멤버의아이디디디디"+userId);
+		String trainerUniv1 = multi.getParameter("trainerUniv1");
+		System.out.println("trainerUniv1"+trainerUniv1);
+		String trainerUniv2 = multi.getParameter("trainerUniv2");
 	    String trainerUniv = trainerUniv1+" "+trainerUniv2;
-	    char trainerGrad = multi.getParameter("trainerGrad").charAt(0);
+	    System.out.println("trainerUniv1"+trainerUniv1);
+	    String trainerGrad = multi.getParameter("trainerGrad");
+	    System.out.println("trainerUniv1"+trainerUniv1);
 		    String trainerRegion1 = multi.getParameter("trainerRegion1");
+		    System.out.println("trainerUniv1"+trainerUniv1);
 		    String trainerRegion2 = multi.getParameter("trainerRegion2");
 		    String trainerRegion3 = multi.getParameter("trainerRegion3");
 	    String trainerRegion = trainerRegion1+" "+trainerRegion2+" "+trainerRegion3;
@@ -94,6 +97,7 @@ public class TrainerInfoServlet extends HttpServlet {
 	    String profileFile = multi.getParameter("profileFile");
 	    String trainerGradFile = multi.getParameter("trainerGradFile");
 	    String trainerCareerFile = multi.getParameter("trainerCareerFile");
+	    System.out.println("trainerUniv1"+trainerUniv1);
 	    String trainerLicenseFile = multi.getParameter("trainerLicenseFile");
 	    	String [] trainerEventvalue = multi.getParameterValues("trainerEvent");
 	    String trainerEvent = "";
@@ -109,8 +113,8 @@ public class TrainerInfoServlet extends HttpServlet {
 		    		else {
 		    			trainerEvent += trainerEventvalue[i];
 		    		}
-		    			continue;
-		    		}
+		    		continue;
+		    	}
 		    	
 		    }	    
 		    System.out.println("trainerEventValue의 길이길이"+trainerEventvalue.length);
@@ -142,9 +146,9 @@ public class TrainerInfoServlet extends HttpServlet {
 		System.out.println("careerStart1의값값값"+careerStart1);
 		
 		TrainerInfo ti = new TrainerInfo();
-		ti.setMemberID(userId);
+//		ti.setMemberID(userId);
 		ti.setTrainerUniv(trainerUniv);
-		ti.setTrainerGrad(trainerGrad);
+		ti.setTrainerGrad(trainerGrad.charAt(0));
 		ti.setTrainerRegion(trainerRegion);
 		ti.setTrainerSubject(trainerSubject);
 		ti.setTrainerContent(trainerContent);
@@ -176,21 +180,21 @@ public class TrainerInfoServlet extends HttpServlet {
 		
 		System.out.println("ti의값값값"+ti);
 		//3.비즈니스 로직처리
-		int result =new TrainerInfoService().insertTrainerInfo(ti,userId);
+//		int result =new TrainerInfoService().insertTrainerInfo(ti,userId);
 
-		System.out.println("result의값값TrainerInfoServletd은???"+result);
+//		System.out.println("result의값값TrainerInfoServletd은???"+result);
 		//4.결과
-		if(result>0) {
-			//데이터 양 많을때(보안강화, url에 서블릿 주소가 표시)
-			RequestDispatcher view = request.getRequestDispatcher("/page/mypage/trainerInfoSuccess.jsp");
-			request.setAttribute("result", result);
-			view.forward(request, response);
-		}else {
+//		if(result>0) {
+//			//데이터 양 많을때(보안강화, url에 서블릿 주소가 표시)
+//			RequestDispatcher view = request.getRequestDispatcher("/page/mypage/trainerInfoSuccess.jsp");
+//			request.setAttribute("result", result);
+//			view.forward(request, response);
+//		}else {
 			//데이터 양 적을때(url에 경로가 그대로 표시됨)
-			response.sendRedirect("/page/mypage/trainerInfoFail.jsp");
-		}
+//			response.sendRedirect("/page/mypage/trainerInfoFail.jsp");
+//		}
 	}catch(Exception e) {
-		response.sendRedirect("/page/mypage/trainerInfoFail.jsp");
+//		response.sendRedirect("/page/mypage/trainerInfoFail.jsp");
 	}
 	
 	
