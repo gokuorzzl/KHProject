@@ -36,29 +36,26 @@ public class MypageMainDao {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
 		}
-		System.out.println("Dao_ IsTrainer = "+result);
 		return result;
 	}
 
-/*	public ArrayList<Matching> searchMatching(Connection conn, String memberId) {
+	public ArrayList<Mypage> searchMatching(Connection conn, String memberId) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		String query = "select * from matching where memberid= ?";
+		String query = "select * from matching where matchingmemberid= ?";
 		
-		ArrayList<Matching> list = new ArrayList<Matching>();
+		ArrayList<Mypage> list = new ArrayList<Mypage>();
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, memberId);
 			rset = pstmt.executeQuery();
-			
-			Matching m = null;
+			Mypage m = null;
 			while(rset.next()) {
-				// 디비순서대로 값을 가져온다. 매칭 = 유저 / 
-				m = new Matching();
-				m.setMatchingMemberId(rset.getString("matchingMemberId"));
-				m.setWishTrainerCheck(rset.getString("wishtrainercheck"));
-				m.setMatchedMemberId(rset.getString("matchedmemberId"));
-				m.setMatchingScore(rset.getInt("matchingscore"));
+				// 디비순서대로 값을 가져온다.
+				m = new Mypage();
+				m.setMemberId(rset.getString("matchingMemberId"));	// 수강생
+				m.setAbc(rset.getString("wishtrainercheck"));	// 매칭관계체크
+				m.setTrainerId(rset.getString("matchedmemberId"));	// 트레이너
 				list.add(m);
 			}
 		} catch (SQLException e) {
@@ -68,32 +65,6 @@ public class MypageMainDao {
 			JDBCTemplate.close(pstmt);
 		}
 		return list;
-	}*/
-
-	// 매칭관계 a,b,c 탐색함수
-	public String searchABC(Connection conn, String memberId, String trainer) {
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		String query = "select wishtrainercheck from matching where matchingmemberid = ? and matchedmemberid = ?";
-		
-		String result = "";
-		try {
-			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, memberId);
-			pstmt.setString(2, trainer);
-			rset = pstmt.executeQuery();
-			while(rset.next()) {	//가져올값이 여러개일때 사용.
-				result = rset.getString("wishtrainercheck");
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			JDBCTemplate.close(rset);
-			JDBCTemplate.close(pstmt);
-		}
-		System.out.println("Dao- Search 매칭관계abc탐색함수 :"+result);
-		return result;
 	}
 
 	public String searchTrainerSubject(Connection conn, String trainer) {
@@ -115,7 +86,6 @@ public class MypageMainDao {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
 		}
-		System.out.println("dao- 강의제목 : "+result);
 		return result;
 	}
 

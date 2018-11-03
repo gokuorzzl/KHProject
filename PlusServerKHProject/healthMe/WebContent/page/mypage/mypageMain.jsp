@@ -1,3 +1,4 @@
+<%@page import="java.io.Console"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ 
@@ -8,7 +9,13 @@
 		import="com.healthme.trainer.model.vo.*"
 		import="com.healthme.mypage.model.vo.*"
 %>
-
+<%
+	session = request.getSession(false);
+	Member member = null;
+	member = (Member)session.getAttribute("member");
+	System.out.println("JSP" + member.getMemberId());
+	ArrayList<Mypage> mylist = (ArrayList)request.getAttribute("mylist");
+%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -35,25 +42,13 @@
 </head>
 <body>
 <!--전체 공간-->
-<%-- 		<% for(SearchedTrainerResult n : trainerList){ %>
-									아이디 : <%=n.getMemberId() %><br>
-									이름 : <%=n.getMemberName() %><br>
-									프로필 경로 : <%=n.getProfileFile() %><br>
-									종목 : <%=n.getTrainerEvent() %><br>
-									별점 : <br>
-									<br><br><br>
-		<% } %>  --%>
     
     <div id="wrapper">
         <div id="top">
-      		<jsp:include page="/page/header/header.jsp"/>
+      		 <jsp:include page="/page/header/header.jsp"/>
         </div>
-                        	<%
-	            				session = request.getSession(false);
-	            				Member member = (Member)session.getAttribute("member");
-	            				Trainer t = (Trainer)request.getAttribute("trainer");
-	            				ArrayList<Mypage> mylist = (ArrayList<Mypage>)request.getAttribute("mylist");
-                        	%>
+                        	
+                        	
         <!--컨텐츠가 들어가는 중간부분-->
         <!--페이지별로 달라지는 부분-->
         <div id="middle">
@@ -63,8 +58,8 @@
 	                <div id="sec01">
 	                    <div class="box">	                    	
                         	<div id="img01">
-                        	<%  if(t!=null){%>
-                        		<img src="<%=t.getProfileFile()%>" alt="userImg">                        	
+                        	<%  if(!mylist.isEmpty()){%>
+                        		<img src="<%=mylist.get(0).getProfile()%>" alt="userImg">                        	
                         	<%	} else{%>
                         		<img src="../../img/person_image.png" alt="userImg">
                         	<%  }%>
@@ -73,10 +68,13 @@
                             <% if(member!=null){ %>                   	
 		                        <div id="p1"><p><%=member.getMemberId()%>님</p><br><p>환영합니다!</p></div>
 		                        <div id="p3">
-		                        	<a href="../loginPage/memberMyInfo.jsp">회원정보수정</a>
+		                        	<a href="../../page/loginPage/memberMyInfo.jsp">회원정보수정</a>
+		                        </div>
+		                        <div id="p5">
+		                        	<a href="../loginPage/memberMy"></a>
 		                        </div>
 		                     <% }%>
-		                     <%if(t!=null){ %>
+		                     <%if(member!=null){ %>
 		                     	<div id="p3_1">
 		                        	<a href="../loginPage/memberMyInfo.jsp">이력서수정</a>
 		                        </div>
@@ -106,7 +104,7 @@
 	                            <a href="">
 	                                <img id="img04" src="../../img/icon_my_menu03.png">
 	                                <p id="sec02_p3">관심 트레이너</p>
-	                                <p>제목 : <%=mylist.get(0).getSubject() %></p>
+	                              
 	                                <p>0건</p>
 	                            </a>
 	                        </div>
@@ -114,9 +112,11 @@
 	                </div>
 	                <div id="sec03">
 		                <div class="box">
-		                	<div class="box1"><p>등록 전화번호 : <%=member.getMemberPhone() %> </p1></div>
-		                	<div class="box2"><p>등록 이메일 	: <%=member.getMemberEmail() %> </p></div>
-		                	<div class="box3"><p>회원 등급 	:  <%=member.getMemberClass() %> </p></div>
+		                	if(member!=null){
+			                	<div class="box1"><p>등록 전화번호 : <%=member.getMemberPhone() %> </p1></div>
+			                	<div class="box2"><p>등록 이메일 	: <%=member.getMemberEmail() %> </p></div>
+			                	<div class="box3"><p>회원 등급 	:  <%=member.getMemberClass() %> </p></div>
+		                	}
 		                </div>
 	                </div>
             	</div>
