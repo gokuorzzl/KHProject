@@ -659,7 +659,7 @@ public class AdminDao {
 
 	public ArrayList<Ad> adminAdList(Connection conn) {
 		
-		ArrayList<Ad> Adlist = new ArrayList<Ad>();
+		ArrayList<Ad> adList = new ArrayList<Ad>();
 		Statement stmt = null;
 		ResultSet rset = null;
 		
@@ -677,7 +677,7 @@ public class AdminDao {
 				ad.setProfit(rset.getInt("profit"));
 				ad.setPostStartDate(rset.getDate("postStartDate"));
 				ad.setPostEndDate(rset.getDate("postendDate"));
-				Adlist.add(ad);
+				adList.add(ad);
 			}
 			
 		} catch (SQLException e) {
@@ -687,8 +687,11 @@ public class AdminDao {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(stmt);
 		}
-		
-		return Adlist;
+		System.out.println("디에이오 : " + adList.get(0).getCompany());
+		System.out.println("디에이오 : " + adList.get(1).getCompany());
+		System.out.println("디에이오 : " + adList.get(2).getCompany());
+		System.out.println("디에이오 : " + adList.get(3).getCompany());
+		return adList;
 	}
 
 

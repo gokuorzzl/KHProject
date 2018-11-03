@@ -1,12 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-   <%@ page import="com.healthme.admin.vo.*" %>
-<!DOCTYPE html>
+   <%@ page import="com.healthme.admin.vo.*" 
+   			import="java.util.*"		
+   	%>
+<%
+	ArrayList<Ad> adList = (ArrayList<Ad>)request.getAttribute("adList");
+%>   
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-
 
 <!--  반응형 웹을 위해서 meta date를 넣어주었다. 핸드폰과 사이트 둘다 봤을때 깔끔하게 보이게 하기 위해서이다. -->
 <meta name="viewport" content="width=device-width" , initial-scale="1">
@@ -15,11 +18,9 @@
   <link href="../../css/admin/adminMain.css" rel="stylesheet" />
     <link href="../../css/admin/adminCustom.css" rel="stylesheet" />
 
-
-<title>관리자페이지 메인</title>
+<title>Insert title here</title>
 </head>
 <body>
-
 <!-- 로그인이 안되었을 경우창 띄우게 할지 말지 결정해보기 -->
 
 <!-- 전체를 묶는다. -->	
@@ -157,97 +158,92 @@
                 </div>
             </div>
              <hr style="border:1px solid #000;"/>
+             
+             
+             
+
+
+             
+             
+             
+             
+             
+             
+             
                 <div class="row">
+					<%--content --%>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+						<div class="table-responsive">
+							<h3>광고설정</h3>
+							<table class="table table-striped table-bordered table-hover">
+								<!--       <table cellSpacing=0 borderColorDark=white width="760" bgColor=#c0c0c0 borderColorLight=#dddddd border=1 class="s1">-->
+								<!--  <form id=updateform method="post" action="/adminMemberAllUpdate.do"> -->
+									<input type="hidden" name="theme"
+										value="basicinfo/basic_info2_qry"> <input
+										type="hidden" name="menushow" value="menu1">
 
-                    <div class="col-md-8">
+									<tr bgColor=E0E4E8>
+										<td colSpan=4 align="center"><font color="#333333">고객사명</font></td>
+										<td colSpan=4 align="center"><font color="#333333">광고링크</font></td>
+										<td colSpan=4 align="center"><font color="#333333">재생하기</font></td>
+										<td colSpan=4 align="center"><font color="#333333">수익</font></td>
+										<td colSpan=4 align="center"><font color="#333333">광고 게시 시작날짜</font></td>
+										<td colSpan=4 align="center"><font color="#333333">광고 게시 종료날짜</font></td>
+									</tr>
+									
+										<%for(Ad a : adList){%>
+										<tr>
+										<td colSpan=4><font color="#333333"><%=a.getCompany()%></font></td>
+											<td colSpan=4><font color="#333333"><%=a.getVideoLink()%></font></td>
+											<td colSpan=4><font color="#333333">
+												<botton>재생</botton>
+											</font></td>
+											<td colSpan=4><font color="#333333"><%=a.getProfit()%></font></td>
+											<td colSpan=4><font color="#333333"><%=a.getPostStartDate()%></font></td>
+											<td colSpan=4><font color="#333333"><%=a.getPostEndDate()%></font></td>
+										</tr>
+										<%} %>
 
-                        <div class="table-responsive">
-                        <h3>자유게시판</h3>
-                            <table class="table table-striped table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>번호</th>
-                                        <th>제목</th>
-                                        <th>내용</th>
-                                        <th>이름</th>
-                                        <th>Q/A, 자유</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td><span class="label label-danger">Mark</span></td>
-                                        <td>Otto</td>
-                                        <td>김종규</td>
-                                        <td><span class="label label-info">100090</span></td>
-                                    </tr>
-                                     <tr>
-                                        <td>1</td>
-                                        <td><span class="label label-danger">Mark</span></td>
-                                        <td>Otto</td>
-                                        <td>김종규</td>
-                                        <td><span class="label label-info">100090</span></td>
-                                    </tr>
-                                       <tr>
-                                        <td>1</td>
-                                        <td><span class="label label-danger">Mark</span></td>
-                                        <td>Otto</td>
-                                        <td>김종규</td>
-                                        <td><span class="label label-info">100090</span></td>
-                                    </tr>
-                                       <tr>
-                                        <td>1</td>
-                                        <td><span class="label label-danger">Mark</span></td>
-                                        <td>Otto</td>
-                                        <td>김종규</td>
-                                        <td><span class="label label-info">100090</span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+							
+
+							</table>
+					
+					
+					
+					
+					
+					
 
 
-                    </div>
-                    <div class="col-md-4">
-                        <div class="panel panel-info">
-                            <div class="panel-heading">
-                                <i class="fa fa-bell fa-fw"></i>새로운소식
-                            </div>
 
-                            <div class="panel-body">
-                                <div class="list-group">
 
-                                    <a href="#" class="list-group-item">
-                                        <i class="fa fa-twitter fa-fw"></i>총회원수
-                                    <span class="pull-right text-muted small"><em>100명</em>
-                                    </span>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <i class="fa fa-envelope fa-fw"></i>트레이너회원
-                                    <span class="pull-right text-muted small"><em>30개</em>
-                                    </span>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <i class="fa fa-tasks fa-fw"></i>광고수입
-                                    <span class="pull-right text-muted small"><em>100만원</em>
-                                    </span>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <i class="fa fa-upload fa-fw"></i>새로운게시글
-                                    <span class="pull-right text-muted small"><em>20개</em>
-                                    </span>
-                                    </a>
-                                   
-                                </div>
-                                <!-- /.list-group -->
-                                <a href="#" class="btn btn-info btn-block">View All Alerts</a>
-                            </div>
 
-                        </div>
+
+                   <%--content끝부분 --%>
                     </div>
                 </div>
-              
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
         </div>
+        
         <!-- /. PAGE INNER  -->
     </div>
         
@@ -263,7 +259,5 @@
 -->
 
 <jsp:include page="/page/footer/footer.jsp"/>
-
-
 </body>
 </html>

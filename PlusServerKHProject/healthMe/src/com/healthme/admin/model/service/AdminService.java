@@ -222,11 +222,11 @@ public class AdminService {
 		
 		Connection conn = JDBCTemplate.getConnection();
 		
-		ArrayList<Ad> Adlist = new AdminDao().adminAdList(conn);
+		ArrayList<Ad> adList = new AdminDao().adminAdList(conn);
 		
 		JDBCTemplate.close(conn);
 		
-		return Adlist;
+		return adList;
 	}
 
 	
