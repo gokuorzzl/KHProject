@@ -9,6 +9,7 @@ public class TrainerInfo {
     private String trainerUniv;//대학교에 대한것(학교, 과)
     private char trainerGrad;//a:재학, b:졸업, c: 수료
     private String trainerRegion;//트레이너 직장 주소
+    private String trainerSubject; //수업제목 = 1트레이너 = 1수업으로 제한!!
     private String trainerContent;//트레이너의 수업소개 들어가도록
     private String trainerEvent;//트레이너종목 
     private String trainerCareerFile;//경력인증파일
@@ -23,7 +24,7 @@ public class TrainerInfo {
 	private String careerName3;//경력3
 	private Date careerStart4;//경력 시작날짜4
 	private Date careerEnd4;//경력 종료날짜4
-	private String careerName4;//--경력4
+	private String careerName4;//경력4
 	private Date careerStart5;//경력 시작날짜5
 	private Date careerEnd5;//경력 종료날짜5
 	private String careerName5;//트레이너 별점은 매칭테이블에서 가져올사람 알아서 처리하기
@@ -34,16 +35,12 @@ public class TrainerInfo {
 	private String licenseName4;//자격증4
 	private String licenseName5;//자격증5
 	
-	
-	
-	
 	public TrainerInfo() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
 	public TrainerInfo(String memberID, String profileFile, String trainerGradFile, String trainerUniv,
-			char trainerGrad, String trainerRegion, String trainerContent, String trainerEvent,
+			char trainerGrad, String trainerRegion, String trainerSubject, String trainerContent, String trainerEvent,
 			String trainerCareerFile, Date careerStart1, Date careerEnd1, String careerName1, Date careerStart2,
 			Date careerEnd2, String careerName2, Date careerStart3, Date careerEnd3, String careerName3,
 			Date careerStart4, Date careerEnd4, String careerName4, Date careerStart5, Date careerEnd5,
@@ -56,6 +53,7 @@ public class TrainerInfo {
 		this.trainerUniv = trainerUniv;
 		this.trainerGrad = trainerGrad;
 		this.trainerRegion = trainerRegion;
+		this.trainerSubject = trainerSubject;
 		this.trainerContent = trainerContent;
 		this.trainerEvent = trainerEvent;
 		this.trainerCareerFile = trainerCareerFile;
@@ -116,6 +114,12 @@ public class TrainerInfo {
 	}
 	public void setTrainerRegion(String trainerRegion) {
 		this.trainerRegion = trainerRegion;
+	}
+	public String getTrainerSubject() {
+		return trainerSubject;
+	}
+	public void setTrainerSubject(String trainerSubject) {
+		this.trainerSubject = trainerSubject;
 	}
 	public String getTrainerContent() {
 		return trainerContent;
@@ -261,6 +265,9 @@ public class TrainerInfo {
 	public void setLicenseName5(String licenseName5) {
 		this.licenseName5 = licenseName5;
 	}
+	
+	
+	
 	
 	
 	

@@ -6,16 +6,15 @@ import java.sql.SQLException;
 
 import com.healthme.common.JDBCTemplate;
 import com.healthme.myinfo.model.dao.TrainerInfoDao;
-import com.healthme.myinfo.model.vo.FileData;
 import com.healthme.myinfo.model.vo.TrainerInfo;
 
 public class TrainerInfoService {
 	
-	public int insertTrainerInfo(TrainerInfo ti) {
+	public int insertTrainerInfo(TrainerInfo ti, String userId) {
 
 		Connection conn = JDBCTemplate.getConnection();
-		int result = new TrainerInfoDao().insertTrainerInfo(ti, conn);
-		
+		int result = new TrainerInfoDao().insertTrainerInfo(ti,userId, conn);
+		System.out.println("TrainerInfoservice의값값값"+result);
 		
 		if(result>0) {
 			JDBCTemplate.commit(conn);

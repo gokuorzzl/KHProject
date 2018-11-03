@@ -15,14 +15,16 @@
     <meta name="keywords" content="www.healthme.com, 트레이너, 나만의, 맞춤" />
     <!--스타일-->
     <link rel="stylesheet" href="../../css/mypage/trainerInfoPage.css" />
-    <link rel="stylesheet" href="../css/trainerInfoPage/bootstrap.min.css">
+    	<!-- link rel="stylesheet" href="../../css/trainerInfoPage/bootstrap.min.css"-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- 스크립트 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../js/myPage/category.js"></script>
+    <script type="text/javascript" src="../../js/myPage/addFile.js"></script>
     <script type="text/javascript" src="../../js/myPage/enroll.js"></script>
     <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-    <script type="text/javascript" src="../../js/myPage/category.js"></script>
+
     
     <title>헬th미:나만의 트레이너</title>
 </head>
@@ -54,7 +56,7 @@
         <div id="middle">
             <h3>- 기본정보 입력 -</h3>
             <div class="linecolor"></div>
-            <form method="get" id="frm-register-detail" action="/trainerInfo.do">
+            <form method="post" id="frm-register-detail" action="/trainerInfo.do" enctype="multipart/form-data">
                 <div id="contents">
                     <div id="realcontents">
                         <ul>
@@ -62,9 +64,7 @@
                                 <label>프로필사진</label><br>
                                 <div id="picture_cover">
                                     <div>
-	                                    <form action="/trainerInfo.do" method="post" enctype="multipart/form-data">
 	                                        <input type="file" id="profileFile" name="profileFile" />
-                                        </form>
                                     </div>
                                     <span>
                                         프로필 사진을 업로드 해 주세요.<br>
@@ -87,10 +87,10 @@
                         <ul id="total_sport_tag">
                             <li>
                                 <label for="memberAddr">활동 지역</label><br>
-                                <input type="text" id="sample6_postcode" placeholder="우편번호">
+                             	<input type="text" id="sample6_postcode" name="trainerRegion1" placeholder="우편번호">
                                 <input type="button" id="sample6_fpostcode" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-                                <input type="text" id="memberAddr" name="trainerRegion" placeholder="주소">
-                                <input type="text" id="sample6_address2" placeholder="상세주소">
+                                <input type="text" id="memberAddr" name="trainerRegion2" placeholder="주소">
+                                <input type="text" id="sample6_address2" name="trainerRegion3" placeholder="상세주소">
                             </li>
                             <li style=i>
                                 <input type="radio" id="sport1" name="sport"/><label for="sport1">&lt;헬스&gt;</label>
@@ -181,23 +181,21 @@
                         <ul>
                             <li>
                                 <label>신분/학력 인증</label>
-                                <p><br>소속된 대학이나 졸업한 대학을 인증해주세요. 없으시면 신분증인증을 해주시면 됩니다(필수)<br></p>
+                                <p><br>소속된 대학이나 졸업한 대학을 인증해주세요. 없으시면 신분증인증을 해주시면 됩니다(필수) ※신분증누르면 학교학과 hide하기<br></p>
                                 <p></p>
-                                <p><input type="radio" value="1" checked onclick="checkLayer(1);" /><label for="univ_y">대학인증</label></p>
-                                <p><input type="radio" value="0" onclick="checkLayer(2);" /><label for="univ_n">대학원인증</label></p>
-                                <p><input type="radio" value="0" onclick="checkLayer(3);" /><label for="univ_n">신분증인증</label></p>
+                                <p><input type="radio" id="univid1" name="univid"/><label for="univid1">대학인증</label></p>
+                                <p><input type="radio" id="univid2" name="univid"/><label for="univid2">대학원인증</label></p>
+                                <p><input type="radio" id="univid3" name="univid"/><label for="univid3">신분증인증</label></p>
                                 <br>
                                 <div id="SchoolMajor"><br>
-                                    <input type="text" name="trainerUniv" placeholder="학교(대학) 예)태평양대학교" />
-                                    <input type="text" name="trainerUniv" placeholder="학과 예)해저케이블학과"/>
-                                    <p><input name="trainerGrad" type="radio" value="0" checked /><label for="univ_y">재학</label></p>
-                                    <p><input name="trainerGrad" type="radio" value="1"/><label for="univ_y">졸업</label></p>
-                                    <p><input name="trainerGrad" type="radio" value="2"/><label for="univ_y">수료</label></p>
+                                    <input type="text" name="trainerUniv1" placeholder="학교(대학) 예)태평양대학교" />
+                                    <input type="text" name="trainerUniv2" placeholder="학과 예)해저케이블학과"/>
+                                    <p><input name="trainerGrad" id="trainerGrad1" type="radio" value="a" /><label for="trainerGrad1">재학</label></p>
+                                    <p><input name="trainerGrad" id="trainerGrad2" type="radio" value="b"/><label for="trainerGrad2">졸업</label></p>
+                                    <p><input name="trainerGrad" id="trainerGrad3" type="radio" value="c"/><label for="trainerGrad3">수료</label></p>
                                     <br>
                                     <p><b>학력 인증(<font color="red">필수</font>)</b> - 학생증, 재학증명서, 졸업증명서</p>
-                                    	<form action="/trainerInfo.do" method="post" enctype="multipart/form-data">
 	                                   		<p><input type="file" name="trainerGradFile" /></p>
-                                   		</form>
                                     <p>파일을 업로드해주세요.</p>
                                 </div>
 
@@ -213,34 +211,15 @@
                                 <!--input 추가됨-->
                                 <div id="cert">
                                     <input style="float:left;" id="licenseName1" name="licenseName1" type="text" placeholder="예) GTQ 1급, 입상경력.." value="" class="input_txt01" />
-									<form action="/trainerInfo.do" method="post" enctype="multipart/form-data">
 	                                    <p><input type="file" name="trainerLicenseFile" /></p>
-	                                </form>
                                 </div>
                                 
                                 <div id="CertAdd"></div>
-                                <a onclick="addFile();" class="addbtn" style="cursor:pointer;">추가 +</a>
+                                <a onclick="addLicense();" class="addbtn" style="cursor:pointer;">추가 +</a>
 
                                 <input type="hidden" id="fileCnt" name="fileCnt" value="1">
 
-                                <script>
-                                    function addFile(){
-				                      fileCnt = document.getElementById('fileCnt').value;   
-				                      if(fileCnt==5){
-				                          alert("그정도면 충분한것 같아요");
-				                          return false;
-				                      }else{
-				                         fileCnt++; 
-				                      }               
-				                     html = '';
-				                     html += '<input id="licenseName'+fileCnt+'" name="licenseName'+fileCnt+'" type="text" placeholder="예) GTQ 1급, 입상경력.." value="" class="input_txt01 clearbt"/> <br>';
-				                     
-				                     var div = document.createElement('div');
-				                       div.innerHTML = html;
-				                        document.getElementById('CertAdd').appendChild(div);                     
-				                     document.getElementById('fileCnt').value = fileCnt;
-				                  }
-				               </script>
+                                
                             </li>
                         </ul>
                         <!--자격증 부분 끝-->
@@ -251,54 +230,27 @@
  								<div class="career-group">
 									<label>경력사항</label>
 
-
-									<form id="career_start" action="action.jsp">
 										<div>
-
+											<p><input type="file" name="trainerCareerFile" /></p>
 											<input id="careerName1" name="careerName1" type="text" placeholder="ex)고라니GYM 근무" value=""/>
-											<input type="date" id="careerStart1" name="careerStart1" value="2015-10-10" min="1990-01-01" max="2018-12-31"/> ~ 
-											<input type="date" id="careerEnd1" name="careerEnd1" value="2015-10-10" min="1990-01-01" max="2018-12-31"/>
-											<input type="submit" value="전송"><br>
-
-
+											<input type="date" id="careerStart1" name="careerStart1" value="2018-01-01" min="1990-01-01" max="2018-12-31"/> ~ 
+											<input type="date" id="careerEnd1" name="careerEnd1" value="2018-01-01" min="1990-01-01" max="2018-12-31"/>
 										</div>
 										<div id="CertCareer"></div>
-										<a onclick="addcareer();" class="addbtn" style="cursor:pointer;">추가 +</a>
+										<a onclick="addCareer();" class="addbtn" style="cursor:pointer;">추가 +</a>
 										<input type="hidden" id="careerfileCnt" name="careerfileCnt" value="1">
-									</form>
-
-									<script>
-										function addcareer() {
-											careerfileCnt = document.getElementById('careerfileCnt').value;
-											if (careerfileCnt == 5) {
-												alert("그정도면 충분한것 같아요");
-												return false;
-											} else {
-												careerfileCnt++;
-											}
-											html = '';
-						                    html += '<input id="careerName'+careerfileCnt+'" name="careerName'+careerfileCnt+'" type="text" placeholder="ex)고라니GYM 근무" value="" />';
-						                    html += '<input type="date" id="careerStart'+careerfileCnt+'" name="careerStart'+careerfileCnt+'" value="2015-10-10" min="1990-01-01" max="2018-12-31"/> ~ ';
-						                    html += '<input type="date" id="careerEnd'+careerfileCnt+'" name="careerEnd'+careerfileCnt+'" value="2015-10-10" min="1990-01-01" max="2018-12-31"/>';
-						                  	html += '<input type="submit" value="전송">';
-
-											var div = document.createElement('div');
-											div.innerHTML = html;
-											document.getElementById("CertCareer").appendChild(div);
-											document.getElementById('careerfileCnt').value = careerfileCnt;
-										}
-									</script>
-
-
 								</div>
-
-
 
                             </li>
                             <li>
-
-                                <div class="form-group">
-                                    <label for="comment">수업 소개 :</label>
+                            	<div class="form-group"><!-- 부트스트랩임 -->
+									<label for="trainerSubject">수업제목</label>
+									<input type="text" class="form-control" name="trainerSubject">
+								</div>
+                            </li>
+                            <li>
+                                <div class="form-group"><!-- 부트스트랩임 -->
+                                    <label for="comment">수업 소개</label>
                                     <textarea class="form-control" rows="5" name="trainerContent" id="trainerContent"></textarea>
                                     <!--  name있어야 벨류값 전송 가능!!!!!!! -->
                                 </div>

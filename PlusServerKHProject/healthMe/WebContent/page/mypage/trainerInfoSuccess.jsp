@@ -9,7 +9,7 @@
 <body>
 <script>
 	alert("성공이다 멍청아");
-	location.href="/index.jsp";
+	location.href="/mypageMain.jsp";
 </script>
 
 </body>
