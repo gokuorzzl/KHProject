@@ -9,7 +9,7 @@ import com.healthme.myinfo.model.vo.TrainerInfo;
 
 public class TrainerInfoDao {
 
-	public int insertTrainerInfo(TrainerInfo ti, String userId, Connection conn) {
+	public int insertTrainerInfo(TrainerInfo ti, String memberId, Connection conn) {
 
 		PreparedStatement pstmt= null;
 		int result = 0;
