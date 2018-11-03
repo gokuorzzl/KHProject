@@ -1,6 +1,7 @@
 package com.healthme.trainer.model.service;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 
 import com.healthme.common.JDBCTemplate;
 import com.healthme.member.vo.Member;
@@ -27,12 +28,12 @@ public class OneSearchService {
 		return sd;
 	}
 
-	public Trainer trainerSearch(String memberId) {
+	public ArrayList<Trainer> trainerSearch(String memberId) {
 		Connection conn = JDBCTemplate.getConnection();
-		Trainer t = new OneSearchDao().oneSearch(conn, memberId);
+		ArrayList<Trainer> trainerList = new OneSearchDao().trainerSearch(conn, memberId);
 		
 		JDBCTemplate.close(conn);
-		return t;
+		return trainerList;
 	}
 
 }

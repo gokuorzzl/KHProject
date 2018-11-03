@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import com.healthme.common.JDBCTemplate;
 import com.healthme.member.vo.Member;
@@ -132,6 +133,37 @@ public class OneSearchDao {
 		}
 		return starScore;
 
+	}
+
+	public ArrayList<Trainer> trainerSearch(Connection conn, String memberId) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String query = "select matchedMemberId from matching where matchingMemberID=?";
+		
+		ArrayList<Trainer> trainerList = new ArrayList<Trainer>();
+		Trainer t =null;
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, memberId);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				t= new Trainer();
+				t.setMemberId(rset.getString("matchedMemberId"));
+				trainerList.add(t);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+			
+		}
+		
+		
+		return trainerList;
 	}
 
 }

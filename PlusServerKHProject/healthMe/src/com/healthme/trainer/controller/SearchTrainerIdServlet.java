@@ -1,6 +1,7 @@
 package com.healthme.trainer.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -34,14 +35,14 @@ public class SearchTrainerIdServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		
 		String memberId = request.getParameter("memberId");
-		Trainer t = new OneSearchService().trainerSearch(memberId);
+		ArrayList<Trainer> trainerList = new OneSearchService().trainerSearch(memberId);
 		
 		try {
-		if(t!=null) {
-			RequestDispatcher view = request.getRequestDispatcher("/page/mypage/mypageMain.jsp");
-			request.setAttribute("trainer", t);
+		if(trainerList!=null) {
+			RequestDispatcher view = request.getRequestDispatcher("/mypageMain.do");
+			request.setAttribute("trainerList", trainerList);
 			view.forward(request, response);
-		}else if(t==null){
+		}else if(trainerList==null){
 			response.sendRedirect("/page/mypage/mypageMain.jsp");
 		}
 		}catch(Exception e) {
