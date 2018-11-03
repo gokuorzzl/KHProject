@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 import com.healthme.admin.model.dao.AdminDao;
+import com.healthme.admin.vo.Ad;
 import com.healthme.admin.vo.Admin;
 import com.healthme.common.JDBCTemplate;
 import com.healthme.community.model.vo.Board;
@@ -215,6 +216,17 @@ public class AdminService {
 		
 		
 		return list;
+	}
+
+	public ArrayList<Ad> adminAdList() {
+		
+		Connection conn = JDBCTemplate.getConnection();
+		
+		ArrayList<Ad> Adlist = new AdminDao().adminAdList(conn);
+		
+		JDBCTemplate.close(conn);
+		
+		return Adlist;
 	}
 
 	

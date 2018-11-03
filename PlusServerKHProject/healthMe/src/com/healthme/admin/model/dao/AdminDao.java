@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import com.healthme.admin.vo.Ad;
 import com.healthme.admin.vo.Admin;
 import com.healthme.common.JDBCTemplate;
 import com.healthme.community.model.vo.Board;
@@ -653,8 +654,41 @@ public class AdminDao {
 		}
 		
 		
-		
 		return list;
+	}
+
+	public ArrayList<Ad> adminAdList(Connection conn) {
+		
+		ArrayList<Ad> Adlist = new ArrayList<Ad>();
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		String query = "select * from AD";
+		
+		try {
+			stmt = conn.createStatement();
+			rset = stmt.executeQuery(query);
+			
+			
+			while(rset.next()) {
+				Ad ad = new Ad();
+				ad.setCompany(rset.getString("company"));
+				ad.setVideoLink(rset.getString("videoLink"));
+				ad.setProfit(rset.getInt("profit"));
+				ad.setPostStartDate(rset.getDate("postStartDate"));
+				ad.setPostEndDate(rset.getDate("postendDate"));
+				Adlist.add(ad);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(stmt);
+		}
+		
+		return Adlist;
 	}
 
 
