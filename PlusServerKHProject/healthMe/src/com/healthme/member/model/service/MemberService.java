@@ -78,7 +78,7 @@ public String searchPw(String fmemberId, int fmemberSocialId1, int fmemberSocial
     	 Connection conn = JDBCTemplate.getConnection();
     	 int result = new MemberDao().updateMember(conn,m);
     	 
-    	System.out.println("memberservice의결과값!!!!"+result);
+   
     	 if(result>0) {
     		 JDBCTemplate.commit(conn);
     	 } else {

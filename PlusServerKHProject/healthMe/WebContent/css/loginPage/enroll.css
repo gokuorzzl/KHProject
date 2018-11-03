@@ -340,7 +340,7 @@ div{
         cursor:pointer;
         width:100%;
         text-decoration:none;
-        border-radius:50%;
+        border-radius:1%;
     }
     
       .deleteMember:hover {
