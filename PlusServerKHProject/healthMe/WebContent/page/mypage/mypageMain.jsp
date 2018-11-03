@@ -62,16 +62,26 @@
 	                    <div class="box">	                    	
                         	<div id="img01">
                         	<%  if(t!=null){%>
-                        		<img id="img01" src="<%=t.getProfileFile()%>" alt="userImg">
+                        		<img src="<%=t.getProfileFile()%>" alt="userImg">                        	
+                        	<%	} else{%>
+                        		<img src="../../img/person_image.png" alt="userImg">
+                        	<%  }%>
                         	</div>
-                        	<%	} %>
-                        	<% if(member!=null){ %>                        	
-	                        <p id="p1"><%=member.getMemberId()%>님</p>
-	                        <p id="p3">
-	                        	<a href="../loginPage/memberMyInfo.jsp">회원정보수정</a>
-	                        </p>
-	                        <p id="p4">로그아웃</p>
-	                        <% }%>
+                        	<div id="nextImg">
+                            <% if(member!=null){ %>                   	
+		                        <div id="p1"><p><%=member.getMemberId()%>님</p><br><p>환영합니다!</p></div>
+		                        <div id="p3">
+		                        	<a href="../loginPage/memberMyInfo.jsp">회원정보수정</a>
+		                        </div>
+		                     <% }%>
+		                     <%if(t!=null){ %>
+		                     	<div id="p3_1">
+		                        	<a href="../loginPage/memberMyInfo.jsp">이력서수정</a>
+		                        </div>
+		                     <%} %>    
+		                        <div id="p4"><a href="/logout.do">로그아웃</a></div>
+	                        </div> 
+	                       
 	                    </div>
 	                </div>
 	                <div id="sec02">
@@ -101,54 +111,82 @@
 	                </div>
 	                <div id="sec03">
 		                <div class="box">
-		                	<div class="box1"><p id="p5">등록 전화번호 	: <%=member.getMemberPhone() %> </p1></div>
-		                	<div class="box2"><p id="p5">등록 이메일 	: <%=member.getMemberEmail() %> </p></div>
-		                	<div class="box3"><p id="p5">회원 등급 	: <%=member.getMemberClass() %> </p></div>
+		                	<div class="box1"><p>등록 전화번호 	: <%=member.getMemberPhone() %> </p1></div>
+		                	<div class="box2"><p>등록 이메일 	: <%=member.getMemberEmail() %> </p></div>
+		                	<div class="box3"><p>회원 등급 	:  <%=member.getMemberClass() %> </p></div>
 		                </div>
 	                </div>
             	</div>
             </div>
-	            <div id="area02">
-	            	<br><br><br>
-	            	<div class="box">
-	            		<div class="cont01">
-	            			<div class ="box">
-	            				<a href="">
-	            					<div class="tab font">수강생</div>
-	            				</a>
-	            				<a href="">
-	            					<div class="tab font">수강생</div>
-	            				</a>
-	            			</div>
-	            		</div>
-	            		<div class="cont04">
-	            			<div class="topmenu">
-	            				<ul>
-	            					<li class="on">
-	            						<a href="">"수업신청서"</a>"
-	            					</li>
-	            					<li class="on">
-	            						<a href="">"수강목록"</a>"
-	            					</li>
-	            					<li class="on">
-	            						<a href="">"위시리스트"</a>"
-	            					</li>
-	            				</ul>
-	            			</div>
-	            		</div>
-	            	</div>
-	            </div>
+            <div id="area02">
+				
+				<div id="chooseBox">
+					<div id="chooseABC">
+						<div id="chooseA"></div>
+						<div id="chooseB"></div>
+						<div id="chooseC"></div>
+					</div>
+					<div id="contentsBox">
+						<%//if(member!=null && t==null){//일반회원 %>
+	                    <div id="titleSpace">
+	                        <span id="title">Trainer-list</span>
+	                    </div>
+	                    <div id="trainerSpace">
+	                        <table id="tblMember">
+	                            <thead>
+	                                <tr id="trainerSpaceSubTitle">
+	                                    <th scope="col">강사</th>
+	                                    <th scope="col">이름</th>
+	                                    <th scope="col">지역</th>
+	                                    <th scope="col">종목</th>
+	                                    <th scope="col">소개</th>
+	                                    <th scope="col">체크</th>
+	                                    <th scope="col">버튼</th>
+	                                </tr>
+	                            </thead>
+	                            <tbody>
+	                                <tr class="line">
+	                                    <!--a href="#"-->
+	                                    <td><img src="../../img/jubin.jpg"></td>
+	                                    <td>이주빈</td>
+	                                    <td>강남</td>
+	                                    <td>요가</td>
+	                                    <td>Wanna be a supermodel?</td>
+	                                    <td><input type="checkbox" name="pid" id="check"></td>
+	                                    <td><input type="submit" value="컨택하기">
+	                                        <!--a href="#">-CLEAR-</a></td-->
+	                                </tr>
+		                         </tbody>
+		                    </table>
+						</div>	
+					    <%//} else if(t!=null) { //트레이너회원%>
+					    
+					    <%//} %>
+					    <div id="buttons">
+							<center>
+		                    	<div id="trainerBtnSpace">
+			                        <input type="button" class="btn btn-warning" id="chkObj" onclick="check1Btn();" value="전체선택" />
+			                        <input type="button" class="btn btn-warning" id="chkObj" onclick="check2Btn();" value="전체취소" />
+			                        <input type="button" class="btn btn-warning" id="btnDelete" name="btnDelete" value="선택삭제" onclick="btnDelete()" />
+			                        <a href="" class="btn btn-warning"> - Roll Back - </a>
+		                        </div>
+							</center>
+						</div>	
+					</div>
+				</div>
+	
             </div>
+          </div>
 						
             
-    	</div>
+    	
         <!--회사정보가 들어가는 아랫부분-->
         <!--bottom부분은 관리자페이지 제외한 모든 페이지 통일-->
 		<div id="bottom">
 			<jsp:include page="/page/footer/footer.jsp"/>
 		</div>
     </div>
-    
+
 
 </body>
 </html>

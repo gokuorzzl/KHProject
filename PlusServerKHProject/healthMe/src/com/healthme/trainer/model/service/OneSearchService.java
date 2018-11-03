@@ -23,7 +23,7 @@ public class OneSearchService {
 		sd.setStarScore(starScore);
 		
 		JDBCTemplate.close(conn);
-		
+		System.out.println("oneSearchService sd값 : "+sd);
 		return sd;
 	}
 
