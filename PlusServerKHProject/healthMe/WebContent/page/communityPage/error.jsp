@@ -9,7 +9,7 @@
 <body>
 <script>
 	alert("찾으시는 내용이 없습니다.")
-	location.href="/page/communityPage/QnAPage.jsp";
+	history.go(-1);
 </script>
 </body>
 </html>

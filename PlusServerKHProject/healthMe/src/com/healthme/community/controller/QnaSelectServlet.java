@@ -34,8 +34,15 @@ public class QnaSelectServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		
 		int qnaNum = Integer.parseInt(request.getParameter("qnaNum"));
+		int currentPage;
 		
-		Board b = new BoardService().qnaSelectOneList(qnaNum);
+		if(request.getParameter("currentPage")==null) {
+			currentPage=1;
+		}else {
+			currentPage = Integer.parseInt(request.getParameter("currentPage"));
+		}
+		
+		Board b = new BoardService().qnaSelectOneList(qnaNum,currentPage);
 		if(b!=null) {
 			RequestDispatcher view = request.getRequestDispatcher("page/communityPage/readingPage.jsp");
 			request.setAttribute("selectBoard", b);

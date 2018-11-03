@@ -12,12 +12,12 @@
 	if(result==1){
 %>	
 	alert("게시물이 작성되었습니다!");
-	location.href="/page/communityPage/QnAPage.jsp";
+	location.href="/qnaPage.do";
 <%
 	}else{
 %>
 	alert("게시물을 다시 작성해주세요!");
-	location.href="/page/communityPage/QnAPage.jsp";
+	location.href="/qnaPage.do";
 <%
 	}
 %>

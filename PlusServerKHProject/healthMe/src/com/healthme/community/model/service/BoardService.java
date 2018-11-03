@@ -12,9 +12,9 @@ import com.healthme.community.model.vo.BoardPageData;
 
 public class BoardService {
 
-	public int noticeWriting(String titleText, String contentsText, String passwordText) {
+	public int noticeWriting(String titleText, String contentsText, String passwordText, String userId) {
 		Connection conn = JDBCTemplate.getConnection();
-		int result = new BoardDao().noticeWriting(titleText,contentsText,passwordText,conn);
+		int result = new BoardDao().noticeWriting(titleText,contentsText,passwordText,conn,userId);
 		if(result>0) {
 			JDBCTemplate.commit(conn);
 		}else {
@@ -24,9 +24,9 @@ public class BoardService {
 		return result;
 	}
 
-	public int QnAWriting(String titleText, String contentsText, String passwordText) {
+	public int QnAWriting(String titleText, String contentsText, String passwordText, String userId) {
 		Connection conn = JDBCTemplate.getConnection();
-		int result = new BoardDao().QnAWriting(titleText,contentsText,passwordText,conn);
+		int result = new BoardDao().QnAWriting(titleText,contentsText,passwordText,conn,userId);
 		if(result>0) {
 			JDBCTemplate.commit(conn);
 		}else {
@@ -148,9 +148,13 @@ public class BoardService {
 		return bpd;
 	}
 
-	public Board qnaSelectOneList(int qnaNum) {
+	public Board qnaSelectOneList(int qnaNum, int currentPage) {
 		Connection conn = JDBCTemplate.getConnection();
+		int recordCountPerPage = 10; //게시물의 개수
+		int naviCountPerPage = 5; //navi의 개수
 		Board b = new BoardDao().qnaSelectOneList(qnaNum,conn);
+//		new BoardDao().qnaCommentGetCurrentPage(conn,currentPage,recordCountPerPage);
+//		String pageNavi = new BoardDao().qnaCommentGetPageNavi(conn,currentPage,recordCountPerPage,naviCountPerPage);
 		int result = new BoardDao().qnaHits(qnaNum,conn);
 		if(result>0) {
 			JDBCTemplate.commit(conn);

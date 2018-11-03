@@ -12,15 +12,16 @@ import com.healthme.community.model.vo.Board;
 
 public class BoardDao {
 	
-	public int noticeWriting(String titleText, String contentsText, String passwordText, Connection conn) {
+	public int noticeWriting(String titleText, String contentsText, String passwordText, Connection conn, String userId) {
 		PreparedStatement pstmt =null;
 		int result = 0;
-		String query = "insert into freeboard values(FBOARD_SEQ.nextval,'userId',?,?,1,null,sysdate,0,default,?)";
+		String query = "insert into freeboard values(FBOARD_SEQ.nextval,?,?,?,1,null,sysdate,0,default,?)";
 		try {
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, titleText);
-			pstmt.setString(2, contentsText);
-			pstmt.setString(3, passwordText);
+			pstmt.setString(1, userId);
+			pstmt.setString(2, titleText);
+			pstmt.setString(3, contentsText);
+			pstmt.setString(4, passwordText);
 			result = pstmt.executeUpdate();
 			System.out.println(result);
 		} catch (SQLException e) {
@@ -32,15 +33,16 @@ public class BoardDao {
 		return result;
 	}
 
-	public int QnAWriting(String titleText, String contentsText, String passwordText, Connection conn) {
+	public int QnAWriting(String titleText, String contentsText, String passwordText, Connection conn, String userId) {
 		PreparedStatement pstmt =null;
 		int result = 0;
-		String query = "insert into questionBoard values(QBOARD_SEQ.nextval,'userId',?,?,1,null,sysdate,0,default,?)";
+		String query = "insert into questionBoard values(QBOARD_SEQ.nextval,?,?,?,1,null,sysdate,0,default,?)";
 		try {
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, titleText);
-			pstmt.setString(2, contentsText);
-			pstmt.setString(3, passwordText);
+			pstmt.setString(1, userId);
+			pstmt.setString(2, titleText);
+			pstmt.setString(3, contentsText);
+			pstmt.setString(4, passwordText);
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -322,7 +324,7 @@ public class BoardDao {
 		}else if(searchSelect==1) {
 			query = "select * from (select QUESTIONBOARD.*"
 					+ ",row_number() over(order by QBOARDNUM desc)"
-					+ " AS num from QUESTIONBOARD where qboarduserid like ?) where num between ? and ?";
+					+ " AS num from QUESTIONBOARD where memberid like ?) where num between ? and ?";
 		}else if(searchSelect==2) {
 			query = "select * from (select QUESTIONBOARD.*"
 					+ ",row_number() over(order by QBOARDNUM desc)"
@@ -375,7 +377,7 @@ public class BoardDao {
 		if(searchSelect==0) {
 			query = "select count(*) AS TOTALCOUNT FROM QUESTIONBOARD where qboardtitle like ?";
 		}else if(searchSelect==1) {
-			query = "select count(*) AS TOTALCOUNT FROM QUESTIONBOARD where qboarduserid like ?";
+			query = "select count(*) AS TOTALCOUNT FROM QUESTIONBOARD where memberid like ?";
 		}else if(searchSelect==2) {
 			query = "select count(*) AS TOTALCOUNT FROM QUESTIONBOARD where qboardcontent like ?";
 		}
@@ -473,7 +475,7 @@ public class BoardDao {
 		}else if(searchSelect==1) {
 			query = "select * from (select FREEBOARD.*"
 					+ ",row_number() over(order by freeNUM desc)"
-					+ " AS num from FREEBOARD where freeuserid like ?) where num between ? and ?";
+					+ " AS num from FREEBOARD where memberid like ?) where num between ? and ?";
 		}else if(searchSelect==2) {
 			query = "select * from (select FREEBOARD.*"
 					+ ",row_number() over(order by freeNUM desc)"
@@ -525,7 +527,7 @@ public class BoardDao {
 		if(searchSelect==0) {
 			query = "select count(*) AS TOTALCOUNT FROM FREEBOARD where freetitle like ?";
 		}else if(searchSelect==1) {
-			query = "select count(*) AS TOTALCOUNT FROM FREEBOARD where freeuserid like ?";
+			query = "select count(*) AS TOTALCOUNT FROM FREEBOARD where memberid like ?";
 		}else if(searchSelect==2) {
 			query = "select count(*) AS TOTALCOUNT FROM FREEBOARD where freecontent like ?";
 		}
@@ -706,4 +708,5 @@ public class BoardDao {
 		}
 		return result;
 	}
+
 }

@@ -1,9 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@  page import = "com.healthme.community.model.vo.*"
+		import = "com.healthme.member.vo.*"
 		import = "java.util.ArrayList"%>   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
+	session = request.getSession(false);
+	Member member = null;
+	member = (Member)session.getAttribute("member");
 	BoardPageData bpd = (BoardPageData)request.getAttribute("boardPageData");
 	String keyword = (String)request.getAttribute("keyword");
 	ArrayList<Board> list = null;
@@ -133,7 +137,7 @@
                    		 <div id="writeBtnEmptySpace" ><label>0</label></div>
                     <%} %>
                         <div id="writeBtnFrame">
-                            <button id="write" onclick="writeBtn();">글쓰기</button>
+                            <button id="write" onclick="return writeBtn();">글쓰기</button>
                         </div>
                     </div>
                 </div>
@@ -155,7 +159,13 @@
             }
         }
         function writeBtn(){
-        	location.href="/page/communityPage/writingPage.jsp"
+        	<%if(member!=null){%>
+        		location.href="/page/communityPage/writingPage.jsp";
+        	<%}else{%>
+        		alert("로그인을 해주세요;");
+        		return false;
+        	<%}%>
+        	
         }
     </script>
     

@@ -70,13 +70,14 @@
                         <button id="listButton" onclick="back();">목록</button>
                     </div>
                     <div id="writeCommentFrame">
+                    <form action="/insertComment.do">
                         <div id="writeCommentTextView">
                             <textarea id="writeCommentText" style="resize:none;"></textarea>
                         </div>
                         <div id="writeCommentBtnView">
                             <button id="writeCommentBtn" onclick="commentBtn();">댓글</button>
                         </div>
-                        
+                    </form> 
                     </div>
                     <div id="commentFrame">
                         <div id="commentWriterView">
