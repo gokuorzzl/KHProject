@@ -20,6 +20,8 @@
 	 	<video class="adVideo" poster="../../img/로고.png" width="800" height="500" autoplay>
 	 		<%if(num==1){ %>
 				<source src="../../videos/ad1.mp4" type="video/mp4;"/>
+			<%} else if(num==2) {%>
+				<source src="../../videos/ad2.mp4" type="video/mp4;"/>
 			<%} else if(num==3) {%>
 				<source src="../../videos/ad3.mp4" type="video/mp4;"/>
 			<%} else if(num==4) {%>
