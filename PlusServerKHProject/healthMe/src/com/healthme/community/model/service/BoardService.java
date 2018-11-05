@@ -178,4 +178,12 @@ public class BoardService {
 		return b;
 	}
 
+	public Board topBoard() {
+		Connection conn = JDBCTemplate.getConnection();
+		Board b= new BoardDao().topBoard(conn);
+		
+		JDBCTemplate.close(conn);
+		return b;
+	}
+
 }

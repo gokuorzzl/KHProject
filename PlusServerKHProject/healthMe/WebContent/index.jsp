@@ -12,8 +12,8 @@
      <meta name="keywords" content="">
      <meta name="team" content="">
      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-     <link rel="stylesheet" href="css/main/bootstrap.min.css">
-     <link rel="stylesheet" href="css/main/vegas.min.css">
+     <link rel="stylesheet" href="css/main/bootstrap.min.css?var=1">
+     <link rel="stylesheet" href="css/main/vegas.min.css?var=1">
 	 <!-- MAIN CSS -->
      <link rel="stylesheet" href="css/main/templatemo-style.css">
      <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -34,8 +34,8 @@
              <ul class="menu">
                 <li><a href="/index.jsp">메인</a></li>
                 <li><a href="/page/searchTrainerPage/searchTrainerPage.jsp">트레이너 찾기</a></li>
-                <li><a href="page/mypage/trainerInfoPage.jsp">트레이너 등록</a></li>
-                <li><a href="">게시판</a></li>
+                <li><a href="/page/mypage/trainerInfoPage.jsp">트레이너 등록</a></li>
+                <li><a href="/freePage.do">게시판</a></li>
                 <li><a href="/qnaPage.do">Q & A</a></li>
 
 <%

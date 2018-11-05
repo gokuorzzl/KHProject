@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.healthme.common.JDBCTemplate;
@@ -707,6 +708,28 @@ public class BoardDao {
 			JDBCTemplate.close(pstmt);
 		}
 		return result;
+	}
+
+	public Board topBoard(Connection conn) {
+		Statement stmt = null;
+		ResultSet rset = null;
+		String query = "select * from freeboard where freeNotice = 'y' and freeAvailable = 1 and freehits= ( select max(freehits) from freeboard)";
+		Board b= null;
+		try {
+			stmt = conn.createStatement();
+			rset = stmt.executeQuery(query);
+			
+			if(rset.next()) {
+				b= new Board();
+				b.setTitle(rset.getString("freetitle"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(stmt);
+		}
+		return b;
 	}
 
 }
