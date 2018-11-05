@@ -26,6 +26,9 @@
 	Member m = sd.getM();
 	Trainer t = sd.getT();
 	int starScore = sd.getStarScore(); 
+	System.out.println(sd.getT().getCareerName1());
+	System.out.println(sd.getT()+"nullㅇ니지아닌지검사");
+	
 %>
 
 <body>

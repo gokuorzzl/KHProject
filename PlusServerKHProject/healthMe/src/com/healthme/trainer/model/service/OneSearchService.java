@@ -22,9 +22,12 @@ public class OneSearchService {
 		sd.setM(m);
 		sd.setT(t);
 		sd.setStarScore(starScore);
+		System.out.println(sd.getStarScore()+"겟스타스코어");
+		System.out.println(sd.getT().getCareerName1());
+		System.out.println("원서치두두두두두두두두두두두두");
+		
 		
 		JDBCTemplate.close(conn);
-		System.out.println("oneSearchService sd값 : "+sd);
 		return sd;
 	}
 
