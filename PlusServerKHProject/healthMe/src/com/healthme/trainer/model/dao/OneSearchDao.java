@@ -31,7 +31,7 @@ public class OneSearchDao {
 				t.setTrainerRegion(rset.getString("trainerregion"));
 				t.setTrainerSubject(rset.getString("trainersubject"));
 				t.setTrainerContent(rset.getString("trainercontent"));
-				t.setTrainerEvent(rset.getString("tarinerevent"));
+				t.setTrainerEvent(rset.getString("trainerevent"));
 				t.setCareerStart1(rset.getDate("careerstart1"));
 				t.setCareerEnd1(rset.getDate("careerend1"));
 				t.setCareerName1(rset.getString("careername1"));
@@ -52,8 +52,7 @@ public class OneSearchDao {
 				t.setLicenseName3(rset.getString("licensename3"));					
 				t.setLicenseName4(rset.getString("licensename4"));					
 				t.setLicenseName5(rset.getString("licensename5"));		
-				
-				
+				System.out.println("dao에 t 값 : "+t.getCareerName1());
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
