@@ -151,7 +151,7 @@
                     <div class="main-box mb-pink">
                         <a href="#">
                             <i class="fa fa-dollar fa-3x"></i>
-                            <h5>게시판옵션</h5>
+                            <h5>게시판옵션(준비중)</h5>
                         </a>
                     </div>
                 </div>

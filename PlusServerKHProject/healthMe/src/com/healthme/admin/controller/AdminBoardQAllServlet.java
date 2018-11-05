@@ -11,19 +11,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.healthme.admin.model.service.AdminService;
-import com.healthme.admin.vo.Ad;
+import com.healthme.community.model.vo.Board;
 
 /**
- * Servlet implementation class AdminAdListServlet
+ * Servlet implementation class AdminBoardQAllServlet
  */
-@WebServlet(name = "AdminAdList", urlPatterns = { "/adminAdList.do" })
-public class AdminAdListServlet extends HttpServlet {
+@WebServlet(name = "AdminBoardQAll", urlPatterns = { "/adminBoardQAll.do" })
+public class AdminBoardQAllServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminAdListServlet() {
+    public AdminBoardQAllServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,25 +32,24 @@ public class AdminAdListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		
 		//1. 비즈니스 로직을 통해 전체 회원 리스트를 가져온다.
-				ArrayList<Ad> adList = new AdminService().adminAdList();
-		
-
-				//2. 결과 리턴
+				ArrayList<Board> list = new AdminService().adminAllQBoard();
 				
-				if(!adList.isEmpty())// list 목록이 있다면 (비워져 있지 않다면 이라는 의미)
-				{
+				if(!list.isEmpty()) {
+					RequestDispatcher view = request.getRequestDispatcher("page/admin/adminBoardSetQBoard.jsp");
+					request.setAttribute("qboardAllList", list);
 					
-					RequestDispatcher view = request.getRequestDispatcher("page/admin/adminVisitSetAd.jsp");
-					request.setAttribute("adList", adList);
 					view.forward(request, response);
 				}else {
 					response.sendRedirect("/page/admin/error.jsp");
 				}
+			
+				
+				
+				
 		
-	
-	
 	}
 
 	/**

@@ -1,15 +1,21 @@
+<%@page import="com.healthme.community.model.vo.Board"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-   <%@ page import="com.healthme.admin.vo.*" 
-   			import="java.util.*"		
-   	%>
-<%
-	ArrayList<Ad> adList = (ArrayList<Ad>)request.getAttribute("adList");
-%>   
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+   <%@ page import="com.healthme.admin.vo.*" %>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<%
+
+	ArrayList<Board> list = (ArrayList<Board>)request.getAttribute("qboardAllList");
+
+%>
+
+
+
 
 <!--  반응형 웹을 위해서 meta date를 넣어주었다. 핸드폰과 사이트 둘다 봤을때 깔끔하게 보이게 하기 위해서이다. -->
 <meta name="viewport" content="width=device-width" , initial-scale="1">
@@ -18,9 +24,11 @@
   <link href="../../css/admin/adminMain.css" rel="stylesheet" />
     <link href="../../css/admin/adminCustom.css" rel="stylesheet" />
 
-<title>Insert title here</title>
+
+<title>관리자페이지 메인</title>
 </head>
 <body>
+
 <!-- 로그인이 안되었을 경우창 띄우게 할지 말지 결정해보기 -->
 
 <!-- 전체를 묶는다. -->	
@@ -72,7 +80,7 @@
                    
 
 
-                     <li>
+                   <li>
                         <a class="active-menu" href="/page/admin/adminMain.jsp"><i class="fa fa-desktop"></i>홈(설정)</a>
                     </li>
                     <!-- 홈 하나 끝 -->
@@ -92,12 +100,12 @@
                         <a href="/page/admin/adminMemberSet.jsp"><i class="fa fa-desktop"></i>회원설정</a>
                     </li>
                     <li>
-                        <a href="/page/admin/adminBoardSet.jsp"><i class="fa fa-desktop"></i>게시판설정 </a>
+                        <a class="active-menu" href="adminBoardSet.jsp"><i class="fa fa-desktop"></i>게시판설정 </a>
                         
                     </li>
                 
                     <li>
-                        <a class="active-menu" href="/page/admin/adminVisitSet.jsp"><i class="fa fa-sign-in "></i>방문자 및 광고</a>
+                      <a href="/page/admin/adminVisitSet.jsp"><i class="fa fa-sign-in "></i>방문자 및 광고</a>
                     </li>
                      <li>
                         <a href="#"><i class="fa fa-sign-in "></i>Chart & Graph(#)</a>
@@ -120,23 +128,23 @@
         <div id="page-inner">
             <div class="row" style="margin-bottom:20px">
                 <div class="col-md-12">
-                    <h1 class="page-head-line"><i class="fa fa-desktop" style="padding-right:10px"></i>관리자 방문자 및 광고설정</h1>
+                    <h1 class="page-head-line"><i class="fa fa-desktop" style="padding-right:10px"></i>관리자 게시판설정</h1>
                 </div>
             </div>
          <div class="row">
                 <div class="col-md-3">
                     <div class="main-box mb-red">
-                        <a href="/page/admin/adminAdSet.jsp">
+                        <a href="/adminBoardSetBoard.do">
                             <i class="fa fa-bolt fa-3x"></i>
-                            <h5>광고설정</h5>
+                            <h5>게시판 설정</h5>
                         </a>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="main-box mb-dull">
-                        <a href="#">
+                        <a href="/adminBoardQAll.do">
                             <i class="fa fa-plug fa-3x"></i>
-                            <h5>방문자수(차트)</h5>
+                            <h5>Q&A설정</h5>
                         </a>
                     </div>
                 </div>
@@ -144,7 +152,7 @@
                     <div class="main-box mb-pink">
                         <a href="#">
                             <i class="fa fa-dollar fa-3x"></i>
-                            <h5>방문자수(그래프)</h5>
+                            <h5>공지사항 설정</h5>
                         </a>
                     </div>
                 </div>
@@ -152,24 +160,12 @@
                     <div class="main-box mb-pink">
                         <a href="#">
                             <i class="fa fa-dollar fa-3x"></i>
-                            <h5>작업중</h5>
+                            <h5>게시판옵션</h5>
                         </a>
                     </div>
                 </div>
             </div>
              <hr style="border:1px solid #000;"/>
-             
-             
-             
-
-
-             
-             
-             
-             
-             
-             
-             
                 <div class="row">
 					<%--content --%>
 					
@@ -182,7 +178,7 @@
 					
 					
 						<div class="table-responsive">
-							<h3>광고설정</h3>
+							<h3>회원설정</h3>
 							<table class="table table-striped table-bordered table-hover">
 								<!--       <table cellSpacing=0 borderColorDark=white width="760" bgColor=#c0c0c0 borderColorLight=#dddddd border=1 class="s1">-->
 								<!--  <form id=updateform method="post" action="/adminMemberAllUpdate.do"> -->
@@ -191,26 +187,38 @@
 										type="hidden" name="menushow" value="menu1">
 
 									<tr bgColor=E0E4E8>
-										<td colSpan=4 align="center"><font color="#333333">고객사명</font></td>
-										<td colSpan=4 align="center"><font color="#333333">광고링크</font></td>
-										<td colSpan=4 align="center"><font color="#333333">재생하기</font></td>
-										<td colSpan=4 align="center"><font color="#333333">수익</font></td>
-										<td colSpan=4 align="center"><font color="#333333">광고 게시 시작날짜</font></td>
-										<td colSpan=4 align="center"><font color="#333333">광고 게시 종료날짜</font></td>
+										<td colSpan=4 align="center"><font color="#333333">게시글번호</font></td>
+										<td colSpan=4 align="center"><font color="#333333">회원명</font></td>
+										<td colSpan=4 align="center"><font color="#333333">제목</font></td>
+										<td colSpan=4 align="center"><font color="#333333">내용</font></td>
+										<td colSpan=4 align="center"><font color="#333333">삭제1,노삭제0</font></td>
+										<td colSpan=4 align="center"><font color="#333333">삭제날짜</font></td>
+										<td colSpan=4 align="center"><font color="#333333">등록날짜</font></td>
+										<td colSpan=4 align="center"><font color="#333333">조회수</font></td>
+										<td colSpan=4 align="center"><font color="#333333">공지y,공지n</font></td>
+										<td colSpan=4 align="center"><font color="#333333">게시글비밀번호</font></td>
+										<td colSpan=4 align="center"><font color="#333333">수정(준비중)</font></td>
+										<td colSpan=4 align="center"><font color="#333333">삭제</font></td>
 									</tr>
 									
-										<%for(Ad a : adList){%>
-										<tr>
-										<td colSpan=4><font color="#333333"><%=a.getCompany()%></font></td>
-											<td colSpan=4><font color="#333333"><%=a.getVideoLink()%></font></td>
-											<td colSpan=4><font color="#333333">
-												<botton>재생</botton>
-											</font></td>
-											<td colSpan=4><font color="#333333"><%=a.getProfit()%></font></td>
-											<td colSpan=4><font color="#333333"><%=a.getPostStartDate()%></font></td>
-											<td colSpan=4><font color="#333333"><%=a.getPostEndDate()%></font></td>
-										</tr>
-										<%} %>
+									<%for(Board b:list){
+										%>
+									<tr>
+									
+									<td colSpan=4><font color="#333333"><%=b.getNum()%></font></td>
+										<td colSpan=4><font color="#333333"><%=b.getUserId()%></font></td>
+										<td colSpan=4><font color="#333333"><%=b.getTitle()%></font></td>
+										<td colSpan=4><font color="#333333"><%=b.getContent()%></font></td>
+										<td colSpan=4><font color="#333333"><%=b.getAvailable()%></font></td>
+										<td colSpan=4><font color="#333333"><%=b.getDeleteDate()%></font></td>
+										<td colSpan=4><font color="#333333"><%=b.getInsertDate()%></font></td>
+										<td colSpan=4><font color="#333333"><%=b.getHits()%></font></td>
+										<td colSpan=4><font color="#333333"><%=b.getNotice()%></font></td>
+										<td colSpan=4><font color="#333333"><%=b.getPwd()%></font></td>
+									<td bgColor=#ffffff colSpan=4><a href="/adminBoardUpdateSel.do?UserId=<%=b.getUserId()%>">수정</a></td>
+									<td bgColor=#ffffff colSpan=4><a href="/adminBoardDell.do?UserId=<%=b.getUserId()%>">삭제</a></td>
+									</tr>
+									<%} %>
 
 							
 
@@ -230,20 +238,8 @@
                    <%--content끝부분 --%>
                     </div>
                 </div>
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
+              
         </div>
-        
         <!-- /. PAGE INNER  -->
     </div>
         
@@ -259,5 +255,7 @@
 -->
 
 <jsp:include page="/page/footer/footer.jsp"/>
+
+
 </body>
 </html>

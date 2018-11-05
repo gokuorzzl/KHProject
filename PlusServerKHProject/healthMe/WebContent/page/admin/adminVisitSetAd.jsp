@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
    <%@ page import="com.healthme.admin.vo.*" %>
@@ -6,7 +7,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-
+<%
+	ArrayList<Ad> list = (ArrayList<Ad>)request.getAttribute("adList");
+%>
 
 <!--  반응형 웹을 위해서 meta date를 넣어주었다. 핸드폰과 사이트 둘다 봤을때 깔끔하게 보이게 하기 위해서이다. -->
 <meta name="viewport" content="width=device-width" , initial-scale="1">
@@ -159,92 +162,39 @@
              <hr style="border:1px solid #000;"/>
                 <div class="row">
 
-                    <div class="col-md-8">
+                    
 
                         <div class="table-responsive">
                         <h3>자유게시판</h3>
                             <table class="table table-striped table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>번호</th>
-                                        <th>제목</th>
-                                        <th>내용</th>
-                                        <th>이름</th>
-                                        <th>Q/A, 자유</th>
+                                        <th colSpan=4 align="center">고객사명</th>
+                                        <th colSpan=4 align="center">광고링크</th>
+                                        <th colSpan=4 align="center">재생하기</th>
+                                        <th colSpan=4 align="center">수익</th>
+                                        <th colSpan=4 align="center">광고 게시 시작날짜</th>
+                                        <th colSpan=4 align="center">광고 게시 종료날짜</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                <%for(Ad a:list){ %>
                                     <tr>
-                                        <td>1</td>
-                                        <td><span class="label label-danger">Mark</span></td>
-                                        <td>Otto</td>
-                                        <td>김종규</td>
-                                        <td><span class="label label-info">100090</span></td>
+                                        <td bgColor=#ffffff colSpan=4 align="center"><%=a.getCompany()%></td>
+                                        <td bgColor=#ffffff colSpan=4 align="center"><span class="label label-danger"><%=a.getVideoLink()%></span></td>
+                                      	<td bgColor=#ffffff colSpan=4 align="center"><video src="/videos/<%=a.getCompany()%>.mp4" width="150" height="150" autoplay="autoplay" loop="loop"></video></td>
+                                        <td bgColor=#ffffff colSpan=4 align="center"><%=a.getProfit()%></td>
+                                        <td bgColor=#ffffff colSpan=4 align="center"><%=a.getPostStartDate()%></td>
+                                        <td bgColor=#ffffff colSpan=4 align="center"><span class="label label-info"><%=a.getPostEndDate()%></span></td>
                                     </tr>
-                                     <tr>
-                                        <td>1</td>
-                                        <td><span class="label label-danger">Mark</span></td>
-                                        <td>Otto</td>
-                                        <td>김종규</td>
-                                        <td><span class="label label-info">100090</span></td>
-                                    </tr>
-                                       <tr>
-                                        <td>1</td>
-                                        <td><span class="label label-danger">Mark</span></td>
-                                        <td>Otto</td>
-                                        <td>김종규</td>
-                                        <td><span class="label label-info">100090</span></td>
-                                    </tr>
-                                       <tr>
-                                        <td>1</td>
-                                        <td><span class="label label-danger">Mark</span></td>
-                                        <td>Otto</td>
-                                        <td>김종규</td>
-                                        <td><span class="label label-info">100090</span></td>
-                                    </tr>
-                                </tbody>
+                                    <%} %>
+                                     </tbody>
                             </table>
                         </div>
 
 
-                    </div>
-                    <div class="col-md-4">
-                        <div class="panel panel-info">
-                            <div class="panel-heading">
-                                <i class="fa fa-bell fa-fw"></i>새로운소식
-                            </div>
-
-                            <div class="panel-body">
-                                <div class="list-group">
-
-                                    <a href="#" class="list-group-item">
-                                        <i class="fa fa-twitter fa-fw"></i>총회원수
-                                    <span class="pull-right text-muted small"><em>100명</em>
-                                    </span>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <i class="fa fa-envelope fa-fw"></i>트레이너회원
-                                    <span class="pull-right text-muted small"><em>30개</em>
-                                    </span>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <i class="fa fa-tasks fa-fw"></i>광고수입
-                                    <span class="pull-right text-muted small"><em>100만원</em>
-                                    </span>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <i class="fa fa-upload fa-fw"></i>새로운게시글
-                                    <span class="pull-right text-muted small"><em>20개</em>
-                                    </span>
-                                    </a>
-                                   
-                                </div>
-                                <!-- /.list-group -->
-                                <a href="#" class="btn btn-info btn-block">View All Alerts</a>
-                            </div>
-
-                        </div>
-                    </div>
+                 
+                 
                 </div>
               
         </div>
@@ -253,14 +203,6 @@
         
     
         </div>
-    <!--  
-         <script src="assets/js/jquery-1.10.2.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-         <script src="assets/js/jquery.metisMenu.js"></script>
-         <script src="assets/js/custom.js"></script>
-
-
--->
 
 <jsp:include page="/page/footer/footer.jsp"/>
 

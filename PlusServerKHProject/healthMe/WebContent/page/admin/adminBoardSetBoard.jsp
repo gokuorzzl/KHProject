@@ -142,7 +142,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="main-box mb-dull">
-                        <a href="#">
+                        <a href="/adminBoardQAll.do">
                             <i class="fa fa-plug fa-3x"></i>
                             <h5>Q&A설정</h5>
                         </a>

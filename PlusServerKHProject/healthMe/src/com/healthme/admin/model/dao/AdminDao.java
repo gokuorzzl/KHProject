@@ -637,8 +637,7 @@ public class AdminDao {
 				g.setMatchingMemberId(rset.getString("matchingMemberId"));
 				g.setWishTrainerCheck(rset.getString("wishTrainerCheck"));
 				g.setMatchedMemberId(rset.getString("matchedMemberId"));
-				g.setMatchingScore(rset.getString("matchingScore"));
-				
+				g.setMatchingScore(rset.getInt("matchingScore"));
 				list.add(g);
 			}
 			
@@ -654,22 +653,26 @@ public class AdminDao {
 		}
 		
 		
+		
 		return list;
 	}
 
+	//광고리스트보여주기
 	public ArrayList<Ad> adminAdList(Connection conn) {
-		
+		// TODO Auto-generated method stub
+
 		ArrayList<Ad> adList = new ArrayList<Ad>();
 		Statement stmt = null;
 		ResultSet rset = null;
 		
-		String query = "select * from AD";
-		
+		String query = "select * from ad";
+		System.out.println(query+"쿼리의값값값");
 		try {
 			stmt = conn.createStatement();
 			rset = stmt.executeQuery(query);
 			
-			
+			System.out.println(rset+"rset의값값값이야");
+			System.out.println("");
 			while(rset.next()) {
 				Ad ad = new Ad();
 				ad.setCompany(rset.getString("company"));
@@ -692,6 +695,44 @@ public class AdminDao {
 		System.out.println("디에이오 : " + adList.get(2).getCompany());
 		System.out.println("디에이오 : " + adList.get(3).getCompany());
 		return adList;
+	}
+
+	public ArrayList<Board> adminAllQBoard(Connection conn) {
+		// TODO Auto-generated method stub
+		ArrayList<Board> list = new ArrayList<Board>();
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		String query = "select * from questionboard";
+		System.out.println("query의값!!!!"+query);
+		
+		try {
+			stmt = conn.createStatement();
+			rset = stmt.executeQuery(query);
+			
+			while(rset.next()) {
+				Board b = new Board();
+				b.setNum(rset.getInt("qboardNum"));
+				b.setUserId(rset.getString("memberId"));
+				b.setTitle(rset.getString("qboardTitle"));
+				b.setContent(rset.getString("qboardContent"));
+				b.setAvailable(rset.getInt("qboardAvailable"));
+				b.setDeleteDate(rset.getDate("qboardDeleteDate"));
+				b.setInsertDate(rset.getDate("qboardInsertDate"));
+				b.setHits(rset.getInt("qboardHits"));
+				b.setNotice(rset.getString("qboardNotice"));
+				b.setPwd(rset.getInt("qboardPwd"));
+				
+				list.add(b);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return list;
 	}
 
 

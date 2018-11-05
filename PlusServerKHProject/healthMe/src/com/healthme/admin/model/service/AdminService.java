@@ -218,15 +218,26 @@ public class AdminService {
 		return list;
 	}
 
+	//광고설정 리스트 보여주는 곳
 	public ArrayList<Ad> adminAdList() {
-		
 		Connection conn = JDBCTemplate.getConnection();
-		
-		ArrayList<Ad> adList = new AdminDao().adminAdList(conn);
-		
+		ArrayList<Ad> list = new AdminDao().adminAdList(conn);
 		JDBCTemplate.close(conn);
 		
-		return adList;
+		return list;
+	}
+
+	//q&a 게시글 목록 가져오기
+	public ArrayList<Board> adminAllQBoard() {
+		// TODO Auto-generated method stub
+		
+		Connection conn = JDBCTemplate.getConnection();
+		ArrayList<Board> list = new AdminDao().adminAllQBoard(conn);
+		JDBCTemplate.close(conn);
+		
+		
+		
+		return list;
 	}
 
 	
