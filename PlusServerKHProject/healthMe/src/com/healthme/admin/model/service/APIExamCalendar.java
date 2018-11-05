@@ -22,7 +22,7 @@ import com.google.api.services.calendar.CalendarScopes;
 //import com.google.api.services.calendar.model.CalendarListEntry;
  
 
-public class GoogleCalendarService {
+public class APIExamCalendar {
 
     private static final String APPLICATION_NAME = "Google Calendar API Java Quickstart";
  
@@ -51,7 +51,7 @@ public class GoogleCalendarService {
     }
  
     public static Credential authorize() throws IOException {
-        InputStream in = GoogleCalendarService.class
+        InputStream in = APIExamCalendar.class
                 .getResourceAsStream("/client_secret.json");
         GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(
                 JSON_FACTORY, new InputStreamReader(in));

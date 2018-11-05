@@ -127,6 +127,7 @@
             <div class="row" style="margin-bottom:20px">
                 <div class="col-md-12">
                     <h1 class="page-head-line"><i class="fa fa-desktop" style="padding-right:10px"></i>Admin Page</h1>
+                
                 </div>
             </div>
          <div class="row">

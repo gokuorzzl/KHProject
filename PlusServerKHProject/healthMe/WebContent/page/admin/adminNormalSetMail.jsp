@@ -124,7 +124,7 @@
          <div class="row">
                 <div class="col-md-3">
                     <div class="main-box mb-red">
-                        <a href="adminNormalSetCalendar.jsp">
+                        <a href="#">
                             <i class="fa fa-bolt fa-3x"></i>
                             <h5>스케줄 확인</h5>
                         </a>
@@ -132,7 +132,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="main-box mb-dull">
-                       <a href="adminNormalSetMail.jsp">
+                        <a href="adminNormalSetMail.jsp">
                             <i class="fa fa-plug fa-3x"></i>
                             <h5>메일보내기</h5>
                         </a>
@@ -158,92 +158,35 @@
              <hr style="border:1px solid #000;"/>
                 <div class="row">
 
-                    <div class="col-md-8">
+                   
 
                         <div class="table-responsive">
                         <h3>자유게시판</h3>
-                            <table class="table table-striped table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>번호</th>
-                                        <th>제목</th>
-                                        <th>내용</th>
-                                        <th>이름</th>
-                                        <th>Q/A, 자유</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td><span class="label label-danger">Mark</span></td>
-                                        <td>Otto</td>
-                                        <td>김종규</td>
-                                        <td><span class="label label-info">100090</span></td>
-                                    </tr>
-                                     <tr>
-                                        <td>1</td>
-                                        <td><span class="label label-danger">Mark</span></td>
-                                        <td>Otto</td>
-                                        <td>김종규</td>
-                                        <td><span class="label label-info">100090</span></td>
-                                    </tr>
-                                       <tr>
-                                        <td>1</td>
-                                        <td><span class="label label-danger">Mark</span></td>
-                                        <td>Otto</td>
-                                        <td>김종규</td>
-                                        <td><span class="label label-info">100090</span></td>
-                                    </tr>
-                                       <tr>
-                                        <td>1</td>
-                                        <td><span class="label label-danger">Mark</span></td>
-                                        <td>Otto</td>
-                                        <td>김종규</td>
-                                        <td><span class="label label-info">100090</span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+							<form name="mail" action="mailSend.jsp" method="post">
+							<label>업체명</label><input type="text" name="company">
+							<label>담당자</label><input type="text" name="name">
+							<label>연락처</label><input type="text" name="number">
+							<label>이메일</label><input type="text" name="email">
+							<label>제목</label><input type="text" name="subject">
+							<label>내용</label><input type="text" name="content">
+							<input type="button" value="메일발송" onclick="check()">
+							<input type="hidden" name="to" value="jg555@naver.com"><%--자신의 이메일 계정 --%>
+							<input type="hidden" name="from" value="jg555@naver.com"><%--여기에 자신의 이메일 계정 --%>
+							</form>                      
+							<script>
+							function check() {
+								document.a.submit();
+							}
+							</script>
+
+
+
+
                         </div>
 
 
-                    </div>
-                    <div class="col-md-4">
-                        <div class="panel panel-info">
-                            <div class="panel-heading">
-                                <i class="fa fa-bell fa-fw"></i>새로운소식
-                            </div>
-
-                            <div class="panel-body">
-                                <div class="list-group">
-
-                                    <a href="#" class="list-group-item">
-                                        <i class="fa fa-twitter fa-fw"></i>총회원수
-                                    <span class="pull-right text-muted small"><em>100명</em>
-                                    </span>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <i class="fa fa-envelope fa-fw"></i>트레이너회원
-                                    <span class="pull-right text-muted small"><em>30개</em>
-                                    </span>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <i class="fa fa-tasks fa-fw"></i>광고수입
-                                    <span class="pull-right text-muted small"><em>100만원</em>
-                                    </span>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <i class="fa fa-upload fa-fw"></i>새로운게시글
-                                    <span class="pull-right text-muted small"><em>20개</em>
-                                    </span>
-                                    </a>
-                                   
-                                </div>
-                                <!-- /.list-group -->
-                                <a href="#" class="btn btn-info btn-block">View All Alerts</a>
-                            </div>
-
-                        </div>
-                    </div>
+                    
+      
                 </div>
               
         </div>
