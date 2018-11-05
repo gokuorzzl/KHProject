@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import com.healthme.admin.vo.Ad;
 import com.healthme.admin.vo.Admin;
+import com.healthme.admin.vo.AdminMain;
 import com.healthme.common.JDBCTemplate;
 import com.healthme.community.model.vo.Board;
 import com.healthme.member.vo.Member;
@@ -733,6 +734,19 @@ public class AdminDao {
 		
 		
 		return list;
+	}
+	//쿼리 여러개 써보기!! -> 이부분 안된다면 일일이 다 풀어쓰기!!
+	public AdminMain adminMainPrint(Connection conn) {
+		// TODO Auto-generated method stub
+		AdminMain am = null;
+		
+		
+		
+		
+		
+		
+		
+		return null;
 	}
 
 

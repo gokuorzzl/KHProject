@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import com.healthme.admin.model.dao.AdminDao;
 import com.healthme.admin.vo.Ad;
 import com.healthme.admin.vo.Admin;
+import com.healthme.admin.vo.AdminMain;
 import com.healthme.common.JDBCTemplate;
 import com.healthme.community.model.vo.Board;
 import com.healthme.member.vo.Member;
@@ -238,6 +239,18 @@ public class AdminService {
 		
 		
 		return list;
+	}
+	//관리자 메인페이지에 차트와 스크립트 처리를 위해 사용할 것이다.
+	public AdminMain adminMainPirnt() {
+		// TODO Auto-generated method stub
+		Connection conn = JDBCTemplate.getConnection();
+		
+
+		AdminMain am= new AdminDao().adminMainPrint(conn);
+		
+		
+		
+		return am;
 	}
 
 	
