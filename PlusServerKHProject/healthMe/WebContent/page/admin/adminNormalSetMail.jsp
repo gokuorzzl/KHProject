@@ -161,23 +161,26 @@
                    
 
                         <div class="table-responsive">
-                        <h3>자유게시판</h3>
-							<form name="mail" action="mailSend.jsp" method="post">
-							<label>업체명</label><input type="text" name="company">
-							<label>담당자</label><input type="text" name="name">
-							<label>연락처</label><input type="text" name="number">
-							<label>이메일</label><input type="text" name="email">
-							<label>제목</label><input type="text" name="subject">
-							<label>내용</label><input type="text" name="content">
-							<input type="button" value="메일발송" onclick="check()">
-							<input type="hidden" name="to" value="jg555@naver.com"><%--자신의 이메일 계정 --%>
-							<input type="hidden" name="from" value="jg555@naver.com"><%--여기에 자신의 이메일 계정 --%>
-							</form>                      
-							<script>
-							function check() {
-								document.a.submit();
-							}
-							</script>
+                        <h3>메일보내기</h3>
+							<table class="table table-striped table-bordered table-hover">
+								<!--       <table cellSpacing=0 borderColorDark=white width="760" bgColor=#c0c0c0 borderColorLight=#dddddd border=1 class="s1">-->
+								<form id=updateform method="post" action="/adminMemberTrainerMail.do">
+									<input type="hidden" name="theme"
+										value="basicinfo/basic_info2_qry"> <input
+										type="hidden" name="menushow" value="menu1">
+
+									<tr><th colspan="2">회원 및 트레이너에게 메일 보내기</th></tr>
+               
+                <tr><td>보낼이메일주소</td><td><input type="text" name="to" /></td></tr>
+                <tr><td>제목</td><td><input type="text" name="subject" /></td></tr>
+                <tr><td>내용</td><td><textarea name="content" style="width:700px; height:200px;"></textarea></td></tr>
+                <tr><td colspan="2" style="text-align:right;"><input type="submit" value="메일보내기"/></td></tr>
+								</form>
+
+
+
+
+							</table>
 
 
 
