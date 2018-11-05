@@ -26,6 +26,9 @@
 	Member m = sd.getM();
 	Trainer t = sd.getT();
 	int starScore = sd.getStarScore(); 
+	System.out.println(sd.getT().getCareerName1());
+	System.out.println(sd.getT()+"nullㅇ니지아닌지검사");
+	
 %>
 
 <body>
@@ -133,62 +136,67 @@
 					<%
 						if(t.getLicenseName1()!=null){ %>
 							자격증 : <%=t.getLicenseName1()%>	
-							<br>						
+							<br><br>						
 <%						}%>
 					<%
 						if(t.getLicenseName2()!=null){ %>
 							자격증 : <%=t.getLicenseName2()%>		
-							<br>					
+							<br><br>					
 <%						}%>
 					<%
 						if(t.getLicenseName3()!=null){ %>
 							자격증 : <%=t.getLicenseName3()%>	
-							<br>						
+							<br><br>						
 <%						}%>
 					<%
 						if(t.getLicenseName4()!=null){ %>
 							자격증 : <%=t.getLicenseName4()%>			
-							<br>				
+							<br><br>				
 <%						}%>
 					<%
 						if(t.getLicenseName5()!=null){ %>
 							자격증 : <%=t.getLicenseName5()%>			
-							<br>	
+							<br><br>	
 <%						}%>
 					</div>
 					<hr>
 					<div class="myInfo_3 textMiddle">
 					경력사항
 					</div><br>
-					<div class="myInfoInner textMiddle" >
+					<div class="myInfoInner textMiddle">
 <%						if(t.getCareerName1()!=null){ %>
-							경력 : <%=t.getCareerName1()%>							
+							경력 : <%=t.getCareerName1()%>
+							<br>				
 							기간 : <%=t.getCareerStart1()%> ~ <%=t.getCareerEnd1()%>
-							<br>	
+							<br><br>		
 <%						}%>		
 					<%
 						if(t.getCareerName2()!=null){ %>
-							경력 : <%=t.getCareerName2()%>							
+							경력 : <%=t.getCareerName2()%>
+							<br>							
 							기간 : <%=t.getCareerStart2()%> ~ <%=t.getCareerEnd2()%>
-							<br>
+							<br><br>	
 <%						}%>		
 					<%
 						if(t.getCareerName3()!=null){ %>
-							경력 : <%=t.getCareerName3()%>							
+							경력 : <%=t.getCareerName3()%>
+							<br>							
 							기간 : <%=t.getCareerStart3()%> ~ <%=t.getCareerEnd3()%>
-								<br>
+								<br><br>	
 <%						}%>	
 					<%
 						if(t.getCareerName4()!=null){ %>
-							경력 : <%=t.getCareerName4()%>							
+							경력 : <%=t.getCareerName4()%>	
+							<br>						
 							기간 : <%=t.getCareerStart4()%> ~ <%=t.getCareerEnd4()%>
-							<br>	
+							<br><br>		
 <%						}%>		
 					<%
 						if(t.getCareerName5()!=null){ %>
-							경력 : <%=t.getCareerName5()%>							
+							경력 : <%=t.getCareerName5()%>
+							<br>							
 							기간 : <%=t.getCareerStart5()%> ~ <%=t.getCareerEnd5()%>
-							<br>	
+							<br><br>	
 <%						}%>			
 					</div>
 					<hr>
