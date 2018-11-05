@@ -26,6 +26,19 @@
 </head>
 <body>
 
+
+<%
+
+
+
+
+
+%>
+
+
+
+
+
 <!-- 로그인이 안되었을 경우창 띄우게 할지 말지 결정해보기 -->
 
 <!-- 전체를 묶는다. -->	
@@ -40,7 +53,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 
-                <a class="navbar-brand" href="MainAdmin.jsp"><img src="../../img/로고.png" class="logo"></a>
+                 <a class="navbar-brand" href="/page/admin/adminMain.jsp"><img src="../../img/로고.png" class="logo"></a>
             </div>
             <div class="header-left">
 

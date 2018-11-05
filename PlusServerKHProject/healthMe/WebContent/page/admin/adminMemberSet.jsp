@@ -34,7 +34,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 
-                <a class="navbar-brand" href="MainAdmin.jsp"><img src="../../img/로고.png" class="logo"></a>
+              <a class="navbar-brand" href="/page/admin/adminMain.jsp"><img src="../../img/로고.png" class="logo"></a>
             </div>
             <div class="header-left">
 

@@ -33,7 +33,7 @@ public class AdminLoginOutServlet extends HttpServlet {
 				if(session!=null) 
 				{
 					session.invalidate(); //세션 파기
-					response.sendRedirect("/page/admin/adminMain.jsp");
+					response.sendRedirect("/page/admin/adminlogin.jsp");
 				}
 				
 	}
