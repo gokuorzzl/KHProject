@@ -13,7 +13,7 @@
 	session = request.getSession(false);
 	Member member = null;
 	member = (Member)session.getAttribute("member");
-	System.out.println("JSP" + member.getMemberId());
+	System.out.println("JSP : " + member.getMemberId());
 	ArrayList<Mypage> mylist = (ArrayList)request.getAttribute("mylist");
 %>
 
@@ -58,7 +58,7 @@
 	                <div id="sec01">
 	                    <div class="box">	                    	
                         	<div id="img01">
-                        	<%  if(!mylist.isEmpty()){%>
+                        	<%  if(mylist.get(0).getProfile()!=null){%>
                         		<img src="<%=mylist.get(0).getProfile()%>" alt="userImg">                        	
                         	<%	} else{%>
                         		<img src="../../img/person_image.png" alt="userImg">
@@ -66,20 +66,10 @@
                         	</div>
                         	<div id="nextImg">
                             <% if(member!=null){ %>                   	
-		                        <div id="p1"><p><%=member.getMemberId()%>님</p><br><p>환영합니다!</p></div>
-		                        <div id="p3">
-		                        	<a href="../../page/loginPage/memberMyInfo.jsp">회원정보수정</a>
-		                        </div>
-		                        <div id="p5">
-		                        	<a href="../loginPage/memberMy"></a>
-		                        </div>
+		                        <div id="p1"><span><%=member.getMemberId()%>님</span><br><span>환영합니다!</span></div>
+		                        <div id="p3"><a href="../../page/loginPage/memberMyInfo.jsp">회원정보수정</a></div>
+		                        <div id="p5"><a href="../loginPage/memberMy">이력서수정</a></div>
 		                     <% }%>
-		                     <%if(member!=null){ %>
-		                     	<div id="p3_1">
-		                        	<a href="../loginPage/memberMyInfo.jsp">이력서수정</a>
-		                        </div>
-		                     <%} %>    
-		                        <div id="p4"><a href="/logout.do">로그아웃</a></div>
 	                        </div> 
 	                       
 	                    </div>
@@ -89,34 +79,33 @@
 	                        <div class="box1">
 	                            <a href="">
 	                                <img id="img02" src="../../img/icon_my_menu01.png">
-	                                <p id="sec02_p1">받은수업 신청서</p>
-	                                <p>0건</p>
+	                                <br><br><p id="sec02_p1"><span>받은수업</span><br><span>신청서</span></p>
+	                                <br><p>0건</p>
 	                            </a>
 	                        </div>
 	                        <div class="box2">
 	                            <a href="">
 	                                <img id="img03" src="../../img/icon_my_menu02.png">
-	                                <p id="sec02_p2">신청한 수업</p>
-	                                <p>0건</p>
+	                                <br><br><p id="sec02_p2"><span>받은수업</span><br><span>신청서</span></p>
+	                                <br><p>0건</p>
 	                            </a>
 	                        </div>
 	                        <div class="box3">
 	                            <a href="">
 	                                <img id="img04" src="../../img/icon_my_menu03.png">
-	                                <p id="sec02_p3">관심 트레이너</p>
-	                              
-	                                <p>0건</p>
+	                                <br><br><p id="sec02_p3"><span>받은수업</span><br><span>신청서</span></p>
+	                                <br><p>0건</p>
 	                            </a>
 	                        </div>
 	                    </div>
 	                </div>
 	                <div id="sec03">
 		                <div class="box">
-		                	if(member!=null){
+		                	<%if(member!=null){ %>
 			                	<div class="box1"><p>등록 전화번호 : <%=member.getMemberPhone() %> </p1></div>
 			                	<div class="box2"><p>등록 이메일 	: <%=member.getMemberEmail() %> </p></div>
 			                	<div class="box3"><p>회원 등급 	:  <%=member.getMemberClass() %> </p></div>
-		                	}
+		                	<%} %>
 		                </div>
 	                </div>
             	</div>
@@ -125,43 +114,43 @@
 				
 				<div id="chooseBox">
 					<div id="chooseABC">
-						<div id="chooseA"></div>
-						<div id="chooseB"></div>
-						<div id="chooseC"></div>
+						<div id="chooseA"><p>찜한 트레이너</p></div>
+						<div id="chooseB"><p>매칭 신청한 트레이너</p></div>
+						<div id="chooseC"><p>매칭된 트레이너</p></div>
 					</div>
 					<div id="contentsBox">
 						<%//if(member!=null && t==null){//일반회원 %>
-	                    <div id="titleSpace">
-	                        <span id="title">Trainer-list</span>
-	                    </div>
-	                    <div id="trainerSpace">
-	                        <table id="tblMember">
-	                            <thead>
-	                                <tr id="trainerSpaceSubTitle">
-	                                    <th scope="col">강사</th>
-	                                    <th scope="col">이름</th>
-	                                    <th scope="col">지역</th>
-	                                    <th scope="col">종목</th>
-	                                    <th scope="col">소개</th>
-	                                    <th scope="col">체크</th>
-	                                    <th scope="col">버튼</th>
-	                                </tr>
-	                            </thead>
-	                            <tbody>
-	                                <tr class="line">
-	                                    <!--a href="#"-->
-	                                    <td><img src="../../img/jubin.jpg"></td>
-	                                    <td>이주빈</td>
-	                                    <td>강남</td>
-	                                    <td>요가</td>
-	                                    <td>Wanna be a supermodel?</td>
-	                                    <td><input type="checkbox" name="pid" id="check"></td>
-	                                    <td><input type="submit" value="컨택하기">
-	                                        <!--a href="#">-CLEAR-</a></td-->
-	                                </tr>
-		                         </tbody>
-		                    </table>
-						</div>	
+		                    <div id="titleSpace">
+		                        <span id="title">Trainer-list</span>
+		                    </div>
+		                    <div id="trainerSpace">
+		                        <table id="tblMember">
+		                            <thead>
+		                                <tr id="trainerSpaceSubTitle">
+		                                    <th scope="col">강사</th>
+		                                    <th scope="col">이름</th>
+		                                    <th scope="col">지역</th>
+		                                    <th scope="col">종목</th>
+		                                    <th scope="col">소개</th>
+		                                    <th scope="col">체크</th>
+		                                    <th scope="col">버튼</th>
+		                                </tr>
+		                            </thead>
+		                            <tbody>
+		                                <tr class="line">
+		                                    <!--a href="#"-->
+		                                    <td><img src="../../img/jubin.jpg"></td>
+		                                    <td>이주빈</td>
+		                                    <td>강남</td>
+		                                    <td>요가</td>
+		                                    <td>Wanna be a supermodel?</td>
+		                                    <td><input type="checkbox" name="pid" id="check"></td>
+		                                    <td><input type="submit" value="컨택하기">
+		                                        <!--a href="#">-CLEAR-</a></td-->
+		                                </tr>
+			                         </tbody>
+			                    </table>
+							</div>	
 					    <%//} else if(t!=null) { //트레이너회원%>
 					    
 					    <%//} %>
@@ -171,7 +160,6 @@
 			                        <input type="button" class="btn btn-warning" id="chkObj" onclick="check1Btn();" value="전체선택" />
 			                        <input type="button" class="btn btn-warning" id="chkObj" onclick="check2Btn();" value="전체취소" />
 			                        <input type="button" class="btn btn-warning" id="btnDelete" name="btnDelete" value="선택삭제" onclick="btnDelete()" />
-			                        <a href="" class="btn btn-warning"> - Roll Back - </a>
 		                        </div>
 							</center>
 						</div>	

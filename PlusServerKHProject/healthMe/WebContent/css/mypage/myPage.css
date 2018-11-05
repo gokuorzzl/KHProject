@@ -61,9 +61,6 @@ div{
 
 
 
-
-
-
 /*----------------------------------------------*/
 /* 반응형 웹 부분 */
 /*데스크톱, 태블릿, 모바일 세 개의 사이즈로 나눠집니다.*/ 
@@ -142,10 +139,11 @@ div{
     
     #p1{
     	width:100%;
-    	height:50%;
+    	height:25%;
         font-size: 20px;
         text-align: left;
-        line-height: 140px;
+        vertical-align: middle;
+        margin-top: 40px;
         color:#FF9B55;
     }
     
@@ -153,7 +151,8 @@ div{
         width:100%;
     	height:25%;
     	float:left;
-    	text-align:left;     
+    	text-align:left;
+    	text-indent:10px;     
     }
     
     #p3 a{
@@ -162,61 +161,44 @@ div{
     	line-height: 50px;
     }
     
-     #p3_1{ 
+     #p5{ 
         width:100%;
     	height:25%;
-    	float:left;
     	text-align:left;
-    	text-indent: 20px;     
+    	text-indent:10px;    
     }
     
-    #p3_1 a{
+    #p5 a{
     	border: 1px solid grey;
     	text-align:center;
     }
     
-	#p4{
-		width:100%;
-		height:25%;
-		text-align:left;
-	}
-	
-	#p4 a{
-		border: 1px solid grey;
-	}
     
     #sec02{   
     	float: left;      
     	width: 33%;      
     	height: 100%;   
+    	
     }
     
     #sec02 .box{
     	width: 90%;
     	height:40%;
     	margin:auto;
-    	margin-top: 80px;
+    	margin-top: 50px;
     }
     
-    #sec02 .box1{ 
-    	float: left; 
-    	margin: 10px 0 0 20px;
-    }
-    
-    #sec02 .box2{ 
-    	float: left; 
-    	margin: 10px 0 0 20px; 
-    }
-    
-    #sec02 .box3{
-    	float: left; 
-    	margin: 10px 0 0 20px;
+    .box1, .box2, .box3{
+    	width:32%;
+    	height:100%;
+    	float:left;
     }
     
     #sec03{
     	width: 33%;
     	height: 100%;
     	float:left;
+    	text-indent: 30px;
     }
     
     #sec03 .box{
@@ -256,28 +238,38 @@ div{
 		margin-top: 70px;
 	}
 	
+	#chooseBox p{
+		text-align:center;
+		margin-top:10px;
+	}
+	
 	#chooseABC{
 		width:100%;
 		height:10%;
-		border: 1px solid black;
 	}
 	
 	#chooseA{
 		width:33%;
 		height:100%;
 		float:left;
+		vertical-align:middle;
+		border:1.5px solid #FF9B55;
+		border-radius:6px 0 0 0;
 	}
 	
 	#chooseB{
-		width:33%;
+		width:34%;
 		height:100%;
 		float:left;
+		border:1.5px solid #FF9B55;
 	}
 	
 	#chooseC{
 		width:33%;
 		height:100%;
 		float:left;
+		border:1.5px solid #FF9B55;
+		border-radius:0 6px 0 0;
 	}
 	
 	#contentsBox{
@@ -305,7 +297,7 @@ div{
 	
 	#trainerSpaceSubTitle{
 	    text-align: center;
-	    border-bottom: 3px solid #FF9D30;
+	    border-bottom: 3px solid #FF9B55;
 	    font-weight:bold;
 	    width:100%;
 	    height:30px;
