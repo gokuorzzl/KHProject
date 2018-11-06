@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import com.healthme.common.JDBCTemplate;
 import com.healthme.mypage.model.dao.MypageMainDao;
 import com.healthme.mypage.model.vo.Mypage;
-import com.healthme.mypage.model.vo.TrainerMypage;
 
 public class MypageMainService {
 	
