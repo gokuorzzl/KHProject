@@ -58,7 +58,34 @@ div{
     margin: 0;
 }
 
+.scrollStyle::-webkit-scrollbar {
+    width: 8px; 
+    height: 8px; 
+    border: 3px solid #fff; 
+}
 
+.scrollStyle::-webkit-scrollbar {
+    width: 8px; 
+    height: 8px; 
+    border: 3px solid #fff; 
+}
+
+.scrollStyle::-webkit-scrollbar-button:start:decrement, 
+.scrollStyle::-webkit-scrollbar-button:end:increment .scrollStyle{
+    display: block; 
+    height: 10px; 
+    background: #efefef;
+}
+
+.scrollStyle::-webkit-scrollbar-track {
+    background: #efefef; 
+    }
+
+.scrollStyle::-webkit-scrollbar-thumb {
+    height: 50px; 
+    width: 50px; 
+    background: #FF9B55; 
+}
 
 
 /*----------------------------------------------*/
@@ -233,7 +260,7 @@ div{
 	
 	#chooseBox{
 		width:70%;
-		height:100%;
+		height:120%;
 		margin:auto;
 		margin-top: 70px;
 	}
@@ -243,43 +270,18 @@ div{
 		margin-top:10px;
 	}
 	
-	#chooseABC{
-		width:100%;
-		height:10%;
-	}
-	
-	#chooseA{
-		width:33%;
-		height:100%;
-		float:left;
-		vertical-align:middle;
-		border:1.5px solid #FF9B55;
-		border-radius:6px 0 0 0;
-	}
-	
-	#chooseB{
-		width:34%;
-		height:100%;
-		float:left;
-		border:1.5px solid #FF9B55;
-	}
-	
-	#chooseC{
-		width:33%;
-		height:100%;
-		float:left;
-		border:1.5px solid #FF9B55;
-		border-radius:0 6px 0 0;
-	}
 	
 	#contentsBox{
 		width:100%;
-		height:90%;
+		height:100%;
 	}
 	
 	#trainerSpace{
     	width: 100%;
     	height: 80%;
+    	overflow-x:hidden;
+    	overflow-y:scroll;
+    	
 	}
 	
 	#tblMember{
@@ -308,6 +310,7 @@ div{
 		margin-top: 5px;
 	    width: 100%;
 	    height: 10%;
+	    overflow-y:scroll;
 	}
 	
 	.line{
@@ -318,11 +321,21 @@ div{
 	}
 	
 	.line td{
-		vertical-align: middle;
+		vertical-align:middle;
+		margin-top:10px;
+		margin-bottom:10px;
 	}
 	
-	tbody{
-		overflow:scroll;
+	.myButton{
+		width: 80px;
+		height:30px;
+		background-color: #FF9B55;
+		border-radius:6px 6px 6px 6px;
+	}
+	
+	.myCheck{
+		width:20px;
+		height:20px;
 	}
     
 /*    bottom*/

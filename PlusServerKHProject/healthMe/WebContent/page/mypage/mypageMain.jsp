@@ -114,51 +114,66 @@
             <div id="area02">
 				
 				<div id="chooseBox">
-					<div id="chooseABC">
-						<div id="chooseA"><p>찜한 트레이너  </p></div>
-						<div id="chooseB"><p>매칭 신청한 트레이너  </p></div>
-						<div id="chooseC"><p>매칭된 트레이너   </p></div>
-					</div>
 					<div id="contentsBox">
 						<%//if(member!=null && t==null){//일반회원 %>
 		                    <div id="titleSpace">
 		                        <span id="title">Trainer-list</span>
 		                    </div>
-		                    <div id="trainerSpace">
+		                    <div id="trainerSpace" class="scrollStyle">
 		                        <table id="tblMember">
+		                             <colgroup>
+		                                <col style="width:18%">
+		                                <col style="width:8%">
+		                                <col style="width:8%">
+		                                <col style="width:25%">
+		                                <col style="width:25%">
+		                                <col style="width:8%">
+		                                <col style="width:8%">
+                            		</colgroup>
 		                            <thead>
 		                                <tr id="trainerSpaceSubTitle">
-		                                    <th scope="col">강사</th>
-		                                    <th scope="col">이름</th>
-		                                    <th scope="col">지역</th>
-		                                    <th scope="col">종목</th>
-		                                    <th scope="col">소개</th>
-		                                    <th scope="col">체크</th>
-		                                    <th scope="col">버튼</th>
+		                                    <th  scope="col">강사</th>
+		                                    <th  scope="col">이름</th>
+		                                    <th  scope="col">지역</th>
+		                                    <th  scope="col">종목</th>
+		                                    <th  scope="col">소개</th>
+		                                    <th  scope="col">체크</th>
+		                                    <th  scope="col">상태</th>
 		                                </tr>
 		                            </thead>
 		                            <tbody>
 		                            <!-- 강사사진 이름  지역 종목 강의제목 출력 -->
-		                                <tr class="line">
-		                                    <!--a href="#"-->
-		                                    <%  for(int i=0; i<mylist.size(); i++){ %>
-		                                    <% 		if(mylist.get(i).getAbc()=='a'){ %>
-		                                    <% 			if(mylist.get(i).getProfile()!=null){ %> 	
-		                                    <td><img src="<%=mylist.get(i).getProfile()%>" style="width:50px; height:80px; align:top; 
-													border-radius:6px 6px 0 0; margin-bottom:5px; order:0;"/>	
-					                        	<%		} else{%>
-					                        			<img src="../../img/person_image.png" alt="userImg">
-					                        	<%  	} %></td>
-		                                    <td><%=mylist.get(i).getTrainerName()%></td>
-		                                    <td><%=mylist.get(i).getTrainerRegion()%></td>
-		                                    <td><%=mylist.get(i).getTrainerEvent()%></td>
-		                                    <td><%=mylist.get(i).getTrainerSubject()%></td>
-		                                    <%} %>	<!-- if=='a'문 종료 -->
-		                                    <td><input type="checkbox" name="pid" id="check"></td>
-		                                    <td><input type="submit" value="컨택하기">
-		                                        <!--a href="#">-CLEAR-</a></td-->
-		                                </tr>
-		                                	<%} %> <!-- for문 종료 -->
+		                            	<center>
+										<%for(int i=0 ; i<mylist.size(); i++){ %>
+											<tr class="line">
+												<td>
+													<%if(mylist.get(i).getProfile()!=null){ %>
+														<img style="margin-top:10px; margin-bottom:10px; height:100px;" src="<%=mylist.get(i).getProfile() %>"/>
+													<%} else {%>
+														<img src="../../img/person_image.png"/>
+													<%} %>
+												</td>
+												<td><%=mylist.get(i).getTrainerName()%></td>
+			                                    <td><%=mylist.get(i).getTrainerRegion()%></td>
+			                                    <td><%=mylist.get(i).getTrainerEvent()%></td>
+			                                    <td><%=mylist.get(i).getTrainerSubject()%></td> 
+			                                    <td><input class="myCheck" type="checkbox" name="pid" id="check"></td>
+			                                    <td>
+			                                    	<%if(mylist.get(i).getAbc()=='a'){ %>
+				                                    	<form action="/trainerOneSearch.do" method="post">
+				                                    		<%System.out.println(mylist.get(i).getTrainerId()); %>
+				                                    		<input type="hidden" name="memberId" value="<%=mylist.get(i).getTrainerId() %>">
+				                                    		<button type="submit" class="myButton">컨택하기</button>
+				                                    	</form>
+				                                    <%} else if(mylist.get(i).getAbc()=='b') { %>
+				                                    	매칭신청완료	
+				                                    <%} else { %>
+				                                    	매칭완료
+				                                    <%} %>	
+			                                    </td>
+											</tr>
+										<%} %>
+										</center>
 			                         </tbody>
 			                    </table>
 							</div>	
@@ -168,9 +183,9 @@
 					    <div id="buttons">
 							<center>
 		                    	<div id="trainerBtnSpace">
-			                        <input type="button" class="btn btn-warning" id="chkObj" onclick="check1Btn();" value="전체선택" />
-			                        <input type="button" class="btn btn-warning" id="chkObj" onclick="check2Btn();" value="전체취소" />
-			                        <input type="button" class="btn btn-warning" id="btnDelete" name="btnDelete" value="선택삭제" onclick="btnDelete()" />
+			                        <input type="button" class="myButton" id="chkObj" onclick="check1Btn();" value="전체선택" />
+			                        <input type="button" class="myButton" id="chkObj" onclick="check2Btn();" value="전체취소" />
+			                        <input type="button" class="myButton" id="btnDelete" name="btnDelete" value="선택삭제" onclick="btnDelete()" />
 		                        </div>
 							</center>
 						</div>	

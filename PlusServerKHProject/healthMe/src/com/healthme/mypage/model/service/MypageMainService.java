@@ -52,7 +52,7 @@ public class MypageMainService {
 			//System.out.println("마이서비스 trainerMypage 강의주제 : "+tmlist.get(i).getTrainerSubject());
 			//System.out.println("마이서비스 trainerMypage 사진위치 : "+tmlist.get(i).getProfile());
 			
-			String a = new MypageMainDao().searchMatchingACount(conn, memberId);
+			String a = new MypageMainDao().searchMatchingACount(conn, memberId); 
 			//System.out.println("마이페이지 서비스 호감리스트 카운트다아아아: "+a);
 			tmlist.get(i).setMatchingCountA(Integer.parseInt(a));//숫자로바꿔서 저장
 			
