@@ -38,8 +38,12 @@ public class MypageMainService {
 		
 		//1.searchMatching2에서 트레이너아이디/별점을 arraylist로 저장하여 반환
 		ArrayList<Mypage> tmlist = new MypageMainDao().searchMatching2(conn, memberId);
+		for(int i=0; i<tmlist.size(); i++) {
+			System.out.println("searchMatching Dao -> Service"+tmlist.get(i).getTrainerId()+"\t"+
+					tmlist.get(i).getMatchingScore());
+		}
+		System.out.println("마이페이지 서비스 : search매칭2 이후 출력체크");
 		
-		System.out.println("마이서비스 ");
 		for(int i=0; i<tmlist.size(); i++) {
 			Mypage mypage = new MypageMainDao().searchTrainer(conn, memberId, tmlist.get(i));
 			tmlist.set(i, mypage);
@@ -61,9 +65,6 @@ public class MypageMainService {
 		
 		JDBCTemplate.close(conn);
 		return tmlist;
-		
-		
-		
 	}
 }
 

@@ -70,11 +70,13 @@ public class MypageMainDao {
 		return list;
 	}
 	
-	//트레이너일 경우 id와 별점을 가지고 온다.
+	//트레이너 id와 별점을 가지고 온다.
 	public ArrayList<Mypage> searchMatching2(Connection conn, String memberId) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		String query = "select * from matching where matchingmemberid= ?";
+		
+		// 여기서 트레이너인경우는 본인이 매칭되었으므로 Where matchedMemberid = ' '로 조건을 줘야됨!! 
+		String query = "select * from matching where matchedMemberid= ?";
 		
 		ArrayList<Mypage> list = new ArrayList<Mypage>();
 		try {
@@ -84,9 +86,9 @@ public class MypageMainDao {
 			Mypage m = null;
 			while(rset.next()) { // 디비순서대로 값을 가져온다.
 				m = new Mypage();
-				m.setMemberId(rset.getString("matchedmemberId"));		// 트레이너아이디
+				m.setTrainerId(rset.getString("matchedmemberId"));		// 트레이너아이디
 				m.setMatchingScore(rset.getString("matchingscore"));	// 별점
-				System.out.println("마이 다오 searchMatching2 : "+m.getMemberId());
+				System.out.println("마이 다오 searchMatching2 : "+m.getTrainerId());
 				System.out.println("마이 다오 searchMatching2 : "+m.getMatchingScore());
 				list.add(m);
 			}
@@ -96,7 +98,7 @@ public class MypageMainDao {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
 		}
-		System.out.println("마이 다오 searchMatching2 : "+list.get(0).getMemberId());
+		System.out.println("마이 다오 searchMatching2 : "+list.get(0).getTrainerId());
 		System.out.println("마이 다오 searchMatching2 : "+list.get(0).getMatchingScore());
 		
 //		System.out.println("마이페이지메인다오 searchMatching2 : "+

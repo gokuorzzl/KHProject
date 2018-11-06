@@ -81,7 +81,7 @@
 	                            <a href="">
 	                                <img id="img02" src="../../img/icon_my_menu01.png">
 	                                <br><br><p id="sec02_p1"><span>받은수업</span><br><span>신청서</span></p>
-	                                <br><p><%= %>건</p>
+	                                <br><p>0건</p>
 	                            </a>
 	                        </div>
 	                        <div class="box2">
