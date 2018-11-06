@@ -13,9 +13,7 @@ import javax.servlet.http.HttpSession;
 import com.healthme.member.vo.Member;
 import com.healthme.mypage.model.service.MypageMainService;
 import com.healthme.mypage.model.vo.Mypage;
-import com.healthme.trainer.model.vo.Trainer;
-
-import oracle.net.aso.e;
+import com.healthme.mypage.model.vo.TrainerMypage;
 
 /**
  * Servlet implementation class MypageMainServlet
@@ -38,6 +36,7 @@ public class MypageMainServlet extends HttpServlet {
     }
 
 	/**
+	 * 
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -48,21 +47,30 @@ public class MypageMainServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession(false);	//세션이 true이면 없을경우 새로 생성 함.
 		String memberId = ((Member)session.getAttribute("member")).getMemberId(); //세션으로부터 memberId를 받아옴.
-		System.out.println("세션의값값값"+session);
-		System.out.println(memberId+"멤버아이디의값값마이페이지메인서블릿");
-		ArrayList<Mypage> mylist = new MypageMainService().searchMemberTrainer(memberId);	//받아온 멤버id로 회원의 수강정보 가져오도록하자.
-		System.out.println("mylist의 값값값값"+mylist);
+		char isTrainer = ((Member)session.getAttribute("member")).getMemberTrainer();
 		
-		if(!mylist.isEmpty()) {
+		ArrayList<Mypage> mylist = null;
+		if(isTrainer=='y') {	// 트레이너라면
+			mylist = new MypageMainService().trainerMypage(memberId);
+			System.out.println("마이페이지 서블릿 : 트레이너y");
+		}else {	// 일반회원이라면
+			mylist = new MypageMainService().memberMypage(memberId);	//받아온 멤버id로 회원의 수강정보 가져오도록하자.
+			System.out.println("마이페이지 서블릿 : 트레이너n");
+		}	//마이페이지 정보를 가져온다.
+		
+		// 결과처리
+		if( isTrainer=='y' && !mylist.isEmpty()) {
 			RequestDispatcher view = request.getRequestDispatcher("page/mypage/mypageMain.jsp");
-			request.setAttribute("mylist", mylist);
+			request.setAttribute("mylist", mylist);	//이부분 체크해야됨
+			view.forward(request, response);
+		}else if(isTrainer=='n' && !mylist.isEmpty()) {
+			RequestDispatcher view = request.getRequestDispatcher("page/mypage/mypageMain.jsp");
+			request.setAttribute("mylist", mylist);	// 이부분 체크 바람
 			view.forward(request, response);
 		}else {
-			System.out.println("에러에러에러에ㅓㄹ");
+			System.out.println("에러러러러러럴");
 			response.sendRedirect("page/searchTrainerPage/searchError.jsp");
 		}
-		
-		
 		
 	}
 
