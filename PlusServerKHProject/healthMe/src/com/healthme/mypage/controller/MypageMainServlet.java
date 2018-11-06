@@ -43,17 +43,16 @@ public class MypageMainServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");	//받아온값을 인코딩하는 것
 		
 		HttpSession session = request.getSession(false);	//세션이 true이면 없을경우 새로 생성 함.
-		String memberId = ((Member)session.getAttribute("member")).getMemberId(); //세션으로부터 memberId를 받아옴.
+		Member member = (Member)session.getAttribute("member");
 		char isTrainer = ((Member)session.getAttribute("member")).getMemberTrainer(); //트레이너인지 검사
 		
 		ArrayList<Mypage> mylist = null;
 		if(isTrainer=='y') {	// 트레이너라면
-			mylist = new MypageMainService().trainerMypage(memberId);
-			//System.out.println("마이페이지 서블릿 : 트레이너=yes");
+			mylist = new MypageMainService().trainerMypage(member.getMemberId());
 		}else {	// 일반회원이라면
-			mylist = new MypageMainService().memberMypage(memberId);	//받아온 멤버id로 회원의 수강정보 가져오도록하자.
-			//System.out.println("마이페이지 서블릿 : 트레이너=no");
+			mylist = new MypageMainService().memberMypage(member.getMemberId());	//받아온 멤버id로 회원의 수강정보 가져오도록하자.
 		}	//마이페이지 정보를 가져온다.
+		
 		
 		// 결과처리
 		if( isTrainer=='y' && !mylist.isEmpty()) { 

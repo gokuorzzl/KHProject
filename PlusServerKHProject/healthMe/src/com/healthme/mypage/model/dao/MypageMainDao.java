@@ -87,9 +87,7 @@ public class MypageMainDao {
 			while(rset.next()) { // 디비순서대로 값을 가져온다.
 				m = new Mypage();
 				m.setTrainerId(rset.getString("matchedmemberId"));		// 트레이너아이디
-				m.setMatchingScore(rset.getString("matchingscore"));	// 별점
-				//System.out.println("마이 다오 searchMatching2 : "+m.getTrainerId());
-				//System.out.println("마이 다오 searchMatching2 : "+m.getMatchingScore());
+//				System.out.println("마이 다오 searchMatching2 : "+m.getTrainerId());
 				list.add(m);
 			}
 		} catch (SQLException e) {
@@ -97,6 +95,9 @@ public class MypageMainDao {
 		} finally {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
+		}
+		for(Mypage m : list) {
+			System.out.println("list"+m.getTrainerId());
 		}
 		//System.out.println("마이 다오 searchMatching2 : "+list.get(0).getTrainerId());
 		//System.out.println("마이 다오 searchMatching2 : "+list.get(0).getMatchingScore());
@@ -161,7 +162,7 @@ public class MypageMainDao {
 	public String searchMatchingACount(Connection conn, String memberId) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		String query = "select count(*) as countA from matching where matchedmemberid = ? and wishtrainercheck=?";
+		String query = "select count(*) as count from matching where matchedmemberid = ? and wishtrainercheck=?";
 		
 		String result ="";
 		
@@ -172,70 +173,67 @@ public class MypageMainDao {
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
-				result = rset.getString("countA");
+				result = rset.getString("count");
 			}
-			//System.out.println("result = "+result);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
 		}
-		//System.out.println("마이다오다오 searchMatchingACount : "+result);
+		System.out.println("my다오 CountA :" + result);
 		return result;
 	}
 
 	public String searchMatchingBCount(Connection conn, String memberId) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		String query = "select count(*) from matching where matchedmemberid = ? and wishtrainercheck=?";
-
+		String query = "select count(*) as count from matching where matchedmemberid = ? and wishtrainercheck=?";
+		
 		String result ="";
 		
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, memberId);	//여기서 memberId는 = Trainerid
-			pstmt.setString(2, "b");	// b = 수업신청 중
+			pstmt.setString(2, "b");	// a = 호감리스트
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
-				result = rset.getString(1);
+				result = rset.getString("count");
 			}
-			//System.out.println("result = "+result);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
 		}
-		//System.out.println("마이다오다오 searchMatchingBCount : "+result);
+		System.out.println("my다오 CountB :" + result);
 		return result;
 	}
 
 	public String searchMatchingCCount(Connection conn, String memberId) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		String query = "select count(*) from matching where matchedmemberid = ? and wishtrainercheck=?";
-
+		String query = "select count(*) as count from matching where matchedmemberid = ? and wishtrainercheck=?";
+		
 		String result ="";
 		
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, memberId);	//여기서 memberId는 = Trainerid
-			pstmt.setString(2, "c");	// c = 수업 신청완료 인원
+			pstmt.setString(2, "c");	// a = 호감리스트
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
-				result = rset.getString(1);
+				result = rset.getString("count");
 			}
-			//System.out.println("result = "+result);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
 		}
-		//System.out.println("마이다오다오 searchMatchingCCount : "+result);
+		System.out.println("my다오 CountC :" + result);
 		return result;
 	}
 
@@ -261,9 +259,28 @@ public class MypageMainDao {
 		return mypage;
 	}
 
+	public int starSearch(Connection conn, String memberId) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		int starScore=0;
+		String query = "select round(avg(matchingScore)) AS result from matching where matchedMemberId =? and (matchingScore between 0 and 5)";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, memberId);
+			
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				starScore = rset.getInt("result"); 
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		return starScore;
+
+	}
+
 }
-
-
-
-
-

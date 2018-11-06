@@ -18,7 +18,7 @@ public class Mypage {
 	private int matchingCountA;		// a-호감표시인원
 	private int matchingCountB;		// b-수업신청인원 	-매칭테이블
 	private int matchingCountC;		// c- 수업신청인원
-	private String matchingScore;	// 트레이너 별점		-매칭테이블
+	private int matchingScore;	// 트레이너 별점		-매칭테이블
 	
 	public Mypage() {
 		super();
@@ -27,7 +27,7 @@ public class Mypage {
 
 	public Mypage(String memberId, String memberName, String trainerId, String trainerName, String trainerRegion,
 			String trainerEvent, String trainerSubject, char abc, char isTraner, String profile, int matchingCountA,
-			int matchingCountB, int matchingCountC, String matchingScore) {
+			int matchingCountB, int matchingCountC, int matchingScore) {
 		super();
 		this.memberId = memberId;
 		this.memberName = memberName;
@@ -149,12 +149,12 @@ public class Mypage {
 		this.matchingCountC = matchingCountC;
 	}
 
-	public String getMatchingScore() {
+	public int getMatchingScore() {
 		return matchingScore;
 	}
 
-	public void setMatchingScore(String matchingScore) {
-		this.matchingScore = matchingScore;
+	public void setMatchingScore(int i) {
+		this.matchingScore = i;
 	}
 	
 	
