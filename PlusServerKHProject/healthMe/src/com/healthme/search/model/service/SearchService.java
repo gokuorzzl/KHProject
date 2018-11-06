@@ -278,13 +278,16 @@ public class SearchService {
 					field.add("암벽등반");
 				}
 				
+				//아무곳에도 속하지 않을경우 하위검색어 포함 없이 종목필드에 추가
+				field.add(searchList.get(i));
+				
 			}//큰 if문 종료
 			
 		}//for문 종료
 		
 		kw.setRegion(region);
 		kw.setField(field);
-		
+
 		return kw;
 		
 	}
