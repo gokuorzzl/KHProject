@@ -45,6 +45,7 @@ public class MypageMainService {
 		System.out.println("마이페이지 서비스 : search매칭2 이후 출력체크");
 		
 		for(int i=0; i<tmlist.size(); i++) {
+			System.out.println("마이서비스 >멤버아이디체크 : "+memberId);
 			Mypage mypage = new MypageMainDao().searchTrainer(conn, memberId, tmlist.get(i));
 			tmlist.set(i, mypage);
 			System.out.println("마이서비스 trainerMypage 강의주제 : "+tmlist.get(i).getTrainerSubject());

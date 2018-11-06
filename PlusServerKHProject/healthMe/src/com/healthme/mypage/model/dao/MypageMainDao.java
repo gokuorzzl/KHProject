@@ -161,7 +161,7 @@ public class MypageMainDao {
 	public String searchMatchingACount(Connection conn, String memberId) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		String query = "select count(*) from matching where matchedmemberid = ? and wishtrainercheck=?;";
+		String query = "select count(*) from matching where matchedmemberid = ? and wishtrainercheck=?";
 
 		String result ="";
 		
@@ -172,7 +172,7 @@ public class MypageMainDao {
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
-				result = rset.getString(1);
+				result = rset.getString("countA");
 			}
 			System.out.println("result = "+result);
 		} catch (SQLException e) {
@@ -188,7 +188,7 @@ public class MypageMainDao {
 	public String searchMatchingBCount(Connection conn, String memberId) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		String query = "select count(*) from matching where matchedmemberid = ? and wishtrainercheck=?;";
+		String query = "select count(*) from matching where matchedmemberid = ? and wishtrainercheck=?";
 
 		String result ="";
 		
@@ -215,7 +215,7 @@ public class MypageMainDao {
 	public String searchMatchingCCount(Connection conn, String memberId) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		String query = "select count(*) from matching where matchedmemberid = ? and wishtrainercheck=?;";
+		String query = "select count(*) from matching where matchedmemberid = ? and wishtrainercheck=?";
 
 		String result ="";
 		
