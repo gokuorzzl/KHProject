@@ -32,10 +32,10 @@
     <!--스타일-->
     <link rel="stylesheet" href="../../css/mypage/myPage.css" />
     <!-- 스크립트 -->
-<!--     <script src="https://code.jquery.com/jquery-3.3.1.js"
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
  			integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   			crossorigin="anonymous"></script>
-  			 -->
+	<script type="text/javascript" src="../../js/myPage/mypageMain.js"></script>
   	<!-- fa 아이콘 링크  -->
   	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--title-->
@@ -69,7 +69,6 @@
                             <% if(member!=null){ %>                   	
 		                        <div id="p1"><span><%=member.getMemberId()%>님</span><br><span>환영합니다!</span></div>
 		                        <div id="p3"><a href="../../page/loginPage/memberMyInfo.jsp">회원정보수정</a></div>
-		                        <div id="p5"><a href="../loginPage/memberMy">이력서수정</a></div>
 		                     <% }%>
 	                        </div> 
 	                       
@@ -183,9 +182,12 @@
 					    <div id="buttons">
 							<center>
 		                    	<div id="trainerBtnSpace">
-			                        <input type="button" class="myButton" id="chkObj" onclick="check1Btn();" value="전체선택" />
-			                        <input type="button" class="myButton" id="chkObj" onclick="check2Btn();" value="전체취소" />
-			                        <input type="button" class="myButton" id="btnDelete" name="btnDelete" value="선택삭제" onclick="btnDelete()" />
+		                    		<button type="submit" class="myButton chkAll" >전체선택</button>
+			                        <button type="submit" class="myButton unchkAll" >전체취소</button>
+			                        <form action="/" method="post" style="display:inline;">
+			                        	<input type="hidden" name="trainerId" value="">
+			                        	<button type="submit" class="myButton">선택삭제</button>
+			                        </form>
 		                        </div>
 							</center>
 						</div>	
