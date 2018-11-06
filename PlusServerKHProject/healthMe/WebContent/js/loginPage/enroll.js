@@ -14,13 +14,13 @@
 	  
 	   var idReg = /^[a-z0-9_]{4,12}$/;
 	   var pwReg =  /^(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]|.*[0-9]).{8,24}$/;
-	   var nameReg =  /^[가-힝]{2,4}$/;
+	  /* var nameReg =  /^[가-힝]{2,4}$/;*/
 	   var phoneReg = /^\d{2,3}-\d{3,4}-\d{4}$/;
 	   var emailReg = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
  	   
  	   var memberId = document.getElementById("memberId");
  	   var memberPw = document.getElementById("memberPw");
- 	   var memberName = document.getElementById("memberName");
+ 	 /*  var memberName = document.getElementById("memberName");*/
  	   var memberSocialId = document.getElementById("memberSocialId");
  	   var memberAddr = document.getElementById("memberAddr");
  	   var memberPhone = document.getElementById("memberPhone");
@@ -47,9 +47,9 @@
  		   return false;
  	   }
  	   
- 	   if(!check(nameReg,memberName, "이름  한글로 입력해주세요.")) {
+ 	 /*  if(!check(nameReg,memberName, "이름  한글로 입력해주세요.")) {
  		   return false;
- 	   }
+ 	   }*/
  	   
  	   //주민등록번호 인증
  	   for(var i=0; i<memberSocialId1.value.length;i++) {
@@ -117,7 +117,7 @@
 	   return false;
    }
    
-   function check(nameReg,what,message) {
+/*   function check(nameReg,what,message) {
 	   if(nameReg.test(what.value)) {
 		   return true;
 	   }
@@ -125,7 +125,7 @@
 	   what.value="";
 	   what.focus();
 	   return false;
-   }
+   }*/
    
    function check(re,what,message) {
 	   if(re.test(what.value)) {
