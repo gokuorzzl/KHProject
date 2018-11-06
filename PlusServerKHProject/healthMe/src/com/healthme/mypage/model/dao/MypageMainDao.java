@@ -8,9 +8,6 @@ import java.util.ArrayList;
 
 import com.healthme.common.JDBCTemplate;
 import com.healthme.mypage.model.vo.Mypage;
-import com.healthme.mypage.model.vo.TrainerMypage;
-import com.healthme.trainer.model.vo.Matching;
-import com.healthme.trainer.model.vo.Trainer;
 
 public class MypageMainDao {
 
@@ -39,6 +36,7 @@ public class MypageMainDao {
 		return result;
 	}
 
+	// 자기자신의 id / 트레이너id / 매칭관계가 담겨 있다.
 	public ArrayList<Mypage> searchMatching1(Connection conn, String memberId) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -53,10 +51,15 @@ public class MypageMainDao {
 			while(rset.next()) {
 				// 디비순서대로 값을 가져온다.
 				m = new Mypage();
-				m.setMemberId(rset.getString("matchingMemberId"));	// 수강생
+				m.setMemberId(memberId);	// 수강생
 				m.setAbc(rset.getString("wishtrainercheck").charAt(0));	// 매칭관계체크
 				m.setTrainerId(rset.getString("matchedmemberId"));	// 트레이너
 				list.add(m);
+			}
+			System.out.println("마이 다오 : searchmatching1");
+			for(Mypage m1 : list) {
+				int count =1;
+				System.out.println("m"+count+":"+ m1.getMemberId()+m1.getAbc()+m1.getTrainerId());
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -81,9 +84,10 @@ public class MypageMainDao {
 			Mypage m = null;
 			while(rset.next()) { // 디비순서대로 값을 가져온다.
 				m = new Mypage();
-				m.setTrainerId(rset.getString("matchedmemberId"));		// 트레이너아이디
+				m.setMemberId(rset.getString("matchedmemberId"));		// 트레이너아이디
 				m.setMatchingScore(rset.getString("matchingscore"));	// 별점
-				
+				System.out.println("마이 다오 searchMatching2 : "+m.getMemberId());
+				System.out.println("마이 다오 searchMatching2 : "+m.getMatchingScore());
 				list.add(m);
 			}
 		} catch (SQLException e) {
@@ -92,12 +96,15 @@ public class MypageMainDao {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
 		}
-		System.out.println("마이페이지메인다오 searchMatching2 : "+
-				list.get(0).getMemberId()+list.get(0).getMatchingScore());
+		System.out.println("마이 다오 searchMatching2 : "+list.get(0).getMemberId());
+		System.out.println("마이 다오 searchMatching2 : "+list.get(0).getMatchingScore());
+		
+//		System.out.println("마이페이지메인다오 searchMatching2 : "+
+//				list.get(0).getMemberId()+list.get(0).getMatchingScore());
 		return list;
 	}
 
-	// 관심 abc에 따른 트레이너의 정보(강사사진 이름 지역 종목 강의주제 )를 가져온다.
+	// 관심 abc에 따른 트레이너의 정보(강사사진 지역 종목 강의주제 )를 가져온다.
 	public Mypage searchTrainer(Connection conn, String trainerId, Mypage mypage) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -112,7 +119,6 @@ public class MypageMainDao {
 				mypage.setProfile(rset.getString("profilefile"));
 				mypage.setTrainerRegion(rset.getString("trainerRegion"));
 				mypage.setTrainerEvent(rset.getString("trainerEvent"));
-				mypage.setTrainerSubject(rset.getString("trainerSubject"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -120,7 +126,7 @@ public class MypageMainDao {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
 		}
-		System.out.println("마이 다오다오 searchTrainerSubject : "+ mypage.getTrainerSubject()+
+		System.out.println("마이 다오다오 searchTrainer : "+ mypage.getTrainerSubject()+
 				mypage.getProfile()+mypage.getTrainerRegion()+mypage.getTrainerEvent()+mypage.getTrainerSubject());
 		return mypage;
 	}
@@ -229,6 +235,28 @@ public class MypageMainDao {
 		}
 		System.out.println("마이다오다오 searchMatchingCCount : "+result);
 		return result;
+	}
+
+	public Mypage searchTrainerName(Connection conn, String trainerId, Mypage mypage) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String query = "select * from member where memberid = ?";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, trainerId);
+			rset = pstmt.executeQuery();
+			while(rset.next()) {	//가져올값이 여러개일때 사용.
+				mypage.setTrainerName(rset.getString("membername"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		System.out.println("마이 다오다오  : "+ mypage.getTrainerSubject());
+		return mypage;
 	}
 
 }

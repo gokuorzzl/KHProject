@@ -13,7 +13,6 @@ import javax.servlet.http.HttpSession;
 import com.healthme.member.vo.Member;
 import com.healthme.mypage.model.service.MypageMainService;
 import com.healthme.mypage.model.vo.Mypage;
-import com.healthme.mypage.model.vo.TrainerMypage;
 
 /**
  * Servlet implementation class MypageMainServlet
@@ -47,7 +46,7 @@ public class MypageMainServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession(false);	//세션이 true이면 없을경우 새로 생성 함.
 		String memberId = ((Member)session.getAttribute("member")).getMemberId(); //세션으로부터 memberId를 받아옴.
-		char isTrainer = ((Member)session.getAttribute("member")).getMemberTrainer();
+		char isTrainer = ((Member)session.getAttribute("member")).getMemberTrainer(); //트레이너인지 검사
 		
 		ArrayList<Mypage> mylist = null;
 		if(isTrainer=='y') {	// 트레이너라면
@@ -66,6 +65,7 @@ public class MypageMainServlet extends HttpServlet {
 		}else if(isTrainer=='n' && !mylist.isEmpty()) {
 			RequestDispatcher view = request.getRequestDispatcher("page/mypage/mypageMain.jsp");
 			request.setAttribute("mylist", mylist);	// 이부분 체크 바람
+			System.out.println("마이서블릿 회원list: "+mylist.get(0).getMemberId()+ "\n"+ mylist.get(0).getProfile());
 			view.forward(request, response);
 		}else {
 			System.out.println("에러러러러러럴");

@@ -12,10 +12,11 @@
 <%
 	session = request.getSession(false);
 	Member member = null;
-	member = (Member)session.getAttribute("member");
-	System.out.println("JSP : " + member.getMemberId());
-	ArrayList<Mypage> mylist = (ArrayList)request.getAttribute("mylist");
+	member = (Member)session.getAttribute("member");	//세션에서 member name으로 넘겨주는 memberid를 받고
+	System.out.println("myMainJSP : " + member.getMemberId());
+	ArrayList<Mypage> mylist = (ArrayList)request.getAttribute("mylist"); // 회원일경우  mylist에는 트레이너의 정보가 들어있다.
 %>
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -56,9 +57,9 @@
             <div id="submy">
             	<div id="area01">
 	                <div id="sec01">
-	                    <div class="box">	                    	
+	                    <div class="box">
                         	<div id="img01">
-                        	<%  if(mylist.get(0).getProfile()!=null){%>
+                        	<%  if(mylist.get(0).getIsTraner()=='y'){ %>
                         		<img src="<%=mylist.get(0).getProfile()%>" alt="userImg">                        	
                         	<%	} else{%>
                         		<img src="../../img/person_image.png" alt="userImg">
@@ -80,7 +81,7 @@
 	                            <a href="">
 	                                <img id="img02" src="../../img/icon_my_menu01.png">
 	                                <br><br><p id="sec02_p1"><span>받은수업</span><br><span>신청서</span></p>
-	                                <br><p>0건</p>
+	                                <br><p><%= %>건</p>
 	                            </a>
 	                        </div>
 	                        <div class="box2">
@@ -114,9 +115,9 @@
 				
 				<div id="chooseBox">
 					<div id="chooseABC">
-						<div id="chooseA"><p>찜한 트레이너</p></div>
-						<div id="chooseB"><p>매칭 신청한 트레이너</p></div>
-						<div id="chooseC"><p>매칭된 트레이너</p></div>
+						<div id="chooseA"><p>찜한 트레이너  </p></div>
+						<div id="chooseB"><p>매칭 신청한 트레이너  </p></div>
+						<div id="chooseC"><p>매칭된 트레이너   </p></div>
 					</div>
 					<div id="contentsBox">
 						<%//if(member!=null && t==null){//일반회원 %>
@@ -137,17 +138,27 @@
 		                                </tr>
 		                            </thead>
 		                            <tbody>
+		                            <!-- 강사사진 이름  지역 종목 강의제목 출력 -->
 		                                <tr class="line">
 		                                    <!--a href="#"-->
-		                                    <td><img src="../../img/jubin.jpg"></td>
-		                                    <td>이주빈</td>
-		                                    <td>강남</td>
-		                                    <td>요가</td>
-		                                    <td>Wanna be a supermodel?</td>
+		                                    <%  for(int i=0; i<mylist.size(); i++){ %>
+		                                    <% 		if(mylist.get(i).getAbc()=='a'){ %>
+		                                    <% 			if(mylist.get(i).getProfile()!=null){ %> 	
+		                                    <td><img src="<%=mylist.get(i).getProfile()%>" style="width:50px; height:80px; align:top; 
+													border-radius:6px 6px 0 0; margin-bottom:5px; order:0;"/>	
+					                        	<%		} else{%>
+					                        			<img src="../../img/person_image.png" alt="userImg">
+					                        	<%  	} %></td>
+		                                    <td><%=mylist.get(i).getTrainerName()%></td>
+		                                    <td><%=mylist.get(i).getTrainerRegion()%></td>
+		                                    <td><%=mylist.get(i).getTrainerEvent()%></td>
+		                                    <td><%=mylist.get(i).getTrainerSubject()%></td>
+		                                    <%} %>	<!-- if=='a'문 종료 -->
 		                                    <td><input type="checkbox" name="pid" id="check"></td>
 		                                    <td><input type="submit" value="컨택하기">
 		                                        <!--a href="#">-CLEAR-</a></td-->
 		                                </tr>
+		                                	<%} %> <!-- for문 종료 -->
 			                         </tbody>
 			                    </table>
 							</div>	

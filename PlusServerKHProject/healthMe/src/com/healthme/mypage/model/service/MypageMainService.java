@@ -15,11 +15,14 @@ public class MypageMainService {
 		// 회원에 대한 기본정보를 가져온다.
 		ArrayList<Mypage> mmlist = new MypageMainDao().searchMatching1(conn, memberId);
 		
-		// 관심 abc에 따른 트레이너의 정보(강사사진 이름 지역 종목 강의주제 )를 가져온다.
+		// 관심 abc에 따른 트레이너의 정보(강사사진 지역 종목 강의주제 )를 가져온다.
 		for(int i=0; i<mmlist.size(); i++) {
 			// 질문 
 			Mypage mypage = new MypageMainDao().searchTrainer(conn, mmlist.get(i).getTrainerId(), mmlist.get(i));
 			mmlist.set(i, mypage);
+			//trainer name을 넘겨받음
+			mmlist.set(i, (new MypageMainDao().searchTrainerName(conn, mmlist.get(i).getTrainerId(), mmlist.get(i))));
+//			System.out.println("마이서비스 트레이너 이름: "+mmlist.get(i).getTrainerName());
 		}
 		JDBCTemplate.close(conn);
 		
@@ -27,6 +30,7 @@ public class MypageMainService {
 	}
 
 	public ArrayList<Mypage> trainerMypage(String memberId) {
+		System.out.println("마이 서비스 trainerMypage입니당");
 		// 여기서 memberId = TrainerId입니다
 		Connection conn = JDBCTemplate.getConnection();
 		
@@ -37,12 +41,10 @@ public class MypageMainService {
 		
 		System.out.println("마이서비스 ");
 		for(int i=0; i<tmlist.size(); i++) {
-			String profile = new MypageMainDao().searchTrainerProfilefile(conn, memberId);
-			String subject = new MypageMainDao().searchTrainer(conn, memberId);
-			System.out.println("마이서비스 강의제목 : "+subject);
-			tmlist.get(i).setTrainerSubject(subject);
-			System.out.println("마이서비스 프로파일위치 :+profile");
-			tmlist.get(i).setProfile(profile);
+			Mypage mypage = new MypageMainDao().searchTrainer(conn, memberId, tmlist.get(i));
+			tmlist.set(i, mypage);
+			System.out.println("마이서비스 trainerMypage 강의주제 : "+tmlist.get(i).getTrainerSubject());
+			System.out.println("마이서비스 trainerMypage 사진위치 : "+tmlist.get(i).getProfile());
 			
 			String a = new MypageMainDao().searchMatchingACount(conn, memberId);
 			System.out.println("마이페이지 서비스 호감리스트 카운트다아아아: "+a);
@@ -55,7 +57,6 @@ public class MypageMainService {
 			String c = new MypageMainDao().searchMatchingCCount(conn, memberId);
 			System.out.println("마이페이지서비스 수업 수강 인원: "+c);
 			tmlist.get(i).setMatchingCountA(Integer.parseInt(c));//숫자로 바꿔저장
-			
 		}
 		
 		JDBCTemplate.close(conn);
