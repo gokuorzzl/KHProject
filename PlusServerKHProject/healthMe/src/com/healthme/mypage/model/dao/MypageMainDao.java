@@ -56,10 +56,10 @@ public class MypageMainDao {
 				m.setTrainerId(rset.getString("matchedmemberId"));	// 트레이너
 				list.add(m);
 			}
-			System.out.println("마이 다오 : searchmatching1");
+			//System.out.println("마이 다오 : searchmatching1");
 			for(Mypage m1 : list) {
 				int count =1;
-				System.out.println("m"+count+":"+ m1.getMemberId()+m1.getAbc()+m1.getTrainerId());
+				//System.out.println("m"+count+":"+ m1.getMemberId()+m1.getAbc()+m1.getTrainerId());
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -88,8 +88,8 @@ public class MypageMainDao {
 				m = new Mypage();
 				m.setTrainerId(rset.getString("matchedmemberId"));		// 트레이너아이디
 				m.setMatchingScore(rset.getString("matchingscore"));	// 별점
-				System.out.println("마이 다오 searchMatching2 : "+m.getTrainerId());
-				System.out.println("마이 다오 searchMatching2 : "+m.getMatchingScore());
+				//System.out.println("마이 다오 searchMatching2 : "+m.getTrainerId());
+				//System.out.println("마이 다오 searchMatching2 : "+m.getMatchingScore());
 				list.add(m);
 			}
 		} catch (SQLException e) {
@@ -98,8 +98,8 @@ public class MypageMainDao {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
 		}
-		System.out.println("마이 다오 searchMatching2 : "+list.get(0).getTrainerId());
-		System.out.println("마이 다오 searchMatching2 : "+list.get(0).getMatchingScore());
+		//System.out.println("마이 다오 searchMatching2 : "+list.get(0).getTrainerId());
+		//System.out.println("마이 다오 searchMatching2 : "+list.get(0).getMatchingScore());
 		
 //		System.out.println("마이페이지메인다오 searchMatching2 : "+
 //				list.get(0).getMemberId()+list.get(0).getMatchingScore());
@@ -128,8 +128,8 @@ public class MypageMainDao {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
 		}
-		System.out.println("마이 다오다오 searchTrainer : "+ mypage.getTrainerSubject()+
-				mypage.getProfile()+mypage.getTrainerRegion()+mypage.getTrainerEvent()+mypage.getTrainerSubject());
+		//System.out.println("마이 다오다오 searchTrainer : "+ mypage.getTrainerSubject()+
+				//mypage.getProfile()+mypage.getTrainerRegion()+mypage.getTrainerEvent()+mypage.getTrainerSubject());
 		return mypage;
 	}
 
@@ -153,7 +153,7 @@ public class MypageMainDao {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
 		}
-		System.out.println("마이페이지 다오다오 searchTrainerProfilefile: "+ result);
+		//System.out.println("마이페이지 다오다오 searchTrainerProfilefile: "+ result);
 		return result;
 	}
 
@@ -161,8 +161,8 @@ public class MypageMainDao {
 	public String searchMatchingACount(Connection conn, String memberId) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		String query = "select count(*) from matching where matchedmemberid = ? and wishtrainercheck=?";
-
+		String query = "select count(*) as countA from matching where matchedmemberid = ? and wishtrainercheck=?";
+		
 		String result ="";
 		
 		try {
@@ -174,14 +174,14 @@ public class MypageMainDao {
 			while(rset.next()) {
 				result = rset.getString("countA");
 			}
-			System.out.println("result = "+result);
+			//System.out.println("result = "+result);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
 		}
-		System.out.println("마이다오다오 searchMatchingACount : "+result);
+		//System.out.println("마이다오다오 searchMatchingACount : "+result);
 		return result;
 	}
 
@@ -201,14 +201,14 @@ public class MypageMainDao {
 			while(rset.next()) {
 				result = rset.getString(1);
 			}
-			System.out.println("result = "+result);
+			//System.out.println("result = "+result);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
 		}
-		System.out.println("마이다오다오 searchMatchingBCount : "+result);
+		//System.out.println("마이다오다오 searchMatchingBCount : "+result);
 		return result;
 	}
 
@@ -228,14 +228,14 @@ public class MypageMainDao {
 			while(rset.next()) {
 				result = rset.getString(1);
 			}
-			System.out.println("result = "+result);
+			//System.out.println("result = "+result);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
 		}
-		System.out.println("마이다오다오 searchMatchingCCount : "+result);
+		//System.out.println("마이다오다오 searchMatchingCCount : "+result);
 		return result;
 	}
 
@@ -257,7 +257,7 @@ public class MypageMainDao {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
 		}
-		System.out.println("마이 다오다오  : "+ mypage.getTrainerSubject());
+		//System.out.println("마이 다오다오  : "+ mypage.getTrainerSubject());
 		return mypage;
 	}
 
