@@ -124,7 +124,7 @@
          <div class="row">
                 <div class="col-md-3">
                     <div class="main-box mb-red">
-                        <a href="adminNormalSetCalendar.jsp">
+                        <a href="/coding.do">
                             <i class="fa fa-bolt fa-3x"></i>
                             <h5>스케줄 확인</h5>
                         </a>

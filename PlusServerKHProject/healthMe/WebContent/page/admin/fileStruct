@@ -33,3 +33,10 @@
 큰 페이지 틀 누른후 그걸 누를경우 새로운 페이지로 바껴지도록 해보기
  
  
+ select count(*) from member union all
+select count(*) from tmptrainer union all
+select count(memberid) from trainer union all
+select count(matchingmemberid) from matching union all
+select count(qboardnum) from questionboard union all
+select count(freenum) from freeboard;
+ 

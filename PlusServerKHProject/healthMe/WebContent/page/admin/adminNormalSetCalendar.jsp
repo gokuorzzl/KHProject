@@ -162,8 +162,7 @@
 
                         <div class="table-responsive">
                         <h3>자유게시판</h3>
-                         <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;hl=ko&amp;bgcolor=%23ccffff&amp;src=fo5dtbommj7bpjb2s5rgchoq75r1krq9%40import.calendar.google.com&amp;color=%232F6309&amp;src=ko.south_korea%23holiday%40group.v.calendar.google.com&amp;color=%23125A12&amp;ctz=Asia%2FSeoul" 
-                         style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+                         
                         </div>
 
 

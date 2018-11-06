@@ -15,6 +15,7 @@ import com.healthme.admin.vo.Ad;
 
 /**
  * Servlet implementation class AdminAdListServlet
+ * 광고광고
  */
 @WebServlet(name = "AdminAdList", urlPatterns = { "/adminAdList.do" })
 public class AdminAdListServlet extends HttpServlet {
