@@ -34,7 +34,7 @@
              <ul class="menu">
                 <li><a href="/index.jsp">메인</a></li>
                 <li><a href="/page/searchTrainerPage/searchTrainerPage.jsp">트레이너 찾기</a></li>
-                <li><a href="/page/mypage/trainerInfoPage.jsp">트레이너 등록</a></li>
+                <li><a href="/page/mypage/trainerInfoPage2.jsp">트레이너 등록</a></li>
                 <li><a href="/freePage.do">게시판</a></li>
                 <li><a href="/qnaPage.do">Q & A</a></li>
 
@@ -57,7 +57,7 @@
 			<div class="col-md-offset-1 col-md-4 col-sm-6"></div>
                  	<br><br>
                  		<h2>heal th me</h2>
-                 		<form action = "/searchTrainerId.do" method ="post">
+                 		<form action = "/mypageMain.do" method ="post">
                  		<input type="hidden" name="memberId" value="<%=member.getMemberId()%>">
                  		 <button type="submit" class="loginForm myInfoCss" >마이 페이지ㆍ</button>
                  		 <a href="/logout.do" class="loginForm">로그아웃</a>
