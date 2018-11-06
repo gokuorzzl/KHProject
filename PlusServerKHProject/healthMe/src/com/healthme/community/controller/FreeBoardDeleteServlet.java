@@ -1,8 +1,6 @@
 package com.healthme.community.controller;
 
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,19 +8,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.healthme.community.model.service.BoardService;
-import com.healthme.community.model.vo.CommentData;
 
 /**
- * Servlet implementation class QnaSelectServlet
+ * Servlet implementation class FreeBoardDeleteServlet
  */
-@WebServlet(name = "QnaSelect", urlPatterns = { "/qnaSelect.do" })
-public class QnaSelectServlet extends HttpServlet {
+@WebServlet(name = "FreeBoardDelete", urlPatterns = { "/freeBoardDelete.do" })
+public class FreeBoardDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public QnaSelectServlet() {
+    public FreeBoardDeleteServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,22 +30,15 @@ public class QnaSelectServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		
-		int qnaNum = Integer.parseInt(request.getParameter("qnaNum"));
-		int currentPage;
+		int bNum = Integer.parseInt(request.getParameter("bNum"));
+		String userId = request.getParameter("userId");
 		
-		if(request.getParameter("currentPage")==null) {
-			currentPage=1;
-		}else {
-			currentPage = Integer.parseInt(request.getParameter("currentPage"));
-		}
+		int result = new BoardService().freeBoardDelete(bNum,userId);
 		
-		CommentData cd = new BoardService().qnaSelectOneList(qnaNum,currentPage);
-		if(cd!=null) {
-			RequestDispatcher view = request.getRequestDispatcher("page/communityPage/qnaReadingPage.jsp");
-			request.setAttribute("selectBoard", cd);
-			view.forward(request, response);
+		if(result>0) {
+			response.sendRedirect("/page/communityPage/freeDeleteSuccess.jsp");
 		}else {
-			response.sendRedirect("/page/communityPage/error.jsp");
+			response.sendRedirect("/page/communityPage/freeDeleteFail.jsp");
 		}
 	}
 

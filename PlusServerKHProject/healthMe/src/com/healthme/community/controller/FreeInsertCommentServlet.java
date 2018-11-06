@@ -1,28 +1,27 @@
 package com.healthme.community.controller;
 
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.healthme.community.model.service.BoardService;
-import com.healthme.community.model.vo.CommentData;
+import com.healthme.member.vo.Member;
 
 /**
- * Servlet implementation class QnaSelectServlet
+ * Servlet implementation class FreeInsertCommentServlet
  */
-@WebServlet(name = "QnaSelect", urlPatterns = { "/qnaSelect.do" })
-public class QnaSelectServlet extends HttpServlet {
+@WebServlet(name = "FreeInsertComment", urlPatterns = { "/freeInsertComment.do" })
+public class FreeInsertCommentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public QnaSelectServlet() {
+    public FreeInsertCommentServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,23 +30,19 @@ public class QnaSelectServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		
-		int qnaNum = Integer.parseInt(request.getParameter("qnaNum"));
-		int currentPage;
-		
-		if(request.getParameter("currentPage")==null) {
-			currentPage=1;
-		}else {
-			currentPage = Integer.parseInt(request.getParameter("currentPage"));
-		}
-		
-		CommentData cd = new BoardService().qnaSelectOneList(qnaNum,currentPage);
-		if(cd!=null) {
-			RequestDispatcher view = request.getRequestDispatcher("page/communityPage/qnaReadingPage.jsp");
-			request.setAttribute("selectBoard", cd);
-			view.forward(request, response);
-		}else {
+		HttpSession session = request.getSession(false);
+		try {
+			String userId = ((Member)session.getAttribute("member")).getMemberId();
+			String CommentText = request.getParameter("writeCommentText");
+			int freeNum = Integer.parseInt(request.getParameter("freeNum"));
+			
+			int result = new BoardService().freeInsertComment(userId,CommentText,freeNum);
+			if(result>0) {
+				response.sendRedirect("/freeSelect.do?freeNum="+freeNum);
+			}else {
+				throw new Exception();
+			}
+		} catch (Exception e) {
 			response.sendRedirect("/page/communityPage/error.jsp");
 		}
 	}

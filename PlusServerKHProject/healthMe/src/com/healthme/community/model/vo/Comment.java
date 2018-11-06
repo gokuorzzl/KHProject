@@ -10,20 +10,24 @@ public class Comment {
     private String commentContent; //댓글 내용
 	private int commentAvailable;
 	private Date commentDeleteDate;
-    
-    public Comment() {
+	
+	public Comment() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Comment(int boardNum, String memberID, int commentNumber, Date commentInsertDate, String commentContent) {
+	
+	public Comment(int boardNum, String memberID, int commentNumber, Date commentInsertDate, String commentContent,
+			int commentAvailable, Date commentDeleteDate) {
 		super();
 		this.boardNum = boardNum;
 		this.memberID = memberID;
 		this.commentNumber = commentNumber;
 		this.commentInsertDate = commentInsertDate;
 		this.commentContent = commentContent;
+		this.commentAvailable = commentAvailable;
+		this.commentDeleteDate = commentDeleteDate;
 	}
-	
+
 	public int getBoardNum() {
 		return boardNum;
 	}
@@ -53,5 +57,19 @@ public class Comment {
 	}
 	public void setCommentContent(String commentContent) {
 		this.commentContent = commentContent;
-	}  
+	}
+	public int getCommentAvailable() {
+		return commentAvailable;
+	}
+	public void setCommentAvailable(int commentAvailable) {
+		this.commentAvailable = commentAvailable;
+	}
+	public Date getCommentDeleteDate() {
+		return commentDeleteDate;
+	}
+	public void setCommentDeleteDate(Date commentDeleteDate) {
+		this.commentDeleteDate = commentDeleteDate;
+	}
+    
+   
 }

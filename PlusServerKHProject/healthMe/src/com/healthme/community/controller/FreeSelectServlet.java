@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.healthme.community.model.service.BoardService;
 import com.healthme.community.model.vo.Board;
+import com.healthme.community.model.vo.CommentData;
 
 /**
  * Servlet implementation class FreeSelectServlet
@@ -34,11 +35,18 @@ public class FreeSelectServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		
 		int freeNum = Integer.parseInt(request.getParameter("freeNum"));
+		int currentPage;
 		
-		Board b = new BoardService().freeSelectOneList(freeNum);
-		if(b!=null) {
-			RequestDispatcher view = request.getRequestDispatcher("page/communityPage/readingPage.jsp");
-			request.setAttribute("selectBoard", b);
+		if(request.getParameter("currentPage")==null) {
+			currentPage=1;
+		}else {
+			currentPage = Integer.parseInt(request.getParameter("currentPage"));
+		}
+		
+		CommentData cd = new BoardService().freeSelectOneList(freeNum,currentPage);
+		if(cd!=null) {
+			RequestDispatcher view = request.getRequestDispatcher("page/communityPage/freeReadingPage.jsp");
+			request.setAttribute("selectBoard", cd);
 			view.forward(request, response);
 		}else {
 			response.sendRedirect("/page/communityPage/error.jsp");

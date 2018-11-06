@@ -1,7 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import = "com.healthme.community.model.vo.*" %>
-<% Board b = (Board)request.getAttribute("selectBoard"); %>
+<%@  page import = "com.healthme.community.model.vo.*"
+		import = "com.healthme.member.vo.*"
+		import = "java.util.ArrayList"%> 
+<%
+	session = request.getSession(false);
+	Member member = null;
+	member = (Member)session.getAttribute("member");
+	CommentData cd = (CommentData)request.getAttribute("selectBoard");
+	ArrayList<Comment> list = null;
+	String pageNavi = null;
+	Board b = null;
+	
+	if(cd!=null){
+		list = cd.getList();//현재 페이지의 글 목록
+		pageNavi = cd.getPageNavi();//현재 navi Bar
+		b = cd.getB();
+	}
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -67,30 +83,50 @@
                         <span id="mainContents"><%=b.getContent() %></span>
                     </div>
                     <div id="buttonsFrame">
+                    <%if(member != null){ %>
+                    <%if(b.getUserId().equals(member.getMemberId())){ %>
+                     	<button id="editButton" onclick="edit();">수정</button>
+                        <button id="deleteButton" onclick="boardDelete();">삭제</button>
                         <button id="listButton" onclick="back();">목록</button>
+                    <%}else{ %>
+                    	<button id="listButton" onclick="back();">목록</button>
+                    <%} %>
+                    <%}%>
                     </div>
                     <div id="writeCommentFrame">
-                    <form action="/insertComment.do">
+                    <form action="/freeInsertComment.do" method="get">
                         <div id="writeCommentTextView">
-                            <textarea id="writeCommentText" style="resize:none;"></textarea>
+                            <textarea id="writeCommentText" name="writeCommentText" style="resize:none;"></textarea>
+                        	<input type="hidden" name="freeNum" value="<%=b.getNum() %>">
                         </div>
                         <div id="writeCommentBtnView">
-                            <button id="writeCommentBtn" onclick="commentBtn();">댓글</button>
+                            <button id="writeCommentBtn" type="submit" onclick="return commentBtn();">댓글</button>
                         </div>
                     </form> 
                     </div>
                     <div id="commentFrame">
-                        <div id="commentWriterView">
-                            <span id="commentWriter">댓글 작성자</span>
-                        </div>
-                        <div id="bundleComment">
-                            <div id="commentContentsView">
-                                <span id="commentContents">댓글내용</span>
-                            </div>
-                            <div id="commentDateCreatedView">
-                                <span id="commentDateCreated">작성일</span>
-                            </div>
-                        </div>
+                    <%if(list!=null){ %>
+	                    <%for(Comment c : list){ %>
+	                        <div id="commentWriterView">
+	                            <span id="commentWriter"><%=c.getMemberID() %></span>
+	                        </div>
+	                        <div id="bundleComment">
+	                            <div id="commentContentsView">
+	                                <span id="commentContents"><%=c.getCommentContent() %></span>
+	                            </div>
+	                            <div id="commentDateCreatedView">
+	                                <span id="commentDateCreated"><%=c.getCommentInsertDate() %></span>
+	                            </div>
+	                        </div>
+	                    <%} %>
+                    <%}else{ %>
+                    	댓글이 없습니다.
+                    <%} %>
+                    <%if(pageNavi!=null){ %>
+                    <label><%=pageNavi %></label>
+                    <%}else{ %>
+                     <label>0</label>
+                    <%} %>
                     </div>
                 </div>
             </div>
@@ -106,13 +142,29 @@
     <script>
         function commentBtn(){
             //수정이 필요함 댓글을 적어도 alert가 나옴..
-            var commentText = document.getElementById("writeCommentText").innerHTML;
+            var commentText = document.getElementById("writeCommentText").value;
             if(commentText==""){
                 alert("댓글내용을 작성해주세요!!");
+                return false;
             }
+            <%if(member!=null){%>
+            	return true;
+	    	<%}else{%>
+	    		alert("로그인을 해주세요;");
+	    		return false;
+	    	<%}%>
         }
         function back() {
-        	history.go(-1);
+        	location.href="/qnaPage.do";
+		}
+        function boardDelete() {
+        	if(member!=null){
+        		location.href="/freeBoardDelete.do?bNum=<%=b.getNum()%>&userId=<%=member.getMemberId()%>";
+        	}
+			
+		}
+        function edit() {
+			location.href="/page/communityPage/editPage.jsp?board=f";
 		}
     </script>
 </body>
