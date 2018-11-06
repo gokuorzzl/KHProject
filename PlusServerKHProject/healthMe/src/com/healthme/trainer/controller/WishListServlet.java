@@ -1,6 +1,8 @@
 package com.healthme.trainer.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,15 +35,15 @@ public class WishListServlet extends HttpServlet {
 request.setCharacterEncoding("utf-8");
 		
 		String trainerId = request.getParameter("trainerId");
-
 		HttpSession session = request.getSession(false);
 		try {
 		String userId =((Member)session.getAttribute("member")).getMemberId();
-		
 		if(userId!=null) {
 			int result = new RegisterService().insertWishList(trainerId, userId);
 			if(result>0) {
-				response.sendRedirect("/page/mypage/mypageMain.jsp");//마이페이지 부분으로 넘길 예정
+				RequestDispatcher view = request.getRequestDispatcher("/searchTrainerId.do");
+				request.setAttribute("memberId", userId);
+				view.forward(request, response);		
 			}else {
 				response.sendRedirect("/page/error/error.jsp");
 			}

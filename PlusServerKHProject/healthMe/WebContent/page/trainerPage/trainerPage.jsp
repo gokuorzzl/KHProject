@@ -297,7 +297,6 @@
 						<div class="submitB"> 
 						<input type="submit" class="submitBtn" value=" 수업 신청하기 ▶ ">
 						<input type="hidden" value="<%=t.getMemberId()%>" name="trainerId"/>
-						<input type="hidden" value="<%=t.getTrainerSubject()%>" name="trainerSubject"/>
 					</div>
 					</div>
 					</form>
@@ -314,7 +313,6 @@
 						<div class="iconRight textMiddle">
 							<input type="submit" class="submitBtn submitB" value="찜하기">
 							<input type="hidden" value="<%=t.getMemberId()%>" name="trainerId"/>
-							<input type="hidden" value="<%=t.getTrainerSubject()%>" name="trainerSubject"/>
 						</div>
 						</form>
 					</div>
