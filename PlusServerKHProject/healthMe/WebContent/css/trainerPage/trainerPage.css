@@ -701,43 +701,43 @@ table {
     } 
 	/*이력서 완벽하게 소개하는 부분*/
 	.contents_3{
-		width:95%;
+		width:100%;
 		position: relative;
 		vertical-align: middle;
     	margin: auto; 
 	}
 	.myInfo_1{
-		width:90%;
+		width:100%;
 		position:relative;
 		font-size: 30px;
 		font-family:'NotoSansCJKkrBold';
 	}
 	.myInfo_2{
-		width:90%;
+		width:100%;
 		position:relative;
 		font-size: 30px;
 		font-family:'NotoSansCJKkrBold';
 	}
 	.myInfo_3{
-		width:90%;
+		width:100%;
 		position:relative;
 		font-size: 30px;
 		font-family:'NotoSansCJKkrBold';
 	}
 	.myInfo_4{
-		width:90%;
+		width:100%;
 		position:relative;
 		font-size: 30px;
 		font-family:'NotoSansCJKkrBold';
 	}
 	.myInfo_5{
-		width:90%;
+		width:100%;
 		position:relative;
 		font-size: 30px;
 		font-family:'NotoSansCJKkrBold';		
 	}
 	.myInfoInner{
-		width:90%;
+		width:100%;
 		position:static;
 		font-size: 20px;
 		font-family:'NotoSansCJKkrBold';
@@ -1080,44 +1080,44 @@ table {
     
 	/*이력서 완벽하게 소개하는 부분*/
 	.contents_3{
-		width:90%;
+		width:100%;
 		position: relative;
     	vertical-align: middle;
     	margin: auto; 		
 		
 	}
 	.myInfo_1{
-		width:90%;
+		width:100%;
 		position:relative;
 		font-size: 25px;
 		font-family:'NotoSansCJKkrBold';
 	}
 	.myInfo_2{
-		width:90%;
+		width:100%;
 		position:relative;
 		font-size: 25px;
 		font-family:'NotoSansCJKkrBold';
 	}
 	.myInfo_3{
-		width:90%;
+		width:100%;
 		position:relative;
 		font-size: 25px;
 		font-family:'NotoSansCJKkrBold';
 	}
 	.myInfo_4{
-		width:90%;
+		width:100%;
 		position:relative;
 		font-size: 25px;
 		font-family:'NotoSansCJKkrBold';
 	}
 	.myInfo_5{
-		width:90%;
+		width:100%;
 		position:relative;
 		font-size: 30px;
 		font-family:'NotoSansCJKkrBold';		
 	}
 	.myInfoInner{
-		width:90%;
+		width:100%;
 		position:static;
 		font-size: 15px;
 		font-family:'NotoSansCJKkrBold';
