@@ -39,30 +39,20 @@ public class MypageMainService {
 		//1.searchMatching2에서 트레이너아이디/별점을 arraylist로 저장하여 반환
 		ArrayList<Mypage> tmlist = new MypageMainDao().searchMatching2(conn, memberId);
 		for(int i=0; i<tmlist.size(); i++) {
-			//System.out.println("searchMatching Dao -> Service"+tmlist.get(i).getTrainerId()+"\t"+
-					//tmlist.get(i).getMatchingScore());
-		}
-		//System.out.println("마이페이지 서비스 : search매칭2 이후 출력체크");
-		
-		for(int i=0; i<tmlist.size(); i++) {
-			
-			//System.out.println("마이서비스 >멤버아이디체크 : "+memberId);
-			Mypage mypage = new MypageMainDao().searchTrainer(conn, memberId, tmlist.get(i));
-			tmlist.set(i, mypage);
-			//System.out.println("마이서비스 trainerMypage 강의주제 : "+tmlist.get(i).getTrainerSubject());
-			//System.out.println("마이서비스 trainerMypage 사진위치 : "+tmlist.get(i).getProfile());
+			Mypage mypage = new MypageMainDao().searchTrainer(conn, memberId, tmlist.get(0));
+			tmlist.set(0, mypage);
 			
 			String a = new MypageMainDao().searchMatchingACount(conn, memberId); 
-			//System.out.println("마이페이지 서비스 호감리스트 카운트다아아아: "+a);
-			tmlist.get(i).setMatchingCountA(Integer.parseInt(a));//숫자로바꿔서 저장
+			System.out.println("마이페이지 서비스 호감리스트 카운트다아아아: "+a);
+			tmlist.get(0).setMatchingCountA(Integer.parseInt(a));//숫자로바꿔서 저장
 			
 			String b = new MypageMainDao().searchMatchingBCount(conn, memberId);
-			//System.out.println("마이페이지서비스 수업신청서 갯수: "+b);
-			tmlist.get(i).setMatchingCountA(Integer.parseInt(b));//숫자로 바꿔서 저장
+			System.out.println("마이페이지서비스 수업신청서 갯수: "+b);
+			tmlist.get(0).setMatchingCountB(Integer.parseInt(b));//숫자로 바꿔서 저장
 			
 			String c = new MypageMainDao().searchMatchingCCount(conn, memberId);
-			//System.out.println("마이페이지서비스 수업 수강 인원: "+c);
-			tmlist.get(i).setMatchingCountA(Integer.parseInt(c));//숫자로 바꿔저장
+			System.out.println("마이페이지서비스 수업 수강 인원: "+c);
+			tmlist.get(0).setMatchingCountC(Integer.parseInt(c));//숫자로 바꿔저장
 		}
 		
 		JDBCTemplate.close(conn);
