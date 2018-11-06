@@ -19,8 +19,8 @@ public class MypageMainService {
 		// 관심 abc에 따른 트레이너의 정보(강사사진 이름 지역 종목 강의주제 )를 가져온다.
 		for(int i=0; i<mmlist.size(); i++) {
 			// 질문 
-			Mypage subject = new MypageMainDao().searchTrainer(conn, mmlist.get(i).getTrainerId(), mmlist.get(i));
-			mmlist.get(i).setTrainerSubject(subject);
+			Mypage mypage = new MypageMainDao().searchTrainer(conn, mmlist.get(i).getTrainerId(), mmlist.get(i));
+			mmlist.set(i, mypage);
 		}
 		JDBCTemplate.close(conn);
 		
