@@ -46,13 +46,13 @@
 		<div id="navigation-login"><a href = "../loginPage/login.jsp">로그인
 		</a></div>
 		<% } else{ %>
-		<div id="navigation-login"><a href = "/logout.do">로그아웃
+		<div id="navigation-login"><a href = "/mypageMain.do">마이페이지
 		</a></div>		
 		<% } %>
 		<ul>
 			<li><a href="../../index.jsp">메인</a></li>
 	        <li><a href="../searchTrainerPage/searchTrainerPage.jsp">트레이너 찾기</a></li>
-	        <li><a href="../mypage/trainerInfoPage.jsp">트레이너 등록</a></li>
+	        <li><a href="../mypage/trainerInfoPage2.jsp">트레이너 등록</a></li>
 	        <li><a href="/freePage.do">게시판</a></li>
 	        <li><a href="/qnaPage.do">Q & A</a></li>
 		</ul>
