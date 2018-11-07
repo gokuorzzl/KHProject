@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import com.healthme.member.vo.Member;
 import com.healthme.mypage.model.service.MypageMainService;
 import com.healthme.mypage.model.vo.Mypage;
+import com.healthme.mypage.model.vo.MypageTrainer;
 
 /**
  * Servlet implementation class MypageMainServlet
@@ -46,22 +47,23 @@ public class MypageMainServlet extends HttpServlet {
 		Member member = (Member)session.getAttribute("member");
 		char isTrainer = ((Member)session.getAttribute("member")).getMemberTrainer(); //트레이너인지 검사
 		
-		ArrayList<Mypage> mylist = null;
+		ArrayList<Mypage> mmlist = null;
+		ArrayList<MypageTrainer> mtlist = null;
 		if(isTrainer=='y') {	// 트레이너라면
-			mylist = new MypageMainService().trainerMypage(member.getMemberId());
+			mtlist = new MypageMainService().trainerMypage(member.getMemberId());
 		}else {	// 일반회원이라면
-			mylist = new MypageMainService().memberMypage(member.getMemberId());	//받아온 멤버id로 회원의 수강정보 가져오도록하자.
+			mmlist = new MypageMainService().memberMypage(member.getMemberId());	//받아온 멤버id로 회원의 수강정보 가져오도록하자.
 		}	//마이페이지 정보를 가져온다.
 		
 		
 		// 결과처리
-		if( isTrainer=='y' && !mylist.isEmpty()) { 
+		if( isTrainer=='y' && !mtlist.isEmpty()) { 
 			RequestDispatcher view = request.getRequestDispatcher("page/mypage/mypageMain2.jsp");
-			request.setAttribute("mylist", mylist);	//이부분 체크해야됨
+			request.setAttribute("mylist", mtlist);	//이부분 체크해야됨
 			view.forward(request, response);
-		}else if(isTrainer=='n' && !mylist.isEmpty()) {
+		}else if(isTrainer=='n' && !mmlist.isEmpty()) {
 			RequestDispatcher view = request.getRequestDispatcher("page/mypage/mypageMain.jsp");
-			request.setAttribute("mylist", mylist);	// 이부분 체크 바람
+			request.setAttribute("mylist", mmlist);	// 이부분 체크 바람
 			//System.out.println("마이서블릿 회원list: "+mylist.get(0).getMemberId()+ "\n"+ mylist.get(0).getProfile());
 			view.forward(request, response);
 		}else {

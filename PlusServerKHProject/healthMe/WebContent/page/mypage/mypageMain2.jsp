@@ -14,7 +14,7 @@
 	Member member = null;
 	member = (Member)session.getAttribute("member");	//세션에서 member name으로 넘겨주는 memberid를 받고
 	System.out.println("myMainJSP : " + member.getMemberId());
-	ArrayList<Mypage> mylist = (ArrayList)request.getAttribute("mylist"); // 회원일경우  mylist에는 트레이너의 정보가 들어있다.
+	ArrayList<MypageTrainer> mylist = (ArrayList)request.getAttribute("mylist"); // 마이페이지 트레이너 리스트
 %>
 
 
@@ -39,7 +39,7 @@
   	<!-- fa 아이콘 링크  -->
   	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--title-->
-    <title>헬th미:나만의 트레이너</title>
+    <title>헬th미: 트레이너 마이페이지</title>
 </head>
 <body>
 <!--전체 공간-->
@@ -164,16 +164,17 @@
 			                         <thead>
 			                         	<tr id="trainerApplyingClass">
 			                         		<th  scope="col">수업신청자</th>
-		                                    <th  scope="col">신청 내용</th>
-		                                    <th  scope="col">신청 날짜</th>
+			                         		<th  scope="col">제목</th>
+		                                    <th  scope="col">내용</th>
+		                                    <th  scope="col">날짜</th>
 			                         	</tr>
 		                         	</thead>
 		                         	<tbody>
 		                         		<center>
 		                         			<tr class="line">
-		                         				<td>
-		                         					<%=mylist.get(0).getMemberName()%>
-	                         					</td>
+											<% for(int i=0; i<1; i++) { %>
+												<td><%=mylist.get(0).getMemberList().get(0) %></td>
+											<%} %>
 		                         			</tr>
 		                         		</center>
 		                         	</tbody>

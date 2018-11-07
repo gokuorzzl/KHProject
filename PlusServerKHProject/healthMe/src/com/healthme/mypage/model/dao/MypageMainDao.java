@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import com.healthme.common.JDBCTemplate;
 import com.healthme.mypage.model.vo.Mypage;
+import com.healthme.mypage.model.vo.MypageTrainer;
 
 public class MypageMainDao {
 
@@ -71,39 +72,47 @@ public class MypageMainDao {
 	}
 	
 	//트레이너 id와 별점을 가지고 온다.
-	public ArrayList<Mypage> searchMatching2(Connection conn, String memberId) {
+	public ArrayList<MypageTrainer> searchMatching2(Connection conn, String memberId) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
 		// 여기서 트레이너인경우는 본인이 매칭되었으므로 Where matchedMemberid = ' '로 조건을 줘야됨!! 
-		String query = "select * from matching where matchedMemberid= ?";
+		String query = "select * from matching where matchedMemberid= ? and wishtrainercheck=?";
 		
-		ArrayList<Mypage> list = new ArrayList<Mypage>();
+		ArrayList<MypageTrainer> list = new ArrayList<MypageTrainer>();
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, memberId);	//this memberid = trainerid
+			pstmt.setString(2, "b");		// 수업신청 중 인원
 			rset = pstmt.executeQuery();
-			Mypage m = null;
+			MypageTrainer m = null;
+			ArrayList<String> mlist1 = new ArrayList<String>();
+			ArrayList<String> mlist2 = new ArrayList<String>();
+			ArrayList<String> mlist3 = new ArrayList<String>();
+			ArrayList<String> mlist4 = new ArrayList<String>();
 			while(rset.next()) { // 디비순서대로 값을 가져온다.
-				m = new Mypage();
+				m = new MypageTrainer();
 				m.setTrainerId(rset.getString("matchedmemberId"));		// 트레이너아이디
-//				System.out.println("마이 다오 searchMatching2 : "+m.getTrainerId());
+				mlist1.add(rset.getString("matchingmemberid"));
 				list.add(m);
+				mlist1.add(rset.getString("MATCHINGSUBJECT"));
+				mlist1.add(rset.getString("MATCHINGCONTENTS"));
+				mlist1.add(rset.getString("MATCHINGDATE"));
 			}
+			m.setMemberList(mlist1);
+			m.setApplyingClassSubject(mlist2);
+			m.setApplyingClassContent(mlist3);
+			m.setApplyingClassSendDate(mlist4);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
 		}
-		for(Mypage m : list) {
-			System.out.println("list"+m.getTrainerId());
+		for(MypageTrainer m : list) {
+			System.out.println("Dao 서치: "+m.getMemberList()+"\t"+m.getApplyingClassSubject()
+					+m.getApplyingClassContent()+"\t"+m.getApplyingClassSendDate());
 		}
-		//System.out.println("마이 다오 searchMatching2 : "+list.get(0).getTrainerId());
-		//System.out.println("마이 다오 searchMatching2 : "+list.get(0).getMatchingScore());
-		
-//		System.out.println("마이페이지메인다오 searchMatching2 : "+
-//				list.get(0).getMemberId()+list.get(0).getMatchingScore());
 		return list;
 	}
 
@@ -281,6 +290,32 @@ public class MypageMainDao {
 		}
 		return starScore;
 
+	}
+
+	public MypageTrainer searchTrainer(Connection conn, String memberId, MypageTrainer mypageTrainer) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String query = "select * from trainer where memberid = ?";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, memberId);		//여기서 memberId = trainerId
+			rset = pstmt.executeQuery();
+			while(rset.next()) {	//가져올값이 여러개일때 사용.
+				mypageTrainer.setTrainerSubject(rset.getString("trainersubject"));
+				mypageTrainer.setProfile(rset.getString("profilefile"));
+				mypageTrainer.setTrainerRegion(rset.getString("trainerRegion"));
+				mypageTrainer.setTrainerEvent(rset.getString("trainerEvent"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		//System.out.println("마이 다오다오 searchTrainer : "+ mypage.getTrainerSubject()+
+				//mypage.getProfile()+mypage.getTrainerRegion()+mypage.getTrainerEvent()+mypage.getTrainerSubject());
+		return mypageTrainer;
 	}
 
 }
