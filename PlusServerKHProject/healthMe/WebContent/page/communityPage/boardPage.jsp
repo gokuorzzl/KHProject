@@ -47,6 +47,7 @@
         
         <!--컨텐츠가 들어가는 중간부분-->
         <!--페이지별로 달라지는 부분-->
+        <center>
         <div id="middle">
             <!--지역, 종목 등 선택할 수 있는 선택박스-->
             <!--트레이너 별점 등 컨텐츠 나오는 부분-->
@@ -60,7 +61,7 @@
                         </div>
                     </div>
                     <div id="noticeBoardListFrame" >
-                        <table>
+                        <table style="text-align-last: center;">
                             <colgroup>
                                 <col style="width:*%">
                                 <col style="width:14%">
@@ -132,6 +133,7 @@
         </div>
         <!--회사정보가 들어가는 아랫부분-->
         <!--bottom부분은 관리자페이지 제외한 모든 페이지 통일-->
+        </center>
         <div id="bottom">
 			<jsp:include page="/page/footer/footer.jsp"/>
 		</div>
