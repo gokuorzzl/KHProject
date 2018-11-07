@@ -140,17 +140,17 @@
                 </div>
                 <div class="col-md-3">
                     <div class="main-box mb-pink">
-                        <a href="#">
+                        <a href="/adminTmptrainerPermit.do">
                             <i class="fa fa-dollar fa-3x"></i>
-                            <h5>새로운정보3</h5>
+                            <h5>트레이너 허락</h5>
                         </a>
                     </div>
                 </div>
              <div class="col-md-3">
                     <div class="main-box mb-pink">
-                        <a href="#">
+                        <a href="/adminMain.do">
                             <i class="fa fa-dollar fa-3x"></i>
-                            <h5>새로운정보4</h5>
+                            <h5>차트</h5>
                         </a>
                     </div>
                 </div>

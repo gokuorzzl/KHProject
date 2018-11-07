@@ -2,6 +2,8 @@ package com.healthme.admin.vo;
 
 public class AdminMain {
 
+	
+	
 	int memberNum;
 	int tmptrainerNum;
 	int trainerNum;

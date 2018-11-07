@@ -691,10 +691,6 @@ public class AdminDao {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(stmt);
 		}
-		System.out.println("디에이오 : " + adList.get(0).getCompany());
-		System.out.println("디에이오 : " + adList.get(1).getCompany());
-		System.out.println("디에이오 : " + adList.get(2).getCompany());
-		System.out.println("디에이오 : " + adList.get(3).getCompany());
 		return adList;
 	}
 
@@ -738,15 +734,336 @@ public class AdminDao {
 	//쿼리 여러개 써보기!! -> 이부분 안된다면 일일이 다 풀어쓰기!!
 	public AdminMain adminMainPrint(Connection conn) {
 		// TODO Auto-generated method stub
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
 		AdminMain am = null;
 		
+		String query = "select * from  select count(*) from member union all" + 
+				" select count(*) from tmptrainer union all" + 
+				" select count(memberid) from trainer union all " + 
+				" select count(matchingmemberid) from matching union all" + 
+				" select count(qboardnum) from questionboard union all" + 
+				" select count(freenum) from freeboard";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+		
+			rset = pstmt.executeQuery();
+			System.out.println("AdminDao까지왔어왔어");
+			
+			int count=1;
+			if(rset.next()) {
+				if(count==1) {
+					am.setMemberNum(rset.getInt("memberId"));
+					count++;
+				}else if(count==2) {
+					am.setTmptrainerNum(rset.getInt("tmptrainerNum"));
+				count++;
+				}else if(count==3) {
+					am.setTrainerNum(rset.getInt("trainerNum"));
+				count++;
+				}else if(count==4) {
+					am.setMatchingNum(rset.getInt("matchingNum"));
+				count++;
+				}else if(count==5) {
+					am.setQuestionNum(rset.getInt("questionNum"));
+				count++;
+				}else {
+					am.setFreeNum(rset.getInt("freeNum"));
+				}
+			}
+			System.out.println(am.getFreeNum()+"자유자유");
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
 		
 		
 		
 		
 		
 		
-		return null;
+		
+		
+		return am;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//카운트수
+	public int adminmembercount(Connection conn) {
+		// TODO Auto-generated method stub
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		int result=0;
+		String query="select count(*) as total from member";
+		System.out.println(query);
+		
+		try {
+			stmt = conn.createStatement();
+			rset = stmt.executeQuery(query);
+			
+			while(rset.next()) {
+				result = rset.getInt("total");
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(stmt);
+			System.out.println(result+"리절트의메메메메메메");
+		}
+		
+		return result;
+	}
+	//카운트수
+	public int admintmptrainercount(Connection conn) {
+		// TODO Auto-generated method stub
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		int result=0;
+		String query="select count(*) as total from tmptrainer";
+		System.out.println(query);
+		
+		try {
+			stmt = conn.createStatement();
+			rset = stmt.executeQuery(query);
+			
+			while(rset.next()) {
+				result = rset.getInt("total");
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(stmt);
+		}
+		
+		return result;
+	}
+	//카운트수
+	public int admintrainercount(Connection conn) {
+		// TODO Auto-generated method stub
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		int result=0;
+		String query="select count(*) as total from trainer";
+		System.out.println(query);
+		
+		try {
+			stmt = conn.createStatement();
+			rset = stmt.executeQuery(query);
+			
+			while(rset.next()) {
+				result = rset.getInt("total");
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(stmt);
+		}
+		
+		return result;
+	}
+	//카운트수
+	public int adminMatchingcount(Connection conn) {
+		// TODO Auto-generated method stub
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		int result=0;
+		String query="select count(*) as total from matching";
+		System.out.println(query);
+		
+		try {
+			stmt = conn.createStatement();
+			rset = stmt.executeQuery(query);
+			
+			while(rset.next()) {
+				result = rset.getInt("total");
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(stmt);
+		}
+		
+		return result;
+	}
+	//카운트수
+	public int adminquestioncount(Connection conn) {
+		// TODO Auto-generated method stub
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		int result=0;
+		String query="select count(*) as total from questionboard";
+		System.out.println(query);
+		
+		try {
+			stmt = conn.createStatement();
+			rset = stmt.executeQuery(query);
+			
+			while(rset.next()) {
+				result = rset.getInt("total");
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(stmt);
+		}
+		
+		return result;
+	}
+	//카운트수
+	public int adminfreecount(Connection conn) {
+		// TODO Auto-generated method stub
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		int result=0;
+		String query="select count(*) as total from freeboard";
+		System.out.println(query);
+		
+		try {
+			stmt = conn.createStatement();
+			rset = stmt.executeQuery(query);
+			
+			while(rset.next()) {
+				result = rset.getInt("total");
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(stmt);
+		}
+		
+		return result;
+	}
+
+	public ArrayList<Trainer> adminAllListTmp(Connection conn) {
+		// TODO Auto-generated method stub
+		ArrayList<Trainer> list = new ArrayList<Trainer>();
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		String query = "select * from tmptrainer";
+		
+		try {
+			stmt = conn.createStatement();
+			rset = stmt.executeQuery(query);
+			
+			while(rset.next()) {
+				Trainer t = new Trainer();
+				t.setMemberId(rset.getString("memberId"));
+				t.setProfileFile(rset.getString("profileFile"));
+				t.setTrainerGradFile(rset.getString("trainerGradFile"));
+				t.setTrainerUniv(rset.getString("trainerUniv"));
+				t.setTrainerGrad(rset.getString("trainerGrad"));
+				t.setTrainerRegion(rset.getString("trainerRegion"));
+				t.setTrainerSubject(rset.getString("trainerSubject"));
+				t.setTrainerContent(rset.getString("trainerContent"));
+				t.setTrainerEvent(rset.getString("trainerEvent"));
+				t.setTrainerCareerFile(rset.getString("trainerCareerFile"));
+				
+				t.setCareerStart1(rset.getDate("careerStart1"));
+				t.setCareerEnd1(rset.getDate("careerEnd1"));
+				t.setCareerName1(rset.getString("careerName1"));
+				
+				t.setCareerStart2(rset.getDate("careerStart2"));
+				t.setCareerEnd2(rset.getDate("careerEnd2"));
+				t.setCareerName2(rset.getString("careerName2"));
+				
+				t.setCareerStart3(rset.getDate("careerStart3"));
+				t.setCareerEnd3(rset.getDate("careerEnd3"));
+				t.setCareerName3(rset.getString("careerName3"));
+				
+				t.setCareerStart4(rset.getDate("careerStart4"));
+				t.setCareerEnd4(rset.getDate("careerEnd4"));
+				t.setCareerName4(rset.getString("careerName4"));
+				
+				t.setCareerStart5(rset.getDate("careerStart5"));
+				t.setCareerEnd5(rset.getDate("careerEnd5"));
+				t.setCareerName5(rset.getString("careerName5"));
+				
+				t.setTrainerLicenseFile(rset.getString("trainerLicenseFile"));
+				
+				t.setLicenseName1(rset.getString("licenseName1"));
+				t.setLicenseName1(rset.getString("licenseName2"));
+				t.setLicenseName1(rset.getString("licenseName3"));
+				t.setLicenseName1(rset.getString("licenseName4"));
+				t.setLicenseName1(rset.getString("licenseName5"));
+				
+				list.add(t);
+				
+				
+				
+				
+				
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(stmt);
+		}
+		System.out.println(list+"AdminDao");
+		
+		return list;
+	}
+	//트레이너 tmp에서 트레이너목록으로 삽입 되게 하기
+	public int admintmpTrainer(Connection conn) {
+		// TODO Auto-generated method stub
+		
+		
+		
+		
+		
+		return 0;
 	}
 
 

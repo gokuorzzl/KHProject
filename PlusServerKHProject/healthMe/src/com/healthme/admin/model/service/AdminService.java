@@ -236,23 +236,76 @@ public class AdminService {
 		ArrayList<Board> list = new AdminDao().adminAllQBoard(conn);
 		JDBCTemplate.close(conn);
 		
-		
-		
 		return list;
 	}
-	//관리자 메인페이지에 차트와 스크립트 처리를 위해 사용할 것이다.
-	public AdminMain adminMainPirnt() {
+	
+	
+	
+	
+	
+	//카운트수
+	public AdminMain adminmembercount() {
 		// TODO Auto-generated method stub
 		Connection conn = JDBCTemplate.getConnection();
 		
-
-		AdminMain am= new AdminDao().adminMainPrint(conn);
+		int adminmembercount  = new AdminDao().adminmembercount(conn);
+		int admintmptrainercount  = new AdminDao().admintmptrainercount(conn);
+		int admintrainercount  = new AdminDao().admintrainercount(conn);
+		int adminMatchingcount  = new AdminDao().adminMatchingcount(conn);
+		int adminquestioncount  = new AdminDao().adminquestioncount(conn);
+		int adminfreecount  = new AdminDao().adminfreecount(conn);
 		
+		AdminMain am = new AdminMain();
+		am.setMemberNum(adminmembercount);
+		am.setTmptrainerNum(admintrainercount);
+		am.setTrainerNum(adminMatchingcount);
+		am.setMatchingNum(adminMatchingcount);
+		am.setQuestionNum(adminquestioncount);
+		am.setFreeNum(adminfreecount);
+		
+		
+		JDBCTemplate.close(conn);
 		
 		
 		return am;
 	}
+	//트레이너 허락구하는 목록보여주는 곳
+	public ArrayList<Trainer> adminAllListTmp() {
+		Connection conn = JDBCTemplate.getConnection();
+		ArrayList<Trainer> list = new AdminDao().adminAllListTmp(conn);
+		
+		JDBCTemplate.close(conn);
+		
+		return list;
+	}
 
+	public int admintmpTrainer(String memberId) {
+		// TODO Auto-generated method stub
+		Connection conn = JDBCTemplate.getConnection();
+		int result=0;
+		result = new AdminDao().admintmpTrainer(conn);
+		
+		
+
+		//결과 리턴
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		
+		return result;
+		
+	}
+
+	
+
+	
+	
+
+	
+	
 	
 	
 

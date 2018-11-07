@@ -1,4 +1,5 @@
-<%@page import="java.sql.Date"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.healthme.trainer.model.vo.Matching"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
    <%@ page import="com.healthme.admin.vo.*" %>
@@ -6,6 +7,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<%
+
+	AdminMain am = (AdminMain)request.getAttribute("adminMainChart");	
+%>
+
 
 
 
@@ -22,16 +29,11 @@
 <script src="https://code.highcharts.com/modules/data.js"></script>
 <script src="https://code.highcharts.com/modules/drilldown.js"></script>
 
+
+
 <title>관리자페이지 메인</title>
 </head>
 <body>
-
-
-
-
-
-
-
 
 <!-- 로그인이 안되었을 경우창 띄우게 할지 말지 결정해보기 -->
 
@@ -47,7 +49,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 
-                 <a class="navbar-brand" href="/page/admin/adminMain.jsp"><img src="../../img/로고.png" class="logo"></a>
+               <a class="navbar-brand" href="/page/admin/adminMain.jsp"><img src="../../img/로고.png" class="logo"></a>
             </div>
             <div class="header-left">
 
@@ -60,7 +62,6 @@
 				if(admin!=null){
 				%>
 				<H3>[<%=admin.getAdminId()%>]님 환영합니다.</H3>
-				
 				<%
 				}else{
 				%>
@@ -85,8 +86,8 @@
                    
 
 
-                    <li>
-                        <a class="active-menu" href="./adminMain.jsp"><i class="fa fa-desktop"></i>홈(설정)</a>
+                     <li>
+                        <a class="active-menu" href="/page/admin/adminMain.jsp"><i class="fa fa-desktop"></i>홈(설정)</a>
                     </li>
                     <!-- 홈 하나 끝 -->
                     
@@ -102,7 +103,7 @@
                     
                     <!--  게시판 관리 시작 -->
                      <li>
-                        <a href="/page/admin/adminMemberSet.jsp"><i class="fa fa-desktop"></i>회원설정</a>
+                        <a class="active-menu" href="/page/admin/adminMemberSet.jsp"><i class="fa fa-desktop"></i>회원설정</a>
                     </li>
                     <li>
                         <a href="/page/admin/adminBoardSet.jsp"><i class="fa fa-desktop"></i>게시판설정 </a>
@@ -110,7 +111,7 @@
                     </li>
                 
                     <li>
-                        <a href="/page/admin/adminVisitSet.jsp"><i class="fa fa-sign-in "></i>방문자 및 광고</a>
+                       <a href="/page/admin/adminVisitSet.jsp"><i class="fa fa-sign-in "></i>방문자 및 광고</a>
                     </li>
                      <li>
                         <a href="#"><i class="fa fa-sign-in "></i>Chart & Graph(#)</a>
@@ -133,21 +134,54 @@
         <div id="page-inner">
             <div class="row" style="margin-bottom:20px">
                 <div class="col-md-12">
-                    <h1 class="page-head-line"><i class="fa fa-desktop" style="padding-right:10px"></i>Admin Page</h1>
-                
+                    <h1 class="page-head-line"><i class="fa fa-desktop" style="padding-right:10px"></i>관리자 회원설정</h1>
                 </div>
             </div>
          <div class="row">
-                <h5 align="center">관리자 화면입니다!!</h5>
+                <div class="col-md-3">
+                    <div class="main-box mb-red">
+                        <a href="/page/admin/adminMemberAdmin.jsp">
+                            <i class="fa fa-bolt fa-3x"></i>
+                            <h5>관리자설정</h5>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="main-box mb-dull">
+                        <a href="/adminAllList.do">
+                            <i class="fa fa-plug fa-3x"></i>
+                            <h5>회원설정</h5>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="main-box mb-pink">
+                        <a href="/adminAllListT.do">
+                            <i class="fa fa-dollar fa-3x"></i>
+                            <h5>트레이너수정</h5>
+                        </a>
+                    </div>
+                </div>
+             <div class="col-md-3">
+                    <div class="main-box mb-pink">
+                        <a href="/adminMatchingAll.do">
+                            <i class="fa fa-dollar fa-3x"></i>
+                            <h5>매칭설정</h5>
+                        </a>
+                    </div>
+                </div>
             </div>
+            
              <hr style="border:1px solid #000;"/>
                 <div class="row">
 
-                    <div class="col-md-8">
+					<%--테이블 들어갈 공간 --%>
 
-                        <div class="table-responsive">
-                       
-                       <%--차트 들어갈 부분 --%> -->
+							<div class="table-responsive">
+							<h3>회원설정</h3>
+							
+							
+							    <%--차트 들어갈 부분 --%> -->
                        
                        <div id="chartGrap" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
                        
@@ -198,37 +232,37 @@
             "data": [
                 {
                     "name": "회원수",
-                    "y": 62.74,
+                    "y": <%=am.getMemberNum()%>,
                     "drilldown": "회원수"
                 },
                 {
+                    "name": "트레이너승인신청수",
+                    "y": <%=am.getTmptrainerNum()%>,
+                    "drilldown": "트레이너신청수"
+                },
+                {
                     "name": "트레이너수",
-                    "y": 10.57,
+                    "y": <%=am.getTrainerNum()%>,
                     "drilldown": "트레이너수"
                 },
                 {
-                    "name": "매칭회원수",
-                    "y": 7.23,
-                    "drilldown": "매칭회원수"
-                },
-                {
-                    "name": "자유게시글수",
-                    "y": 5.58,
-                    "drilldown": "자유게시글수"
+                    "name": "매칭수",
+                    "y": <%=am.getMatchingNum()%>,
+                    "drilldown": "매칭수"
                 },
                 {
                     "name": "질문게시글수",
-                    "y": 4.02,
+                    "y": <%=am.getQuestionNum()%>,
                     "drilldown": "질문게시글수"
                 },
                 {
-                    "name": "댓글수",
-                    "y": 1.92,
-                    "drilldown": "댓글수"
+                    "name": "자유게시글수",
+                    "y": <%=am.getFreeNum()%>,
+                    "drilldown": "자유게시글수"
                 },
                 {
                     "name": "그외",
-                    "y": 7.62,
+                    "y": 10,
                     "drilldown": "그외"
                 }
             ]
@@ -461,46 +495,17 @@
                        </script>
                        
                        <%--차트 기능 끝나는 부분 --%>
-                        </div>
+							
+							
+							
+							
+							
+							
+							
+							
 
 
-                    </div>
-                    <div class="col-md-4">
-                        <div class="panel panel-info">
-                            <div class="panel-heading">
-                                <i class="fa fa-bell fa-fw"></i>새로운소식
-                            </div>
-
-                            <div class="panel-body">
-                                <div class="list-group">
-
-                                    <a href="#" class="list-group-item">
-                                        <i class="fa fa-twitter fa-fw"></i>총회원수
-                                    <span class="pull-right text-muted small"><em>100명</em>
-                                    </span>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <i class="fa fa-envelope fa-fw"></i>트레이너회원
-                                    <span class="pull-right text-muted small"><em>30개</em>
-                                    </span>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <i class="fa fa-tasks fa-fw"></i>광고수입
-                                    <span class="pull-right text-muted small"><em>100만원</em>
-                                    </span>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <i class="fa fa-upload fa-fw"></i>새로운게시글
-                                    <span class="pull-right text-muted small"><em>20개</em>
-                                    </span>
-                                    </a>
-                                   
-                                </div>
-                                <!-- /.list-group -->
-                                <a href="#" class="btn btn-info btn-block">View All Alerts</a>
-                            </div>
-
-                        </div>
+                    <%--테이블 끝날 공간 --%>
                     </div>
                 </div>
               
@@ -510,6 +515,7 @@
         
     
         </div>
+
 
 <jsp:include page="/page/footer/footer.jsp"/>
 

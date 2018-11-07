@@ -52,6 +52,9 @@ public class AdminLoginServlet extends HttpServlet {
 			
 			response.sendRedirect("/page/admin/adminLoginSuccess.jsp");
 			
+			
+			
+			
 		} else {
 			
 			response.sendRedirect("/page/admin/adminLoginFail.jsp");

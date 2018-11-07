@@ -1,8 +1,6 @@
 package com.healthme.admin.controller;
 
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,49 +8,40 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.healthme.admin.model.service.AdminService;
-import com.healthme.admin.vo.AdminMain;
 
 /**
- * Servlet implementation class AdminMainServlet
- * 관리자페이지차트 테이블
+ * Servlet implementation class AdminTmpTrainerPPermitServlet
+ *트레이너 허락하는 서블릿
  */
-@WebServlet(name = "AdminMain", urlPatterns = { "/adminMain.do" })
-public class AdminMainServlet extends HttpServlet {
+@WebServlet(name = "adminTmpTrainerPPermit", urlPatterns = { "/adminTmpTrainerPPermit.do" })
+public class AdminTmpTrainerPPermitServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminMainServlet() {
+    public AdminTmpTrainerPPermitServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 이부분은 관리자 메인페이지 호출시 다 뿌려줄 값을 갖고올 것이다.
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		request.setCharacterEncoding("utf-8");
 		
-		AdminMain am = new AdminService().adminmembercount();
+		String memberId = request.getParameter("memberId");
 		
-		System.out.println(am.getMatchingNum()+"값좀 가져와라라라라라라");
+		int result = new AdminService().admintmpTrainer(memberId);
 		
-		
-		
-		if(am != null) {
-			RequestDispatcher view = request.getRequestDispatcher("/page/admin/adminChart.jsp");
-			request.setAttribute("adminMainChart", am);
-			view.forward(request, response);
+		if(result>0) {
+			response.sendRedirect("/adminTmptrainerPermit.do");
 			
 		}else {
 			response.sendRedirect("/page/admin/error.jsp");
 		}
 		
 		
-	
 	}
 
 	/**

@@ -1,6 +1,7 @@
 package com.healthme.admin.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,41 +11,36 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.healthme.admin.model.service.AdminService;
-import com.healthme.admin.vo.AdminMain;
+import com.healthme.trainer.model.vo.Trainer;
 
 /**
- * Servlet implementation class AdminMainServlet
- * 관리자페이지차트 테이블
+ * Servlet implementation class AdminTmptrainerPermitServlet
+ * 트레이너 목록 보여주고 허락하는걸 할것이다.
  */
-@WebServlet(name = "AdminMain", urlPatterns = { "/adminMain.do" })
-public class AdminMainServlet extends HttpServlet {
+@WebServlet(name = "AdminTmptrainerPermit", urlPatterns = { "/adminTmptrainerPermit.do" })
+public class AdminTmptrainerPermitServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminMainServlet() {
+    public AdminTmptrainerPermitServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 이부분은 관리자 메인페이지 호출시 다 뿌려줄 값을 갖고올 것이다.
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		request.setCharacterEncoding("utf-8");
+		// TODO Auto-generated method stub
 		
-		AdminMain am = new AdminService().adminmembercount();
+		ArrayList<Trainer> list = new AdminService().adminAllListTmp();
 		
-		System.out.println(am.getMatchingNum()+"값좀 가져와라라라라라라");
-		
-		
-		
-		if(am != null) {
-			RequestDispatcher view = request.getRequestDispatcher("/page/admin/adminChart.jsp");
-			request.setAttribute("adminMainChart", am);
+		if(!list.isEmpty()) {
+			RequestDispatcher view = request.getRequestDispatcher("/page/admin/adminNormalsetTrainertmp.jsp");
+			request.setAttribute("memberAllListTmp", list);
+			
 			view.forward(request, response);
 			
 		}else {
@@ -52,7 +48,6 @@ public class AdminMainServlet extends HttpServlet {
 		}
 		
 		
-	
 	}
 
 	/**
