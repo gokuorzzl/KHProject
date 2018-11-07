@@ -64,10 +64,8 @@ public class MypageMainServlet extends HttpServlet {
 		}else if(isTrainer=='n' && !mmlist.isEmpty()) {
 			RequestDispatcher view = request.getRequestDispatcher("page/mypage/mypageMain.jsp");
 			request.setAttribute("mylist", mmlist);	// 이부분 체크 바람
-			//System.out.println("마이서블릿 회원list: "+mylist.get(0).getMemberId()+ "\n"+ mylist.get(0).getProfile());
 			view.forward(request, response);
 		}else {
-			//System.out.println("에러러러러러럴");
 			response.sendRedirect("page/searchTrainerPage/searchError.jsp");
 		}
 		

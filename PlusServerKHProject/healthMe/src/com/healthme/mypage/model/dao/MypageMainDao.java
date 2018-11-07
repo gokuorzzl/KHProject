@@ -109,10 +109,10 @@ public class MypageMainDao {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
 		}
-		for(MypageTrainer m : list) {
-			System.out.println("Dao 서치: "+m.getMemberList()+"\t"+m.getApplyingClassSubject()
-					+m.getApplyingClassContent()+"\t"+m.getApplyingClassSendDate());
-		}
+//		for(MypageTrainer m : list) {
+//			System.out.println("Dao 서치: "+m.getMemberList()+"\t"+m.getApplyingClassSubject()
+//					+m.getApplyingClassContent()+"\t"+m.getApplyingClassSendDate());
+//		}
 		return list;
 	}
 
@@ -190,7 +190,7 @@ public class MypageMainDao {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
 		}
-		System.out.println("my다오 CountA :" + result);
+//		System.out.println("my다오 CountA :" + result);
 		return result;
 	}
 
@@ -216,7 +216,7 @@ public class MypageMainDao {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
 		}
-		System.out.println("my다오 CountB :" + result);
+//		System.out.println("my다오 CountB :" + result);
 		return result;
 	}
 
@@ -242,7 +242,7 @@ public class MypageMainDao {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
 		}
-		System.out.println("my다오 CountC :" + result);
+//		System.out.println("my다오 CountC :" + result);
 		return result;
 	}
 
