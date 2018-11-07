@@ -3,12 +3,12 @@ package com.healthme.community.model.service;
 import java.sql.Connection;
 import java.util.ArrayList;
 
-import javax.servlet.jsp.tagext.PageData;
-
 import com.healthme.common.JDBCTemplate;
 import com.healthme.community.model.dao.BoardDao;
 import com.healthme.community.model.vo.Board;
 import com.healthme.community.model.vo.BoardPageData;
+import com.healthme.community.model.vo.Comment;
+import com.healthme.community.model.vo.CommentData;
 
 public class BoardService {
 
@@ -148,42 +148,209 @@ public class BoardService {
 		return bpd;
 	}
 
-	public Board qnaSelectOneList(int qnaNum, int currentPage) {
+	public CommentData qnaSelectOneList(int qnaNum, int currentPage) {
 		Connection conn = JDBCTemplate.getConnection();
 		int recordCountPerPage = 10; //게시물의 개수
 		int naviCountPerPage = 5; //navi의 개수
 		Board b = new BoardDao().qnaSelectOneList(qnaNum,conn);
-//		new BoardDao().qnaCommentGetCurrentPage(conn,currentPage,recordCountPerPage);
-//		String pageNavi = new BoardDao().qnaCommentGetPageNavi(conn,currentPage,recordCountPerPage,naviCountPerPage);
+		ArrayList<Comment> list = new BoardDao().qnaCommentGetCurrentPage(conn,currentPage,recordCountPerPage,qnaNum);
+		String pageNavi = new BoardDao().qnaCommentGetPageNavi(conn,currentPage,recordCountPerPage,naviCountPerPage,qnaNum);
 		int result = new BoardDao().qnaHits(qnaNum,conn);
+		CommentData cd = null;
+		if(b!=null&&!list.isEmpty() && !pageNavi.isEmpty()){
+			cd = new CommentData();
+			cd.setList(list);
+			cd.setPageNavi(pageNavi);
+			cd.setB(b);
+		}else if ((!list.isEmpty() && !pageNavi.isEmpty())||b!=null) {
+			cd = new CommentData();
+			cd.setList(null);
+			cd.setPageNavi(null);
+			cd.setB(b);
+		}
 		if(result>0) {
 			JDBCTemplate.commit(conn);
 		}else {
 			JDBCTemplate.rollback(conn);
 		}
 		JDBCTemplate.close(conn);
-		return b;
+		return cd;
 	}
 
-	public Board freeSelectOneList(int freeNum) {
+	public CommentData freeSelectOneList(int freeNum, int currentPage) {
 		Connection conn = JDBCTemplate.getConnection();
+		int recordCountPerPage = 10; //게시물의 개수
+		int naviCountPerPage = 5; //navi의 개수
 		Board b = new BoardDao().freeSelectOneList(freeNum,conn);
+		ArrayList<Comment> list = new BoardDao().freeCommentGetCurrentPage(conn,currentPage,recordCountPerPage,freeNum);
+		String pageNavi = new BoardDao().freeCommentGetPageNavi(conn,currentPage,recordCountPerPage,naviCountPerPage,freeNum);
 		int result = new BoardDao().freeHits(freeNum,conn);
+		CommentData cd = null;
+		if(b!=null&&!list.isEmpty() && !pageNavi.isEmpty()){
+			cd = new CommentData();
+			cd.setList(list);
+			cd.setPageNavi(pageNavi);
+			cd.setB(b);
+		}else if ((!list.isEmpty() && !pageNavi.isEmpty())||b!=null) {
+			cd = new CommentData();
+			cd.setList(null);
+			cd.setPageNavi(null);
+			cd.setB(b);
+		}
 		if(result>0) {
 			JDBCTemplate.commit(conn);
 		}else {
 			JDBCTemplate.rollback(conn);
 		}
 		JDBCTemplate.close(conn);
-		return b;
+		return cd;
 	}
 
-	public Board topBoard() {
+	public int qnaInsertComment(String userId, String commentText, int qnaNum) {
 		Connection conn = JDBCTemplate.getConnection();
-		Board b= new BoardDao().topBoard(conn);
+		int result = new BoardDao().qnaInsertComment(userId,commentText,conn,qnaNum);
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
+		
+	}
+
+	public int freeInsertComment(String userId, String commentText, int freeNum) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = new BoardDao().freeInsertComment(userId,commentText,conn,freeNum);
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
+	public int freeBoardDelete(int bNum, String userId) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = new BoardDao().freeBoardDelete(bNum,userId,conn);
+		if(result>0) {
+			new BoardDao().freeBoardCommentDelete(bNum,conn);
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
+		
+	}
+
+	public int qnaBoardDelete(int bNum, String userId) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = new BoardDao().qnaBoardDelete(bNum,userId,conn);
+		if(result>0) {
+			new BoardDao().qnaBoardCommentDelete(bNum,conn);
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
+	public Board qnaOneSelect(int boardNum) {
+		Connection conn = JDBCTemplate.getConnection();
+		
+		Board b = new BoardDao().qnaSelectOneList(boardNum,conn);
 		
 		JDBCTemplate.close(conn);
 		return b;
+	}
+
+	public Board freeOneSelect(int boardNum) {
+		Connection conn = JDBCTemplate.getConnection();
+		
+		Board b = new BoardDao().freeSelectOneList(boardNum,conn);
+		
+		JDBCTemplate.close(conn);
+		return b;
+	}
+
+	public int freeupdateBoard(int boardNumber, String title, String contents, int pwd) {
+		Connection conn = JDBCTemplate.getConnection();
+		
+		int result = new BoardDao().freeupdateBoard(boardNumber,title,contents,pwd,conn);
+		
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
+		
+	}
+
+	public int qnaupdateBoard(int boardNumber, String title, String contents, int pwd) {
+		Connection conn = JDBCTemplate.getConnection();
+		
+		int result = new BoardDao().qnaupdateBoard(boardNumber,title,contents,pwd,conn);
+		
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
+	public int qnaCommentDelete(int cNum) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = new BoardDao().qnaCommentDelete(cNum,conn);
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
+	public int freeCommentDelete(int cNum) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = new BoardDao().freeCommentDelete(cNum,conn);
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
+	public int qnaCommentUpdate(String commentText, int cNum) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = new BoardDao().qnaCommentUpdate(commentText,cNum,conn);
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
+	public int freeCommentUpdate(String commentText, int cNum) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = new BoardDao().freeCommentUpdate(commentText,cNum,conn);
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
 	}
 
 }
