@@ -14,7 +14,7 @@
 	Member member = null;
 	member = (Member)session.getAttribute("member");	//세션에서 member name으로 넘겨주는 memberid를 받고
 	System.out.println("myMainJSP : " + member.getMemberId());
-	ArrayList<MypageTrainer> mylist = (ArrayList)request.getAttribute("mylist"); // 마이페이지 트레이너 리스트
+	ArrayList<MypageTrainer> mylist = (ArrayList<MypageTrainer>)request.getAttribute("mylist"); // 마이페이지 트레이너 리스트
 %>
 
 
