@@ -100,7 +100,7 @@
 
 
 				  <li>
-                        <a class="active-menu" href="/page/admin/adminMain.jsp"><i class="fa fa-desktop"></i>홈(설정)</a>
+                        <a  href="/page/admin/adminMain.jsp"><i class="fa fa-desktop"></i>홈(설정)</a>
                     </li>
 					<!-- 홈 하나 끝 -->
 
@@ -161,7 +161,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="main-box mb-dull">
-                        <a href="adminNormalSetMail.jsp">
+                       <a href="/page/admin/adminNormalSetMail.jsp">
                             <i class="fa fa-plug fa-3x"></i>
                             <h5>메일보내기</h5>
                         </a>

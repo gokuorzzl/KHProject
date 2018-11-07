@@ -14,6 +14,10 @@
 <!-- 디자인담당css -->
   <link href="../../css/admin/adminMain.css" rel="stylesheet" />
     <link href="../../css/admin/adminCustom.css" rel="stylesheet" />
+    
+    
+
+
 
 
 <title>관리자페이지 메인</title>
@@ -141,7 +145,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="main-box mb-pink">
-                        <a href="/page/admin/adminBoardSetNotice.jsp">
+                       <a href="/page/admin/adminBoardSetNotice.jsp">
                             <i class="fa fa-dollar fa-3x"></i>
                             <h5>공지사항 설정</h5>
                         </a>
@@ -159,92 +163,49 @@
              <hr style="border:1px solid #000;"/>
                 <div class="row">
 
-                    <div class="col-md-8">
-
+                   
+						
                         <div class="table-responsive">
-                        <h3>자유게시판</h3>
-                            <table class="table table-striped table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>번호</th>
-                                        <th>제목</th>
-                                        <th>내용</th>
-                                        <th>이름</th>
-                                        <th>Q/A, 자유</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td><span class="label label-danger">Mark</span></td>
-                                        <td>Otto</td>
-                                        <td>김종규</td>
-                                        <td><span class="label label-info">100090</span></td>
-                                    </tr>
-                                     <tr>
-                                        <td>1</td>
-                                        <td><span class="label label-danger">Mark</span></td>
-                                        <td>Otto</td>
-                                        <td>김종규</td>
-                                        <td><span class="label label-info">100090</span></td>
-                                    </tr>
-                                       <tr>
-                                        <td>1</td>
-                                        <td><span class="label label-danger">Mark</span></td>
-                                        <td>Otto</td>
-                                        <td>김종규</td>
-                                        <td><span class="label label-info">100090</span></td>
-                                    </tr>
-                                       <tr>
-                                        <td>1</td>
-                                        <td><span class="label label-danger">Mark</span></td>
-                                        <td>Otto</td>
-                                        <td>김종규</td>
-                                        <td><span class="label label-info">100090</span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <h3>공지사항 설정</h3>
+              				<%--게시글 들어가는 부분 --%>
+              					<table class="table table-striped table-bordered table-hover">
+								<!--       <table cellSpacing=0 borderColorDark=white width="760" bgColor=#c0c0c0 borderColorLight=#dddddd border=1 class="s1">-->
+								<form id=insertform method="post" action="/adminBoardNotice.do">
+									<input type="hidden" name="theme"
+										value="basicinfo/basic_info2_qry"> 
+										<input
+										type="hidden" name="menushow" value="menu1">
+								
+									<tr><th colspan="2">공지사항 설정</th></tr>
+               
+                <tr><td>게시글 선택</td><td>
+                <%--게시글 타입 free 형태 나중에 바꿀것 --%>
+                <input type="radio" name="noticeSel" checked="checked" value="자유"/>자유게시글 공지
+                <input type="radio" name="noticeSel" value="질문"/>질문게시글 공지
+                </td></tr>
+                <tr><td>제목</td><td><input type="text" name="title" /></td></tr>
+                <tr><td>내용</td><td><textarea name="content" style="width:700px; height:200px;"></textarea></td></tr>
+                <tr><td colspan="2" style="text-align:right;"><input type="submit" value="공지등록"/></td></tr>
+								</form>
+
+
+
+
+							</table>
+              				
+              				
+              				
+              				
+              				
+              				
+              				
+              				
+              				<%--게시글 들어가는 부분 끝부분 --%>
                         </div>
 
 
                     </div>
-                    <div class="col-md-4">
-                        <div class="panel panel-info">
-                            <div class="panel-heading">
-                                <i class="fa fa-bell fa-fw"></i>새로운소식
-                            </div>
-
-                            <div class="panel-body">
-                                <div class="list-group">
-
-                                    <a href="#" class="list-group-item">
-                                        <i class="fa fa-twitter fa-fw"></i>총회원수
-                                    <span class="pull-right text-muted small"><em>100명</em>
-                                    </span>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <i class="fa fa-envelope fa-fw"></i>트레이너회원
-                                    <span class="pull-right text-muted small"><em>30개</em>
-                                    </span>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <i class="fa fa-tasks fa-fw"></i>광고수입
-                                    <span class="pull-right text-muted small"><em>100만원</em>
-                                    </span>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <i class="fa fa-upload fa-fw"></i>새로운게시글
-                                    <span class="pull-right text-muted small"><em>20개</em>
-                                    </span>
-                                    </a>
-                                   
-                                </div>
-                                <!-- /.list-group -->
-                                <a href="#" class="btn btn-info btn-block">View All Alerts</a>
-                            </div>
-
-                        </div>
-                    </div>
+                  
                 </div>
               
         </div>

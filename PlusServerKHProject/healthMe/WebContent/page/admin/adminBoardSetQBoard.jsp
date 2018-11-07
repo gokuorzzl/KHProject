@@ -150,7 +150,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="main-box mb-pink">
-                        <a href="#">
+                         <a href="/page/admin/adminBoardSetNotice.jsp">
                             <i class="fa fa-dollar fa-3x"></i>
                             <h5>공지사항 설정</h5>
                         </a>

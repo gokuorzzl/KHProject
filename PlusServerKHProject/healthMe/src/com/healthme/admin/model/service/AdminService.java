@@ -279,12 +279,29 @@ public class AdminService {
 		return list;
 	}
 
+	//일시적 트레이너 값 갖고오기
 	public int admintmpTrainer(String memberId) {
 		// TODO Auto-generated method stub
 		Connection conn = JDBCTemplate.getConnection();
-		int result=0;
-		result = new AdminDao().admintmpTrainer(conn);
+		System.out.println("12312312312312312312321312312312321312312312312312312");
 		
+		Trainer tm = new AdminDao().admintmpselOnesel(conn,memberId);//tmptrainer정보갖고오기
+		//tmptrainer에서 정보 갖고온후 trainer에 가입시긴후 삭제시키기
+		System.out.println("123123123123123213123123123123123123123123123");
+		 System.out.println(tm+"갖고왔나요!!!!!!!멤버아이디를??!?!?!!?!?/");
+		 System.out.println(tm.getMemberId()+"갖고왔나요!!!!!!!멤버아이디를??!?!?!!?!?/");
+		 
+		int result1 = new AdminDao().admintmpTrainerdelete(conn,memberId);//삭제 메소드
+		System.out.println("삭제시킨값은 0이상이다."+result1);
+		
+		int result2 = new AdminDao().admintmpTrainertoTrainer(conn,tm);//가입시키는 메소드
+		
+		int result=0;
+		if(result1>0) {
+			if(result2>0) {
+				result=1;
+			}
+		}
 		
 
 		//결과 리턴
@@ -297,6 +314,25 @@ public class AdminService {
 		
 		return result;
 		
+	}
+
+	//게시글 공지 등록하는 것
+	public int adminBoardNotice(String noticeSel, String title, String content) {
+		// TODO Auto-generated method stub
+		
+		Connection conn = JDBCTemplate.getConnection();
+		int result = 0;
+		System.out.println("adminService의의의의의으이ㅣ"+noticeSel);
+		if(noticeSel.equals("자유")) {
+			System.out.println("자유실행");
+			result = new AdminDao().adminBoardnotice(conn,content,title);
+				
+		}else {
+			System.out.println("질문실행");
+			result = new AdminDao().adminBoardnoticeq(conn,content,title);
+		}
+		
+		return result;
 	}
 
 	

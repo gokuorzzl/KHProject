@@ -137,44 +137,43 @@
                     <h1 class="page-head-line"><i class="fa fa-desktop" style="padding-right:10px"></i>관리자 회원설정</h1>
                 </div>
             </div>
-         <div class="row">
+       <div class="row">
                 <div class="col-md-3">
                     <div class="main-box mb-red">
-                        <a href="/page/admin/adminMemberAdmin.jsp">
+                        <a href="#">
                             <i class="fa fa-bolt fa-3x"></i>
-                            <h5>관리자설정</h5>
+                            <h5>스케줄 확인</h5>
                         </a>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="main-box mb-dull">
-                        <a href="/adminAllList.do">
+                        <a href="/page/admin/adminNormalSetMail.jsp">
                             <i class="fa fa-plug fa-3x"></i>
-                            <h5>회원설정</h5>
+                            <h5>메일보내기</h5>
                         </a>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="main-box mb-pink">
-                        <a href="/adminAllListT.do">
+                        <a href="/adminTmptrainerPermit.do">
                             <i class="fa fa-dollar fa-3x"></i>
-                            <h5>트레이너수정</h5>
+                            <h5>트레이너허락</h5>
                         </a>
                     </div>
                 </div>
              <div class="col-md-3">
                     <div class="main-box mb-pink">
-                        <a href="/adminMatchingAll.do">
+                        <a href="/adminMain.do">
                             <i class="fa fa-dollar fa-3x"></i>
-                            <h5>매칭설정</h5>
+                            <h5>차트</h5>
                         </a>
                     </div>
                 </div>
             </div>
-            
              <hr style="border:1px solid #000;"/>
                 <div class="row">
-
+<div class="col-md-8">
 					<%--테이블 들어갈 공간 --%>
 
 							<div class="table-responsive">
@@ -215,7 +214,7 @@
             borderWidth: 0,
             dataLabels: {
                 enabled: true,
-                format: '{point.y:.1f}%'
+                format: '{point.y:f}명'
             }
         }
     },
@@ -494,17 +493,65 @@
                        
                        </script>
                        
-                       <%--차트 기능 끝나는 부분 --%>
-							
-							
-							
-							
-							
-							
-							
-							
+                            <%--차트 기능 끝나는 부분 --%>
+                        </div>
 
 
+                    </div>
+                    <div class="col-md-4">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <i class="fa fa-bell fa-fw"></i>새로운소식
+                            </div>
+
+                            <div class="panel-body">
+                                <div class="list-group">
+
+                                    <a href="#" class="list-group-item">
+                                        <i class="fa fa-twitter fa-fw"></i>총회원수
+                                    <span class="pull-right text-muted small"><em><%=am.getMemberNum()%>명</em>
+                                    </span>
+                                    </a>
+                                    
+                                    <a href="#" class="list-group-item">
+                                        <i class="fa fa-twitter fa-fw"></i>트레이너승인신청
+                                    <span class="pull-right text-muted small"><em><%=am.getTmptrainerNum()%>명</em>
+                                    </span>
+                                    </a>
+                                    
+                                    <a href="#" class="list-group-item">
+                                        <i class="fa fa-envelope fa-fw"></i>트레이너수
+                                    <span class="pull-right text-muted small"><em><%=am.getTrainerNum()%>개</em>
+                                    </span>
+                                    </a>
+                                   
+                                    <a href="#" class="list-group-item">
+                                        <i class="fa fa-twitter fa-fw"></i>매칭수
+                                    <span class="pull-right text-muted small"><em><%=am.getMatchingNum()%>명</em>
+                                    </span>
+                                    </a>
+                                    
+                                    <a href="#" class="list-group-item">
+                                        <i class="fa fa-twitter fa-fw"></i>질문게시글수
+                                    <span class="pull-right text-muted small"><em><%=am.getQuestionNum()%>명</em>
+                                    </span>
+                                    </a>
+                                    
+                                    <a href="#" class="list-group-item">
+                                        <i class="fa fa-envelope fa-fw"></i>자유게시글수
+                                    <span class="pull-right text-muted small"><em><%=am.getFreeNum()%>개</em>
+                                    </span>
+                                    </a>
+                                    
+                                    
+                                    
+                                   
+                                </div>
+                                <!-- /.list-group -->
+                                <a href="#" class="btn btn-info btn-block">스케쥴보기</a>
+                            </div>
+
+                        </div>
                     <%--테이블 끝날 공간 --%>
                     </div>
                 </div>

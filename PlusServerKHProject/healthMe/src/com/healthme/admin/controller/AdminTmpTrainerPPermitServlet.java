@@ -33,7 +33,7 @@ public class AdminTmpTrainerPPermitServlet extends HttpServlet {
 		String memberId = request.getParameter("memberId");
 		
 		int result = new AdminService().admintmpTrainer(memberId);
-		
+		System.out.println("admintmptrainerPPemitServlet으로왔나용오오오오오오오오온마온마완ㅁ어ㅏㄴ멍");
 		if(result>0) {
 			response.sendRedirect("/adminTmptrainerPermit.do");
 			

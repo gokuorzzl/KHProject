@@ -71,7 +71,7 @@
                    
 
   <li>
-                        <a class="active-menu" href="/page/admin/adminMain.jsp"><i class="fa fa-desktop"></i>홈(설정)</a>
+                       <a  href="/page/admin/adminMain.jsp"><i class="fa fa-desktop"></i>홈(설정)</a>
                     </li>
                     <!-- 홈 하나 끝 -->
                     

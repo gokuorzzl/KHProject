@@ -1055,15 +1055,233 @@ public class AdminDao {
 		
 		return list;
 	}
-	//트레이너 tmp에서 트레이너목록으로 삽입 되게 하기
-	public int admintmpTrainer(Connection conn) {
+	//트레이너 tmp에서 삭제되게 하기
+	public int admintmpTrainerdelete(Connection conn, String memberId) {
 		// TODO Auto-generated method stub
 		
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = "delete from tmptrainer where memberid=?";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setString(1, memberId);
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
 		
 		
 		
+		return result;
 		
-		return 0;
+	}
+	
+	//트레이너 정보 갖고오기
+	public Trainer admintmpselOnesel(Connection conn, String memberId) {
+		// TODO Auto-generated method stub
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		Trainer t = null;
+		
+		String query = "select * from tmpTrainer where memberId=? ";
+		System.out.println(memberId+"쿼리의값값값");
+		
+		try {	
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, memberId);
+		
+			rset = pstmt.executeQuery();
+			
+			System.out.println("AdminDAo의 트레이너정보갖고와"+memberId);
+			
+			if(rset.next()) {
+				t = new Trainer();
+			t.setMemberId(rset.getString("memberId"));
+			t.setProfileFile(rset.getString("profileFile"));
+			t.setTrainerGradFile(rset.getString("trainerGradFile"));
+			t.setTrainerUniv(rset.getString("trainerUniv"));
+			t.setTrainerGrad(rset.getString("trainerGrad"));
+			t.setTrainerRegion(rset.getString("trainerRegion"));
+			t.setTrainerSubject(rset.getString("trainerSubject"));
+			t.setTrainerContent(rset.getString("trainerContent"));
+			t.setTrainerEvent(rset.getString("trainerEvent"));
+			
+			t.setTrainerCareerFile(rset.getString("trainerCareerFile"));
+			
+			t.setCareerStart1(rset.getDate("careerStart1"));
+			t.setCareerEnd1(rset.getDate("careerEnd1"));
+			t.setCareerName1(rset.getString("careerName1"));
+			
+			t.setCareerStart2(rset.getDate("careerStart2"));
+			t.setCareerEnd2(rset.getDate("careerEnd2"));
+			t.setCareerName2(rset.getString("careerName2"));
+			
+			t.setCareerStart3(rset.getDate("careerStart3"));
+			t.setCareerEnd3(rset.getDate("careerEnd3"));
+			t.setCareerName3(rset.getString("careerName3"));
+			
+			t.setCareerStart4(rset.getDate("careerStart4"));
+			t.setCareerEnd4(rset.getDate("careerEnd4"));
+			t.setCareerName4(rset.getString("careerName4"));
+			
+			t.setCareerStart5(rset.getDate("careerStart5"));
+			t.setCareerEnd5(rset.getDate("careerEnd5"));
+			t.setCareerName5(rset.getString("careerName5"));
+			
+			t.setTrainerLicenseFile(rset.getString("trainerLicenseFile"));
+			
+			t.setLicenseName1(rset.getString("licenseName1"));
+			t.setLicenseName2(rset.getString("licenseName2"));
+			t.setLicenseName3(rset.getString("licenseName3"));
+			t.setLicenseName4(rset.getString("licenseName4"));
+			t.setLicenseName5(rset.getString("licenseName5"));
+			
+			
+			System.out.println("트레이너의 정보값 갖고왔나요요요요요요요요요요요요욘ㅁ아ㅗㄴㅁ언마언마어ㅏㄴㅁ어ㅏㄴㅁ어ㅏ");
+			
+			}
+			
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		
+		
+		
+		return t;
+	}
+
+	//트레이너 테이블로 삽입 시키기
+	public int admintmpTrainertoTrainer(Connection conn, Trainer tm) {
+		// TODO Auto-generated method stub
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = "insert into trainer values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setString(1, tm.getMemberId());
+			pstmt.setString(2, tm.getProfileFile());
+			pstmt.setString(3, tm.getTrainerGradFile());
+			pstmt.setString(4, tm.getTrainerUniv());
+			pstmt.setString(5, tm.getTrainerGrad());
+			pstmt.setString(6, tm.getTrainerRegion());
+			pstmt.setString(7, tm.getTrainerSubject());
+			pstmt.setString(8, tm.getTrainerContent());
+			pstmt.setString(9, tm.getTrainerEvent());
+			pstmt.setString(10, tm.getTrainerCareerFile());
+			
+			pstmt.setDate(11, tm.getCareerStart1());
+			pstmt.setDate(12, tm.getCareerEnd1());
+			pstmt.setString(13, tm.getCareerName1());
+			
+			pstmt.setDate(14, tm.getCareerStart2());
+			pstmt.setDate(15, tm.getCareerEnd2());
+			pstmt.setString(16, tm.getCareerName2());
+			
+			pstmt.setDate(17, tm.getCareerStart3());
+			pstmt.setDate(18, tm.getCareerEnd3());
+			pstmt.setString(19, tm.getCareerName3());
+			
+			pstmt.setDate(20, tm.getCareerStart4());
+			pstmt.setDate(21, tm.getCareerEnd4());
+			pstmt.setString(22, tm.getCareerName4());
+			
+			pstmt.setDate(23, tm.getCareerStart5());
+			pstmt.setDate(24, tm.getCareerEnd5());
+			pstmt.setString(25, tm.getCareerName5());
+			
+			pstmt.setString(26, tm.getTrainerLicenseFile());
+			pstmt.setString(27, tm.getLicenseName1());
+			pstmt.setString(28, tm.getLicenseName2());
+			pstmt.setString(29, tm.getLicenseName3());
+			pstmt.setString(30, tm.getLicenseName4());
+			pstmt.setString(31, tm.getLicenseName5());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		
+		
+		return result;
+	}
+	
+	
+	//자유게시글 공지사항 설정
+	public int adminBoardnotice(Connection conn, String content, String title) {
+		// TODO Auto-generated method stub
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = "insert into freeboard values(FBOARD_SEQ.nextval,'admin',?,?,1,null,sysdate,0,'y',1234)";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, title);
+			pstmt.setString(2, content);
+			
+			result = pstmt.executeUpdate();
+			System.out.println("adminDAO의값값값"+result);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+
+
+		
+		return result;
+	}
+
+	
+	//질문게시글 공지사항 설정
+	public int adminBoardnoticeq(Connection conn, String content, String title) {
+		// TODO Auto-generated method stub
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = "insert into questionboard values(QBOARD_SEQ.nextval,'admin',?,?,1,null,sysdate,0,'y',1234)";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, title);
+			pstmt.setString(2, content);
+			
+			result = pstmt.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+
+
+		
+		return result;
 	}
 
 
