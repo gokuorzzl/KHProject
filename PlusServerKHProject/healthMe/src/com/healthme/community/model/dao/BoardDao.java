@@ -5,11 +5,11 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.healthme.common.JDBCTemplate;
 import com.healthme.community.model.vo.Board;
+import com.healthme.community.model.vo.Comment;
 
 public class BoardDao {
 	
@@ -24,7 +24,6 @@ public class BoardDao {
 			pstmt.setString(3, contentsText);
 			pstmt.setString(4, passwordText);
 			result = pstmt.executeUpdate();
-			System.out.println(result);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -67,7 +66,7 @@ public class BoardDao {
 		
 		String query = "select * from (select questionBoard.*,"
 				+ "row_number() over(order by QBOARDNUM desc) AS "
-				+ "num from QUESTIONBOARD) where num between ? and ?";
+				+ "num from QUESTIONBOARD where qboardavailable='1') where num between ? and ?";
 		
 		ArrayList<Board> list = new ArrayList<Board>();
 		
@@ -109,7 +108,7 @@ public class BoardDao {
 		// 게시물의 토탈 개수를 구해야 함
 		int recordTotalCount = 0;
 		
-		String query = "select count(*) AS TOTALCOUNT FROM QUESTIONBOARD";
+		String query = "select count(*) AS TOTALCOUNT FROM QUESTIONBOARD where qboardavailable='1'";
 		
 		 try {
 			pstmt = conn.prepareStatement(query);
@@ -193,7 +192,7 @@ public class BoardDao {
 		
 		String query = "select * from (select freeboard.*,"
 				+ "row_number() over(order by freeNUM desc) AS "
-				+ "num from freeboard) where num between ? and ?";
+				+ "num from freeboard where freeavailable='1') where num between ? and ?";
 		
 		ArrayList<Board> list = new ArrayList<Board>();
 		
@@ -235,7 +234,7 @@ public class BoardDao {
 		// 게시물의 토탈 개수를 구해야 함
 		int recordTotalCount = 0;
 		
-		String query = "select count(*) AS TOTALCOUNT FROM freeboard";
+		String query = "select count(*) AS TOTALCOUNT FROM freeboard where freeavailable='1' ";
 		
 		 try {
 			pstmt = conn.prepareStatement(query);
@@ -321,15 +320,15 @@ public class BoardDao {
 		if(searchSelect==0) {
 			query = "select * from (select QUESTIONBOARD.*"
 					+ ",row_number() over(order by QBOARDNUM desc)"
-					+ " AS num from QUESTIONBOARD where qboardtitle like ?) where num between ? and ?";
+					+ " AS num from QUESTIONBOARD where qboardtitle like ? and qboardavailable='1') where num between ? and ?";
 		}else if(searchSelect==1) {
 			query = "select * from (select QUESTIONBOARD.*"
 					+ ",row_number() over(order by QBOARDNUM desc)"
-					+ " AS num from QUESTIONBOARD where memberid like ?) where num between ? and ?";
+					+ " AS num from QUESTIONBOARD where memberid like ? and qboardavailable='1') where num between ? and ?";
 		}else if(searchSelect==2) {
 			query = "select * from (select QUESTIONBOARD.*"
 					+ ",row_number() over(order by QBOARDNUM desc)"
-					+ " AS num from QUESTIONBOARD where qboardcontent like ?) where num between ? and ?";
+					+ " AS num from QUESTIONBOARD where qboardcontent like ? and qboardavailable='1') where num between ? and ?";
 		}
 		
 		ArrayList<Board> list = new ArrayList<Board>();
@@ -376,11 +375,11 @@ public class BoardDao {
 		int recordTotalCount = 0;
 		String query = null;
 		if(searchSelect==0) {
-			query = "select count(*) AS TOTALCOUNT FROM QUESTIONBOARD where qboardtitle like ?";
+			query = "select count(*) AS TOTALCOUNT FROM QUESTIONBOARD where qboardtitle like ? and qboardavailable='1'";
 		}else if(searchSelect==1) {
-			query = "select count(*) AS TOTALCOUNT FROM QUESTIONBOARD where memberid like ?";
+			query = "select count(*) AS TOTALCOUNT FROM QUESTIONBOARD where memberid like ? and qboardavailable='1'";
 		}else if(searchSelect==2) {
-			query = "select count(*) AS TOTALCOUNT FROM QUESTIONBOARD where qboardcontent like ?";
+			query = "select count(*) AS TOTALCOUNT FROM QUESTIONBOARD where qboardcontent like ? and qboardavailable='1'";
 		}
 		
 		
@@ -472,15 +471,15 @@ public class BoardDao {
 		if(searchSelect==0) {
 			query = "select * from (select FREEBOARD.*"
 					+ ",row_number() over(order by freeNUM desc)"
-					+ " AS num from FREEBOARD where freetitle like ?) where num between ? and ?";
+					+ " AS num from FREEBOARD where freetitle like ? and freeavailable='1') where num between ? and ?";
 		}else if(searchSelect==1) {
 			query = "select * from (select FREEBOARD.*"
 					+ ",row_number() over(order by freeNUM desc)"
-					+ " AS num from FREEBOARD where memberid like ?) where num between ? and ?";
+					+ " AS num from FREEBOARD where memberid like ? and freeavailable='1') where num between ? and ?";
 		}else if(searchSelect==2) {
 			query = "select * from (select FREEBOARD.*"
 					+ ",row_number() over(order by freeNUM desc)"
-					+ " AS num from FREEBOARD where freecontent like ?) where num between ? and ?";
+					+ " AS num from FREEBOARD where freecontent like ? and freeavailable='1') where num between ? and ?";
 		}
 		
 		ArrayList<Board> list = new ArrayList<Board>();
@@ -526,11 +525,11 @@ public class BoardDao {
 		int recordTotalCount = 0;
 		String query = null;
 		if(searchSelect==0) {
-			query = "select count(*) AS TOTALCOUNT FROM FREEBOARD where freetitle like ?";
+			query = "select count(*) AS TOTALCOUNT FROM FREEBOARD where freetitle like ? and freeavailable='1'";
 		}else if(searchSelect==1) {
-			query = "select count(*) AS TOTALCOUNT FROM FREEBOARD where memberid like ?";
+			query = "select count(*) AS TOTALCOUNT FROM FREEBOARD where memberid like ? and freeavailable='1'";
 		}else if(searchSelect==2) {
-			query = "select count(*) AS TOTALCOUNT FROM FREEBOARD where freecontent like ?";
+			query = "select count(*) AS TOTALCOUNT FROM FREEBOARD where freecontent like ? and freeavailable='1'";
 		}
 		
 		
@@ -611,7 +610,7 @@ public class BoardDao {
 	public Board qnaSelectOneList(int qnaNum, Connection conn) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		String query = "select * from QUESTIONBOARD where qboardnum=?";
+		String query = "select * from QUESTIONBOARD where qboardnum=? and qboardavailable='1'";
 		Board b = null;
 		
 		try {
@@ -644,7 +643,7 @@ public class BoardDao {
 	public Board freeSelectOneList(int freeNum, Connection conn) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		String query = "select * from FREEBOARD where freenum=?";
+		String query = "select * from FREEBOARD where freenum=? and freeavailable='1'";
 		Board b = null;
 		
 		try {
@@ -677,7 +676,7 @@ public class BoardDao {
 	public int qnaHits(int qnaNum, Connection conn) {
 		PreparedStatement pstmt = null;
 		int result = 0;
-		String query = "update QUESTIONBOARD set qboardhits=qboardhits+1 where qboardnum=?";
+		String query = "update QUESTIONBOARD set qboardhits=qboardhits+1 where qboardnum=? and qboardavailable='1'";
 		
 		try {
 			pstmt = conn.prepareStatement(query);
@@ -695,7 +694,7 @@ public class BoardDao {
 	public int freeHits(int freeNum, Connection conn) {
 		PreparedStatement pstmt = null;
 		int result = 0;
-		String query = "update FREEBOARD set freehits=freehits+1 where freenum=?";
+		String query = "update FREEBOARD set freehits=freehits+1 where freenum=? and freeavailable='1'";
 		
 		try {
 			pstmt = conn.prepareStatement(query);
@@ -710,26 +709,471 @@ public class BoardDao {
 		return result;
 	}
 
-	public Board topBoard(Connection conn) {
-		Statement stmt = null;
+	public ArrayList<Comment> qnaCommentGetCurrentPage(Connection conn, int currentPage, int recordCountPerPage, int qnaNum) {
+		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		String query = "select * from freeboard where freeNotice = 'y' and freeAvailable = 1 and freehits= ( select max(freehits) from freeboard)";
-		Board b= null;
+		
+		//시작 게시물 계산
+		int start = currentPage * recordCountPerPage - (recordCountPerPage-1);
+		
+		//끝 게시물 계산
+		int end = currentPage * recordCountPerPage;		
+		
+		String query = "select * from (select qboardComment.*,"
+				+"row_number() over(order by qcommentnumber desc) AS "
+				+"num from qboardComment where qboardnum=? and qcommentavailable='1') where num between ? and ?";
+		
+		ArrayList<Comment> list = new ArrayList<>();
+		
 		try {
-			stmt = conn.createStatement();
-			rset = stmt.executeQuery(query);
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, qnaNum);
+			pstmt.setInt(2, start);
+			pstmt.setInt(3, end);
 			
-			if(rset.next()) {
-				b= new Board();
-				b.setTitle(rset.getString("freetitle"));
-			}
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				Comment c = new Comment();
+				c.setBoardNum(rset.getInt("qboardnum"));
+				c.setMemberID(rset.getString("qmemberid"));
+				c.setCommentNumber(rset.getInt("qcommentNumber"));
+				c.setCommentInsertDate(rset.getDate("qcommentInsertDate"));
+				c.setCommentContent(rset.getString("qcommentContent"));
+				c.setCommentAvailable(rset.getInt("qcommentAvailable"));
+				
+				list.add(c);
+			}		
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
+		}finally {
 			JDBCTemplate.close(rset);
-			JDBCTemplate.close(stmt);
+			JDBCTemplate.close(pstmt);
 		}
-		return b;
+		return list;
+		
 	}
 
+	public String qnaCommentGetPageNavi(Connection conn, int currentPage, int recordCountPerPage,
+			int naviCountPerPage, int qnaNum) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		// 게시물의 토탈 개수를 구해야 함
+		int recordTotalCount = 0;
+		
+		String query = "select count(*) AS TOTALCOUNT FROM qboardComment where qboardnum = ? and qcommentavailable='1'";
+		
+		 try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, qnaNum);
+			rset = pstmt.executeQuery();
+			if(rset.next()) {
+				recordTotalCount = rset.getInt("TOTALCOUNT");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}		 
+		 
+		 int pageToTalCount = 0; 	 
+		 
+		 if(recordTotalCount%recordCountPerPage !=0){
+			 pageToTalCount = recordTotalCount / recordCountPerPage + 1;
+		 }
+		 else {
+			 pageToTalCount = recordTotalCount / recordCountPerPage;
+		 }
+		 
+		 if(currentPage<1){
+			 currentPage = 1;
+		 }
+		 else if(currentPage>pageToTalCount){
+			 currentPage = pageToTalCount;
+		 }
+		 
+		int startNavi = ((currentPage-1)/naviCountPerPage)*naviCountPerPage+1; 
+		
+		int endNavi = startNavi + naviCountPerPage -1;
+		
+		if(endNavi > pageToTalCount){
+			endNavi = pageToTalCount;
+		}
+			
+		boolean needPrev = true;
+		boolean needNext = true;
+		
+		if(startNavi==1) {
+			needPrev = false;
+		}
+		if(endNavi==pageToTalCount) {
+			needNext = false;
+		}
+		
+		StringBuilder sb = new StringBuilder();
+		
+		if(needPrev==true){
+			sb.append("<a href='/qnaSelect.do?currentPage="+(startNavi-1)+"&qnaNum="+qnaNum+"'> < </a>");
+		}
+		
+		for(int i=startNavi; i<=endNavi;i++){
+			if(i==currentPage){
+				sb.append("<B style='font-size:20px'>"+i+"</B> &nbsp;");
+			}
+			else{
+				sb.append("<a href='/qnaSelect.do?currentPage="+i+"&qnaNum="+qnaNum+"'>"+i+"</a> ");
+			}
+		}
+		
+		if(needNext) {
+			sb.append("<a href='/qnaSelect.do?currentPage="+(endNavi+1)+"&qnaNum="+qnaNum+"'> > </a>");
+		}
+		
+		return sb.toString();		
+	}
+
+	public ArrayList<Comment> freeCommentGetCurrentPage(Connection conn, int currentPage, int recordCountPerPage,
+			int freeNum) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		//시작 게시물 계산
+		int start = currentPage * recordCountPerPage - (recordCountPerPage-1);
+		
+		//끝 게시물 계산
+		int end = currentPage * recordCountPerPage;		
+		
+		String query = "select * from (select fboardComment.*,"
+				+"row_number() over(order by fcommentnumber desc) AS "
+				+"num from fboardComment where freenum=? and fcommentavailable='1') where num between ? and ?";
+		
+		ArrayList<Comment> list = new ArrayList<>();
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, freeNum);
+			pstmt.setInt(2, start);
+			pstmt.setInt(3, end);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				Comment c = new Comment();
+				c.setBoardNum(rset.getInt("freenum"));
+				c.setMemberID(rset.getString("fmemberid"));
+				c.setCommentNumber(rset.getInt("fcommentNumber"));
+				c.setCommentInsertDate(rset.getDate("fcommentInsertDate"));
+				c.setCommentContent(rset.getString("fcommentContent"));
+				c.setCommentAvailable(rset.getInt("fcommentAvailable"));
+				
+				list.add(c);
+			}		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		return list;
+	}
+
+	public String freeCommentGetPageNavi(Connection conn, int currentPage, int recordCountPerPage, int naviCountPerPage,
+			int freeNum) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		// 게시물의 토탈 개수를 구해야 함
+		int recordTotalCount = 0;
+		
+		String query = "select count(*) AS TOTALCOUNT FROM fboardComment where freenum = ? and fcommentavailable='1'";
+		
+		 try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, freeNum);
+			rset = pstmt.executeQuery();
+			if(rset.next()) {
+				recordTotalCount = rset.getInt("TOTALCOUNT");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}		 
+		 
+		 int pageToTalCount = 0; 	 
+		 
+		 if(recordTotalCount%recordCountPerPage !=0){
+			 pageToTalCount = recordTotalCount / recordCountPerPage + 1;
+		 }
+		 else {
+			 pageToTalCount = recordTotalCount / recordCountPerPage;
+		 }
+		 
+		 if(currentPage<1){
+			 currentPage = 1;
+		 }
+		 else if(currentPage>pageToTalCount){
+			 currentPage = pageToTalCount;
+		 }
+		 
+		int startNavi = ((currentPage-1)/naviCountPerPage)*naviCountPerPage+1; 
+		
+		int endNavi = startNavi + naviCountPerPage -1;
+		
+		if(endNavi > pageToTalCount){
+			endNavi = pageToTalCount;
+		}
+			
+		boolean needPrev = true;
+		boolean needNext = true;
+		
+		if(startNavi==1) {
+			needPrev = false;
+		}
+		if(endNavi==pageToTalCount) {
+			needNext = false;
+		}
+		
+		StringBuilder sb = new StringBuilder();
+		
+		if(needPrev==true){
+			sb.append("<a href='/freeSelect.do?currentPage="+(startNavi-1)+"&freeNum="+freeNum+"'> < </a>");
+		}
+		
+		for(int i=startNavi; i<=endNavi;i++){
+			if(i==currentPage){
+				sb.append("<B style='font-size:20px'>"+i+"</B> &nbsp;");
+			}
+			else{
+				sb.append("<a href='/freeSelect.do?currentPage="+i+"&freeNum="+freeNum+"'>"+i+"</a> ");
+			}
+		}
+		
+		if(needNext) {
+			sb.append("<a href='/freeSelect.do?currentPage="+(endNavi+1)+"&freeNum="+freeNum+"'> > </a>");
+		}
+		
+		return sb.toString();		
+	}
+
+	public int qnaInsertComment(String userId, String commentText, Connection conn, int qnaNum) {
+		PreparedStatement pstmt =null;
+		int result = 0;
+		String query = "insert into qboardComment values(?,?,QCOMMENT_SEQ.nextval,sysdate,?,1,null)";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, qnaNum);
+			pstmt.setString(2, userId);
+			pstmt.setString(3, commentText);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
+	}
+
+	public int freeInsertComment(String userId, String commentText, Connection conn, int freeNum) {
+		PreparedStatement pstmt =null;
+		int result = 0;
+		String query = "insert into fboardComment values(?,?,fCOMMENT_SEQ.nextval,sysdate,?,1,null)";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, freeNum);
+			pstmt.setString(2, userId);
+			pstmt.setString(3, commentText);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
+	}
+
+	public int freeBoardDelete(int bNum, String userId, Connection conn) {
+		PreparedStatement pstmt =null;
+		int result = 0;
+		String query = "update freeBoard set freeavailable='0', freedeletedate=sysdate where freenum=? and memberid=?";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, bNum);
+			pstmt.setString(2, userId);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
+	}
+
+	public void freeBoardCommentDelete(int bNum, Connection conn) {
+		PreparedStatement pstmt =null;
+		String query = "update fboardComment set fcommentavailable='0', fcommentdeletedate=sysdate where freenum=?";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, bNum);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+	}
+
+	public int qnaBoardDelete(int bNum, String userId, Connection conn) {
+		PreparedStatement pstmt =null;
+		int result = 0;
+		String query = "update questionBoard set qboardavailable='0', qboarddeletedate=sysdate where qboardnum=? and memberid=?";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, bNum);
+			pstmt.setString(2, userId);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
+	}
+
+	public void qnaBoardCommentDelete(int bNum, Connection conn) {
+		PreparedStatement pstmt =null;
+		String query = "update qboardComment set qcommentavailable='0', qcommentdeletedate=sysdate where qnanum=?";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, bNum);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}	
+	}
+
+	public int freeupdateBoard(int boardNumber, String title, String contents, int pwd, Connection conn) {
+		PreparedStatement pstmt =null;
+		String query = "update freeBoard set freetitle=?, freecontent=?,freepwd=?  where freenum=?";
+		int result = 0;
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, title);
+			pstmt.setString(2, contents);
+			pstmt.setInt(3, pwd);
+			pstmt.setInt(4, boardNumber);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
+	}
+
+	public int qnaupdateBoard(int boardNumber, String title, String contents, int pwd, Connection conn) {
+		PreparedStatement pstmt =null;
+		String query = "update questionBoard set qboardtitle=?, qboardcontent=?,qboardpwd=?  where qboardnum=?";
+		int result = 0;
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, title);
+			pstmt.setString(2, contents);
+			pstmt.setInt(3, pwd);
+			pstmt.setInt(4, boardNumber);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
+	}
+
+	public int qnaCommentDelete(int cNum, Connection conn) {
+		PreparedStatement pstmt =null;
+		String query = "update qboardComment set qcommentavailable='0', qcommentdeletedate=sysdate where qcommentnumber=?";
+		int result = 0;
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, cNum);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}	
+		return result;
+	}
+
+	public int freeCommentDelete(int cNum, Connection conn) {
+		PreparedStatement pstmt =null;
+		String query = "update fboardComment set fcommentavailable='0', fcommentdeletedate=sysdate where fcommentnumber=?";
+		int result = 0;
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, cNum);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}	
+		return result;
+	}
+
+	public int qnaCommentUpdate(String commentText, int cNum, Connection conn) {
+		PreparedStatement pstmt =null;
+		String query = "update qboardComment set qcommentcontent=? where qcommentnumber=?";
+		int result = 0;
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, commentText);
+			pstmt.setInt(2, cNum);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}	
+		return result;
+	}
+
+	public int freeCommentUpdate(String commentText, int cNum, Connection conn) {
+		PreparedStatement pstmt =null;
+		String query = "update fboardComment set fcommentcontent=? where fcommentnumber=?";
+		int result = 0;
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, commentText);
+			pstmt.setInt(2, cNum);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}	
+		return result;
+	}
 }

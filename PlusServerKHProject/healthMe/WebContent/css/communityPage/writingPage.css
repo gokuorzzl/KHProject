@@ -188,7 +188,6 @@ table {
 /*데스크톱*/
 @media screen and (min-width:1024px){
     
-    /*div전체*/
     #wrapper{
         position: absolute;
         width:100%;
@@ -235,11 +234,10 @@ table {
     }
       
     #realContents{
-        width: 50%;
-        height: 90%;
+        width: 70%;
+        height: 80%;
         margin: auto;
-        margin-top: 2.5%;
-        border: 1px solid black;
+        margin-top: 80px;
     }
     
     /*bottom*/

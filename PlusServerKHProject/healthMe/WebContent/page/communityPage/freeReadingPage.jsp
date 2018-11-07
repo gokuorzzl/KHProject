@@ -7,6 +7,7 @@
 	session = request.getSession(false);
 	Member member = null;
 	member = (Member)session.getAttribute("member");
+	
 	CommentData cd = (CommentData)request.getAttribute("selectBoard");
 	ArrayList<Comment> list = null;
 	String pageNavi = null;
@@ -45,18 +46,7 @@
         <!--로고, 메뉴가 들어가는 윗부분-->
         <!--top부분은 관리자페이지 제외한 모든 페이지 통일-->
         <div id="top">
-            <div id="mobileMenu">
-                핸드폰일 경우 메뉴
-            </div>
-            <div id="logo">
-               로고
-            </div>
-            <div id="searchBar">
-                검색바
-            </div>
-            <div id="menu">
-                로그인, 메뉴
-            </div>
+      		<jsp:include page="/page/header/header.jsp"/>  	
         </div>
         
         <!--컨텐츠가 들어가는 중간부분-->
@@ -83,7 +73,7 @@
                         <span id="mainContents"><%=b.getContent() %></span>
                     </div>
                     <div id="buttonsFrame">
-                    <%if(member != null){ %>
+                    <%if(member!=null){ %>
                     <%if(b.getUserId().equals(member.getMemberId())){ %>
                      	<button id="editButton" onclick="edit();">수정</button>
                         <button id="deleteButton" onclick="boardDelete();">삭제</button>
@@ -91,7 +81,9 @@
                     <%}else{ %>
                     	<button id="listButton" onclick="back();">목록</button>
                     <%} %>
-                    <%}%>
+                  <% }else{%>
+                   <button id="listButton" onclick="back();">목록</button>
+                  <%} %>
                     </div>
                     <div id="writeCommentFrame">
                     <form action="/freeInsertComment.do" method="get">
@@ -112,10 +104,24 @@
 	                        </div>
 	                        <div id="bundleComment">
 	                            <div id="commentContentsView">
-	                                <span id="commentContents"><%=c.getCommentContent() %></span>
+	                                <form action="/freeCommentEdit.do" method="get" id="formAction<%=c.getCommentNumber()%>" >
+	                                <span id="commentContents<%=c.getCommentNumber()%>"><%=c.getCommentContent() %></span>
+	                                 <textarea id="CommentTextarea<%=c.getCommentNumber()%>" name="writeCommentText" style="resize:none; display:none;"><%=c.getCommentContent() %></textarea>
+	                                	<input type="hidden" name="cNum" value="<%=c.getCommentNumber()%>"> 
+	                                	<input type="hidden" name="bNum" value="<%=b.getNum()%>"> 
+				                    </form>
 	                            </div>
 	                            <div id="commentDateCreatedView">
 	                                <span id="commentDateCreated"><%=c.getCommentInsertDate() %></span>
+	                                <%if(c.getMemberID().equals(member.getMemberId())){ %>
+	                                <button id="commentEditTextButton<%=c.getCommentNumber()%>" type="submit" onclick="commentEditText(<%=c.getCommentNumber()%>);" style="display:inline;">수정1</button>
+	                                <button id="commentEditButton<%=c.getCommentNumber()%>" type="submit" onclick="commentEdit(<%=c.getCommentNumber()%>);" style="display:none;">수정2</button>
+				                    <form action="/freeCommentDelete.do" method="get" id="formAction" style="display:inline">
+	                                	<input type="hidden" name="cNum" value="<%=c.getCommentNumber()%>"> 
+	                                	<input type="hidden" name="bNum" value="<%=b.getNum()%>"> 
+				                     	<button id="deleteButton" type="submit" onclick="commentDelete();">삭제</button>
+				                    </form>
+				                    <%}%>
 	                            </div>
 	                        </div>
 	                    <%} %>
@@ -135,8 +141,8 @@
         <!--회사정보가 들어가는 아랫부분-->
         <!--bottom부분은 관리자페이지 제외한 모든 페이지 통일-->
         <div id="bottom">
-            김구이김주정조 정보
-        </div>
+			<jsp:include page="/page/footer/footer.jsp"/>
+		</div>
     </div>
     
     <script>
@@ -158,13 +164,23 @@
         	location.href="/qnaPage.do";
 		}
         function boardDelete() {
-        	if(member!=null){
-        		location.href="/freeBoardDelete.do?bNum=<%=b.getNum()%>&userId=<%=member.getMemberId()%>";
-        	}
-			
-		}
+        	<% if(member !=null){%>
+				location.href="/freeBoardDelete.do?bNum=<%=b.getNum()%>&userId=<%=member.getMemberId()%>";
+			<%}%>
+        }
         function edit() {
-			location.href="/page/communityPage/editPage.jsp?board=f";
+        	location.href="/qnaOneSelect.do?boardNum=<%=b.getNum()%>";	
+		}
+        function commentEditText(commentNum) {
+        	console.log(commentNum);
+        	console.log("commentContents"+commentNum);
+        	document.getElementById("commentContents"+commentNum).style.display = "none";
+        	document.getElementById("CommentTextarea"+commentNum).style.display = "inline";
+        	document.getElementById("commentEditTextButton"+commentNum).style.display = "none";
+        	document.getElementById("commentEditButton"+commentNum).style.display = "inline";
+		}
+        function commentEdit(commentNum) {
+        	document.getElementById("formAction"+commentNum).submit();
 		}
     </script>
 </body>

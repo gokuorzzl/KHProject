@@ -7,12 +7,12 @@
 	session = request.getSession(false);
 	Member member = null;
 	member = (Member)session.getAttribute("member");
-	CommentData cd = null;
-	cd = (CommentData)request.getAttribute("selectBoard");
+
+	CommentData cd = (CommentData)request.getAttribute("selectBoard");
 	ArrayList<Comment> list = null;
 	String pageNavi = null;
 	Board b = null;
-
+	
 	if(cd!=null){
 		list = cd.getList();//현재 페이지의 글 목록
 		pageNavi = cd.getPageNavi();//현재 navi Bar
@@ -46,7 +46,7 @@
         <!--로고, 메뉴가 들어가는 윗부분-->
         <!--top부분은 관리자페이지 제외한 모든 페이지 통일-->
         <div id="top">
-        <jsp:include page="/page/header/header.jsp"/>
+      		<jsp:include page="/page/header/header.jsp"/>  	
         </div>
         
         <!--컨텐츠가 들어가는 중간부분-->
@@ -73,7 +73,7 @@
                         <span id="mainContents"><%=b.getContent() %></span>
                     </div>
                     <div id="buttonsFrame">
-                    <%if(member != null){ %>
+                    <%if(member!=null){ %>
                         <%if(b.getUserId().equals(member.getMemberId())){ %>
 	                     	<button id="editButton" onclick="edit();">수정</button>
 	                        <button id="deleteButton" onclick="boardDelete();">삭제</button>
@@ -81,9 +81,9 @@
 	                    <%}else{ %>
 	                    	<button id="listButton" onclick="back();">목록</button>
 	                    <%} %>
-	                <%}else{ %>
-	               		 <button id="listButton" onclick="back();">목록</button>
-	                <%} %>
+	                <% }else{%>
+	                    <button id="listButton" onclick="back();">목록</button>
+                    <%} %>
                     </div>
                     <div id="writeCommentFrame">
                     <form action="/qnaInsertComment.do" method="get">
@@ -104,10 +104,24 @@
 	                        </div>
 	                        <div id="bundleComment">
 	                            <div id="commentContentsView">
-	                                <span id="commentContents"><%=c.getCommentContent() %></span>
+	                            <form action="/qnaCommentEdit.do" method="get" id="formAction<%=c.getCommentNumber()%>" >
+	                                <span id="commentContents<%=c.getCommentNumber()%>"><%=c.getCommentContent() %></span>
+	                                 <textarea id="CommentTextarea<%=c.getCommentNumber()%>" name="writeCommentText" style="resize:none; display:none;"><%=c.getCommentContent() %></textarea>
+	                                	<input type="hidden" name="cNum" value="<%=c.getCommentNumber()%>"> 
+	                                	<input type="hidden" name="bNum" value="<%=b.getNum()%>"> 
+				                    </form>
 	                            </div>
 	                            <div id="commentDateCreatedView">
 	                                <span id="commentDateCreated"><%=c.getCommentInsertDate() %></span>
+	                                <%if(c.getMemberID().equals(member.getMemberId())){ %>
+	                                <button id="commentEditTextButton<%=c.getCommentNumber()%>" type="submit" onclick="commentEditText(<%=c.getCommentNumber()%>);" style="display:inline;">수정1</button>
+	                                <button id="commentEditButton<%=c.getCommentNumber()%>" type="submit" onclick="commentEdit(<%=c.getCommentNumber()%>);" style="display:none;">수정2</button>
+				                    <form action="/qnaCommentDelete.do" method="get" style="display:inline">
+	                                	<input type="hidden" name="cNum" value="<%=c.getCommentNumber()%>"> 
+	                                	<input type="hidden" name="bNum" value="<%=b.getNum()%>"> 
+				                     	<button id="deleteButton" type="submit" onclick="commentDelete();">삭제</button>
+				                    </form>
+				                    <%}%>
 	                            </div>
 	                        </div>
 	                    <%} %>
@@ -117,7 +131,7 @@
                     <%if(pageNavi!=null){ %>
                     <label><%=pageNavi %></label>
                     <%}else{ %>
-                     <label></label>
+                     <label>0</label>
                     <%} %>
                     </div>
                 </div>
@@ -127,7 +141,7 @@
         <!--회사정보가 들어가는 아랫부분-->
         <!--bottom부분은 관리자페이지 제외한 모든 페이지 통일-->
         <div id="bottom">
-   			<jsp:include page="/page/footer/footer.jsp"/>        
+			<jsp:include page="/page/footer/footer.jsp"/>
 		</div>
     </div>
     
@@ -149,12 +163,24 @@
         	location.href="/qnaPage.do";
 		}
         function boardDelete() {
-        	location.href="/qnaBoardDelete.do?bNum=<%=b.getNum()%>&userId=<%=member.getMemberId()%>";
+			<% if(member !=null){%>
+				location.href="/qnaBoardDelete.do?bNum=<%=b.getNum()%>&userId=<%=member.getMemberId()%>";	
+			<%}%>
 		}
         function edit() {
-			location.href="/page/communityPage/editPage.jsp?board=q&title=<%=b.getTitle()%>&content=<%=b.getContent()%>&pwd=<%=b.getPwd()%>";
+        	location.href="/qnaOneSelect.do?boardNum=<%=b.getNum()%>";	
 		}
-        
+        function commentEditText(commentNum) {
+        	console.log(commentNum);
+        	console.log("commentContents"+commentNum);
+        	document.getElementById("commentContents"+commentNum).style.display = "none";
+        	document.getElementById("CommentTextarea"+commentNum).style.display = "inline";
+        	document.getElementById("commentEditTextButton"+commentNum).style.display = "none";
+        	document.getElementById("commentEditButton"+commentNum).style.display = "inline";
+		}
+        function commentEdit(commentNum) {
+        	document.getElementById("formAction"+commentNum).submit();
+		}
     </script>
 </body>
 </html>

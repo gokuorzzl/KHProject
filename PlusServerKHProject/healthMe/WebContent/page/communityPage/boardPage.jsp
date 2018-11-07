@@ -42,18 +42,7 @@
         <!--로고, 메뉴가 들어가는 윗부분-->
         <!--top부분은 관리자페이지 제외한 모든 페이지 통일-->
         <div id="top">
-            <div id="mobileMenu">
-                핸드폰일 경우 메뉴
-            </div>
-            <div id="logo">
-               로고
-            </div>
-            <div id="searchBar">
-                검색바
-            </div>
-            <div id="menu">
-                로그인, 메뉴
-            </div>
+      		<jsp:include page="/page/header/header.jsp"/>  	
         </div>
         
         <!--컨텐츠가 들어가는 중간부분-->
@@ -90,7 +79,7 @@
                               	<%if(bpd!=null){
                             	for(Board b : list){ %>
 								<tr>
-									<td><a href="/freeSelect.do?freeNum=<%=b.getNum()%>"><%=b.getTitle() %></a></td>
+									<td><a href="/freeSelect.do?freeNum=<%=b.getNum()%>" onclick="return pwdCheck(<%=b.getPwd()%>)"><%=b.getTitle() %></a></td>
 									<td><%=b.getUserId() %></td>
 									<td><%=b.getInsertDate() %></td>
 									<td><%=b.getHits() %></td>
@@ -144,8 +133,8 @@
         <!--회사정보가 들어가는 아랫부분-->
         <!--bottom부분은 관리자페이지 제외한 모든 페이지 통일-->
         <div id="bottom">
-            김구이김주정조 정보
-        </div>
+			<jsp:include page="/page/footer/footer.jsp"/>
+		</div>
     </div>
     <script>
         function searchBtn(){
@@ -157,12 +146,19 @@
         }
         function writeBtn(){
         	<%if(member!=null){%>
-    		location.href="/page/communityPage/writingPage.jsp";
+    			location.href="/page/communityPage/writingPage.jsp";
 	    	<%}else{%>
 	    		alert("로그인을 해주세요;");
 	    		return false;
 	    	<%}%>
         }
+        function pwdCheck(pwdnumber) {
+			if(pwdnumber==0){
+				return true;
+			}else{
+				return false;
+			}
+		}
     </script>
 </body>
 </html>

@@ -10,19 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.healthme.community.model.service.BoardService;
-import com.healthme.community.model.vo.CommentData;
+import com.healthme.community.model.vo.Board;
 
 /**
- * Servlet implementation class QnaSelectServlet
+ * Servlet implementation class QnaOneSelectServlet
  */
-@WebServlet(name = "QnaSelect", urlPatterns = { "/qnaSelect.do" })
-public class QnaSelectServlet extends HttpServlet {
+@WebServlet(name = "QnaOneSelect", urlPatterns = { "/qnaOneSelect.do" })
+public class QnaOneSelectServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public QnaSelectServlet() {
+    public QnaOneSelectServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,23 +33,17 @@ public class QnaSelectServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		
-		int qnaNum = Integer.parseInt(request.getParameter("qnaNum"));
-		int currentPage;
+		int boardNum = Integer.parseInt(request.getParameter("boardNum"));
 		
-		if(request.getParameter("currentPage")==null) {
-			currentPage=1;
-		}else {
-			currentPage = Integer.parseInt(request.getParameter("currentPage"));
-		}
-		
-		CommentData cd = new BoardService().qnaSelectOneList(qnaNum,currentPage);
-		if(cd!=null) {
-			RequestDispatcher view = request.getRequestDispatcher("/page/communityPage/qnaReadingPage.jsp");
-			request.setAttribute("selectBoard", cd);
-			System.out.println(cd.getB().getUserId());
+		Board b =new BoardService().qnaOneSelect(boardNum);
+		if(b!=null) {
+			RequestDispatcher view = request.getRequestDispatcher("page/communityPage/editPage.jsp");
+			request.setAttribute("board", b);
+			request.setAttribute("boardtype", 'q');
+			
 			view.forward(request, response);
 		}else {
-			response.sendRedirect("/page/communityPage/error.jsp");
+			response.sendRedirect("/page/communityPage/errorPage.jsp");
 		}
 	}
 
