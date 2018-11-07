@@ -352,5 +352,11 @@ public class BoardService {
 		JDBCTemplate.close(conn);
 		return result;
 	}
-
+	public Board topBoard() {
+		Connection conn = JDBCTemplate.getConnection();
+		Board b = new BoardDao().topBoard(conn);
+		JDBCTemplate.close(conn);
+		
+		return b;
+	}
 }

@@ -27,7 +27,7 @@ public class MenuTrainerInfoServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		response.sendRedirect("/page/mypage/trainerInfoPage2.jsp");
+		response.sendRedirect("/page/mypage/trainerInfoPage.jsp");
 		
 	}
 

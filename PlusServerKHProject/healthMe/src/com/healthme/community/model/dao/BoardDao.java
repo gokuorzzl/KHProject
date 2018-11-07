@@ -1176,4 +1176,28 @@ public class BoardDao {
 		}	
 		return result;
 	}
+	public Board topBoard(Connection conn) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String query = "select * from freeboard where freehits = (select max(freehits) from freeboard where memberid='admin')";
+		
+		Board b = null;
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			rset = pstmt.executeQuery();
+			if(rset.next()) {
+				b = new Board();
+				b.setTitle(rset.getString("freetitle"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}	
+		return b;
+	}
+	
 }
