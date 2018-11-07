@@ -143,14 +143,16 @@ table {
     }
     #commentFrame{
         width: 100%;
-        height: 15%;
+        height: 100px;
         background-color: #FF9B55;
+        overflow: scroll;
     }
     #commentWriterView{
         width: 25%;
-        height: 100%;
+        height: 30px;
         float: left;
         line-height: 2;
+        
     }
     #commentWriter{
         float: left;
@@ -189,7 +191,6 @@ table {
 
 
 
-
 /*----------------------------------------------*/
 /* 반응형 웹 부분 */
 /*데스크톱, 태블릿, 모바일 세 개의 사이즈로 나눠집니다.*/ 
@@ -201,7 +202,7 @@ table {
     #wrapper{
         position: absolute;
         width:100%;
-        height:700px;    
+        height:100%;  
     }
     
     /*top부분*/
@@ -265,7 +266,7 @@ table {
     #wrapper{
         position: absolute;
         width:100%;
-        height:700px;    
+        height:100%;   
     }
     
     /*top부분*/
@@ -330,7 +331,7 @@ table {
     #wrapper{
         position: absolute;
         width:630px;
-        height:800px;   
+        height:100%;  
     }
     
     /*top부분*/
