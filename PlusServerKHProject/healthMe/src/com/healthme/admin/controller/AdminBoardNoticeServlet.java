@@ -31,12 +31,18 @@ public class AdminBoardNoticeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		System.out.println("공지사항 설정하는곳 왔다아아아아아아아");
 		request.setCharacterEncoding("utf-8");
 		
 		
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		String noticeSel = request.getParameter("noticeSel");
+		
+		System.out.println(title+"타이틀");
+		System.out.println(content+"내용");
+		System.out.println(noticeSel+"노티스셀");
+		
 		
 		int result = new AdminService().adminBoardNotice(noticeSel,title,content);
 		
