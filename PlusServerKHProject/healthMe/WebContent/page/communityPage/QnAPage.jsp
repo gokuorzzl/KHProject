@@ -46,7 +46,7 @@
         <div id="top">
       		<jsp:include page="/page/header/header.jsp"/>  	
         </div>
-        
+        <center>
         <!--컨텐츠가 들어가는 중간부분-->
         <!--페이지별로 달라지는 부분-->
         <div id="middle">
@@ -62,7 +62,7 @@
                         </div>
                     </div>
                     <div id="QandAListFrame" >
-                        <table>
+                        <table style="text-align-last: center;">
                             <colgroup>
                                 <col style="width:*%">
                                 <col style="width:14%">
@@ -132,7 +132,7 @@
                 </div>
             </div>
         </div>
-        
+        </center>
         <!--회사정보가 들어가는 아랫부분-->
         <!--bottom부분은 관리자페이지 제외한 모든 페이지 통일-->
         <div id="bottom">
