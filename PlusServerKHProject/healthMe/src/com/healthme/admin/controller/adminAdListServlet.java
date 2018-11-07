@@ -47,6 +47,7 @@ public class AdminAdListServlet extends HttpServlet {
 					RequestDispatcher view = request.getRequestDispatcher("page/admin/adminVisitSetAd.jsp");
 					request.setAttribute("adList", adList);
 					view.forward(request, response);
+					System.out.println("광고리스트스리릐ㅡ");
 				}else {
 					response.sendRedirect("/page/admin/error.jsp");
 				}
