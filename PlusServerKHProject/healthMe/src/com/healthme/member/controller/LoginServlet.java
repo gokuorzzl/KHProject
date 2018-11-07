@@ -41,9 +41,7 @@ public class LoginServlet extends HttpServlet {
 		if(member!=null) {
 			
 			HttpSession session = request.getSession(true);
-			
-			System.out.println("발급된 세션 ID: "+session.getId());
-			
+
 			session.setAttribute("member", member);
 			
 			response.sendRedirect("/page/loginPage/loginSuccess.jsp");
