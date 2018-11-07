@@ -159,9 +159,9 @@
 			                                    <td><input class="myCheck" type="checkbox" name="pid" id="check"></td>
 			                                    <td>
 			                                    	<%if(mylist.get(i).getAbc()=='a'){ %>
-				                                    	<form action="/trainerOneSearch.do" method="post">
+				                                    	<form action="/register.do" method="post">
 				                                    		<%System.out.println(mylist.get(i).getTrainerId()); %>
-				                                    		<input type="hidden" name="memberId" value="<%=mylist.get(i).getTrainerId() %>">
+				                                    		<input type="hidden" name="trainerId" value="<%=mylist.get(i).getTrainerId() %>">
 				                                    		<button type="submit" class="myButton">컨택하기</button>
 				                                    	</form>
 				                                    <%} else if(mylist.get(i).getAbc()=='b') { %>
