@@ -640,8 +640,9 @@ public class AdminDao {
 				g.setMatchedMemberId(rset.getString("matchedMemberId"));
 				g.setMatchingScore(rset.getInt("matchingScore"));
 				list.add(g);
+				
 			}
-			
+			System.out.println("Matching 이다아아아아아아아아아");
 			
 			
 			
