@@ -67,11 +67,13 @@
                  <div class="col-md-offset-1 col-md-4 col-sm-6">
                      <br><br>
                      <form action="/page/loginPage/login.jsp">
-                     <h3 style="color:white">heal th me를 더 안전하고 편리하게 이용하세요.</h3>
+                     <h3 style="color:white">heal th me를 더 안전하고 편리하게 이용하세요. </h3>
                      <input type="submit" class="menu-local btn btn-primary btn-lg myinfo" value="heal th me 로그인"></form>
                      <a href="/page/loginPage/searchId.jsp" class="menu-local-font">아이디 찾기</a><a href="/page/loginPage/searchPwd.jsp" class="menu-local-font">ㆍ비밀번호 찾기</a>
                      <a href="/page/loginPage/enroll.jsp" class="menu-local-font-join" >회원가입</a>
                  </div>
+                 
+                
   			<%	} %>
                </div>
            </div> 
